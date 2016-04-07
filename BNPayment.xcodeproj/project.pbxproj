@@ -11,6 +11,67 @@
 		5DAABF091CB69B0200CEDB91 /* BNPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF081CB69B0200CEDB91 /* BNPaymentTests.m */; };
 		5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */; };
 		5DAABF5D1CB69C7F00CEDB91 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DAABF5B1CB69C7F00CEDB91 /* Info.plist */; };
+		5DAABFAA1CB69D4C00CEDB91 /* BNCreditCardEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF601CB69D4C00CEDB91 /* BNCreditCardEndpoint.h */; };
+		5DAABFAB1CB69D4C00CEDB91 /* BNCreditCardEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF611CB69D4C00CEDB91 /* BNCreditCardEndpoint.m */; };
+		5DAABFAC1CB69D4C00CEDB91 /* BNPaymentEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF621CB69D4C00CEDB91 /* BNPaymentEndpoint.h */; };
+		5DAABFAD1CB69D4C00CEDB91 /* BNPaymentEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF631CB69D4C00CEDB91 /* BNPaymentEndpoint.m */; };
+		5DAABFAE1CB69D4C00CEDB91 /* BNEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF641CB69D4C00CEDB91 /* BNEnums.h */; };
+		5DAABFAF1CB69D4C00CEDB91 /* BNPaymentHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF651CB69D4C00CEDB91 /* BNPaymentHandler.h */; };
+		5DAABFB01CB69D4C00CEDB91 /* BNPaymentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF661CB69D4C00CEDB91 /* BNPaymentHandler.m */; };
+		5DAABFB11CB69D4C00CEDB91 /* BNAuthorizedCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF681CB69D4C00CEDB91 /* BNAuthorizedCreditCard.h */; };
+		5DAABFB21CB69D4C00CEDB91 /* BNAuthorizedCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF691CB69D4C00CEDB91 /* BNAuthorizedCreditCard.m */; };
+		5DAABFB31CB69D4C00CEDB91 /* BNCCFormInputGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF6A1CB69D4C00CEDB91 /* BNCCFormInputGroup.h */; };
+		5DAABFB41CB69D4C00CEDB91 /* BNCCFormInputGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF6B1CB69D4C00CEDB91 /* BNCCFormInputGroup.m */; };
+		5DAABFB51CB69D4C00CEDB91 /* BNCCHostedFormParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF6C1CB69D4C00CEDB91 /* BNCCHostedFormParams.h */; };
+		5DAABFB61CB69D4C00CEDB91 /* BNCCHostedFormParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF6D1CB69D4C00CEDB91 /* BNCCHostedFormParams.m */; };
+		5DAABFB71CB69D4C00CEDB91 /* BNCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF6E1CB69D4C00CEDB91 /* BNCreditCard.h */; };
+		5DAABFB81CB69D4C00CEDB91 /* BNCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF6F1CB69D4C00CEDB91 /* BNCreditCard.m */; };
+		5DAABFB91CB69D4C00CEDB91 /* BNPaymentParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF701CB69D4C00CEDB91 /* BNPaymentParams.h */; };
+		5DAABFBA1CB69D4C00CEDB91 /* BNPaymentParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF711CB69D4C00CEDB91 /* BNPaymentParams.m */; };
+		5DAABFBB1CB69D4C00CEDB91 /* BNPaymentResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF721CB69D4C00CEDB91 /* BNPaymentResponse.h */; };
+		5DAABFBC1CB69D4C00CEDB91 /* BNPaymentResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF731CB69D4C00CEDB91 /* BNPaymentResponse.m */; };
+		5DAABFBD1CB69D4C00CEDB91 /* EPAYAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF751CB69D4C00CEDB91 /* EPAYAction.h */; };
+		5DAABFBE1CB69D4C00CEDB91 /* EPAYAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF761CB69D4C00CEDB91 /* EPAYAction.m */; };
+		5DAABFBF1CB69D4C00CEDB91 /* EPAYHostedFormStateChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF771CB69D4C00CEDB91 /* EPAYHostedFormStateChange.h */; };
+		5DAABFC01CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF781CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m */; };
+		5DAABFC11CB69D4C00CEDB91 /* EPAYMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF791CB69D4C00CEDB91 /* EPAYMessage.h */; };
+		5DAABFC21CB69D4C00CEDB91 /* EPAYMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF7A1CB69D4C00CEDB91 /* EPAYMessage.m */; };
+		5DAABFC31CB69D4C00CEDB91 /* EPAYMetaResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF7B1CB69D4C00CEDB91 /* EPAYMetaResponse.h */; };
+		5DAABFC41CB69D4C00CEDB91 /* EPAYMetaResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF7C1CB69D4C00CEDB91 /* EPAYMetaResponse.m */; };
+		5DAABFC51CB69D4C00CEDB91 /* BNBundleUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF7E1CB69D4C00CEDB91 /* BNBundleUtils.h */; };
+		5DAABFC61CB69D4C00CEDB91 /* BNBundleUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF7F1CB69D4C00CEDB91 /* BNBundleUtils.m */; };
+		5DAABFC71CB69D4C00CEDB91 /* UIImage+BNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF831CB69D4C00CEDB91 /* UIImage+BNUtils.h */; };
+		5DAABFC81CB69D4C00CEDB91 /* UIImage+BNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF841CB69D4C00CEDB91 /* UIImage+BNUtils.m */; };
+		5DAABFC91CB69D4C00CEDB91 /* UIView+BNUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF851CB69D4C00CEDB91 /* UIView+BNUtils.h */; };
+		5DAABFCA1CB69D4C00CEDB91 /* UIView+BNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF861CB69D4C00CEDB91 /* UIView+BNUtils.m */; };
+		5DAABFCB1CB69D4C00CEDB91 /* example.css in Resources */ = {isa = PBXBuildFile; fileRef = 5DAABF881CB69D4C00CEDB91 /* example.css */; };
+		5DAABFCC1CB69D4C00CEDB91 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5DAABF891CB69D4C00CEDB91 /* index.html */; };
+		5DAABFCD1CB69D4C00CEDB91 /* BNFormScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF8C1CB69D4C00CEDB91 /* BNFormScrollView.h */; };
+		5DAABFCE1CB69D4C00CEDB91 /* BNFormScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF8D1CB69D4C00CEDB91 /* BNFormScrollView.m */; };
+		5DAABFCF1CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF8F1CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.h */; };
+		5DAABFD01CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF901CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.m */; };
+		5DAABFD11CB69D4C00CEDB91 /* BNCCRegistrationFormVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF911CB69D4C00CEDB91 /* BNCCRegistrationFormVC.h */; };
+		5DAABFD21CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF921CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m */; };
+		5DAABFD31CB69D4C00CEDB91 /* BNPaymentBaseVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF931CB69D4C00CEDB91 /* BNPaymentBaseVC.h */; };
+		5DAABFD41CB69D4C00CEDB91 /* BNPaymentBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF941CB69D4C00CEDB91 /* BNPaymentBaseVC.m */; };
+		5DAABFD51CB69D4C00CEDB91 /* BNCCFormInputModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF961CB69D4C00CEDB91 /* BNCCFormInputModel.h */; };
+		5DAABFD61CB69D4C00CEDB91 /* BNCCFormInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF971CB69D4C00CEDB91 /* BNCCFormInputModel.m */; };
+		5DAABFD71CB69D4C00CEDB91 /* BNFormInputModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF981CB69D4C00CEDB91 /* BNFormInputModel.h */; };
+		5DAABFD81CB69D4C00CEDB91 /* BNFormInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF991CB69D4C00CEDB91 /* BNFormInputModel.m */; };
+		5DAABFD91CB69D4C00CEDB91 /* BNFormModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF9A1CB69D4C00CEDB91 /* BNFormModel.h */; };
+		5DAABFDA1CB69D4C00CEDB91 /* BNFormModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF9B1CB69D4C00CEDB91 /* BNFormModel.m */; };
+		5DAABFDB1CB69D4C00CEDB91 /* BNBaseXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF9D1CB69D4C00CEDB91 /* BNBaseXibView.h */; };
+		5DAABFDC1CB69D4C00CEDB91 /* BNBaseXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF9E1CB69D4C00CEDB91 /* BNBaseXibView.m */; };
+		5DAABFDD1CB69D4C00CEDB91 /* BNCCFormInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF9F1CB69D4C00CEDB91 /* BNCCFormInputView.h */; };
+		5DAABFDE1CB69D4C00CEDB91 /* BNCCFormInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA01CB69D4C00CEDB91 /* BNCCFormInputView.m */; };
+		5DAABFDF1CB69D4C00CEDB91 /* BNFormToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABFA11CB69D4C00CEDB91 /* BNFormToolbar.h */; };
+		5DAABFE01CB69D4C00CEDB91 /* BNFormToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA21CB69D4C00CEDB91 /* BNFormToolbar.m */; };
+		5DAABFE11CB69D4C00CEDB91 /* BNFormView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABFA31CB69D4C00CEDB91 /* BNFormView.h */; };
+		5DAABFE21CB69D4C00CEDB91 /* BNFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA41CB69D4C00CEDB91 /* BNFormView.m */; };
+		5DAABFE31CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABFA51CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.h */; };
+		5DAABFE41CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA61CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m */; };
+		5DAABFE51CB69D4C00CEDB91 /* BNPaymentWebview.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABFA81CB69D4C00CEDB91 /* BNPaymentWebview.h */; };
+		5DAABFE61CB69D4C00CEDB91 /* BNPaymentWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA91CB69D4C00CEDB91 /* BNPaymentWebview.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +91,67 @@
 		5DAABF0A1CB69B0200CEDB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNPayment.h; path = Framework/BNPayment.h; sourceTree = "<group>"; };
 		5DAABF5B1CB69C7F00CEDB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
+		5DAABF601CB69D4C00CEDB91 /* BNCreditCardEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCreditCardEndpoint.h; sourceTree = "<group>"; };
+		5DAABF611CB69D4C00CEDB91 /* BNCreditCardEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCardEndpoint.m; sourceTree = "<group>"; };
+		5DAABF621CB69D4C00CEDB91 /* BNPaymentEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentEndpoint.h; sourceTree = "<group>"; };
+		5DAABF631CB69D4C00CEDB91 /* BNPaymentEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentEndpoint.m; sourceTree = "<group>"; };
+		5DAABF641CB69D4C00CEDB91 /* BNEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEnums.h; sourceTree = "<group>"; };
+		5DAABF651CB69D4C00CEDB91 /* BNPaymentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentHandler.h; sourceTree = "<group>"; };
+		5DAABF661CB69D4C00CEDB91 /* BNPaymentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentHandler.m; sourceTree = "<group>"; };
+		5DAABF681CB69D4C00CEDB91 /* BNAuthorizedCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorizedCreditCard.h; sourceTree = "<group>"; };
+		5DAABF691CB69D4C00CEDB91 /* BNAuthorizedCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNAuthorizedCreditCard.m; sourceTree = "<group>"; };
+		5DAABF6A1CB69D4C00CEDB91 /* BNCCFormInputGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCFormInputGroup.h; sourceTree = "<group>"; };
+		5DAABF6B1CB69D4C00CEDB91 /* BNCCFormInputGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCFormInputGroup.m; sourceTree = "<group>"; };
+		5DAABF6C1CB69D4C00CEDB91 /* BNCCHostedFormParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCHostedFormParams.h; sourceTree = "<group>"; };
+		5DAABF6D1CB69D4C00CEDB91 /* BNCCHostedFormParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCHostedFormParams.m; sourceTree = "<group>"; };
+		5DAABF6E1CB69D4C00CEDB91 /* BNCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCreditCard.h; sourceTree = "<group>"; };
+		5DAABF6F1CB69D4C00CEDB91 /* BNCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCard.m; sourceTree = "<group>"; };
+		5DAABF701CB69D4C00CEDB91 /* BNPaymentParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentParams.h; sourceTree = "<group>"; };
+		5DAABF711CB69D4C00CEDB91 /* BNPaymentParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentParams.m; sourceTree = "<group>"; };
+		5DAABF721CB69D4C00CEDB91 /* BNPaymentResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentResponse.h; sourceTree = "<group>"; };
+		5DAABF731CB69D4C00CEDB91 /* BNPaymentResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentResponse.m; sourceTree = "<group>"; };
+		5DAABF751CB69D4C00CEDB91 /* EPAYAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAYAction.h; sourceTree = "<group>"; };
+		5DAABF761CB69D4C00CEDB91 /* EPAYAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYAction.m; sourceTree = "<group>"; };
+		5DAABF771CB69D4C00CEDB91 /* EPAYHostedFormStateChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAYHostedFormStateChange.h; sourceTree = "<group>"; };
+		5DAABF781CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYHostedFormStateChange.m; sourceTree = "<group>"; };
+		5DAABF791CB69D4C00CEDB91 /* EPAYMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAYMessage.h; sourceTree = "<group>"; };
+		5DAABF7A1CB69D4C00CEDB91 /* EPAYMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYMessage.m; sourceTree = "<group>"; };
+		5DAABF7B1CB69D4C00CEDB91 /* EPAYMetaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAYMetaResponse.h; sourceTree = "<group>"; };
+		5DAABF7C1CB69D4C00CEDB91 /* EPAYMetaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYMetaResponse.m; sourceTree = "<group>"; };
+		5DAABF7E1CB69D4C00CEDB91 /* BNBundleUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBundleUtils.h; sourceTree = "<group>"; };
+		5DAABF7F1CB69D4C00CEDB91 /* BNBundleUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNBundleUtils.m; sourceTree = "<group>"; };
+		5DAABF831CB69D4C00CEDB91 /* UIImage+BNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BNUtils.h"; sourceTree = "<group>"; };
+		5DAABF841CB69D4C00CEDB91 /* UIImage+BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BNUtils.m"; sourceTree = "<group>"; };
+		5DAABF851CB69D4C00CEDB91 /* UIView+BNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BNUtils.h"; sourceTree = "<group>"; };
+		5DAABF861CB69D4C00CEDB91 /* UIView+BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BNUtils.m"; sourceTree = "<group>"; };
+		5DAABF881CB69D4C00CEDB91 /* example.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = example.css; sourceTree = "<group>"; };
+		5DAABF891CB69D4C00CEDB91 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5DAABF8C1CB69D4C00CEDB91 /* BNFormScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFormScrollView.h; sourceTree = "<group>"; };
+		5DAABF8D1CB69D4C00CEDB91 /* BNFormScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFormScrollView.m; sourceTree = "<group>"; };
+		5DAABF8F1CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCHostedRegistrationFormVC.h; sourceTree = "<group>"; };
+		5DAABF901CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCHostedRegistrationFormVC.m; sourceTree = "<group>"; };
+		5DAABF911CB69D4C00CEDB91 /* BNCCRegistrationFormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCRegistrationFormVC.h; sourceTree = "<group>"; };
+		5DAABF921CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCRegistrationFormVC.m; sourceTree = "<group>"; };
+		5DAABF931CB69D4C00CEDB91 /* BNPaymentBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentBaseVC.h; sourceTree = "<group>"; };
+		5DAABF941CB69D4C00CEDB91 /* BNPaymentBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentBaseVC.m; sourceTree = "<group>"; };
+		5DAABF961CB69D4C00CEDB91 /* BNCCFormInputModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCFormInputModel.h; sourceTree = "<group>"; };
+		5DAABF971CB69D4C00CEDB91 /* BNCCFormInputModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCFormInputModel.m; sourceTree = "<group>"; };
+		5DAABF981CB69D4C00CEDB91 /* BNFormInputModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFormInputModel.h; sourceTree = "<group>"; };
+		5DAABF991CB69D4C00CEDB91 /* BNFormInputModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFormInputModel.m; sourceTree = "<group>"; };
+		5DAABF9A1CB69D4C00CEDB91 /* BNFormModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFormModel.h; sourceTree = "<group>"; };
+		5DAABF9B1CB69D4C00CEDB91 /* BNFormModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFormModel.m; sourceTree = "<group>"; };
+		5DAABF9D1CB69D4C00CEDB91 /* BNBaseXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBaseXibView.h; sourceTree = "<group>"; };
+		5DAABF9E1CB69D4C00CEDB91 /* BNBaseXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNBaseXibView.m; sourceTree = "<group>"; };
+		5DAABF9F1CB69D4C00CEDB91 /* BNCCFormInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCFormInputView.h; sourceTree = "<group>"; };
+		5DAABFA01CB69D4C00CEDB91 /* BNCCFormInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCFormInputView.m; sourceTree = "<group>"; };
+		5DAABFA11CB69D4C00CEDB91 /* BNFormToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFormToolbar.h; sourceTree = "<group>"; };
+		5DAABFA21CB69D4C00CEDB91 /* BNFormToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFormToolbar.m; sourceTree = "<group>"; };
+		5DAABFA31CB69D4C00CEDB91 /* BNFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFormView.h; sourceTree = "<group>"; };
+		5DAABFA41CB69D4C00CEDB91 /* BNFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFormView.m; sourceTree = "<group>"; };
+		5DAABFA51CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNHostedRegistrationFormFooter.h; sourceTree = "<group>"; };
+		5DAABFA61CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNHostedRegistrationFormFooter.m; sourceTree = "<group>"; };
+		5DAABFA81CB69D4C00CEDB91 /* BNPaymentWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentWebview.h; sourceTree = "<group>"; };
+		5DAABFA91CB69D4C00CEDB91 /* BNPaymentWebview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentWebview.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +195,8 @@
 		5DAABEFB1CB69B0200CEDB91 /* BNPayment */ = {
 			isa = PBXGroup;
 			children = (
+				5DAABF5E1CB69D4C00CEDB91 /* Core */,
+				5DAABF801CB69D4C00CEDB91 /* UI */,
 			);
 			path = BNPayment;
 			sourceTree = "<group>";
@@ -95,6 +219,185 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
+		5DAABF5E1CB69D4C00CEDB91 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF5F1CB69D4C00CEDB91 /* Api */,
+				5DAABF641CB69D4C00CEDB91 /* BNEnums.h */,
+				5DAABF651CB69D4C00CEDB91 /* BNPaymentHandler.h */,
+				5DAABF661CB69D4C00CEDB91 /* BNPaymentHandler.m */,
+				5DAABF671CB69D4C00CEDB91 /* Models */,
+				5DAABF7D1CB69D4C00CEDB91 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5DAABF5F1CB69D4C00CEDB91 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF601CB69D4C00CEDB91 /* BNCreditCardEndpoint.h */,
+				5DAABF611CB69D4C00CEDB91 /* BNCreditCardEndpoint.m */,
+				5DAABF621CB69D4C00CEDB91 /* BNPaymentEndpoint.h */,
+				5DAABF631CB69D4C00CEDB91 /* BNPaymentEndpoint.m */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		5DAABF671CB69D4C00CEDB91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF681CB69D4C00CEDB91 /* BNAuthorizedCreditCard.h */,
+				5DAABF691CB69D4C00CEDB91 /* BNAuthorizedCreditCard.m */,
+				5DAABF6A1CB69D4C00CEDB91 /* BNCCFormInputGroup.h */,
+				5DAABF6B1CB69D4C00CEDB91 /* BNCCFormInputGroup.m */,
+				5DAABF6C1CB69D4C00CEDB91 /* BNCCHostedFormParams.h */,
+				5DAABF6D1CB69D4C00CEDB91 /* BNCCHostedFormParams.m */,
+				5DAABF6E1CB69D4C00CEDB91 /* BNCreditCard.h */,
+				5DAABF6F1CB69D4C00CEDB91 /* BNCreditCard.m */,
+				5DAABF701CB69D4C00CEDB91 /* BNPaymentParams.h */,
+				5DAABF711CB69D4C00CEDB91 /* BNPaymentParams.m */,
+				5DAABF721CB69D4C00CEDB91 /* BNPaymentResponse.h */,
+				5DAABF731CB69D4C00CEDB91 /* BNPaymentResponse.m */,
+				5DAABF741CB69D4C00CEDB91 /* EPAYModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5DAABF741CB69D4C00CEDB91 /* EPAYModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF751CB69D4C00CEDB91 /* EPAYAction.h */,
+				5DAABF761CB69D4C00CEDB91 /* EPAYAction.m */,
+				5DAABF771CB69D4C00CEDB91 /* EPAYHostedFormStateChange.h */,
+				5DAABF781CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m */,
+				5DAABF791CB69D4C00CEDB91 /* EPAYMessage.h */,
+				5DAABF7A1CB69D4C00CEDB91 /* EPAYMessage.m */,
+				5DAABF7B1CB69D4C00CEDB91 /* EPAYMetaResponse.h */,
+				5DAABF7C1CB69D4C00CEDB91 /* EPAYMetaResponse.m */,
+			);
+			path = EPAYModels;
+			sourceTree = "<group>";
+		};
+		5DAABF7D1CB69D4C00CEDB91 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF7E1CB69D4C00CEDB91 /* BNBundleUtils.h */,
+				5DAABF7F1CB69D4C00CEDB91 /* BNBundleUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5DAABF801CB69D4C00CEDB91 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF811CB69D4C00CEDB91 /* Categories */,
+				5DAABF871CB69D4C00CEDB91 /* HostedPage */,
+				5DAABF8A1CB69D4C00CEDB91 /* MessageHandlers */,
+				5DAABF8B1CB69D4C00CEDB91 /* ScrollViews */,
+				5DAABF8E1CB69D4C00CEDB91 /* ViewControllers */,
+				5DAABF951CB69D4C00CEDB91 /* ViewModels */,
+				5DAABF9C1CB69D4C00CEDB91 /* Views */,
+				5DAABFA71CB69D4C00CEDB91 /* Webviews */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5DAABF811CB69D4C00CEDB91 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF821CB69D4C00CEDB91 /* HTML */,
+				5DAABF831CB69D4C00CEDB91 /* UIImage+BNUtils.h */,
+				5DAABF841CB69D4C00CEDB91 /* UIImage+BNUtils.m */,
+				5DAABF851CB69D4C00CEDB91 /* UIView+BNUtils.h */,
+				5DAABF861CB69D4C00CEDB91 /* UIView+BNUtils.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		5DAABF821CB69D4C00CEDB91 /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTML;
+			sourceTree = "<group>";
+		};
+		5DAABF871CB69D4C00CEDB91 /* HostedPage */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF881CB69D4C00CEDB91 /* example.css */,
+				5DAABF891CB69D4C00CEDB91 /* index.html */,
+			);
+			path = HostedPage;
+			sourceTree = "<group>";
+		};
+		5DAABF8A1CB69D4C00CEDB91 /* MessageHandlers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MessageHandlers;
+			sourceTree = "<group>";
+		};
+		5DAABF8B1CB69D4C00CEDB91 /* ScrollViews */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF8C1CB69D4C00CEDB91 /* BNFormScrollView.h */,
+				5DAABF8D1CB69D4C00CEDB91 /* BNFormScrollView.m */,
+			);
+			path = ScrollViews;
+			sourceTree = "<group>";
+		};
+		5DAABF8E1CB69D4C00CEDB91 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF8F1CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.h */,
+				5DAABF901CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.m */,
+				5DAABF911CB69D4C00CEDB91 /* BNCCRegistrationFormVC.h */,
+				5DAABF921CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m */,
+				5DAABF931CB69D4C00CEDB91 /* BNPaymentBaseVC.h */,
+				5DAABF941CB69D4C00CEDB91 /* BNPaymentBaseVC.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5DAABF951CB69D4C00CEDB91 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF961CB69D4C00CEDB91 /* BNCCFormInputModel.h */,
+				5DAABF971CB69D4C00CEDB91 /* BNCCFormInputModel.m */,
+				5DAABF981CB69D4C00CEDB91 /* BNFormInputModel.h */,
+				5DAABF991CB69D4C00CEDB91 /* BNFormInputModel.m */,
+				5DAABF9A1CB69D4C00CEDB91 /* BNFormModel.h */,
+				5DAABF9B1CB69D4C00CEDB91 /* BNFormModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5DAABF9C1CB69D4C00CEDB91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF9D1CB69D4C00CEDB91 /* BNBaseXibView.h */,
+				5DAABF9E1CB69D4C00CEDB91 /* BNBaseXibView.m */,
+				5DAABF9F1CB69D4C00CEDB91 /* BNCCFormInputView.h */,
+				5DAABFA01CB69D4C00CEDB91 /* BNCCFormInputView.m */,
+				5DAABFA11CB69D4C00CEDB91 /* BNFormToolbar.h */,
+				5DAABFA21CB69D4C00CEDB91 /* BNFormToolbar.m */,
+				5DAABFA31CB69D4C00CEDB91 /* BNFormView.h */,
+				5DAABFA41CB69D4C00CEDB91 /* BNFormView.m */,
+				5DAABFA51CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.h */,
+				5DAABFA61CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DAABFA71CB69D4C00CEDB91 /* Webviews */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABFA81CB69D4C00CEDB91 /* BNPaymentWebview.h */,
+				5DAABFA91CB69D4C00CEDB91 /* BNPaymentWebview.m */,
+			);
+			path = Webviews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -102,7 +405,37 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAABFC51CB69D4C00CEDB91 /* BNBundleUtils.h in Headers */,
+				5DAABFC91CB69D4C00CEDB91 /* UIView+BNUtils.h in Headers */,
+				5DAABFD11CB69D4C00CEDB91 /* BNCCRegistrationFormVC.h in Headers */,
+				5DAABFB11CB69D4C00CEDB91 /* BNAuthorizedCreditCard.h in Headers */,
+				5DAABFE11CB69D4C00CEDB91 /* BNFormView.h in Headers */,
+				5DAABFB71CB69D4C00CEDB91 /* BNCreditCard.h in Headers */,
+				5DAABFBF1CB69D4C00CEDB91 /* EPAYHostedFormStateChange.h in Headers */,
+				5DAABFDB1CB69D4C00CEDB91 /* BNBaseXibView.h in Headers */,
+				5DAABFC11CB69D4C00CEDB91 /* EPAYMessage.h in Headers */,
+				5DAABFDF1CB69D4C00CEDB91 /* BNFormToolbar.h in Headers */,
+				5DAABFB51CB69D4C00CEDB91 /* BNCCHostedFormParams.h in Headers */,
+				5DAABFD91CB69D4C00CEDB91 /* BNFormModel.h in Headers */,
+				5DAABFE51CB69D4C00CEDB91 /* BNPaymentWebview.h in Headers */,
+				5DAABFC31CB69D4C00CEDB91 /* EPAYMetaResponse.h in Headers */,
+				5DAABFAA1CB69D4C00CEDB91 /* BNCreditCardEndpoint.h in Headers */,
+				5DAABFB31CB69D4C00CEDB91 /* BNCCFormInputGroup.h in Headers */,
+				5DAABFD31CB69D4C00CEDB91 /* BNPaymentBaseVC.h in Headers */,
+				5DAABFAC1CB69D4C00CEDB91 /* BNPaymentEndpoint.h in Headers */,
+				5DAABFD71CB69D4C00CEDB91 /* BNFormInputModel.h in Headers */,
+				5DAABFBB1CB69D4C00CEDB91 /* BNPaymentResponse.h in Headers */,
+				5DAABFBD1CB69D4C00CEDB91 /* EPAYAction.h in Headers */,
+				5DAABFE31CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.h in Headers */,
+				5DAABFCD1CB69D4C00CEDB91 /* BNFormScrollView.h in Headers */,
+				5DAABFAF1CB69D4C00CEDB91 /* BNPaymentHandler.h in Headers */,
 				5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */,
+				5DAABFC71CB69D4C00CEDB91 /* UIImage+BNUtils.h in Headers */,
+				5DAABFCF1CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.h in Headers */,
+				5DAABFD51CB69D4C00CEDB91 /* BNCCFormInputModel.h in Headers */,
+				5DAABFAE1CB69D4C00CEDB91 /* BNEnums.h in Headers */,
+				5DAABFB91CB69D4C00CEDB91 /* BNPaymentParams.h in Headers */,
+				5DAABFDD1CB69D4C00CEDB91 /* BNCCFormInputView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +518,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAABFCC1CB69D4C00CEDB91 /* index.html in Resources */,
+				5DAABFCB1CB69D4C00CEDB91 /* example.css in Resources */,
 				5DAABF5D1CB69C7F00CEDB91 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +538,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAABFE41CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m in Sources */,
+				5DAABFCA1CB69D4C00CEDB91 /* UIView+BNUtils.m in Sources */,
+				5DAABFB41CB69D4C00CEDB91 /* BNCCFormInputGroup.m in Sources */,
+				5DAABFD41CB69D4C00CEDB91 /* BNPaymentBaseVC.m in Sources */,
+				5DAABFE01CB69D4C00CEDB91 /* BNFormToolbar.m in Sources */,
+				5DAABFAB1CB69D4C00CEDB91 /* BNCreditCardEndpoint.m in Sources */,
+				5DAABFB61CB69D4C00CEDB91 /* BNCCHostedFormParams.m in Sources */,
+				5DAABFE21CB69D4C00CEDB91 /* BNFormView.m in Sources */,
+				5DAABFDE1CB69D4C00CEDB91 /* BNCCFormInputView.m in Sources */,
+				5DAABFD01CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.m in Sources */,
+				5DAABFD21CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m in Sources */,
+				5DAABFB81CB69D4C00CEDB91 /* BNCreditCard.m in Sources */,
+				5DAABFCE1CB69D4C00CEDB91 /* BNFormScrollView.m in Sources */,
+				5DAABFC41CB69D4C00CEDB91 /* EPAYMetaResponse.m in Sources */,
+				5DAABFC21CB69D4C00CEDB91 /* EPAYMessage.m in Sources */,
+				5DAABFE61CB69D4C00CEDB91 /* BNPaymentWebview.m in Sources */,
+				5DAABFAD1CB69D4C00CEDB91 /* BNPaymentEndpoint.m in Sources */,
+				5DAABFC01CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m in Sources */,
+				5DAABFBC1CB69D4C00CEDB91 /* BNPaymentResponse.m in Sources */,
+				5DAABFC61CB69D4C00CEDB91 /* BNBundleUtils.m in Sources */,
+				5DAABFDA1CB69D4C00CEDB91 /* BNFormModel.m in Sources */,
+				5DAABFB01CB69D4C00CEDB91 /* BNPaymentHandler.m in Sources */,
+				5DAABFBA1CB69D4C00CEDB91 /* BNPaymentParams.m in Sources */,
+				5DAABFD61CB69D4C00CEDB91 /* BNCCFormInputModel.m in Sources */,
+				5DAABFDC1CB69D4C00CEDB91 /* BNBaseXibView.m in Sources */,
+				5DAABFD81CB69D4C00CEDB91 /* BNFormInputModel.m in Sources */,
+				5DAABFBE1CB69D4C00CEDB91 /* EPAYAction.m in Sources */,
+				5DAABFB21CB69D4C00CEDB91 /* BNAuthorizedCreditCard.m in Sources */,
+				5DAABFC81CB69D4C00CEDB91 /* UIImage+BNUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,54 @@
+//
+//  BNCCHostedRegistrationFormVC.h
+//  Pods
+//
+//  Created by Bambora On Mobile AB on 01/02/2016.
+//
+//
+
+#import "BNEnums.h"
+#import "BNPaymentBaseVC.h"
+
+@import WebKit;
+
+@class BNCCHostedFormParams;
+@class BNAuthorizedCreditCard;
+
+/**
+ *  A block indicating whether or not the `BNCCRegistrationFormVC` is done
+ *
+ *  @param success The status of the operation
+ */
+typedef void(^BNCCRegistrationFormCompletion)(BNCCRegCompletion completion, BNAuthorizedCreditCard *card);
+
+/**
+ *  `BNCCHostedRegistrationFormVC` is a view controller that displays a webview containing a credit card registration form.
+ */
+@interface BNCCHostedRegistrationFormVC : BNPaymentBaseVC
+
+@property (nonatomic, copy) BNCCRegistrationFormCompletion completionBlock;
+
+/**
+ *  An init method where you provide the params for the hosted form
+ *
+ *  @param params `BNCCHostedFormParams` used for requesting an URL for the hosted form
+ *
+ *  @return return an instance of `BNCCHostedRegistrationFormVC`
+ */
+- (instancetype)initWithHostedFormParams:(BNCCHostedFormParams *)params;
+
+/**
+ *  A method for setting the header view
+ *
+ *  @param headerView A `UIView` to be set as header
+ */
+- (void)addHeaderView:(UIView *)headerView;
+
+/**
+ *  A method for setting the footer view
+ *
+ *  @param footerView A `UIView` to be set as footer
+ */
+- (void)addFooterView:(UIView *)footerView;
+
+@end
