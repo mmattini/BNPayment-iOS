@@ -7,9 +7,9 @@
 //
 
 #import "BNCreditCardEndpoint.h"
-#import "BNHandler.h"
-#import "BNError.h"
 #import "BNCCHostedFormParams.h"
+#import <BNBase/BNHandler.h>
+#import <BNBase/BNError.h>
 
 @implementation BNCreditCardEndpoint
 

@@ -1,15 +1,13 @@
 //
-//  ViewController.h
-//  BNPayment-Example
+//  BNViewController.h
+//  BNPayment
 //
-//  Created by Oskar Henriksson on 07/04/2016.
-//  Copyright © 2016 Bambora. All rights reserved.
+//  Created by Bambora On Mobile AB on 11/12/2015.
+//  Copyright (c) 2015 Bambora On Mobile AB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface ViewController : UIViewController
 
-
 @end
-

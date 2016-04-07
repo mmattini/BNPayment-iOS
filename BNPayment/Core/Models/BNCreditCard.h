@@ -6,7 +6,7 @@
 //
 //
 
-#import "BNBaseModel.h"
+#import <BNBase/BNBaseModel.h>
 
 /**
  *  `BNCreditCard` represents an credit card from the native form.

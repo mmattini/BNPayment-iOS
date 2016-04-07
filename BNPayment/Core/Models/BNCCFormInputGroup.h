@@ -6,7 +6,7 @@
 //
 //
 
-#import "BNBaseModel.h"
+#import <BNBase/BNBaseModel.h>
 
 /**
  *  `BNCCFormInputGroup` represents the params for an input group in the hosted page.

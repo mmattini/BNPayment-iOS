@@ -6,8 +6,9 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import "BNEnums.h"
+
+@import Foundation;
 
 @class BNAuthorizedCreditCard;
 @class BNCCHostedFormParams;

@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5DAABEF81CB69B0200CEDB91"
+               BuildableName = "BNPayment.framework"
+               BlueprintName = "BNPayment"
+               ReferencedContainer = "container:../BNPayment.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "5DAABF3E1CB69B8100CEDB91"
                BuildableName = "BNPayment-Example.app"
                BlueprintName = "BNPayment-Example"

@@ -1,0 +1,6 @@
+framework module BNBase {
+  umbrella header "BNBase.h"
+
+  export *
+  module * { export * }
+}

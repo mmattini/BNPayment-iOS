@@ -5,6 +5,8 @@
 //  Created by Bambora On Mobile AB on 16/11/2015.
 //
 
+@import Foundation;
+
 /**
  `BNPaymentResult` represents the states of an Payment
  */

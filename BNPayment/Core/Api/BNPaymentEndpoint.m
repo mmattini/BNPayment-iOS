@@ -7,11 +7,11 @@
 //
 
 #import "BNPaymentEndpoint.h"
-#import "BNHandler.h"
-#import "BNError.h"
 #import "BNPaymentParams.h"
 #import "BNPaymentResponse.h"
 #import "BNPaymentHandler.h"
+#import <BNBase/BNHandler.h>
+#import <BNBase/BNError.h>
 
 @implementation BNPaymentEndpoint
 

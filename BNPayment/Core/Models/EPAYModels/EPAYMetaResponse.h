@@ -6,7 +6,7 @@
 //
 //
 
-#import "BNBaseModel.h"
+#import <BNBase/BNBaseModel.h>
 
 @class EPAYAction;
 @class EPAYMessage;

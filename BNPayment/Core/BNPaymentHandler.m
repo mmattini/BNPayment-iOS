@@ -10,7 +10,7 @@
 #import "BNPaymentEndpoint.h"
 #import "BNCreditCardEndpoint.h"
 #import "BNAuthorizedCreditCard.h"
-#import "BNCacheManager.h"
+#import <BNBase/BNCacheManager.h>
 #import "BNCCHostedFormParams.h"
 #import "BNPaymentParams.h"
 
