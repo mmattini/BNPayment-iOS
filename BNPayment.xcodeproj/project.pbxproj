@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DAABEFD1CB69B0200CEDB91 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABEFC1CB69B0200CEDB91 /* BNPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DAABF041CB69B0200CEDB91 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */; };
 		5DAABF091CB69B0200CEDB91 /* BNPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF081CB69B0200CEDB91 /* BNPaymentTests.m */; };
+		5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */; };
+		5DAABF5D1CB69C7F00CEDB91 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DAABF5B1CB69C7F00CEDB91 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,11 @@
 
 /* Begin PBXFileReference section */
 		5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DAABEFC1CB69B0200CEDB91 /* BNPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNPayment.h; sourceTree = "<group>"; };
-		5DAABEFE1CB69B0200CEDB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DAABF031CB69B0200CEDB91 /* BNPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF081CB69B0200CEDB91 /* BNPaymentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNPaymentTests.m; sourceTree = "<group>"; };
 		5DAABF0A1CB69B0200CEDB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNPayment.h; path = Framework/BNPayment.h; sourceTree = "<group>"; };
+		5DAABF5B1CB69C7F00CEDB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 			children = (
 				5DAABEFB1CB69B0200CEDB91 /* BNPayment */,
 				5DAABF071CB69B0200CEDB91 /* BNPaymentTests */,
+				5DAABF591CB69C6400CEDB91 /* Supporting files */,
 				5DAABEFA1CB69B0200CEDB91 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,8 +73,6 @@
 		5DAABEFB1CB69B0200CEDB91 /* BNPayment */ = {
 			isa = PBXGroup;
 			children = (
-				5DAABEFC1CB69B0200CEDB91 /* BNPayment.h */,
-				5DAABEFE1CB69B0200CEDB91 /* Info.plist */,
 			);
 			path = BNPayment;
 			sourceTree = "<group>";
@@ -86,6 +86,15 @@
 			path = BNPaymentTests;
 			sourceTree = "<group>";
 		};
+		5DAABF591CB69C6400CEDB91 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */,
+				5DAABF5B1CB69C7F00CEDB91 /* Info.plist */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +102,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DAABEFD1CB69B0200CEDB91 /* BNPayment.h in Headers */,
+				5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAABF5D1CB69C7F00CEDB91 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +320,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BNPayment/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Framework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambora.BNPayment;
@@ -326,7 +336,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BNPayment/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Framework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambora.BNPayment;
@@ -374,6 +384,7 @@
 				5DAABF0F1CB69B0200CEDB91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DAABF101CB69B0200CEDB91 /* Build configuration list for PBXNativeTarget "BNPaymentTests" */ = {
 			isa = XCConfigurationList;
@@ -382,6 +393,7 @@
 				5DAABF121CB69B0200CEDB91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
