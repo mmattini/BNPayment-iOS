@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D7723A91CB79E6D00D680FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7723A81CB79E6D00D680FE /* UIKit.framework */; };
+		5D8007111CB7CED100E29149 /* BNPayment.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D80070F1CB7CE6200E29149 /* BNPayment.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5D8007151CB7D1E200E29149 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D80070F1CB7CE6200E29149 /* BNPayment.framework */; };
 		5DAABF441CB69B8100CEDB91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF431CB69B8100CEDB91 /* main.m */; };
 		5DAABF471CB69B8100CEDB91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF461CB69B8100CEDB91 /* AppDelegate.m */; };
 		5DAABF4A1CB69B8100CEDB91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF491CB69B8100CEDB91 /* ViewController.m */; };
@@ -15,7 +18,22 @@
 		5DAABF521CB69B8100CEDB91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DAABF501CB69B8100CEDB91 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5D7723B31CB7A21200D680FE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5D8007111CB7CED100E29149 /* BNPayment.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5D7723A81CB79E6D00D680FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5D80070F1CB7CE6200E29149 /* BNPayment.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BNPayment.framework; path = ../build/BNPayment.framework; sourceTree = "<group>"; };
 		5DAABF3F1CB69B8100CEDB91 /* BNPayment-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BNPayment-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF431CB69B8100CEDB91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5DAABF451CB69B8100CEDB91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7723A91CB79E6D00D680FE /* UIKit.framework in Frameworks */,
+				5D8007151CB7D1E200E29149 /* BNPayment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +62,7 @@
 		5DAABF361CB69B8100CEDB91 = {
 			isa = PBXGroup;
 			children = (
+				5DAABFEC1CB6A4F300CEDB91 /* Frameworks */,
 				5DAABF411CB69B8100CEDB91 /* BNPayment-Example */,
 				5DAABF401CB69B8100CEDB91 /* Products */,
 			);
@@ -79,6 +100,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5DAABFEC1CB6A4F300CEDB91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D80070F1CB7CE6200E29149 /* BNPayment.framework */,
+				5D7723A81CB79E6D00D680FE /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,6 +119,7 @@
 				5DAABF3B1CB69B8100CEDB91 /* Sources */,
 				5DAABF3C1CB69B8100CEDB91 /* Frameworks */,
 				5DAABF3D1CB69B8100CEDB91 /* Resources */,
+				5D7723B31CB7A21200D680FE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -213,7 +244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -250,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -261,8 +292,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "BNPayment-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bambora.BNPayment-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -272,6 +308,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "BNPayment-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bambora.BNPayment-Example";
@@ -298,6 +338,7 @@
 				5DAABF581CB69B8100CEDB91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
