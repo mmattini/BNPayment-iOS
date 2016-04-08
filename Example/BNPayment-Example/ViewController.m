@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-
-@import BNPayment;
+#import <BNPayment/BNPayment.h>
 
 @interface ViewController ()
 
