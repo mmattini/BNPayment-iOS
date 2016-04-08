@@ -468,6 +468,7 @@
 				5DAABEF61CB69B0200CEDB91 /* Headers */,
 				5DAABEF71CB69B0200CEDB91 /* Resources */,
 				5D7723B11CB7A1AC00D680FE /* CopyFiles */,
+				5D80070E1CB7CE0C00E29149 /* Run copy framework Script */,
 			);
 			buildRules = (
 			);
@@ -549,6 +550,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D80070E1CB7CE0C00E29149 /* Run copy framework Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run copy framework Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${SRCROOT}/build/\"\ncp -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}.framework\" \"${SRCROOT}/build/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5DAABEF41CB69B0200CEDB91 /* Sources */ = {
