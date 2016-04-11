@@ -15,9 +15,6 @@
     
     if (!bundle) {
         bundle = [BNBundleUtils bundleForClass:[BNBundleUtils class]];
-        NSString *bundlePath = [bundle pathForResource:@"BNPayment"
-                                                ofType:@"bundle"];
-        bundle = [NSBundle bundleWithPath:bundlePath];
     }
     
     return bundle;
