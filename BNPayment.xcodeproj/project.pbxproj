@@ -241,9 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				5DAABEFB1CB69B0200CEDB91 /* BNPayment */,
-				5D8007211CB7D99C00E29149 /* Assets */,
 				5DAABF071CB69B0200CEDB91 /* BNPaymentTests */,
 				5DAABFE71CB69FE800CEDB91 /* BNBase */,
+				5D8007211CB7D99C00E29149 /* Assets */,
 				5DAABF591CB69C6400CEDB91 /* Supporting files */,
 				5DAABEFA1CB69B0200CEDB91 /* Products */,
 			);
