@@ -1,0 +1,20 @@
+//
+//  BNPaymentTests.pch
+//  BNPayment
+//
+//  Created by Oskar Henriksson on 12/04/2016.
+//  Copyright © 2016 Bambora. All rights reserved.
+//
+
+#ifndef BNPaymentTests_pch
+#define BNPaymentTests_pch
+
+#import <XCTest/XCTest.h>
+#import <BNPayment/BNPayment.h>
+#import <BNBase/BNBase.h>
+#import "OHHTTPStubs.h"
+#import "OHPathHelpers.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* BNPaymentTests_pch */

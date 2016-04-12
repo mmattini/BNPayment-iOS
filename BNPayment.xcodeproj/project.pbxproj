@@ -26,7 +26,20 @@
 		5D80073C1CBBC78D00E29149 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */; };
 		5D80073D1CBBC7AF00E29149 /* BNBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAABFE81CB69FE800CEDB91 /* BNBase.framework */; };
 		5D80073F1CBBC95000E29149 /* BNBase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DAABFE81CB69FE800CEDB91 /* BNBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5DAABF091CB69B0200CEDB91 /* BNPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF081CB69B0200CEDB91 /* BNPaymentTests.m */; };
+		5D8007431CBCCC9500E29149 /* BNCreditCardEndpointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007401CBCCC9500E29149 /* BNCreditCardEndpointTests.m */; };
+		5D8007441CBCCC9500E29149 /* BNPaymentEndpointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007411CBCCC9500E29149 /* BNPaymentEndpointTests.m */; };
+		5D8007451CBCCC9500E29149 /* BNPaymentHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007421CBCCC9500E29149 /* BNPaymentHandlerTests.m */; };
+		5D8007621CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80074C1CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.m */; };
+		5D8007631CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80074F1CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.m */; };
+		5D8007641CBCCD3400E29149 /* OHHTTPStubs+Mocktail.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007521CBCCD3400E29149 /* OHHTTPStubs+Mocktail.m */; };
+		5D8007651CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007541CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m */; };
+		5D8007661CBCCD3400E29149 /* OHHTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007561CBCCD3400E29149 /* OHHTTPStubs.m */; };
+		5D8007671CBCCD3400E29149 /* OHHTTPStubsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8007581CBCCD3400E29149 /* OHHTTPStubsResponse.m */; };
+		5D8007681CBCCD3400E29149 /* OHPathHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80075B1CBCCD3400E29149 /* OHPathHelpers.m */; };
+		5D8007691CBCCD3400E29149 /* authorizePaymentSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D80075E1CBCCD3400E29149 /* authorizePaymentSuccess.json */; };
+		5D80076A1CBCCD3400E29149 /* authorizePaymentSuccessExtraParams.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D80075F1CBCCD3400E29149 /* authorizePaymentSuccessExtraParams.json */; };
+		5D80076B1CBCCD3400E29149 /* registerCreditCardExtraParams.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007601CBCCD3400E29149 /* registerCreditCardExtraParams.json */; };
+		5D80076C1CBCCD3400E29149 /* registerCreditCardSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007611CBCCD3400E29149 /* registerCreditCardSuccess.json */; };
 		5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DAABFAA1CB69D4C00CEDB91 /* BNCreditCardEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF601CB69D4C00CEDB91 /* BNCreditCardEndpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DAABFAB1CB69D4C00CEDB91 /* BNCreditCardEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF611CB69D4C00CEDB91 /* BNCreditCardEndpoint.m */; };
@@ -128,9 +141,30 @@
 		5D80072C1CB7D99C00E29149 /* iconLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconLock.png; sourceTree = "<group>"; };
 		5D80072D1CB7D99C00E29149 /* iconLock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLock@2x.png"; sourceTree = "<group>"; };
 		5D80072E1CB7D99C00E29149 /* iconLock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLock@3x.png"; sourceTree = "<group>"; };
+		5D8007401CBCCC9500E29149 /* BNCreditCardEndpointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCardEndpointTests.m; sourceTree = "<group>"; };
+		5D8007411CBCCC9500E29149 /* BNPaymentEndpointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentEndpointTests.m; sourceTree = "<group>"; };
+		5D8007421CBCCC9500E29149 /* BNPaymentHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentHandlerTests.m; sourceTree = "<group>"; };
+		5D8007491CBCCD3400E29149 /* Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatibility.h; sourceTree = "<group>"; };
+		5D80074B1CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubsResponse+HTTPMessage.h"; sourceTree = "<group>"; };
+		5D80074C1CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubsResponse+HTTPMessage.m"; sourceTree = "<group>"; };
+		5D80074E1CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
+		5D80074F1CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
+		5D8007511CBCCD3400E29149 /* OHHTTPStubs+Mocktail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs+Mocktail.h"; sourceTree = "<group>"; };
+		5D8007521CBCCD3400E29149 /* OHHTTPStubs+Mocktail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs+Mocktail.m"; sourceTree = "<group>"; };
+		5D8007541CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
+		5D8007551CBCCD3400E29149 /* OHHTTPStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHHTTPStubs.h; sourceTree = "<group>"; };
+		5D8007561CBCCD3400E29149 /* OHHTTPStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHHTTPStubs.m; sourceTree = "<group>"; };
+		5D8007571CBCCD3400E29149 /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHHTTPStubsResponse.h; sourceTree = "<group>"; };
+		5D8007581CBCCD3400E29149 /* OHHTTPStubsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHHTTPStubsResponse.m; sourceTree = "<group>"; };
+		5D80075A1CBCCD3400E29149 /* OHPathHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHPathHelpers.h; sourceTree = "<group>"; };
+		5D80075B1CBCCD3400E29149 /* OHPathHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHPathHelpers.m; sourceTree = "<group>"; };
+		5D80075E1CBCCD3400E29149 /* authorizePaymentSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authorizePaymentSuccess.json; sourceTree = "<group>"; };
+		5D80075F1CBCCD3400E29149 /* authorizePaymentSuccessExtraParams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authorizePaymentSuccessExtraParams.json; sourceTree = "<group>"; };
+		5D8007601CBCCD3400E29149 /* registerCreditCardExtraParams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerCreditCardExtraParams.json; sourceTree = "<group>"; };
+		5D8007611CBCCD3400E29149 /* registerCreditCardSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerCreditCardSuccess.json; sourceTree = "<group>"; };
+		5D80076D1CBCCDEE00E29149 /* BNPaymentTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentTests.pch; sourceTree = "<group>"; };
 		5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF031CB69B0200CEDB91 /* BNPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DAABF081CB69B0200CEDB91 /* BNPaymentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNPaymentTests.m; sourceTree = "<group>"; };
 		5DAABF0A1CB69B0200CEDB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNPayment.h; path = Framework/BNPayment.h; sourceTree = "<group>"; };
 		5DAABF5B1CB69C7F00CEDB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
@@ -237,6 +271,85 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		5D8007481CBCCD3400E29149 /* OHHTTPStubs */ = {
+			isa = PBXGroup;
+			children = (
+				5D8007491CBCCD3400E29149 /* Compatibility.h */,
+				5D80074A1CBCCD3400E29149 /* HTTPMessage */,
+				5D80074D1CBCCD3400E29149 /* JSON */,
+				5D8007501CBCCD3400E29149 /* Mocktail */,
+				5D8007531CBCCD3400E29149 /* NSURLSession */,
+				5D8007551CBCCD3400E29149 /* OHHTTPStubs.h */,
+				5D8007561CBCCD3400E29149 /* OHHTTPStubs.m */,
+				5D8007571CBCCD3400E29149 /* OHHTTPStubsResponse.h */,
+				5D8007581CBCCD3400E29149 /* OHHTTPStubsResponse.m */,
+				5D8007591CBCCD3400E29149 /* OHPathHelpers */,
+			);
+			path = OHHTTPStubs;
+			sourceTree = "<group>";
+		};
+		5D80074A1CBCCD3400E29149 /* HTTPMessage */ = {
+			isa = PBXGroup;
+			children = (
+				5D80074B1CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.h */,
+				5D80074C1CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.m */,
+			);
+			path = HTTPMessage;
+			sourceTree = "<group>";
+		};
+		5D80074D1CBCCD3400E29149 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				5D80074E1CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.h */,
+				5D80074F1CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		5D8007501CBCCD3400E29149 /* Mocktail */ = {
+			isa = PBXGroup;
+			children = (
+				5D8007511CBCCD3400E29149 /* OHHTTPStubs+Mocktail.h */,
+				5D8007521CBCCD3400E29149 /* OHHTTPStubs+Mocktail.m */,
+			);
+			path = Mocktail;
+			sourceTree = "<group>";
+		};
+		5D8007531CBCCD3400E29149 /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				5D8007541CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m */,
+			);
+			path = NSURLSession;
+			sourceTree = "<group>";
+		};
+		5D8007591CBCCD3400E29149 /* OHPathHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D80075A1CBCCD3400E29149 /* OHPathHelpers.h */,
+				5D80075B1CBCCD3400E29149 /* OHPathHelpers.m */,
+			);
+			path = OHPathHelpers;
+			sourceTree = "<group>";
+		};
+		5D80075C1CBCCD3400E29149 /* TestAssets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestAssets;
+			sourceTree = "<group>";
+		};
+		5D80075D1CBCCD3400E29149 /* TestResponses */ = {
+			isa = PBXGroup;
+			children = (
+				5D80075E1CBCCD3400E29149 /* authorizePaymentSuccess.json */,
+				5D80075F1CBCCD3400E29149 /* authorizePaymentSuccessExtraParams.json */,
+				5D8007601CBCCD3400E29149 /* registerCreditCardExtraParams.json */,
+				5D8007611CBCCD3400E29149 /* registerCreditCardSuccess.json */,
+			);
+			path = TestResponses;
+			sourceTree = "<group>";
+		};
 		5DAABEEF1CB69B0200CEDB91 = {
 			isa = PBXGroup;
 			children = (
@@ -270,8 +383,14 @@
 		5DAABF071CB69B0200CEDB91 /* BNPaymentTests */ = {
 			isa = PBXGroup;
 			children = (
-				5DAABF081CB69B0200CEDB91 /* BNPaymentTests.m */,
+				5D8007401CBCCC9500E29149 /* BNCreditCardEndpointTests.m */,
+				5D8007411CBCCC9500E29149 /* BNPaymentEndpointTests.m */,
+				5D8007421CBCCC9500E29149 /* BNPaymentHandlerTests.m */,
+				5D8007481CBCCD3400E29149 /* OHHTTPStubs */,
+				5D80075C1CBCCD3400E29149 /* TestAssets */,
+				5D80075D1CBCCD3400E29149 /* TestResponses */,
 				5DAABF0A1CB69B0200CEDB91 /* Info.plist */,
+				5D80076D1CBCCDEE00E29149 /* BNPaymentTests.pch */,
 			);
 			path = BNPaymentTests;
 			sourceTree = "<group>";
@@ -608,6 +727,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8007691CBCCD3400E29149 /* authorizePaymentSuccess.json in Resources */,
+				5D80076C1CBCCD3400E29149 /* registerCreditCardSuccess.json in Resources */,
+				5D80076B1CBCCD3400E29149 /* registerCreditCardExtraParams.json in Resources */,
+				5D80076A1CBCCD3400E29149 /* authorizePaymentSuccessExtraParams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +794,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DAABF091CB69B0200CEDB91 /* BNPaymentTests.m in Sources */,
+				5D8007621CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.m in Sources */,
+				5D8007631CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.m in Sources */,
+				5D8007681CBCCD3400E29149 /* OHPathHelpers.m in Sources */,
+				5D8007451CBCCC9500E29149 /* BNPaymentHandlerTests.m in Sources */,
+				5D8007431CBCCC9500E29149 /* BNCreditCardEndpointTests.m in Sources */,
+				5D8007671CBCCD3400E29149 /* OHHTTPStubsResponse.m in Sources */,
+				5D8007651CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */,
+				5D8007441CBCCC9500E29149 /* BNPaymentEndpointTests.m in Sources */,
+				5D8007661CBCCD3400E29149 /* OHHTTPStubs.m in Sources */,
+				5D8007641CBCCD3400E29149 /* OHHTTPStubs+Mocktail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +957,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BNBase",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BNPaymentTests/BNPaymentTests.pch";
 				INFOPLIST_FILE = BNPaymentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
@@ -840,6 +973,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BNBase",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/BNPaymentTests/BNPaymentTests.pch";
 				INFOPLIST_FILE = BNPaymentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambora.BNPaymentTests;
