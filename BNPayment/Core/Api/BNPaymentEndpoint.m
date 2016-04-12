@@ -11,7 +11,6 @@
 #import "BNPaymentResponse.h"
 #import "BNPaymentHandler.h"
 #import <BNBase/BNHandler.h>
-#import <BNBase/BNError.h>
 
 @implementation BNPaymentEndpoint
 
@@ -27,9 +26,9 @@
         NSError *error;
         BNPaymentResponse *response = [[BNPaymentResponse alloc] initWithJSONDictionary:responseObject
                                                                                   error:&error];
-        completion(response, error ? [[BNError alloc] initWithTask:task error:error] : nil);
+        completion(response, error);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil, [[BNError alloc] initWithTask:task error:error]);
+        completion(nil, error);
     }];
     
     return dataTask;

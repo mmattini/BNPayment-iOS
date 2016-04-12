@@ -9,7 +9,6 @@
 #import "BNCreditCardEndpoint.h"
 #import "BNCCHostedFormParams.h"
 #import <BNBase/BNHandler.h>
-#import <BNBase/BNError.h>
 
 @implementation BNCreditCardEndpoint
 
@@ -27,8 +26,7 @@
         NSString *url = [responseObject objectForKey:@"session_url"];
         block(url, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        block(nil, [[BNError alloc] initWithTask:task
-                                           error:error]);
+        block(nil, error);
     }];
     
     return dataTask;

@@ -50,7 +50,7 @@ NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams * )params
                                                         completion:(BNCreditCardRegistrationUrlBlock) block {
     NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:params
-                                                                                   completion:^(NSString *url, BNError *error) {
+                                                                                   completion:^(NSString *url, NSError *error) {
         block(url);
     }];
     
@@ -61,7 +61,7 @@ NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
                                          result:(BNPaymentBlock) result {
     NSURLSessionDataTask *dataTask = [BNPaymentEndpoint authorizePaymentWithParams:paymentParams
                                                                         completion:^(BNPaymentResponse *paymentResponse,
-                                                                                     BNError *error) {
+                                                                                     NSError *error) {
         result(error ? BNPaymentFailure : BNPaymentSuccess);
     }];
 

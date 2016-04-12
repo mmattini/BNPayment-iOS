@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class BNError;
 @class BNUser;
 @class BNAuthenticator;
 
@@ -16,7 +15,7 @@
  *  @param authenticator `BNAuthenticator` representing the response object recieved.
  *  @param error         `BNError` representing an error that occured during the registration operation.
  */
-typedef void (^BNRegistrationBlock)(BNAuthenticator *authenticator, BNError *error);
+typedef void (^BNRegistrationBlock)(BNAuthenticator *authenticator, NSError *error);
 
 @interface BNRegistrationEndpoint : NSObject
 
@@ -28,6 +27,6 @@ typedef void (^BNRegistrationBlock)(BNAuthenticator *authenticator, BNError *err
  *  @param block `BNRegistrationBlock` to be executed when the operation finishes.
  */
 + (NSURLSessionDataTask *)registerWithUser:(BNUser *)user
-                                     block:(BNRegistrationBlock) block;
+                                completion:(BNRegistrationBlock)completion;
 
 @end

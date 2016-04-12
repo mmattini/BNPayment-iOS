@@ -15,15 +15,13 @@
 /**
  *  A block object to be executed when a payment authorization operation has completed.
  *  The block return a `BNPaymentResponse` representing the payment that is authorized.
- *  `BNError` representing the error recieved. error is nil is operation is successful.
+ *  `NSError` representing the error recieved. error is nil is operation is successful.
  *
  *  @param paymentResponse  `BNPaymentResponse` is the response.
- *  @param error            `BNError` error.
+ *  @param error            `NSError` error.
  */
 
-@class BNError;
-
-typedef void (^BNPaymentRequestBlock)(BNPaymentResponse *paymentResponse, BNError *error);
+typedef void (^BNPaymentRequestBlock)(BNPaymentResponse *paymentResponse, NSError *error);
 
 /**
  `BNTransactionEndpoint` is a subclass of `BNBaseEndpoint`

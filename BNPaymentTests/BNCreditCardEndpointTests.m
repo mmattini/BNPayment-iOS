@@ -44,7 +44,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] block:^(NSString *url, BNError *error) {
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
         XCTAssertTrue([url isKindOfClass:[NSString class]], "URL is a string");
         XCTAssertNil(error, "Error is nil");
         [expectation fulfill];
@@ -64,7 +64,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] block:^(NSString *url, BNError *error) {
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
         XCTAssertTrue([url isKindOfClass:[NSString class]], "URL is a string");
         XCTAssertNil(error, "Error is nil");
         [expectation fulfill];
@@ -84,7 +84,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] block:^(NSString *url, BNError *error) {
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
         XCTAssertNil(url, "URL is nil");
         XCTAssertNotNil(error, "Error is not nil");
         [expectation fulfill];
@@ -104,7 +104,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] block:^(NSString *url, BNError *error) {
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
         XCTAssertNil(url, "URL is nil");
         XCTAssertNotNil(error, "Error is not nil");
         [expectation fulfill];

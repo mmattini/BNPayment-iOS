@@ -25,10 +25,10 @@ typedef void (^BNPaymentBlock) (BNPaymentResult result);
 /**
  *  A block object to be executed when a credit card registration operation has completed.
  *  The block return an String containing the url to load in order to register a credit card
- *  `BNError` representing the error recieved. error is nil is operation is successful.
+ *  `NSError` representing the error recieved. error is nil is operation is successful.
  *
  *  @param url `NSString`.
- *  @param error `BNError`.
+ *  @param error `NSError`.
  */
 typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url);
 

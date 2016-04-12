@@ -44,7 +44,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, BNError *error) {
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
         XCTAssertNil(error, "Error is nil");
         XCTAssertTrue([paymentResponse isKindOfClass:[BNPaymentResponse class]], "Payment response is kind of BNPaymentResponse");
         [expectation fulfill];
@@ -64,7 +64,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, BNError *error) {
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
         XCTAssertNil(error, "Error is nil");
         XCTAssertTrue([paymentResponse isKindOfClass:[BNPaymentResponse class]], "Payment response is kind of BNPaymentResponse");
         [expectation fulfill];
@@ -84,7 +84,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, BNError *error) {
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
         XCTAssertNotNil(error, "Error is not nil");
         XCTAssertNil(paymentResponse, "Payment response is nil");
         [expectation fulfill];
@@ -104,7 +104,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, BNError *error) {
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
         XCTAssertNotNil(error, "Error is not nil");
         XCTAssertNil(paymentResponse, "Payment response is nil");
         [expectation fulfill];

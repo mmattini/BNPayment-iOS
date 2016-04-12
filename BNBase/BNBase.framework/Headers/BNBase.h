@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char BNBaseVersionString[];
 #import <BNBase/BNAuthenticator.h>
 #import <BNBase/BNBaseModel.h>
 #import <BNBase/BNCacheManager.h>
-#import <BNBase/BNError.h>
 #import <BNBase/BNHandler.h>
 #import <BNBase/BNHTTPClient.h>
 #import <BNBase/BNHTTPRequestSerializer.h>
