@@ -20,7 +20,7 @@
  *
  *  @param result `BNPaymentResult`.
  */
-typedef void (^BNPaymentBlock) (BNPaymentResult result);
+typedef void (^BNPaymentBlock) (BNPaymentResult result, NSError *error);
 
 /**
  *  A block object to be executed when a credit card registration operation has completed.
@@ -30,7 +30,7 @@ typedef void (^BNPaymentBlock) (BNPaymentResult result);
  *  @param url `NSString`.
  *  @param error `NSError`.
  */
-typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url);
+typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 
 @interface BNPaymentHandler : NSObject
 

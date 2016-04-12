@@ -224,7 +224,7 @@ static float AnimationDuration = 0.2f;
     if (!self.webviewURLDataTask) {
         [self setWebViewLoading:YES];
         self.webviewURLDataTask = [[BNPaymentHandler sharedInstance] initiateCreditCardRegistrationWithParams:self.requestParams
-                                                                                                        completion:^(NSString *url) {
+                                                                                                        completion:^(NSString *url, NSError *error) {
             [self setWebViewLoading:url != nil];
             NSURLRequest *urlRequest = [[NSURLRequest alloc]
                                         initWithURL:[NSURL URLWithString:url]];
