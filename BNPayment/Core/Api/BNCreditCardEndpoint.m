@@ -14,7 +14,7 @@
 @implementation BNCreditCardEndpoint
 
 + (NSURLSessionDataTask *)initiateCreditCardRegistrationForm:(BNCCHostedFormParams *)formParams
-                                                       block:(BNCreditCardUrlBlock) block {
+                                                  completion:(BNCreditCardUrlBlock) block {
     BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
     
     NSString *endPointUrl = @"hpp/";

@@ -56,7 +56,7 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url);
  *  @return `NSURLSessionDataTask`
  */
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams *)params
-                                                             block:(BNCreditCardRegistrationUrlBlock) block;
+                                                        completion:(BNCreditCardRegistrationUrlBlock) block;
 
 /**
  *  Make Payment

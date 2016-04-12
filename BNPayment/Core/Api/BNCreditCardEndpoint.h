@@ -39,6 +39,6 @@ typedef void (^BNCreditCardUrlBlock)(NSString *url, BNError *error);
 *  @return `NSURLSessionDataTask`
 */
 + (NSURLSessionDataTask *)initiateCreditCardRegistrationForm:(BNCCHostedFormParams *)formParams
-                                                       block:(BNCreditCardUrlBlock)block;
+                                                  completion:(BNCreditCardUrlBlock)block;
 
 @end
