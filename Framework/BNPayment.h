@@ -14,6 +14,7 @@ FOUNDATION_EXPORT double BNPaymentVersionNumber;
 //! Project version string for BNPayment.
 FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 
+#import <BNBase/BNBase.h>
 #import <BNPayment/BNCreditCardEndpoint.h>
 #import <BNPayment/BNPaymentEndpoint.h>
 #import <BNPayment/BNEnums.h>
