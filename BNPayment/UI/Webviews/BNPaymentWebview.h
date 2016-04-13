@@ -6,24 +6,35 @@
 //
 //
 
-#import <WebKit/WebKit.h>
+@import WebKit;
 
 @class EPAYHostedFormStateChange;
+@class BNCCHostedFormParams;
+@class BNPaymentWebview;
+@class BNAuthorizedCreditCard;
+
+/**
+ *  `BNPaymentWebviewOperation`
+ */
+typedef enum BNPaymentWebviewOperation : NSUInteger {
+    BNPWVOperationFetchURL,
+    BNPWVOperationLoadURL,
+    BNPWVOperationSubmitCCData
+} BNPaymentWebviewOperation;
 
 @protocol BNPaymentWebviewDelegate <NSObject>
 
-/**
- *  A delegate method for capturing state changes within the webview.
- *
- *  @param webview     `WKWebview` the webview calling the delegate.
- *  @param stateChange `BNCCHostedFormStateChange` the statechange.
- */
-- (void)webiew:(WKWebView *)webview didReceiveStateChange:(EPAYHostedFormStateChange *)stateChange;
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didRegisterAuthorizedCard:(BNAuthorizedCreditCard *)authorizedCard;
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didStartOperation:(BNPaymentWebviewOperation)operation;
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFinishOperation:(BNPaymentWebviewOperation)operation;
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFailOperation:(BNPaymentWebviewOperation)operation withError:(NSError *)error;
 
 @end
 
 @interface BNPaymentWebview : WKWebView
 
 @property (nonatomic, weak) id <BNPaymentWebviewDelegate> delegate;
+
+- (void)loadPaymentWebviewWithParams:(BNCCHostedFormParams *)params;
 
 @end
