@@ -2,7 +2,7 @@
 
 The BNPayment library enables support for credit card registrations and payments in the Bambora Native SDK for iOS.
 
-BNPayment depends on  [BNBaseLibrary](https://github.com/MobilePaymentSolutionsAB/BMPS-iOS-BaseLibrary/) (which is installed by default when using CocoaPods).
+BNPayment depends on  [BNBase](https://github.com/MobilePaymentSolutionsAB/BMPS-iOS-BaseLibrary/) (which is installed by default when using CocoaPods).
 
 ## About the Bambora Native SDK for iOS
 
@@ -22,7 +22,7 @@ In addition to the features themselves, there are multiple good reasons for usin
 
 * The SDK has no third-party dependencies.
 
-The SDK currently consists of two libraries: [BNBaseLibrary](https://github.com/MobilePaymentSolutionsAB/BMPS-iOS-BaseLibrary/) which provides networking functionality and the [BNPayment library](https://github.com/MobilePaymentSolutionsAB/BMPS-iOS-PaymentLibrary) which provides payment functionality.
+The SDK currently consists of two libraries: [BNBase](https://github.com/MobilePaymentSolutionsAB/BMPS-iOS-BaseLibrary/) which provides networking functionality and the [BNPayment](https://github.com/MobilePaymentSolutionsAB/BMPS-iOS-PaymentLibrary) which provides payment functionality.
 
 ## Requirements
 
@@ -81,7 +81,7 @@ The first time the app starts, it needs to register with our backend. When regis
 Start by adding this import statement to your app delegate header (.h) file:
 
 ```objective-c
-#import "BNHandler.h"
+#import <BNBase/BNBase.h>
 ```
 
 ***Option 1: SDK Registration***
@@ -141,8 +141,7 @@ The SDK includes a default view controller for credit card registration: all you
 Here's an example of how to use the hosted form within a navigation controller:
 
 ```objective-c
-#import "BNCCHostedRegistrationFormVC.h"
-#import "BNViewController.h"
+#import <BNPayment/BNPayment.h>
 
 // (...)
 
@@ -183,8 +182,7 @@ You can also affect the design of the credit card registration view by supplying
 Here's how to both specify which CSS file to use and which text to display on the hosted form:
 
 ```objective-c
-#import "BNCCFormInputGroup.h"
-#import "BNCCHostedFormParams.h"
+#import <BNPayment/BNPayment.h>
 
 // (...)
 
@@ -311,8 +309,7 @@ When a credit card is registered in the hosted form, a recurring payment id is s
 Here are some useful ways of working with the authorized credit cards:
 
 ```objective-c
-#import "BNPaymentHandler.h"
-#import "BNAuthorizedCreditCard.h"
+#import <BNPayment/BNPayment.h>
 
 // (...)
 
