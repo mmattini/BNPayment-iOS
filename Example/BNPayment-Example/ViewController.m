@@ -129,7 +129,7 @@
     params.token = card.creditCardToken;
     
     [[BNPaymentHandler sharedInstance] makePaymentWithParams:params
-                                                      result:^(BNPaymentResult result) {
+                                                      result:^(BNPaymentResult result, NSError *error) {
                                                           BOOL success = result == BNPaymentSuccess;
                                                           NSString *title = success ? @"Success" : @"Failure";
                                                           NSString *message = success ?
