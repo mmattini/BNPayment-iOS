@@ -38,12 +38,11 @@ NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
 
 - (void)setupBNPaymentHandler {
     id cachedCards = [[BNCacheManager sharedCache] getObjectWithName:TokenizedCreditCardCacheName];
+    
+    self.tokenizedCreditCards = [NSMutableArray new];
+
     if ([cachedCards isKindOfClass:[NSArray class]]) {
         self.tokenizedCreditCards = [cachedCards mutableCopy];
-    }
-    
-    if (!self.tokenizedCreditCards) {
-        self.tokenizedCreditCards = [NSMutableArray new];
     }
 }
 
