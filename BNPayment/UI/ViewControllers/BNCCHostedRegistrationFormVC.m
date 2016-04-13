@@ -55,6 +55,7 @@ static float AnimationDuration = 0.2f;
     self = [super initWithNibName:@"BNCCHostedRegistrationFormVC" bundle:[BNBundleUtils paymentLibBundle]];
     
     if (self) {
+        self.webviewDelegate = self;
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
         self.requestParams = params;
@@ -75,15 +76,11 @@ static float AnimationDuration = 0.2f;
     [self setupWebview];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     [self.webviewURLDataTask cancel];
     self.webView.scrollView.delegate = nil;
     [self.webView.scrollView removeObserver:self forKeyPath:@"contentSize" context:&kObservingContentSizeChangesContext];
-    
-    if (!_isCardRegistered && self.completionBlock) {
-        self.completionBlock(BNCCRegCompletionCancelled, nil);
-    }
 }
 
 - (void)setupHeaderAndFooterView {
@@ -174,7 +171,7 @@ static float AnimationDuration = 0.2f;
 }
 
 - (void)animateWebviewContentWithContentSize:(CGSize)contentSize {
-    [UIView animateWithDuration:AnimationDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+    [UIView animateWithDuration:0 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         self.webviewHeight.constant = contentSize.height;
         [self.webView setHeight:contentSize.height];
         self.webviewContainerView.clipsToBounds = YES;
@@ -209,7 +206,7 @@ static float AnimationDuration = 0.2f;
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     self.webView.scrollView.scrollEnabled = NO;
     self.webView.scrollView.clipsToBounds = NO;
-    
+    self.webView.delegate = self.webviewDelegate;
     [self.webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
     [self addBNWebview];
 }
@@ -217,20 +214,8 @@ static float AnimationDuration = 0.2f;
 - (void)addBNWebview {
     [self.webviewContainerView addSubview:self.webView];
     [self.webviewContainerView bringSubviewToFront:self.activityIndicator];
-    [self loadWebview];
-}
-
-- (void)loadWebview {
-    if (!self.webviewURLDataTask) {
-        [self setWebViewLoading:YES];
-        self.webviewURLDataTask = [[BNPaymentHandler sharedInstance] initiateCreditCardRegistrationWithParams:self.requestParams
-                                                                                                        completion:^(NSString *url, NSError *error) {
-            [self setWebViewLoading:url != nil];
-            NSURLRequest *urlRequest = [[NSURLRequest alloc]
-                                        initWithURL:[NSURL URLWithString:url]];
-            [self.webView loadRequest:urlRequest];
-        }];
-    }
+    [self setWebViewLoading:YES];
+    [self.webView loadPaymentWebviewWithParams:self.requestParams];
 }
 
 - (void)setWebViewLoading:(BOOL)isLoading {
@@ -248,48 +233,20 @@ static float AnimationDuration = 0.2f;
 
 #pragma mark - BNPaymentWebviewDelegate methods
 
-- (void)webiew:(WKWebView *)webview didReceiveStateChange:(EPAYHostedFormStateChange *)stateChange {
-    NSInteger statusCode = [stateChange status];
-    
-    BOOL shouldStartLoading = statusCode == EPAYSubmissionStarted;
-    [self setWebViewLoading:shouldStartLoading];
-    
-    switch (statusCode) {
-        case EPAYSuccess:
-            [self handleSuccessfullCardRegistration:[stateChange generateAuthorizedCard]];
-            break;
-        default: // Do nothing here
-            break;
-    }
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didRegisterAuthorizedCard:(BNAuthorizedCreditCard *)authorizedCard {
+    [self setWebViewLoading:self.webView.isLoading];
 }
 
-- (void)handleSuccessfullCardRegistration:(BNAuthorizedCreditCard *)authorizedCard {
-    if (authorizedCard) {
-        [[BNPaymentHandler sharedInstance] saveAuthorizedCreditCard:authorizedCard];
-        _isCardRegistered = YES;
-    }
-    
-    if (self.completionBlock) {
-        self.completionBlock(BNCCRegCompletionDone, authorizedCard);
-    }
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didStartOperation:(BNPaymentWebviewOperation)operation {
+    [self setWebViewLoading:self.webView.isLoading];
 }
 
-#pragma mark - WKNavigationDelegate methods
-
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
-    [self setWebViewLoading:YES];
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFinishOperation:(BNPaymentWebviewOperation)operation {
+    [self setWebViewLoading:self.webView.isLoading];
 }
 
-- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    [self setWebViewLoading:NO];
-}
-
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    [self setWebViewLoading:NO];
-}
-
-- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
-    [self setWebViewLoading:NO];
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFailOperation:(BNPaymentWebviewOperation)operation withError:(NSError *)error {
+    [self setWebViewLoading:self.webView.isLoading];
 }
 
 @end

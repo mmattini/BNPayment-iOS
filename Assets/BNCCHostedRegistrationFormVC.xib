@@ -27,6 +27,9 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPY-I9-yz9">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eyX-8w-xJq">
+                            <rect key="frame" x="290" y="290" width="20" height="20"/>
+                        </activityIndicatorView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-GN-fNh">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -36,14 +39,7 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxf-MY-Q0p">
                             <rect key="frame" x="0.0" y="50" width="600" height="50"/>
-                            <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eyX-8w-xJq">
-                                    <rect key="frame" x="290" y="15" width="20" height="20"/>
-                                </activityIndicatorView>
-                            </subviews>
                             <constraints>
-                                <constraint firstItem="eyX-8w-xJq" firstAttribute="centerX" secondItem="Oxf-MY-Q0p" secondAttribute="centerX" id="KGg-6A-usr"/>
-                                <constraint firstItem="eyX-8w-xJq" firstAttribute="centerY" secondItem="Oxf-MY-Q0p" secondAttribute="centerY" id="ldi-T2-QUi"/>
                                 <constraint firstAttribute="height" constant="50" id="ubC-cf-OSs"/>
                             </constraints>
                         </view>
@@ -62,9 +58,11 @@
                         <constraint firstAttribute="trailing" secondItem="Ppx-GN-fNh" secondAttribute="trailing" id="Fx3-6a-42K"/>
                         <constraint firstItem="ujS-PQ-hFT" firstAttribute="width" secondItem="GPY-I9-yz9" secondAttribute="width" id="KyO-3b-U4s"/>
                         <constraint firstItem="ujS-PQ-hFT" firstAttribute="top" secondItem="Oxf-MY-Q0p" secondAttribute="bottom" id="X2L-FY-IZF"/>
+                        <constraint firstItem="eyX-8w-xJq" firstAttribute="centerX" secondItem="GPY-I9-yz9" secondAttribute="centerX" id="aSD-Ow-gLg"/>
                         <constraint firstItem="Ppx-GN-fNh" firstAttribute="width" secondItem="GPY-I9-yz9" secondAttribute="width" id="dXS-lf-nGd"/>
                         <constraint firstItem="Ppx-GN-fNh" firstAttribute="leading" secondItem="GPY-I9-yz9" secondAttribute="leading" id="ec3-sr-F0N"/>
                         <constraint firstItem="Ppx-GN-fNh" firstAttribute="leading" secondItem="Oxf-MY-Q0p" secondAttribute="leading" id="hCA-3L-1B8"/>
+                        <constraint firstItem="eyX-8w-xJq" firstAttribute="centerY" secondItem="GPY-I9-yz9" secondAttribute="centerY" id="kS7-uE-siQ"/>
                         <constraint firstItem="Ppx-GN-fNh" firstAttribute="leading" secondItem="ujS-PQ-hFT" secondAttribute="leading" id="l4I-pp-nrI"/>
                         <constraint firstItem="Ppx-GN-fNh" firstAttribute="top" secondItem="GPY-I9-yz9" secondAttribute="top" id="mQI-KZ-f3S"/>
                     </constraints>
