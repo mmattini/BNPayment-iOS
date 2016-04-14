@@ -17,13 +17,6 @@
 @class BNCCHostedRegistrationFormVC;
 
 /**
- *  A block indicating whether or not the `BNCCRegistrationFormVC` is done
- *
- *  @param success The status of the operation
- */
-typedef void(^BNCCRegistrationFormCompletion)(BNCCRegCompletion completion, BNAuthorizedCreditCard *card);
-
-/**
  *  `BNCCHostedRegistrationFormVC` is a view controller that displays a webview containing a credit card registration form.
  */
 @interface BNCCHostedRegistrationFormVC : BNPaymentBaseVC
