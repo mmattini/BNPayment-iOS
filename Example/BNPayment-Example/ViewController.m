@@ -9,11 +9,13 @@
 #import "ViewController.h"
 #import <BNPayment/BNPayment.h>
 
-@interface ViewController ()
+@interface ViewController () <BNPaymentWebviewDelegate>
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    BNCCHostedRegistrationFormVC *ccHostedRegistrationVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,16 +37,9 @@
 }
 
 -(IBAction)registerCreditCardHostedForm:(id)sender {
-    
-    __weak ViewController *weakSelf = self;
-    
-    BNCCHostedRegistrationFormVC *ccRegistrationVC = [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:[BNCCHostedFormParams mockObject]];
-    ccRegistrationVC.completionBlock = ^(BNCCRegCompletion completion, BNAuthorizedCreditCard *card){
-        [weakSelf.navigationController popViewControllerAnimated:YES];
-        [weakSelf displaAliasAlertWithAuthorizedCard:card];
-    };
-    
-    [self.navigationController pushViewController:ccRegistrationVC animated:YES];
+    ccHostedRegistrationVC = [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:[BNCCHostedFormParams mockObject]];
+    ccHostedRegistrationVC.webviewDelegate = self;
+    [self.navigationController pushViewController:ccHostedRegistrationVC animated:YES];
 }
 
 -(IBAction)unregisterCreditCard:(id)sender {
@@ -136,7 +131,8 @@
                                                           [NSString stringWithFormat:@"The payment succeeded."]:
                                                           [NSString stringWithFormat:@"The payment did not succeed."];
                                                           
-                                                          UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
+                                                          UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                                                                                  style:UIAlertActionStyleDefault
                                                                                                                 handler:nil];
                                                           
                                                           [self displayAlertControllerWithStyle:UIAlertControllerStyleAlert
@@ -191,6 +187,34 @@
     
     dispatch_async(dispatch_get_main_queue(), ^(){
         [self presentViewController:alert animated:YES completion:nil];
+    });
+}
+
+#pragma mark - BNPaymentWebviewDelegate methods
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didRegisterAuthorizedCard:(BNAuthorizedCreditCard *)authorizedCard {
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [self.navigationController popViewControllerAnimated:YES];
+        [self displaAliasAlertWithAuthorizedCard:authorizedCard];
+    });
+}
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didStartOperation:(BNPaymentWebviewOperation)operation {
+}
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFinishOperation:(BNPaymentWebviewOperation)operation {
+}
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFailOperation:(BNPaymentWebviewOperation)operation withError:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+
+    UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil];
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [self displayAlertControllerWithStyle:UIAlertControllerStyleAlert title:@"Error" message:@"Error" action:@[confirmAction]];
     });
 }
 

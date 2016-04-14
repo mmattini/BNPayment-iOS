@@ -12,7 +12,7 @@
 @class BNAuthorizedCreditCard;
 
 static NSInteger const EPAYSubmissionStarted = 100;     // Ajax request started
-static NSInteger const EPAYSuccess = 200;               // Ajax request successfully completed
+static NSInteger const EPAYSuccess = 200;               // Ajax request successfully completed and card is registered, call generateAuthorizedCard in ordet to retrieve the card.
 static NSInteger const EPAYSubmissionDeclined = 300;    // Ajax request failed
 static NSInteger const EPAYSystemError = 1000;          // System error
 static NSInteger const EPAYUnknown = 9999;              // Unknown

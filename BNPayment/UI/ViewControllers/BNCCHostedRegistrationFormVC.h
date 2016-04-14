@@ -8,25 +8,23 @@
 
 #import "BNEnums.h"
 #import "BNPaymentBaseVC.h"
+#import "BNPaymentWebview.h"
 
 @import WebKit;
 
 @class BNCCHostedFormParams;
 @class BNAuthorizedCreditCard;
-
-/**
- *  A block indicating whether or not the `BNCCRegistrationFormVC` is done
- *
- *  @param success The status of the operation
- */
-typedef void(^BNCCRegistrationFormCompletion)(BNCCRegCompletion completion, BNAuthorizedCreditCard *card);
+@class BNCCHostedRegistrationFormVC;
 
 /**
  *  `BNCCHostedRegistrationFormVC` is a view controller that displays a webview containing a credit card registration form.
  */
 @interface BNCCHostedRegistrationFormVC : BNPaymentBaseVC
 
-@property (nonatomic, copy) BNCCRegistrationFormCompletion completionBlock;
+/**
+ *  BNPaymentWebviewDelegate delegate.
+ */
+@property(nonatomic, weak) id <BNPaymentWebviewDelegate> webviewDelegate;
 
 /**
  *  An init method where you provide the params for the hosted form
