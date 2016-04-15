@@ -49,4 +49,11 @@
  */
 - (void)addFooterView:(UIView *)footerView;
 
+/**
+ *  This method is used for setting the loading state of the view controller.
+ *
+ *  @param isLoading `BOOL` for loading state.
+ */
+- (void)setWebViewLoading:(BOOL)isLoading;
+
 @end
