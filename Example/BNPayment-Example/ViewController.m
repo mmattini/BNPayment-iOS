@@ -49,7 +49,7 @@
 -(IBAction)unregisterCreditCard:(id)sender {
     NSArray *authorizedCards = [[BNPaymentHandler sharedInstance] authorizedCards];
     
-    if(authorizedCards.count > 0) {
+    if (authorizedCards.count > 0) {
         
         NSMutableArray *actions = [[NSMutableArray alloc] initWithCapacity:authorizedCards.count+1];
         
@@ -75,7 +75,7 @@
                                       message:nil
                                        action:actions];
         
-    }else {
+    } else {
         UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:nil];
         [self displayAlertControllerWithStyle:UIAlertControllerStyleAlert
@@ -113,7 +113,7 @@
                                       message:nil
                                        action:actions];
         
-    }else {
+    } else {
         UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
                                                               handler:nil];
         [self displayAlertControllerWithStyle:UIAlertControllerStyleAlert
@@ -163,7 +163,7 @@
         }
     }];
     
-    if(card) {
+    if (card) {
         [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             textField.placeholder = @"Name";
         }];
@@ -185,7 +185,7 @@
                                                                    message:message
                                                             preferredStyle:style];
 
-    for(UIAlertAction *action in actions) {
+    for (UIAlertAction *action in actions) {
         [alert addAction:action];
     }
     
@@ -217,7 +217,7 @@
 
 - (void)BNPaymentWebview:(BNPaymentWebview *)webview didFailOperation:(BNPaymentWebviewOperation)operation withError:(NSError *)error {
     
-    if(error.code == EPAYSubmissionDeclined) {
+    if (error.code == EPAYSubmissionDeclined) {
         [ccHostedRegistrationVC setWebViewLoading:NO];
         return;
     }

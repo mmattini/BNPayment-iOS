@@ -7,12 +7,12 @@ Pod::Spec.new do |spec|
   spec.license          = 'MIT'
   spec.author           = { "Bambora On Mobile AB" => "sdk@bambora.com" }
   spec.source           = {
-                          :git => "git@github.com:MobilePaymentSolutionsAB/BMPS-iOS-PaymentLibrary.git",
+                          :git => "https://github.com/bambora/BNPayment-iOS-internal",
                           :tag => build_tag.to_s
                           }
   spec.platform         = :ios, '8.0'
   spec.requires_arc     = true
   spec.source_files     = 'Pod/Classes/**/*'
   spec.resource_bundles = { 'BNPayment' => ['Pod/Assets/**/*.{png,bundle,xib,nib}'] }
-  spec.dependency 'BNBaseLibrary'
+  spec.dependency 'BNBase'
 end
