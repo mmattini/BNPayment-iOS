@@ -37,8 +37,12 @@
 }
 
 -(IBAction)registerCreditCardHostedForm:(id)sender {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    
     ccHostedRegistrationVC = [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:[BNCCHostedFormParams mockObject]];
     ccHostedRegistrationVC.webviewDelegate = self;
+    [ccHostedRegistrationVC addHeaderView:headerView];
+    
     [self.navigationController pushViewController:ccHostedRegistrationVC animated:YES];
 }
 
@@ -200,22 +204,33 @@
 }
 
 - (void)BNPaymentWebview:(BNPaymentWebview *)webview didStartOperation:(BNPaymentWebviewOperation)operation {
+    if(operation == BNPWVOperationSubmitCCData) {
+        [ccHostedRegistrationVC setWebViewLoading:YES];
+    }
 }
 
 - (void)BNPaymentWebview:(BNPaymentWebview *)webview didFinishOperation:(BNPaymentWebviewOperation)operation {
+    if(operation == BNPWVOperationSubmitCCData) {
+        [ccHostedRegistrationVC setWebViewLoading:NO];
+    }
 }
 
 - (void)BNPaymentWebview:(BNPaymentWebview *)webview didFailOperation:(BNPaymentWebviewOperation)operation withError:(NSError *)error {
-    dispatch_async(dispatch_get_main_queue(), ^(){
-        [self.navigationController popViewControllerAnimated:YES];
-    });
-
+    
+    if(error.code == EPAYSubmissionDeclined) {
+        [ccHostedRegistrationVC setWebViewLoading:NO];
+        return;
+    }
+    
     UIAlertAction* confirmAction = [UIAlertAction actionWithTitle:@"Ok"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:nil];
-    dispatch_async(dispatch_get_main_queue(), ^(){
-        [self displayAlertControllerWithStyle:UIAlertControllerStyleAlert title:@"Error" message:@"Error" action:@[confirmAction]];
-    });
+                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                                dispatch_async(dispatch_get_main_queue(), ^(){
+                                                                    [ccHostedRegistrationVC setWebViewLoading:NO];
+                                                                    [self.navigationController popViewControllerAnimated:YES];
+                                                                });
+                                                            }];
+
+    [self displayAlertControllerWithStyle:UIAlertControllerStyleAlert title:@"Error" message:@"Error" action:@[confirmAction]];
 }
 
 @end
