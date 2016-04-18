@@ -38,7 +38,6 @@
 + (SecKeyRef)getPrivateKeyRefForFile:(NSString *)filename
                               bundle:(NSBundle *)bundle
                         withPassword:(NSString *)password {
-    
     SecKeyRef privateKeyRef = nil;
 
     NSString *certPath = [bundle pathForResource:filename ofType:@"p12"];

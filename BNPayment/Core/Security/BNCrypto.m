@@ -18,13 +18,12 @@
     return [NSData dataWithBytes:randomBytes length:sizeof(randomBytes)];
 }
 
-+ (NSData *)AES256WithData:(NSData *)data
-                       key:(NSData *)symmetricKey
-                 operation:(BNCryptoMode)operation
-                     error:(NSError **)error {
-    
-    CCCryptorStatus ccStatus = kCCSuccess;
-    size_t cryptBytes = 0;
++ (NSData *)AES256Data:(NSData *)data
+                   key:(NSData *)symmetricKey
+             operation:(BNCryptoMode)operation
+                 error:(NSError **)error {
+    CCCryptorStatus ccStatus;
+    size_t cryptBytes;
     
     NSMutableData *dataOut = [NSMutableData dataWithLength:data.length + kCCBlockSizeAES128];
     
@@ -52,19 +51,20 @@
     return dataOut;
 }
 
-+ (NSData *)RSAEncryptWithData:(NSData *)data
++ (NSData *)RSAEncryptData:(NSData *)data
                      key:(SecKeyRef)key {
     OSStatus status = noErr;
 
-    size_t dataSize = [data length];
+    size_t plainDataSize = [data length];
+    uint8_t *plainData = (uint8_t *)[data bytes];
+
     size_t cipherBufferSize = SecKeyGetBlockSize(key);
     uint8_t *cipherBuffer = malloc(cipherBufferSize);
 
-    
     status = SecKeyEncrypt(key,
                            kSecPaddingPKCS1,
-                           data.bytes,
-                           dataSize,
+                           plainData,
+                           plainDataSize,
                            cipherBuffer,
                            &cipherBufferSize);
     
@@ -79,7 +79,7 @@
     return encryptedData;
 }
 
-+ (NSData *)RSADecryptWithData:(NSData *)data
++ (NSData *)RSADecryptData:(NSData *)data
                     key:(SecKeyRef)key {
     OSStatus status = noErr;
     
@@ -96,7 +96,6 @@
                            cipherBufferSize,
                            plainBuffer,
                            &plainBufferSize);
-    
     
     if(status != noErr) {
         free(plainBuffer);

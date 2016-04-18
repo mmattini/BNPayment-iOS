@@ -26,14 +26,17 @@
 
 - (void)testRSAEncryptionDecryption {
     NSString *stringToEncrypt = @"String to encrypt/decrypt";
+    NSData *dataToEncrypt = [stringToEncrypt dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSData *encryptedData = [BNCrypto RSAEncryptWithData:[stringToEncrypt dataUsingEncoding:NSUTF8StringEncoding] key:publicKey];
+    NSData *encryptedData = [BNCrypto RSAEncryptData:dataToEncrypt
+                                                 key:publicKey];
     XCTAssertNotNil(encryptedData, "Encrypted data is not nil");
     
-    NSData *decryptedData = [BNCrypto RSADecryptWithData:encryptedData key:privateKey];
+    NSData *decryptedData = [BNCrypto RSADecryptData:encryptedData
+                                                 key:privateKey];
     NSString *decryptedString = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
     
-    XCTAssertNotNil(decryptedString);
+    XCTAssertNotNil(decryptedString, "Decrypted string is not nil");
     XCTAssertEqualObjects(stringToEncrypt, decryptedString, "Inital string and decrypted string is equal");
 }
 

@@ -14,7 +14,7 @@
 
 - (NSString *)AES256EncryptWithKey:(NSData *)key {
     NSError *error;
-    NSData *encryptedData = [BNCrypto AES256WithData:[self dataUsingEncoding:NSUTF8StringEncoding]
+    NSData *encryptedData = [BNCrypto AES256Data:[self dataUsingEncoding:NSUTF8StringEncoding]
                                                  key:key
                                            operation:BNCryptoModeEncrypt
                                                error:&error];
@@ -29,7 +29,7 @@
 - (NSString *)AES256DecryptWithKey:(NSData *)key {
     NSError *error;
 
-    NSData *encryptedData = [BNCrypto AES256WithData:[[NSData alloc] initWithBase64EncodedString:self options:0]
+    NSData *encryptedData = [BNCrypto AES256Data:[[NSData alloc] initWithBase64EncodedString:self options:0]
                                                  key:key
                                            operation:BNCryptoModeDecrypt
                                                error:&error];

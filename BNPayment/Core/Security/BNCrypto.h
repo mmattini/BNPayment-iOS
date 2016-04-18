@@ -17,15 +17,15 @@ typedef enum BNCryptoMode : NSUInteger {
 
 + (NSData *)generateRandomKey:(NSInteger)keyLength;
 
-+ (NSData *)AES256WithData:(NSData *)data
++ (NSData *)AES256Data:(NSData *)data
                        key:(NSData *)symmetricKey
                  operation:(BNCryptoMode)operation
                      error:(NSError **)error;
 
-+ (NSData *)RSAEncryptWithData:(NSData *)data
-                     key:(SecKeyRef)key;
++ (NSData *)RSAEncryptData:(NSData *)data
+                       key:(SecKeyRef)key;
 
-+ (NSData *)RSADecryptWithData:(NSData *)data
-                    key:(SecKeyRef)key;
++ (NSData *)RSADecryptData:(NSData *)data
+                       key:(SecKeyRef)key;
 
 @end
