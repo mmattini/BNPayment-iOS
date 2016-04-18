@@ -41,9 +41,9 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
     CFRelease(publicKey);
     CFRelease(privateKey);
+    [super tearDown];
 }
 
 @end

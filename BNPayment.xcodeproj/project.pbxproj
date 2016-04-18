@@ -111,6 +111,7 @@
 		5DC25F1D1CC4F74A00C4573F /* BNKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F1B1CC4F74A00C4573F /* BNKeyManager.m */; };
 		5DC25F201CC5015900C4573F /* iosTestCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F1E1CC5015900C4573F /* iosTestCert.cer */; };
 		5DC25F211CC5015900C4573F /* iOSTestPrivKey.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */; };
+		5DC25F251CC5264700C4573F /* BNKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,7 @@
 		5DC25F1B1CC4F74A00C4573F /* BNKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyManager.m; sourceTree = "<group>"; };
 		5DC25F1E1CC5015900C4573F /* iosTestCert.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = iosTestCert.cer; sourceTree = "<group>"; };
 		5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOSTestPrivKey.p12; sourceTree = "<group>"; };
+		5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +416,7 @@
 				5D8007401CBCCC9500E29149 /* BNCreditCardEndpointTests.m */,
 				5D8007411CBCCC9500E29149 /* BNPaymentEndpointTests.m */,
 				5D8007421CBCCC9500E29149 /* BNPaymentHandlerTests.m */,
+				5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */,
 				5D8007481CBCCD3400E29149 /* OHHTTPStubs */,
 				5D80075C1CBCCD3400E29149 /* TestAssets */,
 				5D80075D1CBCCD3400E29149 /* TestResponses */,
@@ -851,6 +854,7 @@
 				5D8007451CBCCC9500E29149 /* BNPaymentHandlerTests.m in Sources */,
 				5D8007431CBCCC9500E29149 /* BNCreditCardEndpointTests.m in Sources */,
 				5D8007671CBCCD3400E29149 /* OHHTTPStubsResponse.m in Sources */,
+				5DC25F251CC5264700C4573F /* BNKeyManagerTests.m in Sources */,
 				5DC25F161CC4D8A300C4573F /* BNCryptoTests.m in Sources */,
 				5D8007651CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */,
 				5D8007441CBCCC9500E29149 /* BNPaymentEndpointTests.m in Sources */,

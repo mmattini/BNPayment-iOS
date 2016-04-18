@@ -52,13 +52,13 @@
     CFArrayRef items = CFArrayCreate(nil, 0, 0, nil);
     
     OSStatus securityError = SecPKCS12Import((CFDataRef) certData,
-                                             (CFDictionaryRef)options, &items);
+                                             (CFDictionaryRef)options,
+                                             &items);
     
     if (securityError == noErr && CFArrayGetCount(items) > 0) {
         CFDictionaryRef identityDict = CFArrayGetValueAtIndex(items, 0);
-        SecIdentityRef identityApp =
-        (SecIdentityRef)CFDictionaryGetValue(identityDict,
-                                             kSecImportItemIdentity);
+        SecIdentityRef identityApp = (SecIdentityRef)CFDictionaryGetValue(identityDict,
+                                                                          kSecImportItemIdentity);
         
         securityError = SecIdentityCopyPrivateKey(identityApp, &privateKeyRef);
         if (securityError != noErr) {

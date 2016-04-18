@@ -119,8 +119,8 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
     [OHHTTPStubs removeAllStubs];
+    [super tearDown];
 }
 
 @end

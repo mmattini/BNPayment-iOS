@@ -94,11 +94,10 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
-    
     [handler removeAuthorizedCreditCard:firstCard];
     [handler removeAuthorizedCreditCard:secondCard];
     [handler removeAuthorizedCreditCard:thirdCard];
+    [super tearDown];
 }
 
 @end
