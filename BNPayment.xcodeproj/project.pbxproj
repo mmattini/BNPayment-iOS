@@ -100,6 +100,10 @@
 		5DAABFE41CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA61CB69D4C00CEDB91 /* BNHostedRegistrationFormFooter.m */; };
 		5DAABFE51CB69D4C00CEDB91 /* BNPaymentWebview.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABFA81CB69D4C00CEDB91 /* BNPaymentWebview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DAABFE61CB69D4C00CEDB91 /* BNPaymentWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABFA91CB69D4C00CEDB91 /* BNPaymentWebview.m */; };
+		5DC25F101CC4D83800C4573F /* BNCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F0C1CC4D83800C4573F /* BNCrypto.h */; };
+		5DC25F111CC4D83800C4573F /* BNCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F0D1CC4D83800C4573F /* BNCrypto.m */; };
+		5DC25F121CC4D83800C4573F /* NSString+BNCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F0E1CC4D83800C4573F /* NSString+BNCrypto.h */; };
+		5DC25F131CC4D83800C4573F /* NSString+BNCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +232,10 @@
 		5DAABFA81CB69D4C00CEDB91 /* BNPaymentWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentWebview.h; sourceTree = "<group>"; };
 		5DAABFA91CB69D4C00CEDB91 /* BNPaymentWebview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentWebview.m; sourceTree = "<group>"; };
 		5DAABFE81CB69FE800CEDB91 /* BNBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BNBase.framework; sourceTree = "<group>"; };
+		5DC25F0C1CC4D83800C4573F /* BNCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCrypto.h; sourceTree = "<group>"; };
+		5DC25F0D1CC4D83800C4573F /* BNCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCrypto.m; sourceTree = "<group>"; };
+		5DC25F0E1CC4D83800C4573F /* NSString+BNCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BNCrypto.h"; sourceTree = "<group>"; };
+		5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BNCrypto.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +420,7 @@
 				5DAABF651CB69D4C00CEDB91 /* BNPaymentHandler.h */,
 				5DAABF661CB69D4C00CEDB91 /* BNPaymentHandler.m */,
 				5DAABF671CB69D4C00CEDB91 /* Models */,
+				5DC25F0B1CC4D83800C4573F /* Security */,
 				5DAABF7D1CB69D4C00CEDB91 /* Utils */,
 			);
 			path = Core;
@@ -583,6 +592,17 @@
 			path = BNBase;
 			sourceTree = "<group>";
 		};
+		5DC25F0B1CC4D83800C4573F /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				5DC25F0C1CC4D83800C4573F /* BNCrypto.h */,
+				5DC25F0D1CC4D83800C4573F /* BNCrypto.m */,
+				5DC25F0E1CC4D83800C4573F /* NSString+BNCrypto.h */,
+				5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -606,7 +626,9 @@
 				5DAABFAA1CB69D4C00CEDB91 /* BNCreditCardEndpoint.h in Headers */,
 				5DAABFB31CB69D4C00CEDB91 /* BNCCFormInputGroup.h in Headers */,
 				5DAABFD31CB69D4C00CEDB91 /* BNPaymentBaseVC.h in Headers */,
+				5DC25F121CC4D83800C4573F /* NSString+BNCrypto.h in Headers */,
 				5DAABFAC1CB69D4C00CEDB91 /* BNPaymentEndpoint.h in Headers */,
+				5DC25F101CC4D83800C4573F /* BNCrypto.h in Headers */,
 				5DAABFD71CB69D4C00CEDB91 /* BNFormInputModel.h in Headers */,
 				5DAABFBB1CB69D4C00CEDB91 /* BNPaymentResponse.h in Headers */,
 				5DAABFBD1CB69D4C00CEDB91 /* EPAYAction.h in Headers */,
@@ -771,9 +793,11 @@
 				5DAABFD21CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m in Sources */,
 				5DAABFB81CB69D4C00CEDB91 /* BNCreditCard.m in Sources */,
 				5DAABFCE1CB69D4C00CEDB91 /* BNFormScrollView.m in Sources */,
+				5DC25F131CC4D83800C4573F /* NSString+BNCrypto.m in Sources */,
 				5DAABFC41CB69D4C00CEDB91 /* EPAYMetaResponse.m in Sources */,
 				5DAABFC21CB69D4C00CEDB91 /* EPAYMessage.m in Sources */,
 				5DAABFE61CB69D4C00CEDB91 /* BNPaymentWebview.m in Sources */,
+				5DC25F111CC4D83800C4573F /* BNCrypto.m in Sources */,
 				5DAABFAD1CB69D4C00CEDB91 /* BNPaymentEndpoint.m in Sources */,
 				5DAABFC01CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m in Sources */,
 				5DAABFBC1CB69D4C00CEDB91 /* BNPaymentResponse.m in Sources */,
