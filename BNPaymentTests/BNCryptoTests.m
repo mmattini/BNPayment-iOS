@@ -67,3 +67,22 @@ describe(@"BPSCrypto", ^{
 
 SpecEnd
 */
+
+@interface BNCryptoTests : XCTestCase
+
+@end
+
+@implementation BNCryptoTests {
+
+}
+
+- (void)setUp {
+    [super setUp];
+}
+
+
+- (void)tearDown {
+    [super tearDown];
+}
+
+@end

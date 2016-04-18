@@ -7,6 +7,7 @@
 //
 
 #import "BNCrypto.h"
+#import <CommonCrypto/CommonCryptor.h>
 
 @implementation BNCrypto
 
@@ -19,7 +20,7 @@
 
 + (NSData *)AES256WithData:(NSData *)data
                        key:(NSData *)symmetricKey
-                 operation:(CCOperation)operation
+                 operation:(BNCryptoMode)operation
                      error:(NSError **)error {
     
     CCCryptorStatus ccStatus = kCCSuccess;

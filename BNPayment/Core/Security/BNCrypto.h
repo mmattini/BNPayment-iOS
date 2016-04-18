@@ -5,8 +5,13 @@
 //  Created by Oskar Henriksson on 17/03/2016.
 //
 //
-#import <CommonCrypto/CommonCryptor.h>
-#import <Foundation/Foundation.h>
+
+@import Foundation;
+
+typedef enum BNCryptoMode : NSUInteger {
+    BNCryptoModeEncrypt = 0,
+    BNCryptoModeDecrypt
+} BNCryptoMode;
 
 @interface BNCrypto : NSObject
 
@@ -14,7 +19,7 @@
 
 + (NSData *)AES256WithData:(NSData *)data
                        key:(NSData *)symmetricKey
-                 operation:(CCOperation)operation
+                 operation:(BNCryptoMode)operation
                      error:(NSError **)error;
 
 + (NSData *)RSAEncryptWithData:(NSData *)data

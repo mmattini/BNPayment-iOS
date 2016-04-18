@@ -8,12 +8,16 @@
 
 #import "NSString+BNCrypto.h"
 #import "BNCrypto.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 @implementation NSString (BPSCrypto)
 
 - (NSString *)AES256EncryptWithKey:(NSData *)key {
     NSError *error;
-    NSData *encryptedData = [BNCrypto AES256WithData:[self dataUsingEncoding:NSUTF8StringEncoding] key:key operation:kCCEncrypt error:&error];
+    NSData *encryptedData = [BNCrypto AES256WithData:[self dataUsingEncoding:NSUTF8StringEncoding]
+                                                 key:key
+                                           operation:BNCryptoModeEncrypt
+                                               error:&error];
     
     if(!error) {
         return [encryptedData base64EncodedStringWithOptions:0];
@@ -25,10 +29,14 @@
 - (NSString *)AES256DecryptWithKey:(NSData *)key {
     NSError *error;
 
-    NSData *encryptedData = [BNCrypto AES256WithData:[[NSData alloc] initWithBase64EncodedString:self options:0] key:key operation:kCCDecrypt error:&error];
+    NSData *encryptedData = [BNCrypto AES256WithData:[[NSData alloc] initWithBase64EncodedString:self options:0]
+                                                 key:key
+                                           operation:BNCryptoModeDecrypt
+                                               error:&error];
     
     if(!error) {
-        return [[NSString alloc] initWithData:encryptedData encoding:NSUTF8StringEncoding];
+        return [[NSString alloc] initWithData:encryptedData
+                                     encoding:NSUTF8StringEncoding];
     }
     
     return nil;
