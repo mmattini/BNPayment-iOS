@@ -23,9 +23,9 @@ typedef enum BNCryptoMode : NSUInteger {
                      error:(NSError **)error;
 
 + (NSData *)RSAEncryptWithData:(NSData *)data
-                     publicKey:(SecKeyRef)publicKey;
+                     key:(SecKeyRef)key;
 
 + (NSData *)RSADecryptWithData:(NSData *)data
-                    privateKey:(SecKeyRef)privateKey;
+                    key:(SecKeyRef)key;
 
 @end

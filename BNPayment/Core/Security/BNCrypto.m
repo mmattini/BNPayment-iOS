@@ -53,47 +53,60 @@
 }
 
 + (NSData *)RSAEncryptWithData:(NSData *)data
-                     publicKey:(SecKeyRef)publicKey {
+                     key:(SecKeyRef)key {
     OSStatus status = noErr;
 
-    size_t dataSize = sizeof(data);
-    size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
+    size_t dataSize = [data length];
+    size_t cipherBufferSize = SecKeyGetBlockSize(key);
     uint8_t *cipherBuffer = malloc(cipherBufferSize);
+
     
-    status = SecKeyEncrypt(publicKey,
+    status = SecKeyEncrypt(key,
                            kSecPaddingPKCS1,
                            data.bytes,
                            dataSize,
                            cipherBuffer,
                            &cipherBufferSize);
     
-    NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:dataSize];
+    if(status != noErr) {
+        free(cipherBuffer);
+        return nil;
+    }
+    
+    NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
     free(cipherBuffer);
 
     return encryptedData;
 }
 
 + (NSData *)RSADecryptWithData:(NSData *)data
-                    privateKey:(SecKeyRef)privateKey {
+                    key:(SecKeyRef)key {
     OSStatus status = noErr;
     
-    size_t cipherBufferSize = [data length];
+    size_t cipherBufferSize = SecKeyGetBlockSize(key);
     uint8_t *cipherBuffer = (uint8_t *)[data bytes];
     
-    size_t plainBufferSize = SecKeyGetBlockSize(privateKey);
+    size_t plainBufferSize = SecKeyGetBlockSize(key);
     uint8_t *plainBuffer = malloc(plainBufferSize);
 
     //  Error handling
-    status = SecKeyDecrypt(privateKey,
+    status = SecKeyDecrypt(key,
                            kSecPaddingPKCS1,
                            cipherBuffer,
                            cipherBufferSize,
                            plainBuffer,
                            &plainBufferSize);
     
-    NSData *encryptedData = [NSData dataWithBytes:plainBuffer length:plainBufferSize];
+    
+    if(status != noErr) {
+        free(plainBuffer);
+        return nil;
+    }
+    
+    NSData *decryptedData = [NSData dataWithBytes:plainBuffer length:plainBufferSize];
+    free(plainBuffer);
 
-    return encryptedData;
+    return decryptedData;
 }
 
 @end
