@@ -104,6 +104,8 @@
 		5DC25F111CC4D83800C4573F /* BNCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F0D1CC4D83800C4573F /* BNCrypto.m */; };
 		5DC25F121CC4D83800C4573F /* NSString+BNCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F0E1CC4D83800C4573F /* NSString+BNCrypto.h */; };
 		5DC25F131CC4D83800C4573F /* NSString+BNCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */; };
+		5DC25F161CC4D8A300C4573F /* BPSCryptoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F141CC4D8A300C4573F /* BPSCryptoTests.m */; };
+		5DC25F171CC4D8A300C4573F /* BPSNSString+BPSCryptoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F151CC4D8A300C4573F /* BPSNSString+BPSCryptoTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +238,8 @@
 		5DC25F0D1CC4D83800C4573F /* BNCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCrypto.m; sourceTree = "<group>"; };
 		5DC25F0E1CC4D83800C4573F /* NSString+BNCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BNCrypto.h"; sourceTree = "<group>"; };
 		5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BNCrypto.m"; sourceTree = "<group>"; };
+		5DC25F141CC4D8A300C4573F /* BPSCryptoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPSCryptoTests.m; sourceTree = "<group>"; };
+		5DC25F151CC4D8A300C4573F /* BPSNSString+BPSCryptoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BPSNSString+BPSCryptoTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +395,8 @@
 		5DAABF071CB69B0200CEDB91 /* BNPaymentTests */ = {
 			isa = PBXGroup;
 			children = (
+				5DC25F141CC4D8A300C4573F /* BPSCryptoTests.m */,
+				5DC25F151CC4D8A300C4573F /* BPSNSString+BPSCryptoTests.m */,
 				5D8007401CBCCC9500E29149 /* BNCreditCardEndpointTests.m */,
 				5D8007411CBCCC9500E29149 /* BNPaymentEndpointTests.m */,
 				5D8007421CBCCC9500E29149 /* BNPaymentHandlerTests.m */,
@@ -818,12 +824,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC25F171CC4D8A300C4573F /* BPSNSString+BPSCryptoTests.m in Sources */,
 				5D8007621CBCCD3400E29149 /* OHHTTPStubsResponse+HTTPMessage.m in Sources */,
 				5D8007631CBCCD3400E29149 /* OHHTTPStubsResponse+JSON.m in Sources */,
 				5D8007681CBCCD3400E29149 /* OHPathHelpers.m in Sources */,
 				5D8007451CBCCC9500E29149 /* BNPaymentHandlerTests.m in Sources */,
 				5D8007431CBCCC9500E29149 /* BNCreditCardEndpointTests.m in Sources */,
 				5D8007671CBCCD3400E29149 /* OHHTTPStubsResponse.m in Sources */,
+				5DC25F161CC4D8A300C4573F /* BPSCryptoTests.m in Sources */,
 				5D8007651CBCCD3400E29149 /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */,
 				5D8007441CBCCC9500E29149 /* BNPaymentEndpointTests.m in Sources */,
 				5D8007661CBCCD3400E29149 /* OHHTTPStubs.m in Sources */,
