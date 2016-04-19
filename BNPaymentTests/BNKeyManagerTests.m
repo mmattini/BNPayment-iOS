@@ -23,8 +23,15 @@
 }
 
 - (void)testGetPublicKey {
-    SecKeyRef publicKey = [BNKeyManager getPublicKeyRefForFile:@"iosTestCert"
-                                                        bundle:[NSBundle bundleForClass:self.class]];
+    SecKeyRef publicKey = [BNKeyManager getPublicKeyRefForCerFile:@"iosTestCert"
+                                                           bundle:[NSBundle bundleForClass:self.class]];
+    XCTAssertTrue(publicKey != nil, "Public key is not nil");
+}
+
+
+- (void)testGetPublicKeyFromPem {
+    SecKeyRef publicKey = [BNKeyManager getPublicKeyRefForPemFile:@"iosTestCert"
+                                                           bundle:[NSBundle bundleForClass:self.class]];
     XCTAssertTrue(publicKey != nil, "Public key is not nil");
 }
 

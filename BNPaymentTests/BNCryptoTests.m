@@ -17,7 +17,7 @@
 
 - (void)setUp {
     [super setUp];
-    publicKey = [BNKeyManager getPublicKeyRefForFile:@"iosTestCert"
+    publicKey = [BNKeyManager getPublicKeyRefForCerFile:@"iosTestCert"
                                               bundle:[NSBundle bundleForClass:self.class]];
     privateKey = [BNKeyManager getPrivateKeyRefForFile:@"iOSTestPrivKey"
                                                 bundle:[NSBundle bundleForClass:self.class]

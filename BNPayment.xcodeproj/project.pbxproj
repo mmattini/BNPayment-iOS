@@ -113,6 +113,7 @@
 		5DC25F251CC5264700C4573F /* BNKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */; };
 		5DC25F281CC622E000C4573F /* BNRegisterCCParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F261CC622E000C4573F /* BNRegisterCCParams.h */; };
 		5DC25F291CC622E000C4573F /* BNRegisterCCParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F271CC622E000C4573F /* BNRegisterCCParams.m */; };
+		5DC25F2F1CC645F200C4573F /* iosTestCert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F2E1CC645F200C4573F /* iosTestCert.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyManagerTests.m; sourceTree = "<group>"; };
 		5DC25F261CC622E000C4573F /* BNRegisterCCParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRegisterCCParams.h; sourceTree = "<group>"; };
 		5DC25F271CC622E000C4573F /* BNRegisterCCParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRegisterCCParams.m; sourceTree = "<group>"; };
+		5DC25F2E1CC645F200C4573F /* iosTestCert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosTestCert.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 		5D80075C1CBCCD3400E29149 /* TestAssets */ = {
 			isa = PBXGroup;
 			children = (
+				5DC25F2E1CC645F200C4573F /* iosTestCert.pem */,
 				5DC25F1E1CC5015900C4573F /* iosTestCert.cer */,
 				5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */,
 			);
@@ -779,6 +782,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC25F201CC5015900C4573F /* iosTestCert.cer in Resources */,
+				5DC25F2F1CC645F200C4573F /* iosTestCert.pem in Resources */,
 				5D8007691CBCCD3400E29149 /* authorizePaymentSuccess.json in Resources */,
 				5D80076C1CBCCD3400E29149 /* registerCreditCardSuccess.json in Resources */,
 				5D80076B1CBCCD3400E29149 /* registerCreditCardExtraParams.json in Resources */,

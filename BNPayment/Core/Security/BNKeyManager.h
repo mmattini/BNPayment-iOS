@@ -11,8 +11,12 @@
 @interface BNKeyManager : NSObject
 
 // Must be of type .cer
-+ (SecKeyRef)getPublicKeyRefForFile:(NSString *)filename
-                             bundle:(NSBundle *)bundle;
++ (SecKeyRef)getPublicKeyRefForCerFile:(NSString *)filename
+                                bundle:(NSBundle *)bundle;
+
+
++ (SecKeyRef)getPublicKeyRefForPemFile:(NSString *)filename
+                                bundle:(NSBundle *)bundle;
 
 // Must be of type .p12
 + (SecKeyRef)getPrivateKeyRefForFile:(NSString *)filename

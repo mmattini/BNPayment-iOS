@@ -10,23 +10,46 @@
 
 @implementation BNKeyManager
 
-+ (SecKeyRef)getPublicKeyRefForFile:(NSString *)filename
-                             bundle:(NSBundle *)bundle {
-    SecKeyRef publicKey = nil;
-    SecTrustRef certSecTrust;
-    SecPolicyRef secPolicy = SecPolicyCreateBasicX509();
-
++ (SecKeyRef)getPublicKeyRefForCerFile:(NSString *)filename
+                                bundle:(NSBundle *)bundle {
     NSString *certPath = [bundle pathForResource:filename ofType:@"cer"];
     NSData *certData = [NSData dataWithContentsOfFile:certPath];
     
     if(!certPath || !certData) {
-        CFRelease(secPolicy);
         return nil;
     }
     
+    return [BNKeyManager getKeyRefFromCertData:certData];
+}
+
++ (SecKeyRef)getPublicKeyRefForPemFile:(NSString *)filename
+
+                                bundle:(NSBundle *)bundle {
+    NSString *certPath = [bundle pathForResource:filename ofType:@"pem"];
+    
+    NSError *error;
+    NSString *certString = [NSString stringWithContentsOfFile:certPath encoding:NSUTF8StringEncoding error:&error];
+    certString = [certString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    certString = [certString stringByReplacingOccurrencesOfString:@"-----BEGIN CERTIFICATE-----" withString:@""];
+    certString = [certString stringByReplacingOccurrencesOfString:@"-----END CERTIFICATE-----" withString:@""];
+
+    if(!certPath || !certString || error) {
+        return nil;
+    }
+    
+    NSData *certData = [[NSData alloc] initWithBase64EncodedString:certString options:0];
+    
+    return [BNKeyManager getKeyRefFromCertData:certData];
+}
+
++ (SecKeyRef)getKeyRefFromCertData:(NSData *)certData {
+    SecKeyRef publicKey = nil;
+    SecTrustRef certSecTrust;
+    SecPolicyRef secPolicy = SecPolicyCreateBasicX509();
+    
     SecCertificateRef cert = SecCertificateCreateWithData(nil, (__bridge CFDataRef)certData);
     SecTrustCreateWithCertificates(cert, secPolicy, &certSecTrust);
-
+    
     publicKey = SecTrustCopyPublicKey(certSecTrust);
     
     CFRelease(cert);
