@@ -7,13 +7,16 @@
 //
 
 #import "BNEnums.h"
+#import "BNCreditCardEndpoint.h"
 
 @import Foundation;
 
 @class BNAuthorizedCreditCard;
 @class BNCCHostedFormParams;
+@class BNAuthorizedCreditCard;
+@class BNRegisterCCParams;
 @class BNPaymentParams;
-    
+
 /**
  *  A block object to be executed when a payment operation has completed.
  *  The block return an enum representing the result of the Payment operation.
@@ -57,6 +60,17 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
  */
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams *)params
                                                         completion:(BNCreditCardRegistrationUrlBlock) block;
+
+/**
+ *  Register a credit card in order to retrieve an authroized card used for payments.
+ *
+ *  @param params     `BNRegisterCCParams`
+ *  @param completion `BNCreditCardRegistrationBlock`
+ *
+ *  @return `NSURLSessionDataTask`
+ */
++ (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion;
 
 /**
  *  Make Payment

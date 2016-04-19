@@ -10,9 +10,10 @@
 #import "BNPaymentEndpoint.h"
 #import "BNCreditCardEndpoint.h"
 #import "BNAuthorizedCreditCard.h"
-#import <BNBase/BNCacheManager.h>
 #import "BNCCHostedFormParams.h"
+#import "BNRegisterCCParams.h"
 #import "BNPaymentParams.h"
+#import <BNBase/BNCacheManager.h>
 
 NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
 
@@ -53,6 +54,12 @@ NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
         block(url, error);
     }];
     
+    return dataTask;
+}
+
++ (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion {
+    NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint registerCreditCard:params completion:completion];
     return dataTask;
 }
 

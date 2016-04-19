@@ -11,6 +11,7 @@
 #import "BNCreditCardEndpoint.h"
 #import "BNCCHostedFormParams.h"
 #import "BNAuthorizedCreditCard.h"
+#import "BNPaymentHandler.h"
 
 NSString * const BNCCRegistrationSubmissionDomain = @"com.bambora.error.creditcard.registration";
 

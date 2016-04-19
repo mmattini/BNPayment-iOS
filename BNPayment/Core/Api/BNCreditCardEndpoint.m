@@ -35,7 +35,7 @@
 }
 
 + (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
-                                  completion:(BNCreditCardRegistrationBLock)completion {
+                                  completion:(BNCreditCardRegistrationBlock)completion {
     BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
     
     NSString *endpointURL = @"registerCreditCard/";

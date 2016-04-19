@@ -5,11 +5,12 @@
 //  Created by Bambora On Mobile AB on 17/09/2015.
 //
 //
-#import "BNPaymentHandler.h"
 
 @class BNCCHostedFormParams;
 @class BNRegisterCCParams;
 @class BNAuthorizedCreditCard;
+
+@import Foundation;
 
 /**
  *  A block object to be executed when a credit card hosted form URL operation has completed.
@@ -30,7 +31,7 @@ typedef void (^BNCreditCardUrlBlock)(NSString *url, NSError *error);
  *  @param BNAuthorizedCreditCard   `BNAuthorizedCard`
  *  @param error                    `NSError`
  */
-typedef void (^BNCreditCardRegistrationBLock)(BNAuthorizedCreditCard *, NSError *error);
+typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *, NSError *error);
 
 /**
  `BNCreditCardEndpoint` is a subclass of `BNBaseEndpoint`
@@ -57,11 +58,11 @@ typedef void (^BNCreditCardRegistrationBLock)(BNAuthorizedCreditCard *, NSError 
  *  Register a credit card in order to retrieve an authroized card used for payments.
  *
  *  @param params     `BNRegisterCCParams`
- *  @param completion `BNCreditCardRegistrationBLock`
+ *  @param completion `BNCreditCardRegistrationBlock`
  *
  *  @return `NSURLSessionDataTask`
  */
 + (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
-                                  completion:(BNCreditCardRegistrationBLock)completion;
+                                  completion:(BNCreditCardRegistrationBlock)completion;
 
 @end
