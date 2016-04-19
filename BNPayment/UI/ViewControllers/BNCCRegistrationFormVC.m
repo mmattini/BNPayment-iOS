@@ -91,7 +91,7 @@
 
 - (void)updateFormModelWithCardInfo:(BNCreditCard *)creditCard {
     [self.ccInputModel updateValue:creditCard.cardNumber];
-    [self.expireInputModel updateValue:creditCard.expiryDate];
+    [self.expireInputModel updateValue:[NSString stringWithFormat:@"%@/%@", creditCard.expMonth, creditCard.expYear]];
     [self.cvvInputModel updateValue:creditCard.cvv];
 }
 
