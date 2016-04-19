@@ -16,6 +16,8 @@
 #import "BNPaymentHandler.h"
 #import "BNBundleUtils.h"
 #import "BNAuthorizedCreditCard.h"
+#import "BNRegisterCCParams.h"
+#import "BNCrypto.h"
 
 @interface BNCCRegistrationFormVC ()
 
@@ -131,10 +133,34 @@
 
 - (void)submitAction:(id)sender {
     NSDictionary *formDict = [_formModel generateFormDictionary];
-    NSError *error;
-    BNCreditCard *creditCard = [[BNCreditCard alloc] initWithJSONDictionary:formDict error:&error];
-    NSLog(@"Credit card with number: %@ created", creditCard.cardNumber);
-    _completionBlock(BNCCRegCompletionDone, nil);
+    
+    NSString *expMonth;
+    NSString *expYear;
+    NSString *expDate = [formDict objectForKey:@"expiry_date"];
+    
+    NSArray *expValues = [expDate componentsSeparatedByString:@"/"];
+    if([expValues count] == 2) {
+        expMonth = [expValues objectAtIndex:0];
+        expYear = [expValues objectAtIndex:1];
+    }
+
+    BNCreditCard *creditCard = [BNCreditCard new];
+    creditCard.alias = [formDict objectForKey:@"alias"];
+    creditCard.cardNumber = [formDict objectForKey:@"card_number"];
+    creditCard.expMonth = expMonth;
+    creditCard.expYear = expYear;
+    creditCard.cvv = [formDict objectForKey:@"cvv"];
+
+    BNRegisterCCParams *params = [BNRegisterCCParams new];
+    
+    NSData *sessionKey = [BNCrypto generateRandomKey:32];
+    params.cardDetails = [creditCard encryptedCreditCardWithSessionKey:sessionKey];
+    
+    [BNCreditCardEndpoint registerCreditCard:params completion:^(BNAuthorizedCreditCard *authorizedCard, NSError *error) {
+        if(self.completionBlock && authorizedCard) {
+            self.completionBlock(BNCCRegCompletionDone, authorizedCard);
+        }
+    }];
 }
 
 @end
