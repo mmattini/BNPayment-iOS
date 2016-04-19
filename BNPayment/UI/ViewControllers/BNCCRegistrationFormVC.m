@@ -17,9 +17,6 @@
 #import "BNBundleUtils.h"
 #import "BNAuthorizedCreditCard.h"
 #import "BNRegisterCCParams.h"
-#import "BNCrypto.h"
-#import "BNEncryptionCertificate.h"
-#import "BNCertManager.h"
 
 @interface BNCCRegistrationFormVC ()
 
@@ -153,15 +150,7 @@
     creditCard.expYear = expYear;
     creditCard.cvv = [formDict objectForKey:@"cvv"];
 
-    BNRegisterCCParams *params = [BNRegisterCCParams new];
-    
-    NSData *sessionKey = [BNCrypto generateRandomKey:32];
-    params.cardDetails = [creditCard encryptedCreditCardWithSessionKey:sessionKey];
-    
-    NSArray *encryptionCertificates = [[BNCertManager sharedInstance] getEncryptionCertificates];
-    for(BNEncryptionCertificate *cert in encryptionCertificates) {
-        [params addEncryptedSessionKey:[cert encryptSessionKey:sessionKey] fingerprint:cert.fingerprint];
-    }
+    BNRegisterCCParams *params = [[BNRegisterCCParams alloc] initWithCreditCard:creditCard];
     
     [BNCreditCardEndpoint registerCreditCard:params completion:^(BNAuthorizedCreditCard *authorizedCard, NSError *error) {
         if(self.completionBlock && authorizedCard) {

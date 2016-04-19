@@ -12,8 +12,6 @@
 
 @interface BNRegisterCCParams : BNBaseModel
 
-@property (nonatomic, strong) BNCreditCard *cardDetails;
-
-- (void)addEncryptedSessionKey:(NSString *)sessionKey fingerprint:(NSString *)fingerprint;
+- (instancetype)initWithCreditCard:(BNCreditCard *)creditCard;
 
 @end

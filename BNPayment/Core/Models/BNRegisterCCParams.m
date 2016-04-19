@@ -8,6 +8,15 @@
 
 #import "BNRegisterCCParams.h"
 #import "BNCreditCard.h"
+#import "BNCrypto.h"
+#import "BNCertManager.h"
+#import "BNEncryptionCertificate.h"
+
+@interface BNRegisterCCParams ()
+
+@property (nonatomic, strong) BNCreditCard *cardDetails;
+
+@end
 
 @implementation BNRegisterCCParams {
     NSMutableDictionary *sessionKeys;
@@ -17,6 +26,25 @@
     return @{
              @"cardDetails" : @"cardDetails"
              };
+}
+
+- (instancetype)initWithCreditCard:(BNCreditCard *)creditCard {
+    self = [super init];
+    if(self) {
+        self.cardDetails = creditCard;
+        [self generateParams];
+    }
+    return self;
+}
+
+- (void)generateParams {
+    NSData *sessionKey = [BNCrypto generateRandomKey:32];
+    self.cardDetails = [self.cardDetails encryptedCreditCardWithSessionKey:sessionKey];
+    
+    NSArray *encryptionCertificates = [[BNCertManager sharedInstance] getEncryptionCertificates];
+    for(BNEncryptionCertificate *cert in encryptionCertificates) {
+        [self addEncryptedSessionKey:[cert encryptSessionKey:sessionKey] fingerprint:cert.fingerprint];
+    }
 }
 
 - (NSDictionary *)JSONDictionary {
