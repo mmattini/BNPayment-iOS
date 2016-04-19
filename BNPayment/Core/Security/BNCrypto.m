@@ -55,9 +55,11 @@
                      key:(SecKeyRef)key {
     OSStatus status = noErr;
 
+    // Input
     size_t plainDataSize = [data length];
     uint8_t *plainData = (uint8_t *)[data bytes];
 
+    // Output
     size_t cipherBufferSize = SecKeyGetBlockSize(key);
     uint8_t *cipherBuffer = malloc(cipherBufferSize);
 
@@ -83,13 +85,14 @@
                     key:(SecKeyRef)key {
     OSStatus status = noErr;
     
+    // Input
     size_t cipherBufferSize = SecKeyGetBlockSize(key);
     uint8_t *cipherBuffer = (uint8_t *)[data bytes];
     
+    // Output
     size_t plainBufferSize = SecKeyGetBlockSize(key);
     uint8_t *plainBuffer = malloc(plainBufferSize);
 
-    //  Error handling
     status = SecKeyDecrypt(key,
                            kSecPaddingPKCS1,
                            cipherBuffer,
