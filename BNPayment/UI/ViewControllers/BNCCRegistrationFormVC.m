@@ -127,7 +127,6 @@
                          andAnimationDuration:animationDuration
                             andAnimationCurve:animationCurve];
     }
-
 }
 
 - (void)submitAction:(id)sender {

@@ -118,6 +118,8 @@
 		5DC25F331CC654A900C4573F /* BNCertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F311CC654A900C4573F /* BNCertManager.m */; };
 		5DC25F361CC65E9400C4573F /* BNEncryptionCertificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F341CC65E9400C4573F /* BNEncryptionCertificate.h */; };
 		5DC25F371CC65E9400C4573F /* BNEncryptionCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */; };
+		5DC25F3A1CC66D4A00C4573F /* BNCertificateEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F381CC66D4A00C4573F /* BNCertificateEndpoint.h */; };
+		5DC25F3B1CC66D4A00C4573F /* BNCertificateEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F391CC66D4A00C4573F /* BNCertificateEndpoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +266,8 @@
 		5DC25F311CC654A900C4573F /* BNCertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCertManager.m; sourceTree = "<group>"; };
 		5DC25F341CC65E9400C4573F /* BNEncryptionCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEncryptionCertificate.h; sourceTree = "<group>"; };
 		5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptionCertificate.m; sourceTree = "<group>"; };
+		5DC25F381CC66D4A00C4573F /* BNCertificateEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCertificateEndpoint.h; sourceTree = "<group>"; };
+		5DC25F391CC66D4A00C4573F /* BNCertificateEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCertificateEndpoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +471,8 @@
 				5DAABF611CB69D4C00CEDB91 /* BNCreditCardEndpoint.m */,
 				5DAABF621CB69D4C00CEDB91 /* BNPaymentEndpoint.h */,
 				5DAABF631CB69D4C00CEDB91 /* BNPaymentEndpoint.m */,
+				5DC25F381CC66D4A00C4573F /* BNCertificateEndpoint.h */,
+				5DC25F391CC66D4A00C4573F /* BNCertificateEndpoint.m */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DAABFC91CB69D4C00CEDB91 /* UIView+BNUtils.h in Headers */,
+				5DC25F3A1CC66D4A00C4573F /* BNCertificateEndpoint.h in Headers */,
 				5DAABFD11CB69D4C00CEDB91 /* BNCCRegistrationFormVC.h in Headers */,
 				5DAABFB11CB69D4C00CEDB91 /* BNAuthorizedCreditCard.h in Headers */,
 				5DAABFE11CB69D4C00CEDB91 /* BNFormView.h in Headers */,
@@ -847,6 +854,7 @@
 				5DAABFC41CB69D4C00CEDB91 /* EPAYMetaResponse.m in Sources */,
 				5DAABFC21CB69D4C00CEDB91 /* EPAYMessage.m in Sources */,
 				5DAABFE61CB69D4C00CEDB91 /* BNPaymentWebview.m in Sources */,
+				5DC25F3B1CC66D4A00C4573F /* BNCertificateEndpoint.m in Sources */,
 				5DC25F111CC4D83800C4573F /* BNCrypto.m in Sources */,
 				5DAABFAD1CB69D4C00CEDB91 /* BNPaymentEndpoint.m in Sources */,
 				5DAABFC01CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m in Sources */,

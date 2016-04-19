@@ -16,7 +16,7 @@
 
 + (NSURLSessionDataTask *)authorizePaymentWithParams:(BNPaymentParams *)params
                                           completion:(BNPaymentRequestBlock) completion {
-        BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
+    BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
     
     NSString *endPointUrl = [NSString stringWithFormat:@"payments/%@/card_token/", params.paymentIdentifier];
     
