@@ -116,6 +116,8 @@
 		5DC25F2F1CC645F200C4573F /* iosTestCert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F2E1CC645F200C4573F /* iosTestCert.pem */; };
 		5DC25F321CC654A900C4573F /* BNCertManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F301CC654A900C4573F /* BNCertManager.h */; };
 		5DC25F331CC654A900C4573F /* BNCertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F311CC654A900C4573F /* BNCertManager.m */; };
+		5DC25F361CC65E9400C4573F /* BNEncryptionCertificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F341CC65E9400C4573F /* BNEncryptionCertificate.h */; };
+		5DC25F371CC65E9400C4573F /* BNEncryptionCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +262,8 @@
 		5DC25F2E1CC645F200C4573F /* iosTestCert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iosTestCert.pem; sourceTree = "<group>"; };
 		5DC25F301CC654A900C4573F /* BNCertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCertManager.h; sourceTree = "<group>"; };
 		5DC25F311CC654A900C4573F /* BNCertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCertManager.m; sourceTree = "<group>"; };
+		5DC25F341CC65E9400C4573F /* BNEncryptionCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEncryptionCertificate.h; sourceTree = "<group>"; };
+		5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptionCertificate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +482,8 @@
 				5DAABF6D1CB69D4C00CEDB91 /* BNCCHostedFormParams.m */,
 				5DAABF6E1CB69D4C00CEDB91 /* BNCreditCard.h */,
 				5DAABF6F1CB69D4C00CEDB91 /* BNCreditCard.m */,
+				5DC25F341CC65E9400C4573F /* BNEncryptionCertificate.h */,
+				5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */,
 				5DAABF701CB69D4C00CEDB91 /* BNPaymentParams.h */,
 				5DAABF711CB69D4C00CEDB91 /* BNPaymentParams.m */,
 				5DAABF721CB69D4C00CEDB91 /* BNPaymentResponse.h */,
@@ -662,6 +668,7 @@
 				5DAABFC31CB69D4C00CEDB91 /* EPAYMetaResponse.h in Headers */,
 				5DAABFAA1CB69D4C00CEDB91 /* BNCreditCardEndpoint.h in Headers */,
 				5DAABFB31CB69D4C00CEDB91 /* BNCCFormInputGroup.h in Headers */,
+				5DC25F361CC65E9400C4573F /* BNEncryptionCertificate.h in Headers */,
 				5DAABFD31CB69D4C00CEDB91 /* BNPaymentBaseVC.h in Headers */,
 				5DAABFAC1CB69D4C00CEDB91 /* BNPaymentEndpoint.h in Headers */,
 				5DAABFD71CB69D4C00CEDB91 /* BNFormInputModel.h in Headers */,
@@ -834,6 +841,7 @@
 				5DAABFD01CB69D4C00CEDB91 /* BNCCHostedRegistrationFormVC.m in Sources */,
 				5DAABFD21CB69D4C00CEDB91 /* BNCCRegistrationFormVC.m in Sources */,
 				5DAABFB81CB69D4C00CEDB91 /* BNCreditCard.m in Sources */,
+				5DC25F371CC65E9400C4573F /* BNEncryptionCertificate.m in Sources */,
 				5DAABFCE1CB69D4C00CEDB91 /* BNFormScrollView.m in Sources */,
 				5DC25F131CC4D83800C4573F /* NSString+BNCrypto.m in Sources */,
 				5DAABFC41CB69D4C00CEDB91 /* EPAYMetaResponse.m in Sources */,

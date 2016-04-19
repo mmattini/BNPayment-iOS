@@ -32,7 +32,7 @@
     return JSONDict;
 }
 
-- (void)addSessionKey:(NSString *)sessionKey withFingerprint:(NSString *)fingerprint {
+- (void)addEncryptedSessionKey:(NSString *)sessionKey fingerprint:(NSString *)fingerprint {
     if(!sessionKeys) {
         sessionKeys = [NSMutableDictionary new];
     }

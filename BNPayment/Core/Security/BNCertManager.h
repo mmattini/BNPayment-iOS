@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class BNEncryptionCertificate;
+
 @interface BNCertManager : NSObject
+
++ (BNCertManager *)sharedInstance;
+
+- (void)replaceEncryptionCertificates:(NSArray<BNEncryptionCertificate *> *)encryptionCertificates;
+
+- (NSArray<BNEncryptionCertificate *> *)getEncryptionCertificates;
 
 @end

@@ -14,6 +14,6 @@
 
 @property (nonatomic, strong) BNCreditCard *cardDetails;
 
-- (void)addSessionKey:(NSString *)sessionKey withFingerprint:(NSString *)fingerprint;
+- (void)addEncryptedSessionKey:(NSString *)sessionKey fingerprint:(NSString *)fingerprint;
 
 @end
