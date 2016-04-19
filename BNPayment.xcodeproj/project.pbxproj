@@ -106,8 +106,8 @@
 		5DC25F131CC4D83800C4573F /* NSString+BNCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */; };
 		5DC25F161CC4D8A300C4573F /* BNCryptoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F141CC4D8A300C4573F /* BNCryptoTests.m */; };
 		5DC25F171CC4D8A300C4573F /* NSString+BNCryptoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F151CC4D8A300C4573F /* NSString+BNCryptoTests.m */; };
-		5DC25F1C1CC4F74A00C4573F /* BNKeyManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F1A1CC4F74A00C4573F /* BNKeyManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DC25F1D1CC4F74A00C4573F /* BNKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F1B1CC4F74A00C4573F /* BNKeyManager.m */; };
+		5DC25F1C1CC4F74A00C4573F /* BNKeyUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F1A1CC4F74A00C4573F /* BNKeyUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC25F1D1CC4F74A00C4573F /* BNKeyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F1B1CC4F74A00C4573F /* BNKeyUtils.m */; };
 		5DC25F201CC5015900C4573F /* iosTestCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F1E1CC5015900C4573F /* iosTestCert.cer */; };
 		5DC25F211CC5015900C4573F /* iOSTestPrivKey.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */; };
 		5DC25F251CC5264700C4573F /* BNKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */; };
@@ -248,8 +248,8 @@
 		5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BNCrypto.m"; sourceTree = "<group>"; };
 		5DC25F141CC4D8A300C4573F /* BNCryptoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCryptoTests.m; sourceTree = "<group>"; };
 		5DC25F151CC4D8A300C4573F /* NSString+BNCryptoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BNCryptoTests.m"; sourceTree = "<group>"; };
-		5DC25F1A1CC4F74A00C4573F /* BNKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNKeyManager.h; sourceTree = "<group>"; };
-		5DC25F1B1CC4F74A00C4573F /* BNKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyManager.m; sourceTree = "<group>"; };
+		5DC25F1A1CC4F74A00C4573F /* BNKeyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNKeyUtils.h; path = ../Security/BNKeyUtils.h; sourceTree = "<group>"; };
+		5DC25F1B1CC4F74A00C4573F /* BNKeyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNKeyUtils.m; path = ../Security/BNKeyUtils.m; sourceTree = "<group>"; };
 		5DC25F1E1CC5015900C4573F /* iosTestCert.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = iosTestCert.cer; sourceTree = "<group>"; };
 		5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOSTestPrivKey.p12; sourceTree = "<group>"; };
 		5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyManagerTests.m; sourceTree = "<group>"; };
@@ -503,6 +503,8 @@
 		5DAABF7D1CB69D4C00CEDB91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5DC25F1A1CC4F74A00C4573F /* BNKeyUtils.h */,
+				5DC25F1B1CC4F74A00C4573F /* BNKeyUtils.m */,
 				5D80071D1CB7D92700E29149 /* BNBundleUtils.h */,
 				5D80071E1CB7D92700E29149 /* BNBundleUtils.m */,
 			);
@@ -627,8 +629,6 @@
 				5DC25F0D1CC4D83800C4573F /* BNCrypto.m */,
 				5DC25F0E1CC4D83800C4573F /* NSString+BNCrypto.h */,
 				5DC25F0F1CC4D83800C4573F /* NSString+BNCrypto.m */,
-				5DC25F1A1CC4F74A00C4573F /* BNKeyManager.h */,
-				5DC25F1B1CC4F74A00C4573F /* BNKeyManager.m */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -673,7 +673,7 @@
 				5DAABFD51CB69D4C00CEDB91 /* BNCCFormInputModel.h in Headers */,
 				5DAABFAE1CB69D4C00CEDB91 /* BNEnums.h in Headers */,
 				5DAABFB91CB69D4C00CEDB91 /* BNPaymentParams.h in Headers */,
-				5DC25F1C1CC4F74A00C4573F /* BNKeyManager.h in Headers */,
+				5DC25F1C1CC4F74A00C4573F /* BNKeyUtils.h in Headers */,
 				5DAABFDD1CB69D4C00CEDB91 /* BNCCFormInputView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,7 +845,7 @@
 				5DAABFD81CB69D4C00CEDB91 /* BNFormInputModel.m in Sources */,
 				5DAABFBE1CB69D4C00CEDB91 /* EPAYAction.m in Sources */,
 				5DAABFB21CB69D4C00CEDB91 /* BNAuthorizedCreditCard.m in Sources */,
-				5DC25F1D1CC4F74A00C4573F /* BNKeyManager.m in Sources */,
+				5DC25F1D1CC4F74A00C4573F /* BNKeyUtils.m in Sources */,
 				5DAABFC81CB69D4C00CEDB91 /* UIImage+BNUtils.m in Sources */,
 				5D8007201CB7D92700E29149 /* BNBundleUtils.m in Sources */,
 			);

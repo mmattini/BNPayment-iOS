@@ -6,9 +6,9 @@
 //  Copyright © 2016 Bambora. All rights reserved.
 //
 
-#import "BNKeyManager.h"
+#import "BNKeyUtils.h"
 
-@implementation BNKeyManager
+@implementation BNKeyUtils
 
 + (SecKeyRef)getPublicKeyRefForCerFile:(NSString *)filename
                                 bundle:(NSBundle *)bundle {
@@ -19,7 +19,7 @@
         return nil;
     }
     
-    return [BNKeyManager getKeyRefFromCertData:certData];
+    return [BNKeyUtils getKeyRefFromCertData:certData];
 }
 
 + (SecKeyRef)getPublicKeyRefForPemFile:(NSString *)filename
@@ -39,7 +39,7 @@
     
     NSData *certData = [[NSData alloc] initWithBase64EncodedString:certString options:0];
     
-    return [BNKeyManager getKeyRefFromCertData:certData];
+    return [BNKeyUtils getKeyRefFromCertData:certData];
 }
 
 + (SecKeyRef)getKeyRefFromCertData:(NSData *)certData {

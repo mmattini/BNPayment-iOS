@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNKeyManager : NSObject
+@interface BNKeyUtils : NSObject
 
 // Must be of type .cer
 + (SecKeyRef)getPublicKeyRefForCerFile:(NSString *)filename
