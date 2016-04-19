@@ -19,6 +19,6 @@
 @property (nonatomic, strong) NSString *expYear;
 @property (nonatomic, strong) NSString *cvv;
 
-- (NSDictionary *)encryptedCreditCardWithSessionKey:(NSData *)sessionKey;
+- (BNCreditCard *)encryptedCreditCardWithSessionKey:(NSData *)sessionKey;
 
 @end

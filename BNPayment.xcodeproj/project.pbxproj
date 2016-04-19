@@ -111,6 +111,8 @@
 		5DC25F201CC5015900C4573F /* iosTestCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F1E1CC5015900C4573F /* iosTestCert.cer */; };
 		5DC25F211CC5015900C4573F /* iOSTestPrivKey.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */; };
 		5DC25F251CC5264700C4573F /* BNKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */; };
+		5DC25F281CC622E000C4573F /* BNRegisterCCParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F261CC622E000C4573F /* BNRegisterCCParams.h */; };
+		5DC25F291CC622E000C4573F /* BNRegisterCCParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F271CC622E000C4573F /* BNRegisterCCParams.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +252,8 @@
 		5DC25F1E1CC5015900C4573F /* iosTestCert.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = iosTestCert.cer; sourceTree = "<group>"; };
 		5DC25F1F1CC5015900C4573F /* iOSTestPrivKey.p12 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOSTestPrivKey.p12; sourceTree = "<group>"; };
 		5DC25F241CC5264700C4573F /* BNKeyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyManagerTests.m; sourceTree = "<group>"; };
+		5DC25F261CC622E000C4573F /* BNRegisterCCParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRegisterCCParams.h; sourceTree = "<group>"; };
+		5DC25F271CC622E000C4573F /* BNRegisterCCParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRegisterCCParams.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +475,8 @@
 				5DAABF711CB69D4C00CEDB91 /* BNPaymentParams.m */,
 				5DAABF721CB69D4C00CEDB91 /* BNPaymentResponse.h */,
 				5DAABF731CB69D4C00CEDB91 /* BNPaymentResponse.m */,
+				5DC25F261CC622E000C4573F /* BNRegisterCCParams.h */,
+				5DC25F271CC622E000C4573F /* BNRegisterCCParams.m */,
 				5DAABF741CB69D4C00CEDB91 /* EPAYModels */,
 			);
 			path = Models;
@@ -641,6 +647,7 @@
 				5DAABFC11CB69D4C00CEDB91 /* EPAYMessage.h in Headers */,
 				5DAABFDF1CB69D4C00CEDB91 /* BNFormToolbar.h in Headers */,
 				5DAABFB51CB69D4C00CEDB91 /* BNCCHostedFormParams.h in Headers */,
+				5DC25F281CC622E000C4573F /* BNRegisterCCParams.h in Headers */,
 				5DAABFD91CB69D4C00CEDB91 /* BNFormModel.h in Headers */,
 				5DAABFE51CB69D4C00CEDB91 /* BNPaymentWebview.h in Headers */,
 				5DAABFC31CB69D4C00CEDB91 /* EPAYMetaResponse.h in Headers */,
@@ -826,6 +833,7 @@
 				5DAABFC01CB69D4C00CEDB91 /* EPAYHostedFormStateChange.m in Sources */,
 				5DAABFBC1CB69D4C00CEDB91 /* BNPaymentResponse.m in Sources */,
 				5DAABFDA1CB69D4C00CEDB91 /* BNFormModel.m in Sources */,
+				5DC25F291CC622E000C4573F /* BNRegisterCCParams.m in Sources */,
 				5DAABFB01CB69D4C00CEDB91 /* BNPaymentHandler.m in Sources */,
 				5DAABFBA1CB69D4C00CEDB91 /* BNPaymentParams.m in Sources */,
 				5DAABFD61CB69D4C00CEDB91 /* BNCCFormInputModel.m in Sources */,
