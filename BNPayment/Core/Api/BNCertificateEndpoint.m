@@ -20,8 +20,7 @@
     NSURLSessionDataTask *dataTask = [httpClient POST:endpointURL
                                            parameters:nil
                                               success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSMutableArray *response;
-
+        NSMutableArray *response = [NSMutableArray new];
         for(NSDictionary *dict in responseObject) {
             NSError *error;
             BNEncryptionCertificate *cert = [[BNEncryptionCertificate alloc] initWithJSONDictionary:dict error:&error];
