@@ -34,35 +34,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3m-Vp-WAh">
-                                <rect key="frame" x="251.5" y="116" width="97" height="30"/>
+                                <rect key="frame" x="252" y="150" width="97" height="30"/>
                                 <state key="normal" title="Unregister CC"/>
                                 <connections>
                                     <action selector="unregisterCreditCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOP-NS-wRs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFW-It-EsN">
-                                <rect key="frame" x="247" y="203" width="105" height="30"/>
+                                <rect key="frame" x="248" y="210" width="105" height="30"/>
                                 <state key="normal" title="Make purchase"/>
                                 <connections>
                                     <action selector="makePurchase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dNy-le-C54"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMY-fd-iiW">
-                                <rect key="frame" x="259" y="33" width="82" height="30"/>
-                                <state key="normal" title="Register CC"/>
+                                <rect key="frame" x="232" y="90" width="135" height="30"/>
+                                <state key="normal" title="Register CC Hosted"/>
                                 <connections>
                                     <action selector="registerCreditCardHostedForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BYE-ll-kYq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crQ-lI-5YL">
+                                <rect key="frame" x="235" y="30" width="130" height="30"/>
+                                <state key="normal" title="Register CC Native"/>
+                                <connections>
+                                    <action selector="registerCreditCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ET-t5-JaF"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fFW-It-EsN" firstAttribute="top" secondItem="q3m-Vp-WAh" secondAttribute="bottom" constant="57" id="7ZE-is-NZe"/>
-                            <constraint firstItem="q3m-Vp-WAh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CAa-SL-JT1"/>
-                            <constraint firstItem="pMY-fd-iiW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="GS2-lT-kxx"/>
-                            <constraint firstItem="q3m-Vp-WAh" firstAttribute="top" secondItem="pMY-fd-iiW" secondAttribute="bottom" constant="53" id="Pot-y6-jlC"/>
-                            <constraint firstItem="fFW-It-EsN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nf9-Tx-hsR"/>
-                            <constraint firstItem="pMY-fd-iiW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sAi-GJ-kgI"/>
+                            <constraint firstItem="pMY-fd-iiW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2UG-n6-xu8"/>
+                            <constraint firstItem="fFW-It-EsN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FQP-6D-Wlh"/>
+                            <constraint firstItem="crQ-lI-5YL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HqQ-9D-iwZ"/>
+                            <constraint firstItem="crQ-lI-5YL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Mh6-9K-HZI"/>
+                            <constraint firstItem="q3m-Vp-WAh" firstAttribute="top" secondItem="pMY-fd-iiW" secondAttribute="bottom" constant="30" id="jLk-ZM-62H"/>
+                            <constraint firstItem="q3m-Vp-WAh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ok5-Lp-3Rd"/>
+                            <constraint firstItem="fFW-It-EsN" firstAttribute="top" secondItem="q3m-Vp-WAh" secondAttribute="bottom" constant="30" id="u5f-r9-JIB"/>
+                            <constraint firstItem="pMY-fd-iiW" firstAttribute="top" secondItem="crQ-lI-5YL" secondAttribute="bottom" constant="30" id="zPS-J1-rOy"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
