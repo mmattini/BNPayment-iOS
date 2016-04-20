@@ -21,7 +21,7 @@
     NSData *certData = [[NSData alloc] initWithBase64EncodedString:self.base64Representation options:0];
     
     if(certData) {
-        return [BNKeyUtils getKeyRefFromCertData:certData];
+        return [BNKeyUtils getPublicKeyRefFromCertData:certData];
     }
     
     return nil;

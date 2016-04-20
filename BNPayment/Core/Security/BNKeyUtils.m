@@ -19,7 +19,7 @@
         return nil;
     }
     
-    return [BNKeyUtils getKeyRefFromCertData:certData];
+    return [BNKeyUtils getPublicKeyRefFromCertData:certData];
 }
 
 + (SecKeyRef)getPublicKeyRefForPemFile:(NSString *)filename
@@ -39,10 +39,10 @@
     
     NSData *certData = [[NSData alloc] initWithBase64EncodedString:certString options:0];
     
-    return [BNKeyUtils getKeyRefFromCertData:certData];
+    return [BNKeyUtils getPublicKeyRefFromCertData:certData];
 }
 
-+ (SecKeyRef)getKeyRefFromCertData:(NSData *)certData {
++ (SecKeyRef)getPublicKeyRefFromCertData:(NSData *)certData {
     SecKeyRef publicKey = nil;
     SecTrustRef certSecTrust;
     SecPolicyRef secPolicy = SecPolicyCreateBasicX509();
