@@ -26,17 +26,17 @@ typedef enum BNCryptoMode : NSUInteger {
 + (NSData *)generateRandomKey:(NSInteger)keyLength;
 
 /**
- *  A method for encryption and decryption of a `NSData` block using AES256.
- *  The length of the key provided must be 32 bytes long (256 bits).
+ *  A method for encryption and decryption of a `NSData` block using AES128.
+ *  The length of the key provided must be 32 bytes long (128 bits).
  *
  *  @param data         `NSData` to encrypt/decrypt.
  *  @param symmetricKey `NSData` the symetric key used for encryption/decryption.
  *  @param operation    `BNCryptoMode` specifying whether to decrypt of encrypt.
  *  @param error        `NSError` representing potential error in encryption/decryption.
  *
- *  @return `NSData` encrypted/decrypted with the key provided using AES256.
+ *  @return `NSData` encrypted/decrypted with the key provided using AES128.
  */
-+ (NSData *)AES256Data:(NSData *)data
++ (NSData *)AES128Data:(NSData *)data
                    key:(NSData *)symmetricKey
              operation:(BNCryptoMode)operation
                  error:(NSError **)error;

@@ -15,7 +15,7 @@
 
 @implementation NSStringBNCryptoTests
 
-static const int KEY_LENGTH = 32;
+static const int KEY_LENGTH = 16;
 
 - (void)setUp {
     [super setUp];
@@ -23,15 +23,16 @@ static const int KEY_LENGTH = 32;
     uint8_t randomBytes[KEY_LENGTH];
     SecRandomCopyBytes(kSecRandomDefault, KEY_LENGTH, randomBytes);
     self.key = [NSData dataWithBytes:randomBytes length:sizeof(randomBytes)];
+    NSString *keyString = [self.key base64EncodedStringWithOptions:0];
     self.stringToEncrypt = @"String to encrypt";
 
 }
 
-- (void)testEncryptDecryptWithAES256 {
-    NSString *encryptedString = [self.stringToEncrypt AES256EncryptWithKey:self.key];
+- (void)testEncryptDecryptWithAES128 {
+    NSString *encryptedString = [self.stringToEncrypt AES128EncryptWithKey:self.key];
     XCTAssertNotEqualObjects(self.stringToEncrypt, encryptedString, "Encrypted string is not equal to original string");
     
-    NSString *decryptedString = [encryptedString AES256DecryptWithKey:self.key];
+    NSString *decryptedString = [encryptedString AES128DecryptWithKey:self.key];
     XCTAssertEqualObjects(self.stringToEncrypt, decryptedString, "The decrypted string is equal to the original string");
 }
 

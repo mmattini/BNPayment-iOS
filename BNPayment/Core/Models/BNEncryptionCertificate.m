@@ -9,6 +9,7 @@
 #import "BNEncryptionCertificate.h"
 #import "BNCrypto.h"
 #import "BNKeyUtils.h"
+#import "NSString+BNCrypto.h"
 
 @implementation BNEncryptionCertificate
 
@@ -18,7 +19,7 @@
 }
 
 - (SecKeyRef)getKeyRef {
-    NSData *certData = [[NSData alloc] initWithBase64EncodedString:self.base64Representation options:0];
+    NSData *certData = [self.base64Representation getCertData];
     
     if(certData) {
         return [BNKeyUtils getPublicKeyRefFromCertData:certData];

@@ -12,12 +12,12 @@
 
 @implementation NSString (BPSCrypto)
 
-- (NSString *)AES256EncryptWithKey:(NSData *)key {
+- (NSString *)AES128EncryptWithKey:(NSData *)key {
     NSError *error;
-    NSData *encryptedData = [BNCrypto AES256Data:[self dataUsingEncoding:NSUTF8StringEncoding]
-                                                 key:key
-                                           operation:BNCryptoModeEncrypt
-                                               error:&error];
+    NSData *encryptedData = [BNCrypto AES128Data:[self dataUsingEncoding:NSUTF8StringEncoding]
+                                             key:key
+                                       operation:BNCryptoModeEncrypt
+                                           error:&error];
     
     if(!error) {
         return [encryptedData base64EncodedStringWithOptions:0];
@@ -26,13 +26,13 @@
     return nil;
 }
 
-- (NSString *)AES256DecryptWithKey:(NSData *)key {
+- (NSString *)AES128DecryptWithKey:(NSData *)key {
     NSError *error;
 
-    NSData *encryptedData = [BNCrypto AES256Data:[[NSData alloc] initWithBase64EncodedString:self options:0]
-                                                 key:key
-                                           operation:BNCryptoModeDecrypt
-                                               error:&error];
+    NSData *encryptedData = [BNCrypto AES128Data:[[NSData alloc] initWithBase64EncodedString:self options:0]
+                                             key:key
+                                       operation:BNCryptoModeDecrypt
+                                           error:&error];
     
     if(!error) {
         return [[NSString alloc] initWithData:encryptedData
@@ -40,6 +40,17 @@
     }
     
     return nil;
+}
+
+- (NSData *)getCertData {
+    NSString *certString = self.copy;
+    
+    certString = [certString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    certString = [certString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    certString = [certString stringByReplacingOccurrencesOfString:@"-----BEGIN CERTIFICATE-----" withString:@""];
+    certString = [certString stringByReplacingOccurrencesOfString:@"-----END CERTIFICATE-----" withString:@""];
+    
+    return [[NSData alloc] initWithBase64EncodedString:certString options:0];;
 }
 
 @end

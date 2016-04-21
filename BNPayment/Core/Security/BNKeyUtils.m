@@ -7,6 +7,7 @@
 //
 
 #import "BNKeyUtils.h"
+#import "NSString+BNCrypto.h"
 
 @implementation BNKeyUtils
 
@@ -23,23 +24,17 @@
 }
 
 + (SecKeyRef)getPublicKeyRefForPemFile:(NSString *)filename
-
                                 bundle:(NSBundle *)bundle {
     NSString *certPath = [bundle pathForResource:filename ofType:@"pem"];
     
     NSError *error;
     NSString *certString = [NSString stringWithContentsOfFile:certPath encoding:NSUTF8StringEncoding error:&error];
-    certString = [certString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    certString = [certString stringByReplacingOccurrencesOfString:@"-----BEGIN CERTIFICATE-----" withString:@""];
-    certString = [certString stringByReplacingOccurrencesOfString:@"-----END CERTIFICATE-----" withString:@""];
 
     if(!certPath || !certString || error) {
         return nil;
     }
     
-    NSData *certData = [[NSData alloc] initWithBase64EncodedString:certString options:0];
-    
-    return [BNKeyUtils getPublicKeyRefFromCertData:certData];
+    return [BNKeyUtils getPublicKeyRefFromCertData:[certString getCertData]];
 }
 
 + (SecKeyRef)getPublicKeyRefFromCertData:(NSData *)certData {
@@ -48,7 +43,9 @@
     SecPolicyRef secPolicy = SecPolicyCreateBasicX509();
     
     SecCertificateRef cert = SecCertificateCreateWithData(nil, (__bridge CFDataRef)certData);
-    SecTrustCreateWithCertificates(cert, secPolicy, &certSecTrust);
+    OSStatus status = SecTrustCreateWithCertificates(cert, secPolicy, &certSecTrust);
+    
+    if(status != noErr) return nil;
     
     publicKey = SecTrustCopyPublicKey(certSecTrust);
     

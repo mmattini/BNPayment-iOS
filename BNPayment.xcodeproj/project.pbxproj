@@ -120,6 +120,7 @@
 		5DC25F371CC65E9400C4573F /* BNEncryptionCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */; };
 		5DC25F3A1CC66D4A00C4573F /* BNCertificateEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC25F381CC66D4A00C4573F /* BNCertificateEndpoint.h */; };
 		5DC25F3B1CC66D4A00C4573F /* BNCertificateEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC25F391CC66D4A00C4573F /* BNCertificateEndpoint.m */; };
+		5DC25F3D1CC7876200C4573F /* epayPublic.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DC25F3C1CC7876200C4573F /* epayPublic.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +269,7 @@
 		5DC25F351CC65E9400C4573F /* BNEncryptionCertificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptionCertificate.m; sourceTree = "<group>"; };
 		5DC25F381CC66D4A00C4573F /* BNCertificateEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCertificateEndpoint.h; sourceTree = "<group>"; };
 		5DC25F391CC66D4A00C4573F /* BNCertificateEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCertificateEndpoint.m; sourceTree = "<group>"; };
+		5DC25F3C1CC7876200C4573F /* epayPublic.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = epayPublic.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +296,7 @@
 		5D8007211CB7D99C00E29149 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5DC25F3C1CC7876200C4573F /* epayPublic.cer */,
 				5D8007221CB7D99C00E29149 /* BNCCFormInputView.xib */,
 				5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */,
 				5D8007241CB7D99C00E29149 /* BNCCRegistrationFormVC.xib */,
@@ -784,6 +787,7 @@
 				5D8007371CB7D99C00E29149 /* iconCard@2x.png in Resources */,
 				5D8007331CB7D99C00E29149 /* iconCalendar.png in Resources */,
 				5D8007321CB7D99C00E29149 /* BNFormView.xib in Resources */,
+				5DC25F3D1CC7876200C4573F /* epayPublic.cer in Resources */,
 				5D8007351CB7D99C00E29149 /* iconCalendar@3x.png in Resources */,
 				5D8007381CB7D99C00E29149 /* iconCard@3x.png in Resources */,
 				5D8007301CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib in Resources */,

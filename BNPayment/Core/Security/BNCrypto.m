@@ -18,7 +18,7 @@
     return [NSData dataWithBytes:randomBytes length:sizeof(randomBytes)];
 }
 
-+ (NSData *)AES256Data:(NSData *)data
++ (NSData *)AES128Data:(NSData *)data
                    key:(NSData *)symmetricKey
              operation:(BNCryptoMode)operation
                  error:(NSError **)error {
@@ -31,7 +31,7 @@
                        kCCAlgorithmAES,
                        kCCOptionPKCS7Padding,
                        symmetricKey.bytes,
-                       kCCKeySizeAES256,
+                       kCCKeySizeAES128,
                        symmetricKey.bytes,
                        data.bytes,
                        data.length,

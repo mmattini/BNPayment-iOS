@@ -38,12 +38,15 @@
 }
 
 - (void)generateParams {
-    NSData *sessionKey = [BNCrypto generateRandomKey:32];
+    NSData *sessionKey = [BNCrypto generateRandomKey:16];
+    NSLog(@"SessionKey: %@", sessionKey);
     self.cardDetails = [self.cardDetails encryptedCreditCardWithSessionKey:sessionKey];
     
     NSArray *encryptionCertificates = [[BNCertManager sharedInstance] getEncryptionCertificates];
     for(BNEncryptionCertificate *cert in encryptionCertificates) {
-        [self addEncryptedSessionKey:[cert encryptSessionKey:sessionKey] fingerprint:cert.fingerprint];
+        if([cert isKindOfClass:[BNEncryptionCertificate class]]) {
+            [self addEncryptedSessionKey:[cert encryptSessionKey:sessionKey] fingerprint:cert.fingerprint];            
+        }
     }
 }
 

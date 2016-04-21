@@ -25,10 +25,10 @@
     BNCreditCard *encryptedCreditCard = [BNCreditCard new];
     
     encryptedCreditCard.alias = self.alias;
-    encryptedCreditCard.cardNumber = [self.cardNumber AES256EncryptWithKey:sessionKey];
-    encryptedCreditCard.expMonth = [self.expMonth AES256EncryptWithKey:sessionKey];
-    encryptedCreditCard.expYear = [self.expYear AES256EncryptWithKey:sessionKey];
-    encryptedCreditCard.cvv = [self.cvv AES256EncryptWithKey:sessionKey];
+    encryptedCreditCard.cardNumber = [self.cardNumber AES128EncryptWithKey:sessionKey];
+    encryptedCreditCard.expMonth = [self.expMonth AES128EncryptWithKey:sessionKey];
+    encryptedCreditCard.expYear = [self.expYear AES128EncryptWithKey:sessionKey];
+    encryptedCreditCard.cvv = [self.cvv AES128EncryptWithKey:sessionKey];
     
     return encryptedCreditCard;
 }
