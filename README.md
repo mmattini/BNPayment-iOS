@@ -57,7 +57,11 @@ If you're interested in using `BNPayment` in a Swift-based app, please see [iOS 
 
 ## Installation
 
+To install BNPayment, we recommend using either CocoaPods or Carthage.
+
 #### How to install via CocoaPods
+
+CocoaPods is a dependency manager for third-party libraries.
 
 **Step 1: Create or select an Xcode project**
 
@@ -101,6 +105,8 @@ pod install
 CocoaPods creates a container workspace for you to use. Close the `.xcodeproj` and open the newly created `.xcworkspace` in Xcode instead.
 
 #### How to install via Carthage
+
+Carthage is a is a dependency manager for third-party libraries.
 
 **Step 1: Create or select an Xcode project**
 
@@ -272,6 +278,92 @@ BNCCHostedFormParams customizationSettings = [BNCCHostedFormParams hostedFormPar
 
 BNCCHostedRegistrationFormVC *ccHostedRegistrationVC = 
   [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:[BNCCHostedFormParams customizationSettings]];
+```
+
+Here is a CSS example:
+
+```css
+body {
+    margin-top: 0pt;
+    padding: 0pt;
+}
+
+form{
+    width: 100%;
+}
+
+#container {
+    padding-top: 10pt;
+}
+
+.cardnumber {
+    width: 100%;
+}
+
+.expiry {
+    float: left;
+    width: 50%;
+}
+
+.expiry input {
+    border-top: 0pt;
+    border-right: 0.5pt solid #dcddde;
+}
+
+.cvc {
+    float: right;
+    width: 50%;
+}
+
+.cvc input {
+    border-top: 0pt;
+    border-left: 0.5pt solid #dcddde;
+}
+
+.input-group {
+    margin-bottom: 0pt;
+    padding: 0pt;
+}
+
+[type=submit] {
+    width: 100%;
+    font-size: 12pt;
+    color: white;
+    background-color: #40245f;
+    height: 36pt;
+    margin-top: 5pt;
+    border: 0px;
+    border-radius: 0pt;
+}
+
+input {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -moz-tap-highlight-color: rgba(0,0,0,0);
+    tap-highlight-color: rgba(0,0,0,0);
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    color: #4f5355;
+    font-size: 10pt;
+    box-sizing: border-box;
+    width: 100%;
+    height: 30pt;
+    border-radius: 1px;
+    border: 1pt solid #dcddde;
+    padding-left: 10pt;
+    padding-right: 10pt;
+}
+
+input:focus {
+    border-bottom: 1pt solid #8c9091;
+}
+
+.invalid {
+    border-bottom: 1px solid red;
+}
+
 ```
 
 ***Managing credit cards***
