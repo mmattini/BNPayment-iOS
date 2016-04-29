@@ -267,7 +267,7 @@ ccHostedRegistrationVC.webviewDelegate = self;
 [ccHostedRegistrationVC addFooterView:<FOOTER_VIEW>]; // Set a custom footer view
 ```
 
-Specify a custom CSS file [(here's an example)](http://ci.mobivending.com/CNP/example.css) to change the look and feel of the hosted payment page and specify the text to be used on the page:
+Specify a custom CSS file to change the look and feel of the hosted payment page and specify the text to be used on the page:
 
 ```objective-c
 BNCCHostedFormParams customizationSettings = [BNCCHostedFormParams hostedFormParamsWithCSS:@"<CSS_URL>"
