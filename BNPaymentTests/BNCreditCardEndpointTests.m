@@ -22,6 +22,7 @@
     
     NSError *error;
     [BNPaymentHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
+    [[BNPaymentHandler sharedInstance] registerAuthenticator:[BNAuthenticator new]];
 }
 
 - (void)setUp {
