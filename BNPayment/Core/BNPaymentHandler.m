@@ -10,15 +10,26 @@
 #import "BNPaymentEndpoint.h"
 #import "BNCreditCardEndpoint.h"
 #import "BNAuthorizedCreditCard.h"
-#import <BNBase/BNCacheManager.h>
+#import "BNCacheManager.h"
 #import "BNCCHostedFormParams.h"
 #import "BNPaymentParams.h"
+#import "BNAuthenticator.h"
+#import "BNHTTPClient.h"
+#import "BNUser.h"
 
-NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
+static NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
+static NSString *const BNAuthenticatorCacheName = @"BNAuthenticator";
+static NSString *const SharedSecretKeychainKey = @"sharedSecret";
+static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.bambora.com/";
 
 @interface BNPaymentHandler ()
 
 @property (nonatomic, strong) NSMutableArray<BNAuthorizedCreditCard *> *tokenizedCreditCards;
+@property (nonatomic, strong) NSString *apiToken;
+@property (nonatomic, assign) BOOL debug;
+@property (nonatomic, assign) NSString *baseUrl;
+@property (nonatomic, strong) BNAuthenticator *autenticator;
+@property (nonatomic, strong) BNHTTPClient *httpClient;
 
 @end
 
@@ -36,6 +47,62 @@ NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
     return _sharedInstance;
 }
 
++ (BOOL)setupWithApiToken:(NSString *)apiToken
+                  baseUrl:(NSString *)baseUrl
+                    debug:(BOOL)debug
+                    error:(NSError **)error {
+    
+    BNPaymentHandler *handler = [BNPaymentHandler sharedInstance];
+    handler.apiToken = apiToken;
+    handler.baseUrl = baseUrl ? baseUrl : DefaultBaseUrl;
+    handler.debug = debug;
+    handler.httpClient = [[BNHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:handler.baseUrl]];
+    [handler.httpClient enableLogging:debug];
+    
+    return error == nil;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        id authenticator = [[BNCacheManager sharedCache] getObjectWithName:BNAuthenticatorCacheName];
+        if ([authenticator isKindOfClass:[BNAuthenticator class]]) {
+            self.autenticator = authenticator;
+        }
+    }
+    return self;
+}
+
+- (BNHTTPClient *)getHttpClient {
+    return self.httpClient;
+}
+
+- (void)registerAuthenticator:(BNAuthenticator *)authenticator {
+    self.autenticator = authenticator;
+    [[BNCacheManager sharedCache] saveObject:self.authenticator
+                                    withName:BNAuthenticatorCacheName];
+}
+
+- (BNAuthenticator *)authenticator {
+    return self.autenticator;
+}
+
+- (BOOL)isRegistered {
+    return self.autenticator != nil;
+}
+
+- (NSString *)getApiToken {
+    return self.apiToken;
+}
+
+- (NSString *)getBaseUrl {
+    return self.baseUrl;
+}
+
+- (BOOL)debugMode {
+    return self.debug;
+}
+
 - (void)setupBNPaymentHandler {
     id cachedCards = [[BNCacheManager sharedCache] getObjectWithName:TokenizedCreditCardCacheName];
     
@@ -45,6 +112,8 @@ NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
         self.tokenizedCreditCards = [cachedCards mutableCopy];
     }
 }
+
+
 
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams * )params
                                                         completion:(BNCreditCardRegistrationUrlBlock) block {

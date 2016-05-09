@@ -38,8 +38,8 @@ typedef void (^BNHTTPClientErrorBlock)(NSURLSessionDataTask *task, NSError *erro
  *
  *  @param endpointURLString The endpoint URL used for creating the request URL
  *  @param params            The params to be encoded by the serializer `BNHTTPRequestSerializer`.
- *  @param success           An object block executed when the request finished successfully.
- *  @param failure           An object block executed when the request finished with an error.
+ *  @param success           An object block executed when the request finished successfully. Dispatched to main queue.
+ *  @param failure           An object block executed when the request finished with an error. Dispatched to main queue.
  *
  *  @return A `NSURLSessionDataTask` created by this method.
  */
@@ -53,8 +53,8 @@ typedef void (^BNHTTPClientErrorBlock)(NSURLSessionDataTask *task, NSError *erro
  *
  *  @param endpointURLString The endpoint URL used for creating the request URL
  *  @param params            The params to be encoded by the serializer `BNHTTPRequestSerializer`.
- *  @param success           An object block executed when the request finished successfully.
- *  @param failure           An object block executed when the request finished with an error.
+ *  @param success           An object block executed when the request finished successfully. Dispatched to main queue.
+ *  @param failure           An object block executed when the request finished with an error. Dispatched to main queue.
  *
  *  @return A `NSURLSessionDataTask` created by this method.
  */
@@ -68,8 +68,8 @@ typedef void (^BNHTTPClientErrorBlock)(NSURLSessionDataTask *task, NSError *erro
  *
  *  @param endpointURLString The endpoint URL used for creating the request URL
  *  @param params            The params to be encoded by the serializer `BNHTTPRequestSerializer`.
- *  @param success           An object block executed when the request finished successfully.
- *  @param failure           An object block executed when the request finished with an error.
+ *  @param success           An object block executed when the request finished successfully. Dispatched to main queue.
+ *  @param failure           An object block executed when the request finished with an error. Dispatched to main queue.
  *
  *  @return A `NSURLSessionDataTask` created by this method.
  */
@@ -83,8 +83,8 @@ typedef void (^BNHTTPClientErrorBlock)(NSURLSessionDataTask *task, NSError *erro
  *
  *  @param endpointURLString The endpoint URL used for creating the request URL
  *  @param params            The params to be encoded by the serializer `BNHTTPRequestSerializer`.
- *  @param success           An object block executed when the request finished successfully.
- *  @param failure           An object block executed when the request finished with an error.
+ *  @param success           An object block executed when the request finished successfully. Dispatched to main queue.
+ *  @param failure           An object block executed when the request finished with an error. Dispatched to main queue.
  *
  *  @return A `NSURLSessionDataTask` created by this method.
  */

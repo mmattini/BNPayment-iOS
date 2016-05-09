@@ -13,6 +13,8 @@
 @class BNAuthorizedCreditCard;
 @class BNCCHostedFormParams;
 @class BNPaymentParams;
+@class BNHTTPClient;
+@class BNAuthenticator;
     
 /**
  *  A block object to be executed when a payment operation has completed.
@@ -41,11 +43,77 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
  */
 + (BNPaymentHandler *)sharedInstance;
 
-/**
- *  Initiate Credit card registration.
+///------------------------------------------------
+/// @name Setting up handler and access `BNHandler` instance
+///------------------------------------------------
+
+/** Setup `BNHandler` with an APIToken.
  *
- *  @param block `BNCreditCardUrlBlock` block to be executed when the initiate credit card registration operation is finished.
+ * Sets up `BNHandler` with and APIToken that will be used
+ * to authenticate the application to the mobivending API
+ *
+ * @param apiToken Api-token to be used
+ * @param error Possible error that can occur during initialization
  */
++ (BOOL)setupWithApiToken:(NSString *)apiToken
+                  baseUrl:(NSString *)baseUrl
+                    debug:(BOOL)debug
+                    error:(NSError **)error;
+
+///------------------------------------------------
+/// @name Getting user and app information
+///------------------------------------------------
+
+/**
+ *  Return the `BNHTTPClient` used by the handler
+ *
+ *  @return A `BNHTTPClient` associated with the handler
+ */
+- (BNHTTPClient *)getHttpClient;
+
+/**
+ *  Get the API token associated with this `BNHandler`
+ *
+ *  @return A string representing the API token associated with this `BNHandler`
+ */
+- (NSString *)getApiToken;
+
+/**
+ *  A method for setting an `BNAuthenticator`. This method can be
+ *  used if you can retrieve a `BNAuthenticator` from a different source
+ *  than the registerUser method.
+ *
+ *  @param authenticator The `BNAuthenticator` to register
+ */
+- (void)registerAuthenticator:(BNAuthenticator *)authenticator;
+
+/**
+ *  Get the `BNAuthenticator` object associated with this instance
+ *
+ *  @return A `BNAuthenticator` associated with this instance
+ */
+- (BNAuthenticator *)authenticator;
+
+/**
+ *  A method for checking if the SDK has regitered `BNAuthenticator`
+ *
+ *  @return A boolean indicating whether or not the SDK has a registered `BNAuthenticator`
+ */
+- (BOOL)isRegistered;
+
+/**
+ *  Get the base URL for the backend
+ *
+ *  @return A `NSString` cotaining the base URL
+ */
+- (NSString *)getBaseUrl;
+
+/**
+ *  Get debug flag value
+ *
+ *  @return A `BOOL` indicating if lib is in debug mode
+ */
+- (BOOL)debugMode;
 
 /**
  *  Initiate Credit card registration.
