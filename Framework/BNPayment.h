@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 #import <BNPayment/BNAuthenticator.h>
 #import <BNPayment/BNBaseModel.h>
 #import <BNPayment/BNCacheManager.h>
-#import <BNPayment/BNHandler.h>
 #import <BNPayment/BNHTTPClient.h>
 #import <BNPayment/BNHTTPRequestSerializer.h>
 #import <BNPayment/BNHTTPResponseSerializer.h>

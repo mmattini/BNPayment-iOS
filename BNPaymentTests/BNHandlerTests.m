@@ -6,13 +6,13 @@
 //  Copyright © 2016 Bambora On Mobile AB. All rights reserved.
 //
 
-#import <BNBase/BNBase.h>
+#import <BNPayment/BNPayment.h>
 
 @import XCTest;
 
 @interface BNHandlerTests : XCTestCase
 
-@property BNHandler *handler;
+@property BNPaymentHandler *handler;
 
 @end
 
@@ -20,7 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.handler = [BNHandler sharedInstance];
+    self.handler = [BNPaymentHandler sharedInstance];
 }
 
 - (void)testHandlerSetup {
@@ -29,10 +29,10 @@
     BOOL debug = YES;
     NSError *error = nil;
     
-    [BNHandler setupWithApiToken:apiToken
-                         baseUrl:baseUrl
-                           debug:debug
-                           error:&error];
+    [BNPaymentHandler setupWithApiToken:apiToken
+                                baseUrl:baseUrl
+                                  debug:debug
+                                  error:&error];
     
     XCTAssertNotNil(_handler, "Handler is not nil");
     XCTAssertNil(error, "Error is nil");

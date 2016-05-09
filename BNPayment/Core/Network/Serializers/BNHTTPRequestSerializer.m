@@ -7,9 +7,10 @@
 //
 
 #import "BNHTTPRequestSerializer.h"
-#import "BNHandler.h"
+#import "BNPaymentHandler.h"
 #import "BNUtils.h"
 #import "NSDate+BNUtils.h"
+#import "BNAuthenticator.h"
 
 @interface BNHTTPRequestSerializer ()
 
@@ -32,7 +33,7 @@
                          parameters:(NSDictionary *)parameters
                               error:(NSError **)error {
     
-    BNHandler *handler = [BNHandler sharedInstance];
+    BNPaymentHandler *handler = [BNPaymentHandler sharedInstance];
     
     NSURLRequest *request = [self createRequestWithMethod:method
                                                 URLString:URLString

@@ -21,7 +21,7 @@
     [OHHTTPStubs setEnabled:YES];
     
     NSError *error;
-    [BNHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
+    [BNPaymentHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
 }
 
 - (void)setUp {

@@ -73,6 +73,16 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
     return self;
 }
 
+- (void)setupBNPaymentHandler {
+    id cachedCards = [[BNCacheManager sharedCache] getObjectWithName:TokenizedCreditCardCacheName];
+    
+    self.tokenizedCreditCards = [NSMutableArray new];
+    
+    if ([cachedCards isKindOfClass:[NSArray class]]) {
+        self.tokenizedCreditCards = [cachedCards mutableCopy];
+    }
+}
+
 - (BNHTTPClient *)getHttpClient {
     return self.httpClient;
 }
@@ -102,18 +112,6 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
 - (BOOL)debugMode {
     return self.debug;
 }
-
-- (void)setupBNPaymentHandler {
-    id cachedCards = [[BNCacheManager sharedCache] getObjectWithName:TokenizedCreditCardCacheName];
-    
-    self.tokenizedCreditCards = [NSMutableArray new];
-
-    if ([cachedCards isKindOfClass:[NSArray class]]) {
-        self.tokenizedCreditCards = [cachedCards mutableCopy];
-    }
-}
-
-
 
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams * )params
                                                         completion:(BNCreditCardRegistrationUrlBlock) block {

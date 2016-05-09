@@ -6,7 +6,7 @@
 //  Copyright © 2016 Bambora On Mobile AB. All rights reserved.
 //
 
-#import "BNBase.h"
+#import "BNPayment.h"
 #import "OHHTTPStubs.h"
 #import "OHPathHelpers.h"
 
@@ -28,7 +28,7 @@
     [OHHTTPStubs setEnabled:YES];
     
     NSError *error;
-    [BNHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
+    [BNPaymentHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
     
     XCTAssertNil(error, "Error is nil after setup");
     

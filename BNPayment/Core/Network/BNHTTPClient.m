@@ -9,7 +9,7 @@
 #import "BNHTTPClient.h"
 #import "BNHTTPRequestSerializer.h"
 #import "BNHTTPResponseSerializer.h"
-#import "BNHandler.h"
+#import "BNPaymentHandler.h"
 #import "BNSecurity.h"
 #import "NSString+BNLogUtils.h"
 

@@ -7,7 +7,7 @@
 //
 
 #import "BNTestModel.h"
-#import "BNBase.h"
+#import "BNPayment.h"
 
 @import XCTest;
 

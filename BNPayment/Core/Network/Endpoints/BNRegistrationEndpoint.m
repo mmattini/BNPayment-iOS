@@ -7,9 +7,10 @@
 //
 
 #import "BNRegistrationEndpoint.h"
-#import "BNHandler.h"
+#import "BNPaymentHandler.h"
 #import "BNUser.h"
 #import "BNAuthenticator.h"
+#import "BNHTTPClient.h"
 
 static NSString *const RegistrationEndpointUrl = @"credentials/";
 
@@ -17,7 +18,7 @@ static NSString *const RegistrationEndpointUrl = @"credentials/";
 
 + (NSURLSessionDataTask *)registerWithUser:(BNUser *)user
                                 completion:(BNRegistrationBlock)completion {
-    BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
+    BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
     
     NSURLSessionDataTask *task = [httpClient POST:RegistrationEndpointUrl
                                        parameters:[user JSONDictionary]

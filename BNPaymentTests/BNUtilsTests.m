@@ -6,7 +6,7 @@
 //  Copyright © 2016 Bambora On Mobile AB. All rights reserved.
 //
 
-#import <BNBase/BNBase.h>
+#import <BNPayment/BNPayment.h>
 
 @import XCTest;
 
