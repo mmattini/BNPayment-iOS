@@ -11,6 +11,7 @@
 #import "BNUtils.h"
 #import "NSDate+BNUtils.h"
 #import "BNAuthenticator.h"
+#import "NSURLRequest+BNAuth.h"
 
 @interface BNHTTPRequestSerializer ()
 
@@ -42,8 +43,7 @@
                                                     error:error];
     
     if ([handler authenticator]) {
-        return [self addAuthHeaderWithRequest:request
-                                authenticator:[handler authenticator]];
+        return [request addAuthHeaderWithAuthenticator:[handler authenticator]];
     }
 
     return request;
@@ -124,43 +124,6 @@
     }
     
     return request;
-}
-
-- (NSURLRequest *)addAuthHeaderWithRequest:(NSURLRequest *)request
-                             authenticator:(BNAuthenticator *)authenticator {
-    NSMutableURLRequest *mutableRequest = [request mutableCopy];
-    
-    NSString *dateHeader = [NSDate getDateHeaderFormattedStringForDate:[NSDate date]];
-    NSString *httpBody = [[NSString alloc] initWithData:[request HTTPBody]
-                                               encoding:NSUTF8StringEncoding];
-    NSString *path = [request.URL.path stringByAppendingString:@"/"];
-    NSString *queryString = request.URL.query;
-    
-    NSString *authHeader = [self generateAuthHeaderForUUID:authenticator.uuid ? authenticator.uuid : @""
-                                                dateHeader:dateHeader ? dateHeader : @""
-                                                    path:path ? path : @""
-                                               queryString:queryString ? queryString : @""
-                                                      body:httpBody ? httpBody : @""
-                                              sharedSecret:authenticator.sharedSecret ? authenticator.sharedSecret : @""];
-    
-    [mutableRequest setValue:authHeader forHTTPHeaderField:@"Authorization"];
-    [mutableRequest setValue:dateHeader forHTTPHeaderField:@"Date"];
-    
-    return mutableRequest;
-}
-
-- (NSString *)generateAuthHeaderForUUID:(NSString *)uuid
-                             dateHeader:(NSString *)dateHeader
-                                   path:(NSString *)path
-                            queryString:(NSString *)queryString
-                                   body:(NSString *)body
-                           sharedSecret:(NSString *)sharedSecret {
-    
-    NSString *stringToHash = [@[uuid, body, dateHeader, path, queryString] componentsJoinedByString: @":"];
-    NSString *hmac = [BNUtils sha256HMAC:stringToHash key:sharedSecret];
-    NSString *authHeader = [NSString stringWithFormat:@"MPS1 %@:%@", uuid, hmac];
-    
-    return authHeader;
 }
 
 @end

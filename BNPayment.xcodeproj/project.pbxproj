@@ -126,6 +126,8 @@
 		5D69A69B1CE0D43B00A573EE /* registerCreditCardSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A67F1CE0D43B00A573EE /* registerCreditCardSuccess.json */; };
 		5D69A69C1CE0D43B00A573EE /* registerResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6801CE0D43B00A573EE /* registerResponseSuccess.json */; };
 		5D69A69D1CE0D43B00A573EE /* registerResponseSuccessExtraParams.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6811CE0D43B00A573EE /* registerResponseSuccessExtraParams.json */; };
+		5D69A6A01CE0D61400A573EE /* NSURLRequest+BNAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */; };
+		5D69A6A11CE0D61400A573EE /* NSURLRequest+BNAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */; };
 		5D80072F1CB7D99C00E29149 /* BNCCFormInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007221CB7D99C00E29149 /* BNCCFormInputView.xib */; };
 		5D8007301CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */; };
 		5D8007311CB7D99C00E29149 /* BNCCRegistrationFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007241CB7D99C00E29149 /* BNCCRegistrationFormVC.xib */; };
@@ -295,6 +297,8 @@
 		5D69A67F1CE0D43B00A573EE /* registerCreditCardSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerCreditCardSuccess.json; sourceTree = "<group>"; };
 		5D69A6801CE0D43B00A573EE /* registerResponseSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerResponseSuccess.json; sourceTree = "<group>"; };
 		5D69A6811CE0D43B00A573EE /* registerResponseSuccessExtraParams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerResponseSuccessExtraParams.json; sourceTree = "<group>"; };
+		5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+BNAuth.h"; sourceTree = "<group>"; };
+		5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+BNAuth.m"; sourceTree = "<group>"; };
 		5D8007221CB7D99C00E29149 /* BNCCFormInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCFormInputView.xib; sourceTree = "<group>"; };
 		5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCHostedRegistrationFormVC.xib; sourceTree = "<group>"; };
 		5D8007241CB7D99C00E29149 /* BNCCRegistrationFormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCRegistrationFormVC.xib; sourceTree = "<group>"; };
@@ -369,6 +373,8 @@
 				5D69A5501CE0D00200A573EE /* NSString+BNStringUtils.m */,
 				5D69A5511CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.h */,
 				5D69A5521CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.m */,
+				5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */,
+				5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				5D69A5C21CE0D00200A573EE /* BNCacheManager.h in Headers */,
 				5D69A5C81CE0D00200A573EE /* BNAuthorizedCreditCard.h in Headers */,
 				5D69A5FA1CE0D00200A573EE /* BNCCHostedRegistrationFormVC.h in Headers */,
+				5D69A6A01CE0D61400A573EE /* NSURLRequest+BNAuth.h in Headers */,
 				5D69A5DC1CE0D00200A573EE /* EPAYMessage.h in Headers */,
 				5D69A5F81CE0D00200A573EE /* BNFormScrollView.h in Headers */,
 				5D69A5D01CE0D00200A573EE /* BNCreditCard.h in Headers */,
@@ -932,6 +939,7 @@
 				5D69A5F31CE0D00200A573EE /* UIImage+BNUtils.m in Sources */,
 				5D69A5BB1CE0D00200A573EE /* NSDate+BNUtils.m in Sources */,
 				5D69A60F1CE0D00200A573EE /* BNHostedRegistrationFormFooter.m in Sources */,
+				5D69A6A11CE0D61400A573EE /* NSURLRequest+BNAuth.m in Sources */,
 				5D69A5C91CE0D00200A573EE /* BNAuthorizedCreditCard.m in Sources */,
 				5D69A5DD1CE0D00200A573EE /* EPAYMessage.m in Sources */,
 				5D69A60D1CE0D00200A573EE /* BNFormView.m in Sources */,

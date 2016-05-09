@@ -40,7 +40,10 @@
     
     NSMutableArray *pinnedCertificates = [NSMutableArray array];
     for (NSData *certificateData in self.pinnedCertificates) {
-        [pinnedCertificates addObject:CFBridgingRelease(SecCertificateCreateWithData(NULL, (__bridge CFDataRef)certificateData))];
+        SecCertificateRef certRef = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)certificateData);
+        if(certRef) {
+            [pinnedCertificates addObject:CFBridgingRelease(certRef)];
+        }
     }
     
     SecTrustSetAnchorCertificates(serverTrust, (__bridge CFArrayRef)pinnedCertificates);
