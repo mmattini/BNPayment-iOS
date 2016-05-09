@@ -6,7 +6,7 @@
 //
 //
 
-#import <BNBase/BNBaseModel.h>
+#import "BNBaseModel.h"
 
 @class EPAYMetaResponse;
 @class BNAuthorizedCreditCard;

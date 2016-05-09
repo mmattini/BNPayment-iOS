@@ -10,13 +10,13 @@
 #import "BNPaymentParams.h"
 #import "BNPaymentResponse.h"
 #import "BNPaymentHandler.h"
-#import <BNBase/BNHandler.h>
+#import "BNHTTPClient.h"
 
 @implementation BNPaymentEndpoint
 
 + (NSURLSessionDataTask *)authorizePaymentWithParams:(BNPaymentParams *)params
                                           completion:(BNPaymentRequestBlock) completion {
-    BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
+        BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
     
     NSString *endPointUrl = [NSString stringWithFormat:@"payments/%@/card_token/", params.paymentIdentifier];
     

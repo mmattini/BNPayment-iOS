@@ -10,13 +10,20 @@
 #import "BNPaymentEndpoint.h"
 #import "BNCreditCardEndpoint.h"
 #import "BNAuthorizedCreditCard.h"
+<<<<<<< HEAD
+=======
 #import "BNCacheManager.h"
+>>>>>>> develop
 #import "BNCCHostedFormParams.h"
 #import "BNRegisterCCParams.h"
 #import "BNPaymentParams.h"
+<<<<<<< HEAD
+#import <BNBase/BNCacheManager.h>
+=======
 #import "BNAuthenticator.h"
 #import "BNHTTPClient.h"
 #import "BNUser.h"
+>>>>>>> develop
 
 static NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
 static NSString *const BNAuthenticatorCacheName = @"BNAuthenticator";

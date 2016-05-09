@@ -5,7 +5,7 @@
 //  Created by Bambora On Mobile AB on 19/01/2016.
 //
 //
-#import <BNBase/BNBaseModel.h>
+#import "BNBaseModel.h"
 
 @class BNPaymentParams;
 

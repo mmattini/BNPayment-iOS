@@ -10,8 +10,6 @@
 		5D7723A91CB79E6D00D680FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7723A81CB79E6D00D680FE /* UIKit.framework */; };
 		5D8007111CB7CED100E29149 /* BNPayment.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D80070F1CB7CE6200E29149 /* BNPayment.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5D8007151CB7D1E200E29149 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D80070F1CB7CE6200E29149 /* BNPayment.framework */; };
-		5D80071B1CB7D63800E29149 /* BNBase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D80071A1CB7D63800E29149 /* BNBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5D80071C1CB7D66500E29149 /* BNBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D80071A1CB7D63800E29149 /* BNBase.framework */; };
 		5DAABF441CB69B8100CEDB91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF431CB69B8100CEDB91 /* main.m */; };
 		5DAABF471CB69B8100CEDB91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF461CB69B8100CEDB91 /* AppDelegate.m */; };
 		5DAABF4A1CB69B8100CEDB91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAABF491CB69B8100CEDB91 /* ViewController.m */; };
@@ -27,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5D80071B1CB7D63800E29149 /* BNBase.framework in CopyFiles */,
 				5D8007111CB7CED100E29149 /* BNPayment.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +53,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7723A91CB79E6D00D680FE /* UIKit.framework in Frameworks */,
-				5D80071C1CB7D66500E29149 /* BNBase.framework in Frameworks */,
 				5D8007151CB7D1E200E29149 /* BNPayment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,7 +297,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					../BNBase,
 				);
 				INFOPLIST_FILE = "BNPayment-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -318,7 +313,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/../BNBase",
 				);
 				INFOPLIST_FILE = "BNPayment-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

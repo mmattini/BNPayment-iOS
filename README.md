@@ -2,9 +2,6 @@
 
 This library implements credit card registrations and payments using Bambora's backend.
 
-`BNPayment` has only one dependecy: [BNBase library](https://github.com/bambora/BNBase-iOS-internal). This dependency is installed by default when using CocoaPods.
-
-
 ## About
 
 `BNPayment` makes it simple to accept credit card payments in your app. 
@@ -15,12 +12,39 @@ Specifically, by integrating `BNPayment` into your project you can make it possi
 
 * Make purchases using registered credit cards.
 
-The primary goals of `BNPayment` are:
+**Goals**
+
+The primary goals of `BNPayment` are to:
 
 * Save you time by providing you with an easy-to-use, up-to-date and actively maintained codebase for interacting with the Bambora backend.
 
 * Empower you to do more with less: `BNPayment` has no third-party dependencies.
 
+**How it works**
+
+This is a brief overview of how what the SDK does:
+
+***Setup and authentication***
+
+Initially, the SDK connects to the SDK backend and sends in an API token. Based on that API token, the SDK backend then identifies and authorizes the SDK. The SDK then registers itself with the SDK backend. After these steps, credit card registration and payment functionality is enabled in the app.
+
+***Credit card registration***
+
+The user needs to register his/her credit card in the app in order to make a purchase. Credit card registration is done through a secure web-based form, which we refer to as a hosted payment page (HPP). The HPP is opened in a web view in the app and the user then registers his/her credit card on it.
+
+After a successful registration, the HPP will return a card token which is automatically saved locally in the app. The card token is a tokenized version of the credit card and can be used by he SDK in order to make payments with the card in question.
+
+The developer can use callback methods to manage the HPP and to get the card token after a successful credit card registration.
+
+The SDK supports multiple credit card registrations.
+
+***Payments***
+
+When a valid credit card that contains sufficient funds has been registered through the SDK, payments can be made.
+
+This is done by making a call to the SDK backend that includes the amount, currency and card token.
+
+When an SDK payment is successful, the payment amount becomes reserved in the customer's bank account. It is then up to you as a merchant to capture/withdraw the payment from the customer's bank account (which can be done either through the merchant backend interface or by making an API integration with the SDK backend).
 
 ## Language and Requirements
 
@@ -33,15 +57,21 @@ If you're interested in using `BNPayment` in a Swift-based app, please see [iOS 
 
 ## Installation
 
-Step 0: The project
+To install BNPayment, we recommend using either CocoaPods or Carthage.
+
+#### How to install via CocoaPods
+
+CocoaPods is a dependency manager for third-party libraries.
+
+**Step 1: Create or select an Xcode project**
 
 Create (or use an existing) Xcode project. Open a terminal window and `cd` into the project directory
 
-**Step 1: Install CocoaPods**
+**Step 2: Install CocoaPods**
 
 We recommend following [this guide](https://guides.cocoapods.org/using/getting-started.html#getting-started) for installing CocoaPods.
 
-**Step 2: Create a Podfile**
+**Step 3: Create a Podfile**
 
 Run the following command in the OS X Terminal from the folder where your Xcode project file (`.xcodeproj`) is:
 
@@ -49,7 +79,7 @@ Run the following command in the OS X Terminal from the folder where your Xcode 
 pod init
 ```
 
-**Step 3: Edit the Podfile**
+**Step 4: Edit the Podfile**
 
 Add this information to the Podfile:
 
@@ -62,7 +92,7 @@ platform :ios, '8.0'
 pod "BNPayment"
 ```
 
-**Step 4: Install the pod**
+**Step 5: Install the pod**
 
 Run this command in the OS X Terminal from the same folder as the Podfile:
 
@@ -70,9 +100,69 @@ Run this command in the OS X Terminal from the same folder as the Podfile:
 pod install
 ```
 
-Step 5: Re-open project
+**Step 6: Re-open the project**
 
 CocoaPods creates a container workspace for you to use. Close the `.xcodeproj` and open the newly created `.xcworkspace` in Xcode instead.
+
+#### How to install via Carthage
+
+Carthage is a is a dependency manager for third-party libraries.
+
+**Step 1: Create or select an Xcode project**
+
+Create (or use an existing) Xcode project. Open a terminal window and `cd` into the project directory
+
+**Step 2: Install Carthage**
+
+We recommend following [these instructions](https://github.com/Carthage/Carthage#installing-carthage) for installing Carthage.
+
+**Step 3: Create a Cartfile**
+
+Run the following command in the OS X Terminal from the folder where your Xcode project file (`.xcodeproj`) is:
+
+```bash
+touch Cartfile
+```
+
+Open the newly created Cartfile in the text editor of your choice, and enter the following text:
+
+```
+github "bambora/BNBase-iOS-internal" "develop"
+github "bambora/BNPayment-iOS-internal" "develop"
+```
+
+**Step 4: Create the framework file**
+
+Run the following command in the OS X Terminal:
+
+```bash
+carthage update
+```
+
+This will create two frameworks, BNPayment.framework and BNBase.framework, that you can find by going to Carthage/Build/iOS.
+
+**Step 5: Add the framework to your Xcode project**
+
+The following instructions apply to Xcode 7.3:
+
+Open your project in Xcode.
+
+Go to Target -> General -> Linked Frameworks and Libraries
+
+Add the BNPayment.framework and BNBase.framework to the list.
+
+Go to Build Phase and add a New Run Script Phase and then enter the following script line: 
+
+```bash
+/usr/local/bin/carthage copy-frameworks 
+```
+
+Add the following two lines under Input Files: 
+
+```
+$(SRCROOT)/Carthage/Build/iOS/BNBase.framework
+$(SRCROOT)/Carthage/Build/iOS/BNPayment.framework
+```
 
 <a name="setup"></a>
 ## Setup
@@ -87,8 +177,6 @@ The API token has two purposes:
 
 After signing up for a SDK developer account, you will receive an API token for the test environment. You can then decide to apply for an API token for the production environment.
 
-*Todo: Add link to sign up page.*
-
 ***Import the SDK***
 
 This import statement needs to be added to any implementation (.m) file that needs access to the SDK (including the AppDelegate):
@@ -97,122 +185,186 @@ This import statement needs to be added to any implementation (.m) file that nee
 #import <BNPayment/BNPayment.h>
 ```
 
+<a name="configureappdelegate"></a>
 ***Configure the AppDelegate***
 
-Run the following setup method upon initialization of your app. It is recommended to do this in `‑ application:didFinishLaunchingWithOptions:`
+Run the following setup method upon initialization of your app. It is recommended to do this in the `‑ application:didFinishLaunchingWithOptions:` method in AppDelegate.m.
 
 ```objective-c
-NSString *apiToken = <API_TOKEN>; // Required: Sign up is required to obtain API tokens.
-NSString *myBaseURL = <CUSTOM_URL>; // Optional: Overrides the default base URL for the API.
-BOOL debugSetting = <DEBUG_SETTING>; // Optional: Enables logging in Xcode when set to YES.
 NSError *error;
-
-[BNHandler setupWithApiToken:apiToken baseUrl:myBaseURL debug:debugSetting error:&error];
+[BNHandler setupWithApiToken:@"<API_TOKEN>" // Required.
+                     baseUrl:nil // Optional. Overrides the URL to the SDK backend.
+                       debug:YES // Optional. Enables logging in Xcode when set to UES. 
+                       error:&error];
 ```
-
-## Payments
-
-To make a payment, two intermediate steps are required.
-
-1. [User Registration](#userregistration)
-
-2. [Credit Card Registration](#creditcardregistration)
-
-After both are completed successfully, the Library will allow you to [make payments](#makingpayments) quickly using only one API call
-
-<a name="userregistration"></a>
-## User Registration
-
-You can use `BNPayment` to register a user directly from the mobile device, by doing this:
+After using the setup method above, the registerUser method needs to be called. The following code can be placed in the method `‑ application:didFinishLaunchingWithOptions:` of AppDelegate.m (or optionally in some other place, as long as it is called before you attempt to use SDK features).
 
 ```objective-c
 if (![[BNHandler sharedInstance] isRegistered]) {
-    
-    // Optionals parameters:
-    BNUser *userObject = [BNUser new];
-    userObject.name = <NAME>;
-    userObject.email = <EMAIL>;
-    userObject.phoneNumber = <PHONE_NUMBER>;
-    userObject.reference = <CUSTOM_REFERENCE>;
-    
-    [[BNHandler sharedInstance] registerUser:userObject completion:^(BOOL success) {
-        // Registration succeeded.
-    }];  
+    [[BNHandler sharedInstance] registerUser:nil completion:^(BOOL success) {}];
 }
+
 ```
-
-Alternatively, you can use the Bambora backend to register a user from your backend instead. In this case your backend will have a `BNAuthenticator` object representing each user in the form of a `uuid` and `sharedSecret`.
-
-To use such an object with `BNPayment`:
-
-```objective-c
-if (![[BNHandler sharedInstance] isRegistered]) {
-
-    BNAuthenticator *authenticator = [BNAuthenticator new];
-
-    authenticator.sharedSecret = <SECRET_SENT_FROM_YOUR_BACKEND>;
-    authenticator.uuid = <UUID_SENT_FROM_YOUR_BACKEND>;
-
-    [[BNHandler sharedInstance] registerAuthenticator:authenticator];
-}
-```
+A couple of notes regarding the example above:
+* If you provide a test API token, the SDK will enter test mode. If you provide a production API token, the SDK will enter production mode. 
+* The debug setting should be set to NO in live applications.
 
 <a name="creditcardregistration"></a>
 ## Credit Card Registration
 
-**Make sure you've successfully [set up BNPayments](#setup) and have a [valid user session](#userregistration) before continuing with this step.**
-
-Credit card registration is done through a secure web-based registration form, called a hosted form, that you can easily include in your app.
+*Make sure you've successfully [set up BNPayments](#setup) before continuing with this step.*
 
 ***How to accept credit card registrations***
 
-The view controller of class `BNCCHostedRegistrationFormVC` is used to authorize and saved credit cards.
-All you need to do is initialize an instance and set its callback block, then present the view controller. 
+Credit card registration is done through a secure web-based registration form, also known as a hosted payment page, that you can easily include in your app through the view controller of class `BNCCHostedRegistrationFormVC`.
 
-Here's an example of how to use `BNCCHostedRegistrationFormVC` form within a navigation controller:
+Here's an example of how to use `BNCCHostedRegistrationFormVC` within a navigation controller:
 
 ```objective-c
-#import <BNPayment/BNPayment.h>
-
-// (...)
-
-__weak BNViewController *weakSelf = self;
+__weak UIViewController *weakSelf = self;
 
 // Create the view controller for the hosted form:
-BNCCHostedRegistrationFormVC *ccRegistrationVC = 
+BNCCHostedRegistrationFormVC *ccHostedRegistrationVC = 
     [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:<CUSTOM_HOSTED_FORM_SETTINGS>];
     /* Instructions for creating an object with <CUSTOM_HOSTED_FORM_SETTINGS> can found further down 
     under "Customize the credit card registration view" */
 
 // Display the credit card registration view:
-[self.navigationController pushViewController:ccRegistrationVC animated:YES];
-
-ccRegistrationVC.completionBlock = ^(BNCCRegCompletion completion) {
-
-        if (completion == BNCCRegCompletionDone) {
-            // Credit card registration successful. Dismiss the hosted form:
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-        } else if (completion == BNCCRegCompletionCancelled) {
-            // The credit card registration process was cancelled.
-        }
-
-};
+[self.navigationController pushViewController:ccHostedRegistrationVC animated:YES];
 ```
 
-***Customization of `BNCCHostedRegistrationFormVC`***
-
-You can customize a view controller instance in three ways:
-
-1) set a custom header view and a custom footer view for the credit card registration view if you wish:
+Use these callback methods for responding to operations:
 
 ```objective-c
-[ccRegistrationVC addHeaderView:<HEADER_VIEW>]; // Set a custom header view
-[ccRegistrationVC addFooterView:<FOOTER_VIEW>]; // Set a custom footer view
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didStartOperation:(BNPaymentWebviewOperation)operation {
+  // Lets you know that an operation (such as loading the hosted payment page) has started.
+}
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFinishOperation:(BNPaymentWebviewOperation)operation {
+  // Lets you know when an operation (such as loading the hosted payment page) has finished.
+}
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didRegisterAuthorizedCard:(BNAuthorizedCreditCard *)authorizedCard {
+  /* Lets you know that a credit card registration attempt succeeded. 
+  This method Also lets you access the card token (through authorizedCard). */
+}
+
+- (void)BNPaymentWebview:(BNPaymentWebview *)webview didFailOperation:(BNPaymentWebviewOperation)operation withError:(NSError *)error {
+   // Lets you know that a credit card registration attempt failed.
+}
 ```
 
-2) Modify the text used in the form using custom placeholders through the `BNCCHostedFormParams` interface.
+***How to customize the hosted payment page***
 
-3) Use a custom CSS file to change the look and feel of the form [(here's an example)](http://ci.mobivending.com/CNP/example.css) through the `BNCCHostedFormParams` interface.
+You can customize a `BNCCHostedRegistrationFormVC` instance in these ways:
+
+Set a custom header view and a custom footer view::
+
+```objective-c
+ccHostedRegistrationVC.webviewDelegate = self;
+[ccHostedRegistrationVC addHeaderView:<HEADER_VIEW>]; // Set a custom header view
+[ccHostedRegistrationVC addFooterView:<FOOTER_VIEW>]; // Set a custom footer view
+```
+
+Specify a custom CSS file to change the look and feel of the hosted payment page and specify the text to be used on the page:
+
+```objective-c
+BNCCHostedFormParams customizationSettings = [BNCCHostedFormParams hostedFormParamsWithCSS:@"<CSS_URL>"
+                                                                     cardNumberPlaceholder:@"Card number"
+                                                                         expiryPlaceholder:@"Expiration"
+                                                                            cvvPlaceholder:@"CVV"
+                                                                                submitText:@"Submit"];
+
+BNCCHostedRegistrationFormVC *ccHostedRegistrationVC = 
+  [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:[BNCCHostedFormParams customizationSettings]];
+```
+
+Here is a CSS example:
+
+```css
+body {
+    margin-top: 0pt;
+    padding: 0pt;
+}
+
+form{
+    width: 100%;
+}
+
+#container {
+    padding-top: 10pt;
+}
+
+.cardnumber {
+    width: 100%;
+}
+
+.expiry {
+    float: left;
+    width: 50%;
+}
+
+.expiry input {
+    border-top: 0pt;
+    border-right: 0.5pt solid #dcddde;
+}
+
+.cvc {
+    float: right;
+    width: 50%;
+}
+
+.cvc input {
+    border-top: 0pt;
+    border-left: 0.5pt solid #dcddde;
+}
+
+.input-group {
+    margin-bottom: 0pt;
+    padding: 0pt;
+}
+
+[type=submit] {
+    width: 100%;
+    font-size: 12pt;
+    color: white;
+    background-color: #40245f;
+    height: 36pt;
+    margin-top: 5pt;
+    border: 0px;
+    border-radius: 0pt;
+}
+
+input {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -moz-tap-highlight-color: rgba(0,0,0,0);
+    tap-highlight-color: rgba(0,0,0,0);
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    color: #4f5355;
+    font-size: 10pt;
+    box-sizing: border-box;
+    width: 100%;
+    height: 30pt;
+    border-radius: 1px;
+    border: 1pt solid #dcddde;
+    padding-left: 10pt;
+    padding-right: 10pt;
+}
+
+input:focus {
+    border-bottom: 1pt solid #8c9091;
+}
+
+.invalid {
+    border-bottom: 1px solid red;
+}
+
+```
 
 ***Managing credit cards***
 
@@ -221,10 +373,6 @@ When a credit card is registered using `BNCCHostedRegistrationFormVC`, a tokeniz
 Here are some useful ways of working with credit cards:
 
 ```objective-c
-#import <BNPayment/BNPayment.h>
-
-// (...)
-
 // Get a list of all registered credit cards
 NSArray<BNAuthorizedCreditCard *> *registeredCards = [[BNPaymentHandler sharedInstance] authorizedCards];
 
@@ -245,11 +393,7 @@ BNPaymentHandler *paymentHandler = [BNPaymentHandler sharedInstance];
 <a name="makingpayments"></a>
 ## Making payments
 
-**Note: you need to complete the following before making payments**
-
-1. [User Registration](#userregistration)
-
-2. [Credit Card Registration](#creditcardregistration)
+*Make sure you've successfully [set up BNPayments](#setup) and implemented [Credit Card Registration](#creditcardregistration) before continuing with this step.*
 
 Making a payment is as simple as filling in a `BNPaymentParams` instance:
 
@@ -283,6 +427,55 @@ NSString *paymentIdentifier = [NSString stringWithFormat:@"%u", arc4random_unifo
 }
 ```
 
+<a name="testmode"></a>
+## Test mode
+
+***Test mode vs Production mode***
+
+The SDK can be used in one of two modes:
+
+* Test mode allows you to register test cards and make test payments using those cards. Real credit cards cannot be registered in test mode.
+* Production mode allows the user to register real credit cards and to make real payments using those cards. Test credit cards cannot be used in production mode.
+
+***How to switch between test and production mode***
+
+To enable test mode, you need to use a test API token as the initial parameter in the setupWithApiToken: method of the BNHandler class.
+
+To enable production mode, you need to provide a production API token as the initial parameter in the setupWithApiToken: method of the BNHandler class.
+
+You can find a code example in the above section [Configure the AppDelegate](#configureappdelegate).
+
+***Test credit cards***
+
+You can use the following test credit cards for testing registration and purchasing when the SDK is running in test mode (no real money is charged when these test cards are used):
+
+```
+VISA (Sweden)
+Card number: 4002 6200 0000 0005
+Expiration (month/year): 05/17
+CVC: 000
+```
+
+```
+MasterCard (Sweden)
+Card number: 5125 8600 0000 0006
+Expiration (month/year): 05/17
+CVC: 000
+```
+
+```
+VISA (Norway)
+Card number: 4002 7700 0000 0008
+Expiration (month/year): 05/17
+CVC: 000
+```
+
+```
+MasterCard (Norway)
+Card number: 5206 8300 0000 0001
+Expiration (month/year): 05/17
+CVC: 000
+```
 ## Author
 
 [Bambora On Mobile AB](http://www.bambora.com/en/bambora-on-mobile/)

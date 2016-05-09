@@ -44,7 +44,7 @@
     
     NSArray *encryptionCertificates = [[BNCertManager sharedInstance] getEncryptionCertificates];
     for(BNEncryptionCertificate *cert in encryptionCertificates) {
-        if([cert isKindOfClass:[BNEncryptionCertificate class]]) {
+        if([cert isKindOfClass:[BNEncryptionCertificate class]] && cert.base64Representation) {
             [self addEncryptedSessionKey:[cert encryptSessionKey:sessionKey] fingerprint:cert.fingerprint];            
         }
     }

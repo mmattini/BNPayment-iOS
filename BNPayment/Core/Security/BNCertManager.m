@@ -9,7 +9,7 @@
 #import "BNCertManager.h"
 #import "BNEncryptionCertificate.h"
 #import "NSString+BNCrypto.h"
-#import <BNBase/BNCacheManager.h>
+#import "BNCacheManager.h"
 
 NSString *const EncryptionCertificatesCacheName = @"EncryptionCertificatesCacheName";
 

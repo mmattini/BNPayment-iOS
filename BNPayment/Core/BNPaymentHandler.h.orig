@@ -16,9 +16,13 @@
 @class BNAuthorizedCreditCard;
 @class BNRegisterCCParams;
 @class BNPaymentParams;
+<<<<<<< HEAD
+
+=======
 @class BNHTTPClient;
 @class BNAuthenticator;
     
+>>>>>>> develop
 /**
  *  A block object to be executed when a payment operation has completed.
  *  The block return an enum representing the result of the Payment operation.

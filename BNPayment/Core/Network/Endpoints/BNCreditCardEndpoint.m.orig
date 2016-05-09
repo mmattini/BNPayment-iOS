@@ -8,15 +8,25 @@
 
 #import "BNCreditCardEndpoint.h"
 #import "BNCCHostedFormParams.h"
+<<<<<<< HEAD:BNPayment/Core/Api/BNCreditCardEndpoint.m
 #import "BNRegisterCCParams.h"
 #import "BNAuthorizedCreditCard.h"
 #import <BNBase/BNHandler.h>
+=======
+#import "BNPaymentHandler.h"
+#import "BNHTTPClient.h"
+>>>>>>> develop:BNPayment/Core/Network/Endpoints/BNCreditCardEndpoint.m
 
 @implementation BNCreditCardEndpoint
 
 + (NSURLSessionDataTask *)initiateCreditCardRegistrationForm:(BNCCHostedFormParams *)formParams
+<<<<<<< HEAD:BNPayment/Core/Api/BNCreditCardEndpoint.m
                                                   completion:(BNCreditCardUrlBlock) completion {
     BNHTTPClient *httpClient = [[BNHandler sharedInstance] getHttpClient];
+=======
+                                                  completion:(BNCreditCardUrlBlock) block {
+    BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
+>>>>>>> develop:BNPayment/Core/Network/Endpoints/BNCreditCardEndpoint.m
     
     NSString *endpointUrl = @"hpp/";
     

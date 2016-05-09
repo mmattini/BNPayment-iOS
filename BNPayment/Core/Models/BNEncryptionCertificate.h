@@ -6,7 +6,7 @@
 //  Copyright © 2016 Bambora. All rights reserved.
 //
 
-#import <BNBase/BNBase.h>
+#import "BNBaseModel.h"
 
 @interface BNEncryptionCertificate : BNBaseModel
 
