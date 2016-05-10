@@ -30,7 +30,7 @@ Initially, the SDK connects to the SDK backend and sends in an API token. Based 
 
 ***Credit card registration***
 
-The user needs to register his/her credit card in the app in order to make a purchase. Credit card registration is done through a secure web-based form, which we refer to as a hosted payment page (HPP). The HPP is opened in a web view in the app and the user then registers his/her credit card on it.
+The user needs to register his/her credit card in the app in order to make a purchase. Credit card registration is done through a secure web-based form, which we refer to as a Hosted Payment Page (HPP). The HPP is opened in a web view in the app and the user then registers his/her credit card on it.
 
 After a successful registration, the HPP will return a card token which is automatically saved locally in the app. The card token is a tokenized version of the credit card and can be used by he SDK in order to make payments with the card in question.
 
@@ -127,7 +127,6 @@ touch Cartfile
 Open the newly created Cartfile in the text editor of your choice, and enter the following text:
 
 ```
-github "bambora/BNBase-iOS-internal" "develop"
 github "bambora/BNPayment-iOS-internal" "develop"
 ```
 
@@ -139,7 +138,7 @@ Run the following command in the OS X Terminal:
 carthage update
 ```
 
-This will create two frameworks, BNPayment.framework and BNBase.framework, that you can find by going to Carthage/Build/iOS.
+This will create a file called BNPayment.framework that you can find by going to Carthage/Build/iOS.
 
 **Step 5: Add the framework to your Xcode project**
 
@@ -149,7 +148,7 @@ Open your project in Xcode.
 
 Go to Target -> General -> Linked Frameworks and Libraries
 
-Add the BNPayment.framework and BNBase.framework to the list.
+Add BNPayment.framework to the list.
 
 Go to Build Phase and add a New Run Script Phase and then enter the following script line: 
 
@@ -157,10 +156,9 @@ Go to Build Phase and add a New Run Script Phase and then enter the following sc
 /usr/local/bin/carthage copy-frameworks 
 ```
 
-Add the following two lines under Input Files: 
+Add the following line under Input Files: 
 
 ```
-$(SRCROOT)/Carthage/Build/iOS/BNBase.framework
 $(SRCROOT)/Carthage/Build/iOS/BNPayment.framework
 ```
 
@@ -192,19 +190,12 @@ Run the following setup method upon initialization of your app. It is recommende
 
 ```objective-c
 NSError *error;
-[BNHandler setupWithApiToken:@"<API_TOKEN>" // Required.
-                     baseUrl:nil // Optional. Overrides the URL to the SDK backend.
-                       debug:YES // Optional. Enables logging in Xcode when set to UES. 
-                       error:&error];
+[BNPaymentHandler setupWithApiToken:@"<API_TOKEN>" // Required.
+                            baseUrl:nil // Optional. Overrides the URL to the SDK backend.
+                              debug:NO // Optional. Enables logging in Xcode when set to YES.
+                              error:&error];
 ```
-After using the setup method above, the registerUser method needs to be called. The following code can be placed in the method `‑ application:didFinishLaunchingWithOptions:` of AppDelegate.m (or optionally in some other place, as long as it is called before you attempt to use SDK features).
 
-```objective-c
-if (![[BNHandler sharedInstance] isRegistered]) {
-    [[BNHandler sharedInstance] registerUser:nil completion:^(BOOL success) {}];
-}
-
-```
 A couple of notes regarding the example above:
 * If you provide a test API token, the SDK will enter test mode. If you provide a production API token, the SDK will enter production mode. 
 * The debug setting should be set to NO in live applications.
@@ -216,7 +207,7 @@ A couple of notes regarding the example above:
 
 ***How to accept credit card registrations***
 
-Credit card registration is done through a secure web-based registration form, also known as a hosted payment page, that you can easily include in your app through the view controller of class `BNCCHostedRegistrationFormVC`.
+Credit card registration is done through a secure web-based registration form, also known as a Hosted Payment Page, that you can easily include in your app through the view controller of class `BNCCHostedRegistrationFormVC`.
 
 Here's an example of how to use `BNCCHostedRegistrationFormVC` within a navigation controller:
 
@@ -227,7 +218,7 @@ __weak UIViewController *weakSelf = self;
 BNCCHostedRegistrationFormVC *ccHostedRegistrationVC = 
     [[BNCCHostedRegistrationFormVC alloc] initWithHostedFormParams:<CUSTOM_HOSTED_FORM_SETTINGS>];
     /* Instructions for creating an object with <CUSTOM_HOSTED_FORM_SETTINGS> can found further down 
-    under "Customize the credit card registration view" */
+    under "How to customize the Hosted Payment Page" */
 
 // Display the credit card registration view:
 [self.navigationController pushViewController:ccHostedRegistrationVC animated:YES];
@@ -255,7 +246,7 @@ Use these callback methods for responding to operations:
 }
 ```
 
-***How to customize the hosted payment page***
+***How to customize the Hosted Payment Page***
 
 You can customize a `BNCCHostedRegistrationFormVC` instance in these ways:
 
@@ -267,7 +258,7 @@ ccHostedRegistrationVC.webviewDelegate = self;
 [ccHostedRegistrationVC addFooterView:<FOOTER_VIEW>]; // Set a custom footer view
 ```
 
-Specify a custom CSS file to change the look and feel of the hosted payment page and specify the text to be used on the page:
+Specify a custom CSS file to change the look and feel of the Hosted Payment Page and specify the text to be used on the page:
 
 ```objective-c
 BNCCHostedFormParams customizationSettings = [BNCCHostedFormParams hostedFormParamsWithCSS:@"<CSS_URL>"
