@@ -59,3 +59,4 @@ FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 #import <BNPayment/BNHostedRegistrationFormFooter.h>
 #import <BNPayment/BNPaymentWebview.h>
 #import <BNPayment/BNUser.h>
+#import <BNPayment/NSURLRequest+BNAuth.h>
