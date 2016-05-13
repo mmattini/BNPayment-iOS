@@ -13,6 +13,13 @@
 
 @implementation BNEncryptionCertificate
 
++ (NSDictionary *)JSONMappingDictionary {
+    return @{
+             @"fingerprint" : @"fingerprint",
+             @"base64Representation" : @"certificate"
+             };
+}
+
 - (NSString *)encryptSessionKey:(NSData *)sessionKey {
     NSData *encryptedSessionKey = [BNCrypto RSAEncryptData:sessionKey key:[self getKeyRef]];
     return [encryptedSessionKey base64EncodedStringWithOptions:0];

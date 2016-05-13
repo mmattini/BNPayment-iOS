@@ -23,6 +23,7 @@
                                   debug:YES
                                   error:&error];
     
+    [[BNPaymentHandler sharedInstance] refreshCertificates];
     return YES;
 }
 

@@ -50,7 +50,7 @@
         if([cert isKindOfClass:[BNEncryptionCertificate class]] && cert.base64Representation) {
             BNEncryptedSessionKey *encryptedSessionKey = [BNEncryptedSessionKey new];
             encryptedSessionKey.sessionKey = [cert encryptSessionKey:sessionKey];
-            encryptedSessionKey.fingerprint = cert.fingerprint;
+            encryptedSessionKey.fingerprint = [cert.fingerprint uppercaseString];
             [encryptedSessionKeys addObject:encryptedSessionKey];
         }
     }

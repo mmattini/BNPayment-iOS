@@ -118,7 +118,9 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
  */
 - (BOOL)debugMode;
 
-
+/**
+ *  A method for refeshing the encryption certs
+ */
 - (void)refreshCertificates;
 
 /**

@@ -9,6 +9,7 @@
 @class BNCCHostedFormParams;
 @class BNRegisterCCParams;
 @class BNAuthorizedCreditCard;
+@class BNEncryptionCertificate;
 
 @import Foundation;
 
@@ -33,7 +34,15 @@ typedef void (^BNCreditCardUrlBlock)(NSString *url, NSError *error);
  */
 typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *card, NSError *error);
 
-typedef void (^BNEncryptionCertBlock)(NSArray *encryptionCertificates, NSError *error);
+/**
+ *  A block object to be executed when a encryption cert operation has completed.
+ *  The block return an `NSArray` `BNEncryptionCertificate` models
+ *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *
+ *  @param encryptionCertificates   An array of `BNEncryptionCertificate`
+ *  @param error                    `NSError`
+ */
+typedef void (^BNEncryptionCertBlock)(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error);
 
 /**
  `BNCreditCardEndpoint` is a subclass of `BNBaseEndpoint`

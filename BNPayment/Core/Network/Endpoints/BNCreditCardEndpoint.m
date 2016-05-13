@@ -12,6 +12,8 @@
 #import "BNAuthorizedCreditCard.h"
 #import "BNPaymentHandler.h"
 #import "BNHTTPClient.h"
+#import "BNEncryptionCertificate.h"
+#import "BNCertManager.h"
 
 @implementation BNCreditCardEndpoint
 
@@ -61,10 +63,15 @@
     
     NSURLSessionDataTask *dataTask = [httpClient GET:endpointURL parameters:[NSDictionary new] success:^(NSURLSessionDataTask *task, id responseObject) {
         NSError *error;
-        /*
-        BNAuthorizedCreditCard *response = [[BNAuthorizedCreditCard alloc] initWithJSONDictionary:responseObject
-                                                                                            error:&error];
-         */
+        
+        if(responseObject && [responseObject isKindOfClass:[NSArray class]]) {
+            NSMutableArray *certArray = [NSMutableArray new];
+            for(NSDictionary *certDict in responseObject) {
+                BNEncryptionCertificate *cert = [[BNEncryptionCertificate alloc] initWithJSONDictionary:certDict error:&error];
+                [certArray addObject:cert];
+            }
+            [[BNCertManager sharedInstance] replaceEncryptionCertificates:certArray];
+        }
         completion(responseObject, error);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         completion(nil, error);

@@ -116,7 +116,7 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
 
 - (void)refreshCertificates {
     [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray *encryptionCertificates, NSError *error) {
-        NSLog(@"Certificates");
+        
     }];
 }
 
