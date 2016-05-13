@@ -32,6 +32,7 @@
     BNCCRegistrationFormVC *ccRegistrationVC = [BNCCRegistrationFormVC new];
     ccRegistrationVC.completionBlock = ^(BNCCRegCompletion completion, BNAuthorizedCreditCard *card){
         [self.navigationController popViewControllerAnimated:YES];
+        [self displaAliasAlertWithAuthorizedCard:card];
     };
     [self.navigationController pushViewController:ccRegistrationVC animated:YES];
 }
