@@ -39,7 +39,7 @@
                                   completion:(BNCreditCardRegistrationBlock)completion {
     BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
     
-    NSString *endpointURL = @"registerCreditCard/";
+    NSString *endpointURL = @"cardregistration/";
     NSDictionary *requestParams = [params JSONDictionary];
     
     NSURLSessionDataTask *dataTask = [httpClient POST:endpointURL parameters:requestParams success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -47,6 +47,25 @@
         BNAuthorizedCreditCard *response = [[BNAuthorizedCreditCard alloc] initWithJSONDictionary:responseObject
                                                                                   error:&error];
         completion(response, error);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(nil, error);
+    }];
+    
+    return dataTask;
+}
+
++ (NSURLSessionDataTask *)encryptionCertificatesWithCompletion:(BNEncryptionCertBlock)completion {
+    BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
+    
+    NSString *endpointURL = @"certificates/";
+    
+    NSURLSessionDataTask *dataTask = [httpClient GET:endpointURL parameters:[NSDictionary new] success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSError *error;
+        /*
+        BNAuthorizedCreditCard *response = [[BNAuthorizedCreditCard alloc] initWithJSONDictionary:responseObject
+                                                                                            error:&error];
+         */
+        completion(responseObject, error);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         completion(nil, error);
     }];

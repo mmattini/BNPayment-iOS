@@ -15,9 +15,9 @@
     return @{
              @"alias" : @"alias",
              @"cardNumber" : @"cardNumber",
-             @"expMonth" : @"expMonth",
-             @"expYear" : @"expYear",
-             @"cvv" : @"cvv",
+             @"expMonth" : @"expiryMonth",
+             @"expYear" : @"expiryYear",
+             @"cvv" : @"cvcCode",
              };
 }
 

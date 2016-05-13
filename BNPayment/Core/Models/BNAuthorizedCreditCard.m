@@ -13,12 +13,12 @@
 
 + (NSDictionary *)JSONMappingDictionary {
     return @{
-             @"creditCardAlias" :       @"creditCardAlias",
-             @"creditCardNumber" :      @"creditCardNumber",
-             @"creditCardToken" :       @"creditCardToken",
-             @"creditCardType" :        @"creditCardType",
-             @"creditCardExpiryMonth" : @"creditCardExpiryMonth",
-             @"creditCardExpiryYear" :  @"creditCardExpiryYear"
+             @"creditCardAlias" :       @"cardAlias",
+             @"creditCardNumber" :      @"cardNumber",
+             @"creditCardToken" :       @"recurringPaymentID",
+             @"creditCardType" :        @"cardType",
+             @"creditCardExpiryMonth" : @"expiryMonth",
+             @"creditCardExpiryYear" :  @"expiryYear"
              };
 }
 

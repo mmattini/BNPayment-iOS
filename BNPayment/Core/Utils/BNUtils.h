@@ -23,4 +23,6 @@ typedef void (^HashGenerationBlock) (NSString *hash);
 + (NSString *)sha256HMAC:(NSString *)data
                      key:(NSString *)key;
 
++ (NSString *)sha1:(NSData *)data;
+
 @end

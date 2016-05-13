@@ -118,6 +118,9 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
  */
 - (BOOL)debugMode;
 
+
+- (void)refreshCertificates;
+
 /**
  *  Initiate Credit card registration.
  *
@@ -130,17 +133,6 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
                                                         completion:(BNCreditCardRegistrationUrlBlock) block;
 
 /**
- *  Register a credit card in order to retrieve an authroized card used for payments.
- *
- *  @param params     `BNRegisterCCParams`
- *  @param completion `BNCreditCardRegistrationBlock`
- *
- *  @return `NSURLSessionDataTask`
- */
-+ (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
-                                  completion:(BNCreditCardRegistrationBlock)completion;
-
-/**
  *  Make Payment
  *
  *  @param paymentParams `BNPaymentParams` params to the request.
@@ -151,6 +143,17 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
  */
 - (NSURLSessionDataTask *)makePaymentWithParams:(BNPaymentParams *)paymentParams
                                          result:(BNPaymentBlock) result;
+
+/**
+ *  Register a credit card in order to retrieve an authroized card used for payments.
+ *
+ *  @param params     `BNRegisterCCParams`
+ *  @param completion `BNCreditCardRegistrationBlock`
+ *
+ *  @return `NSURLSessionDataTask`
+ */
+- (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion;
 
 /**
  *  A method for retrieveing an array of authorized cards previously saved.

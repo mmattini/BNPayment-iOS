@@ -10,6 +10,7 @@
 #import "BNEncryptionCertificate.h"
 #import "NSString+BNCrypto.h"
 #import "BNCacheManager.h"
+#import "BNUtils.h"
 
 NSString *const EncryptionCertificatesCacheName = @"EncryptionCertificatesCacheName";
 
@@ -67,7 +68,7 @@ NSString *const EncryptionCertificatesCacheName = @"EncryptionCertificatesCacheN
 
         BNEncryptionCertificate *cert = [BNEncryptionCertificate new];
         cert.base64Representation = [certificateData base64EncodedStringWithOptions:0];
-        cert.fingerprint = @"123123";
+        cert.fingerprint = [[BNUtils sha1:certificateData] uppercaseString];
         [certificates addObject:cert];
     }
     

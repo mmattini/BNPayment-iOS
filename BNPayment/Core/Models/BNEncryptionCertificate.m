@@ -15,7 +15,7 @@
 
 - (NSString *)encryptSessionKey:(NSData *)sessionKey {
     NSData *encryptedSessionKey = [BNCrypto RSAEncryptData:sessionKey key:[self getKeyRef]];
-    return [encryptedSessionKey base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    return [encryptedSessionKey base64EncodedStringWithOptions:0];
 }
 
 - (SecKeyRef)getKeyRef {

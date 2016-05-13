@@ -114,6 +114,12 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
     return self.debug;
 }
 
+- (void)refreshCertificates {
+    [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray *encryptionCertificates, NSError *error) {
+        NSLog(@"Certificates");
+    }];
+}
+
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams * )params
                                                         completion:(BNCreditCardRegistrationUrlBlock) block {
     NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:params
@@ -124,9 +130,14 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
     return dataTask;
 }
 
-+ (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+- (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
                                   completion:(BNCreditCardRegistrationBlock)completion {
-    NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint registerCreditCard:params completion:completion];
+    NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint registerCreditCard:params completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        if(card) {
+            [self saveAuthorizedCreditCard:card];
+        }
+        completion(card, error);
+    }];
     return dataTask;
 }
 

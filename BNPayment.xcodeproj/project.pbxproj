@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D5BB78B1CE4C0FF00E6BD40 /* NSURLRequest+BNAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D5BB78E1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5BB78C1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h */; };
+		5D5BB78F1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BB78D1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m */; };
 		5D69A5B51CE0D00200A573EE /* BNEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5451CE0D00200A573EE /* BNEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A5B81CE0D00200A573EE /* BNPaymentHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5481CE0D00200A573EE /* BNPaymentHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A5B91CE0D00200A573EE /* BNPaymentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A5491CE0D00200A573EE /* BNPaymentHandler.m */; };
@@ -126,7 +129,6 @@
 		5D69A69B1CE0D43B00A573EE /* registerCreditCardSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A67F1CE0D43B00A573EE /* registerCreditCardSuccess.json */; };
 		5D69A69C1CE0D43B00A573EE /* registerResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6801CE0D43B00A573EE /* registerResponseSuccess.json */; };
 		5D69A69D1CE0D43B00A573EE /* registerResponseSuccessExtraParams.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6811CE0D43B00A573EE /* registerResponseSuccessExtraParams.json */; };
-		5D69A6A01CE0D61400A573EE /* NSURLRequest+BNAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A6A11CE0D61400A573EE /* NSURLRequest+BNAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */; };
 		5D69A6A61CE0DB9D00A573EE /* BNEncryptionCertificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A6A21CE0DB9D00A573EE /* BNEncryptionCertificate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A6A71CE0DB9D00A573EE /* BNEncryptionCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6A31CE0DB9D00A573EE /* BNEncryptionCertificate.m */; };
@@ -181,6 +183,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D5BB78C1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEncryptedSessionKey.h; sourceTree = "<group>"; };
+		5D5BB78D1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptedSessionKey.m; sourceTree = "<group>"; };
 		5D69A5451CE0D00200A573EE /* BNEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEnums.h; sourceTree = "<group>"; };
 		5D69A5481CE0D00200A573EE /* BNPaymentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentHandler.h; sourceTree = "<group>"; };
 		5D69A5491CE0D00200A573EE /* BNPaymentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentHandler.m; sourceTree = "<group>"; };
@@ -442,6 +446,8 @@
 				5D69A5691CE0D00200A573EE /* BNUser.h */,
 				5D69A56A1CE0D00200A573EE /* BNUser.m */,
 				5D69A56B1CE0D00200A573EE /* EPAYModels */,
+				5D5BB78C1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h */,
+				5D5BB78D1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -815,6 +821,7 @@
 				5D69A5B51CE0D00200A573EE /* BNEnums.h in Headers */,
 				5D69A5CE1CE0D00200A573EE /* BNCCHostedFormParams.h in Headers */,
 				5D69A5FE1CE0D00200A573EE /* BNPaymentBaseVC.h in Headers */,
+				5D5BB78E1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h in Headers */,
 				5D69A5E41CE0D00200A573EE /* BNPaymentEndpoint.h in Headers */,
 				5D69A5FC1CE0D00200A573EE /* BNCCRegistrationFormVC.h in Headers */,
 				5D69A5BC1CE0D00200A573EE /* NSString+BNLogUtils.h in Headers */,
@@ -844,7 +851,6 @@
 				5D69A6B61CE0DBC600A573EE /* BNKeyUtils.h in Headers */,
 				5D69A6B41CE0DBC600A573EE /* BNCrypto.h in Headers */,
 				5D69A6B81CE0DBC600A573EE /* NSString+BNCrypto.h in Headers */,
-				5D69A6A01CE0D61400A573EE /* NSURLRequest+BNAuth.h in Headers */,
 				5D69A6A61CE0DB9D00A573EE /* BNEncryptionCertificate.h in Headers */,
 				5D69A6B21CE0DBC600A573EE /* BNCertManager.h in Headers */,
 				5D69A6A81CE0DB9D00A573EE /* BNRegisterCCParams.h in Headers */,
@@ -853,6 +859,7 @@
 				5D69A60C1CE0D00200A573EE /* BNFormView.h in Headers */,
 				5D69A5C61CE0D00200A573EE /* BNAuthenticator.h in Headers */,
 				5D69A5E61CE0D00200A573EE /* BNRegistrationEndpoint.h in Headers */,
+				5D5BB78B1CE4C0FF00E6BD40 /* NSURLRequest+BNAuth.h in Headers */,
 				5D69A5F41CE0D00200A573EE /* UIView+BNUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -868,6 +875,7 @@
 				5DAABEF51CB69B0200CEDB91 /* Frameworks */,
 				5DAABEF61CB69B0200CEDB91 /* Headers */,
 				5DAABEF71CB69B0200CEDB91 /* Resources */,
+				5D69A6D91CE2225200A573EE /* Run copy framework Script */,
 			);
 			buildRules = (
 			);
@@ -903,7 +911,7 @@
 		5DAABEF01CB69B0200CEDB91 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Bambora;
 				TargetAttributes = {
 					5DAABEF81CB69B0200CEDB91 = {
@@ -976,6 +984,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D69A6D91CE2225200A573EE /* Run copy framework Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run copy framework Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${SRCROOT}/build/\"\ncp -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}.framework\" \"${SRCROOT}/build/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5DAABEF41CB69B0200CEDB91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1006,6 +1031,7 @@
 				5D69A5E51CE0D00200A573EE /* BNPaymentEndpoint.m in Sources */,
 				5D69A6091CE0D00200A573EE /* BNCCFormInputView.m in Sources */,
 				5D69A5F51CE0D00200A573EE /* UIView+BNUtils.m in Sources */,
+				5D5BB78F1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m in Sources */,
 				5D69A5CF1CE0D00200A573EE /* BNCCHostedFormParams.m in Sources */,
 				5D69A6011CE0D00200A573EE /* BNCCFormInputModel.m in Sources */,
 				5D69A5E91CE0D00200A573EE /* BNHTTPRequestSerializer.m in Sources */,

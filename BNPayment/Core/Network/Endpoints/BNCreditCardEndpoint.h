@@ -31,7 +31,9 @@ typedef void (^BNCreditCardUrlBlock)(NSString *url, NSError *error);
  *  @param BNAuthorizedCreditCard   `BNAuthorizedCard`
  *  @param error                    `NSError`
  */
-typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *, NSError *error);
+typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *card, NSError *error);
+
+typedef void (^BNEncryptionCertBlock)(NSArray *encryptionCertificates, NSError *error);
 
 /**
  `BNCreditCardEndpoint` is a subclass of `BNBaseEndpoint`
@@ -64,5 +66,7 @@ typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *, NSError 
  */
 + (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
                                   completion:(BNCreditCardRegistrationBlock)completion;
+
++ (NSURLSessionDataTask *)encryptionCertificatesWithCompletion:(BNEncryptionCertBlock)completion;
 
 @end

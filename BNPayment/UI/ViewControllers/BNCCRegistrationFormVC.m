@@ -151,9 +151,9 @@
 
     BNRegisterCCParams *params = [[BNRegisterCCParams alloc] initWithCreditCard:creditCard];
     
-    [BNCreditCardEndpoint registerCreditCard:params completion:^(BNAuthorizedCreditCard *authorizedCard, NSError *error) {
-        if(self.completionBlock && authorizedCard) {
-            self.completionBlock(BNCCRegCompletionDone, authorizedCard);
+    [[BNPaymentHandler sharedInstance] registerCreditCard:params completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        if(self.completionBlock && card) {
+            self.completionBlock(BNCCRegCompletionDone, card);
         }
     }];
 }
