@@ -1,10 +1,6 @@
 # Native Payment - iOS
 
-This library implements credit card registrations and payments using Bambora's backend.
-
-## About
-
-`Native Payment` makes it simple to accept credit card payments in your app. 
+The `Native Payment` SDK from Bambora makes it simple to accept credit card payments in your app. 
 
 Specifically, by integrating `Native Payment` into your project you can make it possible for the users of your app to:
 
