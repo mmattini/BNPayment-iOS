@@ -201,7 +201,6 @@ static float AnimationDuration = 0.2f;
 - (void)setupWebview {
     self.webView = [[BNPaymentWebview alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), self.webviewHeight.constant)];
     self.webView.navigationDelegate = self;
-    self.webView.delegate = self;
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     self.webView.scrollView.scrollEnabled = NO;
