@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSError *error;
-    [BNPaymentHandler setupWithApiToken:@"hOzaNv9mnS60FimU8jMn"
+    [BNPaymentHandler setupWithApiToken:@"REPLACE WITH YOUR API TOKEN"
                                 baseUrl:@"https://ironpoodle-prod-eu-west-1.aws.bambora.com/"
                                   debug:YES
                                   error:&error];

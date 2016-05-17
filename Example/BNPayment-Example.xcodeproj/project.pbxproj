@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		5D7723A81CB79E6D00D680FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5D80070F1CB7CE6200E29149 /* BNPayment.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BNPayment.framework; path = ../build/BNPayment.framework; sourceTree = "<group>"; };
-		5D80071A1CB7D63800E29149 /* BNBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BNBase.framework; path = ../BNBase/BNBase.framework; sourceTree = "<group>"; };
 		5DAABF3F1CB69B8100CEDB91 /* BNPayment-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BNPayment-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF431CB69B8100CEDB91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5DAABF451CB69B8100CEDB91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,7 +103,6 @@
 		5DAABFEC1CB6A4F300CEDB91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D80071A1CB7D63800E29149 /* BNBase.framework */,
 				5D80070F1CB7CE6200E29149 /* BNPayment.framework */,
 				5D7723A81CB79E6D00D680FE /* UIKit.framework */,
 			);
