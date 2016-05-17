@@ -32,8 +32,10 @@ NSString * const BNCCRegistrationSubmissionDomain = @"com.bambora.error.creditca
 - (instancetype)initWithFrame:(CGRect)frame
                 configuration:(WKWebViewConfiguration *)configuration {
     configuration.userContentController = [self createUserContentController];
-    self = [super initWithFrame:frame configuration:configuration];
     
+    self = [super initWithFrame:frame configuration:configuration];
+    self.navigationDelegate = self;
+
     return self;
 }
 

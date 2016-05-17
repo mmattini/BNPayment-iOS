@@ -59,6 +59,7 @@ static float AnimationDuration = 0.2f;
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
         self.requestParams = params;
+        
     }
     
     return self;
@@ -66,14 +67,19 @@ static float AnimationDuration = 0.2f;
 
 #pragma mark - Lifecycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupWebview];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupHeaderAndFooterView];
+    [self.webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self setupWebview];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -199,15 +205,15 @@ static float AnimationDuration = 0.2f;
 #pragma mark - Handling webview
 
 - (void)setupWebview {
-    self.webView = [[BNPaymentWebview alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), self.webviewHeight.constant)];
-    self.webView.navigationDelegate = self;
-    self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.webView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.webView.scrollView.scrollEnabled = NO;
-    self.webView.scrollView.clipsToBounds = NO;
-    self.webView.delegate = self.webviewDelegate;
-    [self.webView.scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kObservingContentSizeChangesContext];
-    [self addBNWebview];
+    if(!self.webView) {
+        self.webView = [[BNPaymentWebview alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), self.webviewHeight.constant)];
+        self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        self.webView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.webView.scrollView.scrollEnabled = NO;
+        self.webView.scrollView.clipsToBounds = NO;
+        self.webView.delegate = self.webviewDelegate;
+        [self addBNWebview];
+    }
 }
 
 - (void)addBNWebview {
