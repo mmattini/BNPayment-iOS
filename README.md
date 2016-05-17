@@ -1,63 +1,54 @@
-# BNPayment
+# Native Payment - iOS
 
-This library implements credit card registrations and payments using Bambora's backend.
+The `Native Payment` SDK from Bambora makes it simple to accept credit card payments in your app. 
 
-## About
-
-`BNPayment` makes it simple to accept credit card payments in your app. 
-
-Specifically, by integrating `BNPayment` into your project you can make it possible for the users of your app to:
+Specifically, by integrating `Native Payment` into your project you can make it possible for the users of your app to:
 
 * Register credit cards.
 
 * Make purchases using registered credit cards.
 
-**Goals**
+The purpose of `Native Payment` is to save you time by providing you with an easy-to-use, up-to-date and actively maintained codebase for interacting with the Native Payment backend.
 
-The primary goals of `BNPayment` are to:
+### How it works
 
-* Save you time by providing you with an easy-to-use, up-to-date and actively maintained codebase for interacting with the Bambora backend.
+This is a brief overview of what Native Payment does.
 
-* Empower you to do more with less: `BNPayment` has no third-party dependencies.
+**Merchant registration**
 
-**How it works**
+You need to sign up with Bambora to get an API token in order to use `Native Payment`. Please send an email to [sales.ecom@bambora.com](mailto:sales.ecom@bambora.com) if you want to sign up.
 
-This is a brief overview of how what the SDK does:
+**Setup and authentication**
 
-***Setup and authentication***
+Initially, the SDK connects to the SDK backend and sends in an API token. Based on that API token, the SDK backend identifies and authorizes the SDK. The SDK then registers itself with the SDK backend. After these steps, credit card registration and payment functionality is enabled in the app.
 
-Initially, the SDK connects to the SDK backend and sends in an API token. Based on that API token, the SDK backend then identifies and authorizes the SDK. The SDK then registers itself with the SDK backend. After these steps, credit card registration and payment functionality is enabled in the app.
-
-***Credit card registration***
+**Registering Credit cards**
 
 The user needs to register his/her credit card in the app in order to make a purchase. Credit card registration is done through a secure web-based form, which we refer to as a Hosted Payment Page (HPP). The HPP is opened in a web view in the app and the user then registers his/her credit card on it.
 
-After a successful registration, the HPP will return a card token which is automatically saved locally in the app. The card token is a tokenized version of the credit card and can be used by he SDK in order to make payments with the card in question.
-
-The developer can use callback methods to manage the HPP and to get the card token after a successful credit card registration.
+After a successful registration, the HPP will return a credit card token which is automatically saved locally by the SDK. The credit card token can then be used by the SDK in order to make payments with the card in question.
 
 The SDK supports multiple credit card registrations.
 
-***Payments***
+**Payments**
 
 When a valid credit card that contains sufficient funds has been registered through the SDK, payments can be made.
 
-This is done by making a call to the SDK backend that includes the amount, currency and card token.
+This is done by making a call to the SDK backend that includes the amount, currency and credit card token.
 
-When an SDK payment is successful, the payment amount becomes reserved in the customer's bank account. It is then up to you as a merchant to capture/withdraw the payment from the customer's bank account (which can be done either through the merchant backend interface or by making an API integration with the SDK backend).
+When an SDK payment is successful, the payment amount becomes reserved in the customer's bank account. It is then up to you as a merchant to capture/withdraw the payment from the customer's bank account (which can be done either through the merchant backend interface or by making an API integration with the Native Payment backend).
 
 ## Language and Requirements
 
-`BNPayment` is written in Objective-C.
+`Native Payment` is written in Objective-C.
 
-If you're interested in using `BNPayment` in a Swift-based app, please see [iOS Developer Library](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) for details on how to use Objective-C and Swift together.
+If you're interested in using `Native Payment` in a Swift-based app, please see [iOS Developer Library](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) for details on how to use Objective-C and Swift together.
 
 **Minimum deployment target:** iOS 8.0
 
-
 ## Installation
 
-To install BNPayment, we recommend using either CocoaPods or Carthage.
+To install `Native Payment`, we recommend using either CocoaPods or Carthage.
 
 #### How to install via CocoaPods
 
@@ -84,7 +75,6 @@ pod init
 Add this information to the Podfile:
 
 ```ruby
-source 'https://github.com/MobilePaymentSolutionsAB/BMPS-Pod-Spec.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
@@ -127,7 +117,7 @@ touch Cartfile
 Open the newly created Cartfile in the text editor of your choice, and enter the following text:
 
 ```
-github "bambora/BNPayment-iOS-internal" "develop"
+github "bambora/BNPayment-iOS"
 ```
 
 **Step 4: Create the framework file**
@@ -162,6 +152,20 @@ Add the following line under Input Files:
 $(SRCROOT)/Carthage/Build/iOS/BNPayment.framework
 ```
 
+#### How to run the sample app
+
+This repository contains a basic sample application. Using the sample app and inspecting its source code can be useful if you wish to try the features and get an overview of how `Native Payment` can be implemented.
+
+Type the following command in a terminal window of your choice in the directory that you want to clone the repository to (Git needs to be installed on your computer for this to work):
+
+```bash
+git clone https://github.com/bambora/BNPayment-iOS
+```
+
+Open the `BNPayment-iOS` folder on your computer and double-click the `BNPayment.xcworkspace` file. This will open the workspace in Xcode.
+
+Select `BNPayment-Example` and a simulator (or device) in the toolbar in Xcode and then use the Run command.
+
 <a name="setup"></a>
 ## Setup
 
@@ -183,7 +187,6 @@ This import statement needs to be added to any implementation (.m) file that nee
 #import <BNPayment/BNPayment.h>
 ```
 
-<a name="configureappdelegate"></a>
 ***Configure the AppDelegate***
 
 Run the following setup method upon initialization of your app. It is recommended to do this in the `‑ application:didFinishLaunchingWithOptions:` method in AppDelegate.m.
@@ -203,11 +206,11 @@ A couple of notes regarding the example above:
 <a name="creditcardregistration"></a>
 ## Credit Card Registration
 
-*Make sure you've successfully [set up BNPayments](#setup) before continuing with this step.*
+*Make sure you've successfully [set up `Native Payment`](#setup) before continuing with this step.*
 
 ***How to accept credit card registrations***
 
-Credit card registration is done through a secure web-based registration form, also known as a Hosted Payment Page, that you can easily include in your app through the view controller of class `BNCCHostedRegistrationFormVC`.
+Credit card registration is done through a secure web-based registration form, also known as a Hosted Payment Page, that you can easily include in your app through the class `BNCCHostedRegistrationFormVC`.
 
 Here's an example of how to use `BNCCHostedRegistrationFormVC` within a navigation controller:
 
@@ -224,7 +227,7 @@ BNCCHostedRegistrationFormVC *ccHostedRegistrationVC =
 [self.navigationController pushViewController:ccHostedRegistrationVC animated:YES];
 ```
 
-Use these callback methods for responding to operations:
+Use these callback methods to respond to operations:
 
 ```objective-c
 
@@ -279,7 +282,7 @@ body {
     padding: 0pt;
 }
 
-form{
+form {
     width: 100%;
 }
 
@@ -359,9 +362,7 @@ input:focus {
 
 ***Managing credit cards***
 
-When a credit card is registered using `BNCCHostedRegistrationFormVC`, a tokenized card id is saved on the device.
-
-Here are some useful ways of working with credit cards:
+When a credit card is registered using `BNCCHostedRegistrationFormVC`, a credit card token is saved on the device. This token is necessary in order to make a payment. This section contains code examples showing how to get and remove credit card tokens from the device.
 
 ```objective-c
 // Get a list of all registered credit cards
@@ -384,9 +385,9 @@ BNPaymentHandler *paymentHandler = [BNPaymentHandler sharedInstance];
 <a name="makingpayments"></a>
 ## Making payments
 
-*Make sure you've successfully [set up BNPayments](#setup) and implemented [Credit Card Registration](#creditcardregistration) before continuing with this step.*
+*Make sure you've successfully [set up `Native Payment`](#setup) and implemented [Credit Card Registration](#creditcardregistration) before continuing with this step.*
 
-Making a payment is as simple as filling in a `BNPaymentParams` instance:
+Assuming a credit card token is registered on the device, it is possible to accept payments in the app. The code example shows how to configure and make a payment:
 
 ```objective-c
 // Get a list of all authorized credit card tokens
@@ -430,11 +431,11 @@ The SDK can be used in one of two modes:
 
 ***How to switch between test and production mode***
 
-To enable test mode, you need to use a test API token as the initial parameter in the setupWithApiToken: method of the BNHandler class.
+To enable test mode, you need to use a test API token as the initial parameter in the setupWithApiToken: method of the BNPaymentHandler class.
 
-To enable production mode, you need to provide a production API token as the initial parameter in the setupWithApiToken: method of the BNHandler class.
+To enable production mode, you need to provide a production API token as the initial parameter in the setupWithApiToken: method of the BNPaymentHandler class.
 
-You can find a code example in the above section [Configure the AppDelegate](#configureappdelegate).
+You can find a code example in the [Setup section](#setup) above.
 
 ***Test credit cards***
 
@@ -477,4 +478,4 @@ We welcome questions and feedback - you can reach us by sending an e-mail to [sd
 
 ## License
 
-`BNPayment` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+`Native Payment` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
