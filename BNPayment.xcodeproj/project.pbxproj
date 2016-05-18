@@ -142,7 +142,7 @@
 		5D80073A1CB7D99C00E29149 /* iconLock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D80072D1CB7D99C00E29149 /* iconLock@2x.png */; };
 		5D80073B1CB7D99C00E29149 /* iconLock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D80072E1CB7D99C00E29149 /* iconLock@3x.png */; };
 		5D80073C1CBBC78D00E29149 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */; };
-		5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DA78BD01CEC6A5C0005B6A7 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA78BCF1CEC6A5C0005B6A7 /* BNPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,9 +312,9 @@
 		5D80072C1CB7D99C00E29149 /* iconLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconLock.png; sourceTree = "<group>"; };
 		5D80072D1CB7D99C00E29149 /* iconLock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLock@2x.png"; sourceTree = "<group>"; };
 		5D80072E1CB7D99C00E29149 /* iconLock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLock@3x.png"; sourceTree = "<group>"; };
+		5DA78BCF1CEC6A5C0005B6A7 /* BNPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNPayment.h; path = BNPayment/BNPayment.h; sourceTree = "<group>"; };
 		5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF031CB69B0200CEDB91 /* BNPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNPayment.h; path = Framework/BNPayment.h; sourceTree = "<group>"; };
 		5DAABF5B1CB69C7F00CEDB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -749,7 +749,7 @@
 		5DAABF591CB69C6400CEDB91 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */,
+				5DA78BCF1CEC6A5C0005B6A7 /* BNPayment.h */,
 				5DAABF5B1CB69C7F00CEDB91 /* Info.plist */,
 			);
 			name = "Supporting files";
@@ -764,7 +764,6 @@
 			files = (
 				5D69A5F01CE0D00200A573EE /* BNUtils.h in Headers */,
 				5D69A5B81CE0D00200A573EE /* BNPaymentHandler.h in Headers */,
-				5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */,
 				5D69A5CA1CE0D00200A573EE /* BNBaseModel.h in Headers */,
 				5D69A5E01CE0D00200A573EE /* BNHTTPClient.h in Headers */,
 				5D69A5F21CE0D00200A573EE /* UIImage+BNUtils.h in Headers */,
@@ -808,6 +807,7 @@
 				5D69A5C61CE0D00200A573EE /* BNAuthenticator.h in Headers */,
 				5D69A5E61CE0D00200A573EE /* BNRegistrationEndpoint.h in Headers */,
 				5D69A6A01CE0D61400A573EE /* NSURLRequest+BNAuth.h in Headers */,
+				5DA78BD01CEC6A5C0005B6A7 /* BNPayment.h in Headers */,
 				5D69A5F41CE0D00200A573EE /* UIView+BNUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
