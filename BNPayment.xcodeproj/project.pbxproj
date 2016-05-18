@@ -142,7 +142,6 @@
 		5D69A6B71CE0DBC600A573EE /* BNKeyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6AF1CE0DBC600A573EE /* BNKeyUtils.m */; };
 		5D69A6B81CE0DBC600A573EE /* NSString+BNCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A6B01CE0DBC600A573EE /* NSString+BNCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A6B91CE0DBC600A573EE /* NSString+BNCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6B11CE0DBC600A573EE /* NSString+BNCrypto.m */; };
-		5D69A6BB1CE0DCA000A573EE /* epayPublic.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6BA1CE0DCA000A573EE /* epayPublic.cer */; };
 		5D80072F1CB7D99C00E29149 /* BNCCFormInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007221CB7D99C00E29149 /* BNCCFormInputView.xib */; };
 		5D8007301CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */; };
 		5D8007311CB7D99C00E29149 /* BNCCRegistrationFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007241CB7D99C00E29149 /* BNCCRegistrationFormVC.xib */; };
@@ -157,6 +156,7 @@
 		5D80073A1CB7D99C00E29149 /* iconLock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D80072D1CB7D99C00E29149 /* iconLock@2x.png */; };
 		5D80073B1CB7D99C00E29149 /* iconLock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D80072E1CB7D99C00E29149 /* iconLock@3x.png */; };
 		5D80073C1CBBC78D00E29149 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */; };
+		5DA20C221CEC7593007B2361 /* epayEncryptionCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C211CEC7593007B2361 /* epayEncryptionCert.cer */; };
 		5DAABF5C1CB69C7F00CEDB91 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -328,7 +328,6 @@
 		5D69A6AF1CE0DBC600A573EE /* BNKeyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNKeyUtils.m; sourceTree = "<group>"; };
 		5D69A6B01CE0DBC600A573EE /* NSString+BNCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BNCrypto.h"; sourceTree = "<group>"; };
 		5D69A6B11CE0DBC600A573EE /* NSString+BNCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BNCrypto.m"; sourceTree = "<group>"; };
-		5D69A6BA1CE0DCA000A573EE /* epayPublic.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = epayPublic.cer; sourceTree = "<group>"; };
 		5D8007221CB7D99C00E29149 /* BNCCFormInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCFormInputView.xib; sourceTree = "<group>"; };
 		5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCHostedRegistrationFormVC.xib; sourceTree = "<group>"; };
 		5D8007241CB7D99C00E29149 /* BNCCRegistrationFormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCRegistrationFormVC.xib; sourceTree = "<group>"; };
@@ -342,6 +341,7 @@
 		5D80072C1CB7D99C00E29149 /* iconLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconLock.png; sourceTree = "<group>"; };
 		5D80072D1CB7D99C00E29149 /* iconLock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLock@2x.png"; sourceTree = "<group>"; };
 		5D80072E1CB7D99C00E29149 /* iconLock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLock@3x.png"; sourceTree = "<group>"; };
+		5DA20C211CEC7593007B2361 /* epayEncryptionCert.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = epayEncryptionCert.cer; sourceTree = "<group>"; };
 		5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF031CB69B0200CEDB91 /* BNPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF5A1CB69C7F00CEDB91 /* BNPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNPayment.h; path = Framework/BNPayment.h; sourceTree = "<group>"; };
@@ -752,7 +752,7 @@
 		5D8007211CB7D99C00E29149 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5D69A6BA1CE0DCA000A573EE /* epayPublic.cer */,
+				5DA20C211CEC7593007B2361 /* epayEncryptionCert.cer */,
 				5D69A6121CE0D28D00A573EE /* GlobalSign.cer */,
 				5D8007221CB7D99C00E29149 /* BNCCFormInputView.xib */,
 				5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */,
@@ -948,7 +948,6 @@
 				5D69A5F71CE0D00200A573EE /* index.html in Resources */,
 				5D80073B1CB7D99C00E29149 /* iconLock@3x.png in Resources */,
 				5D8007371CB7D99C00E29149 /* iconCard@2x.png in Resources */,
-				5D69A6BB1CE0DCA000A573EE /* epayPublic.cer in Resources */,
 				5D69A5F61CE0D00200A573EE /* example.css in Resources */,
 				5D8007331CB7D99C00E29149 /* iconCalendar.png in Resources */,
 				5D8007321CB7D99C00E29149 /* BNFormView.xib in Resources */,
@@ -956,6 +955,7 @@
 				5D8007381CB7D99C00E29149 /* iconCard@3x.png in Resources */,
 				5D69A6131CE0D28D00A573EE /* GlobalSign.cer in Resources */,
 				5D8007301CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib in Resources */,
+				5DA20C221CEC7593007B2361 /* epayEncryptionCert.cer in Resources */,
 				5D8007341CB7D99C00E29149 /* iconCalendar@2x.png in Resources */,
 				5D8007391CB7D99C00E29149 /* iconLock.png in Resources */,
 				5D8007311CB7D99C00E29149 /* BNCCRegistrationFormVC.xib in Resources */,
