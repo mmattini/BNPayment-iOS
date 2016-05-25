@@ -99,7 +99,8 @@
 // Search the bundle for files with .cer file ending.
 - (NSArray *)getPinnedCertificates {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSArray *rootPaths = [bundle pathsForResourcesOfType:@"cer" inDirectory:@"."];
+    NSArray *rootPaths = [bundle pathsForResourcesOfType:@"cer" inDirectory:@"./BNPayment.bundle/"];
+    rootPaths = [rootPaths arrayByAddingObjectsFromArray:[bundle pathsForResourcesOfType:@"cer" inDirectory:@"."]];
     
     NSMutableArray *certificates = [NSMutableArray arrayWithCapacity:[rootPaths count]];
     for (NSString *path in rootPaths) {
