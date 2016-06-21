@@ -24,7 +24,7 @@
 
 /**
  `BNCacheManager` is a handler made to simplify caching objects.
- `BNHandler` offers conveniens methods saving and retrieving objects from disk
+ `BNPaymentHandler` offers conveniens methods saving and retrieving objects from disk
  */
 @interface BNCacheManager : NSObject
 

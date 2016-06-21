@@ -26,7 +26,7 @@
  *  `BNHTTPRequestSerializer` is a class that exents `NSObject`.
  *  `BNHTTPRequestSerializer` only supports JSON serialization at the moment.
  *  `BNHTTPRequestSerializer` will add the Api-Token and auth header to the request
- *  if a `BNAuthenticator` is registered in the `BNHandler`.
+ *  if a `BNAuthenticator` is registered in the `BNPaymentHandler`.
  */
 @interface BNHTTPRequestSerializer : NSObject
 

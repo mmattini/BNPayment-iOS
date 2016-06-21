@@ -61,12 +61,12 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 + (BNPaymentHandler *)sharedInstance;
 
 ///------------------------------------------------
-/// @name Setting up handler and access `BNHandler` instance
+/// @name Setting up handler and access `BNPaymentHandler` instance
 ///------------------------------------------------
 
-/** Setup `BNHandler` with an APIToken.
+/** Setup `BNPaymentHandler` with an APIToken.
  *
- * Sets up `BNHandler` with and APIToken that will be used
+ * Sets up `BNPaymentHandler` with and APIToken that will be used
  * to authenticate the application to the back end.
  *
  * @param apiToken Api-token to be used
@@ -89,9 +89,9 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 - (BNHTTPClient *)getHttpClient;
 
 /**
- *  Get the API token associated with this `BNHandler`
+ *  Get the API token associated with this `BNPaymentHandler`
  *
- *  @return A string representing the API token associated with this `BNHandler`
+ *  @return A string representing the API token associated with this `BNPaymentHandler`
  */
 - (NSString *)getApiToken;
 
