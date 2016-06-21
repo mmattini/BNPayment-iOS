@@ -80,6 +80,7 @@
     [request setHTTPMethod:method];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"1" forHTTPHeaderField:@"Api-Version"];
 
     if ( apiToken) {
         [request setValue:apiToken forHTTPHeaderField:@"Api-Token"];

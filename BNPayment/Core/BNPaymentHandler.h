@@ -21,11 +21,14 @@
 //  THE SOFTWARE.
 
 #import "BNEnums.h"
+#import "BNCreditCardEndpoint.h"
 
 @import Foundation;
 
 @class BNAuthorizedCreditCard;
 @class BNCCHostedFormParams;
+@class BNAuthorizedCreditCard;
+@class BNRegisterCCParams;
 @class BNPaymentParams;
 @class BNHTTPClient;
 @class BNAuthenticator;
@@ -64,7 +67,7 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 /** Setup `BNHandler` with an APIToken.
  *
  * Sets up `BNHandler` with and APIToken that will be used
- * to authenticate the application to the mobivending API
+ * to authenticate the application to the back end.
  *
  * @param apiToken Api-token to be used
  * @param error Possible error that can occur during initialization
@@ -130,6 +133,11 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 - (BOOL)debugMode;
 
 /**
+ *  A method for refeshing the encryption certs
+ */
+- (void)refreshCertificates;
+
+/**
  *  Initiate Credit card registration.
  *
  *  @param params `BNCCHostedFormParams` request params.
@@ -151,6 +159,17 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
  */
 - (NSURLSessionDataTask *)makePaymentWithParams:(BNPaymentParams *)paymentParams
                                          result:(BNPaymentBlock) result;
+
+/**
+ *  Register a credit card in order to retrieve an authroized card used for payments.
+ *
+ *  @param params     `BNRegisterCCParams`
+ *  @param completion `BNCreditCardRegistrationBlock`
+ *
+ *  @return `NSURLSessionDataTask`
+ */
+- (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion;
 
 /**
  *  A method for retrieveing an array of authorized cards previously saved.

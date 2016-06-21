@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 @import Foundation;
 
 @interface BNSecurity : NSObject
@@ -39,12 +38,15 @@
 
 /**
  *  This method is used to determine whether or not the certificate trust is signed by the master X.509 cert.
+ *  The method supports functionality to ovveride the master certificate. 
+ *  If you choose to ovveride the master cert be sure you know the implications.
  *
- *  @param secTrust The X.509 certificate trust of the cert to be verified.
+ *  @param certRef  `SecCertificateRef` to be evaluated
+ *  @param secTrust `SecCertificateRef` to evaluate against. Normally not provided.
  *
  *  @return If the certificate is signed by the master cert.
  */
-- (BOOL)evaluateCertTrustAgainstMasterCert:(SecTrustRef)secTrust;
++ (BOOL)evaluateCert:(SecCertificateRef)certRef masterCert:(SecCertificateRef)secTrust;
 
 /**
  *  This method is used for overriding the pinned certs.

@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 #import <BNPayment/BNPayment.h>
 
 @import XCTest;
@@ -32,10 +31,16 @@
 @implementation BNDateUtilsTests
 
 - (void)testGenerateHTTPDateString {
-    NSString *correctDateString = @"Mon, 11 Jan 2016 12:25:06 GMT";
-    NSDate *dateToTest = [NSDate dateWithTimeIntervalSince1970:1452515106];
-    NSString *dateStringToTest = [NSDate getDateHeaderFormattedStringForDate:dateToTest];
-    XCTAssertEqualObjects(correctDateString, dateStringToTest, "Correct HTTP Date string generated");
+
+    // Given:
+    NSString *dateString = @"Mon, 11 Jan 2016 12:25:06 GMT";
+    NSDate *dateObject = [NSDate dateWithTimeIntervalSince1970:1452515106];
+    
+    // When:
+    NSString *dateStringFromDateObject = [NSDate getDateHeaderFormattedStringForDate:dateObject];
+    
+    // Then:
+    XCTAssertEqualObjects(dateString, dateStringFromDateObject, "The manually written date (dateString) should be equal to the date string that was created through NSDate (dateStringFromDateObject).");
 }
 
 @end

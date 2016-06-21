@@ -92,7 +92,6 @@
 + (BNCCHostedFormParams *)mockObject {
     BNCCHostedFormParams *params = [BNCCHostedFormParams new];
     
-    params.cssURL = @"http://ci.mobivending.com/CNP/example.css";
     params.submitButtonText = @"Save card";
 
     [params CCNumberPlaceholder:@"Card number"];

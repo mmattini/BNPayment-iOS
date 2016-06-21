@@ -32,84 +32,120 @@
 @implementation BNTestModelUnitTests
 
 
-- (void)testInitWithJSONDict {
+- (void)testInitTestModelWithJSONDict {
+    
+    // When:
     BNTestModel *testModel = [BNTestModel correctMockObject];
+    
+    // Then:
+    XCTAssertNotNil(testModel, "The testModel object should not be nil.");
+    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel object should be BNTestModel.");
+    XCTAssertEqualObjects(testModel.modelId, @"ID0", "The model id (testModel.modelId) should be ID0.");
+    XCTAssertEqual(testModel.totalAmount, 100, "The total amount (testModel.totalAmount) should be 100.");
+    XCTAssertTrue(testModel.isValid, "The testModel object should be valid (in other words, testModel.isValid should be TRUE).");
+    XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "The class type of the custom model (testModel.customModel) should be BNTestModel.");
 
-    XCTAssertNotNil(testModel, "Test model not nil");
-    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "Test model is kind of class BNTestModel");
-    XCTAssertEqualObjects(testModel.modelId, @"ID0", "Correct modelID property");
-    XCTAssertEqual(testModel.totalAmount, 100, "Correct totalAmount property");
-    XCTAssertTrue(testModel.isValid, "Correct isValid property");
-    XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "customModel property is kind of class BNTestModel");
 }
 
-- (void)testInitWithJSONDictExtraParams {
+- (void)testInitTestModelWithJSONDictExtraParams {
+    
+    // When:
     BNTestModel *testModel = [BNTestModel extraParamsMockObject];
     
-    XCTAssertNotNil(testModel, "Test model not nil");
-    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "Test model is kind of class BNTestModel");
-    XCTAssertEqualObjects(testModel.modelId, @"ID0", "Correct modelID property");
-    XCTAssertEqual(testModel.totalAmount, 100, "Correct totalAmount property");
-    XCTAssertTrue(testModel.isValid, "Correct isValid property");
-    XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "customModel property is kind of class BNTestModel");
+    // Then:
+    XCTAssertNotNil(testModel, "The testModel object should not contain nil.");
+    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel object should be BNTestModel.");
+    XCTAssertEqualObjects(testModel.modelId, @"ID0", "The model id (testModel.modelId) should be ID0.");
+    XCTAssertEqual(testModel.totalAmount, 100, "The total amount (testModel.totalAmount) should be 100.");
+    XCTAssertTrue(testModel.isValid, "The testModel object should be valid (in other words, testModel.isValid should be TRUE).");
+    XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "The class type of the custom model (testModel.customModel) should be BNTestModel.");
+
 }
 
-- (void)testInitWithNilDictionary {
+- (void)testInitTestModelWithNilDictionary {
+    
+    // When:
     NSError *error;
     BNTestModel *testModel = [[BNTestModel alloc] initWithJSONDictionary:nil error:&error];
     
+    // Then:
     XCTAssertNil(error);
-    XCTAssertNotNil(testModel, "Test model not nil");
-    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "Test model is kind of class BNTestModel");
-    XCTAssertNil(testModel.modelId, "Correct modelID property");
-    XCTAssertEqual(testModel.totalAmount, 0, "Correct totalAmount property");
-    XCTAssertFalse(testModel.isValid, "Correct isValid property");
-    XCTAssertNil(testModel.customModel, "customModel propert is nil");
+    XCTAssertNotNil(testModel, "The testModel object should not be nil.");
+    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel object should be BNTestModel.");
+    XCTAssertNil(testModel.modelId, "The model id (testModel.modelId) should be nil.");
+    XCTAssertEqual(testModel.totalAmount, 0, "The total amount (testModel.totalAmount) should be 0.");
+    XCTAssertFalse(testModel.isValid, "The testModel object should be invalid (in other words, testModel.isValid should be FALSE).");
+    XCTAssertNil(testModel.customModel, "The custom model (testModel.customModel) should be nil.");
+
 }
 
-- (void)testInitiWithJSONDictMissingParams {
+- (void)testInitTestModelWithJSONDictMissingParams {
+    
+    // When:
     BNTestModel *testModel = [BNTestModel missingParamsMockObject];
     
-    XCTAssertNotNil(testModel, "Test model not nil");
-    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "Test model is kind of class BNTestModel");
-    XCTAssertEqualObjects(testModel.modelId, @"ID0", "Correct modelID property");
-    XCTAssertEqual(testModel.totalAmount, 100, "Correct totalAmount property");
-    XCTAssertFalse(testModel.isValid, "Correct isValid property");
-    XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "customModel property is kind of class BNTestModel");
+    // Then:
+    XCTAssertNotNil(testModel, "The testModel variable should not contain nil.");
+    XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel variable should be BNTestModel.");
+    XCTAssertEqualObjects(testModel.modelId, @"ID0", "The model id (testModel.modelId) should be ID0.");
+    XCTAssertEqual(testModel.totalAmount, 100, "The total amount (testModel.totalAmount) should be 100.");
+    XCTAssertFalse(testModel.isValid, "The value of the testModel.isValid property should be FALSE.");
+    XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "The class type of the custom model (testModel.customModel) should be BNTestModel.");
+
 }
 
 - (void)testGenerateNSDictionaryWithJSONMappingFormat {
+    
+    // Given:
     BNTestModel *testModel = [BNTestModel correctMockObject];
     
-    NSDictionary *correctDict = [BNTestModel correctJSONDictionary];
-    NSDictionary *dictToTest = [testModel JSONDictionary];
+    // When:
+    NSDictionary *dictionaryFromClass = [BNTestModel correctJSONDictionary];
+    NSDictionary *dictionaryFromObject = [testModel JSONDictionary];
     
-    XCTAssertEqualObjects(correctDict, dictToTest, "Should generate a NSDictionary in accordance with the JSONMappingDictionary format");
+    // Then:
+    XCTAssertEqualObjects(dictionaryFromClass, dictionaryFromObject, "The dictionary from the BNTestModel class (dictionaryFromClass) should be equal to the dictionary from the testModel object (dictionaryFromObject).");
+
 }
 
-- (void)testIsEqualMethod {
-    BNTestModel *firstMockedModel = [BNTestModel correctMockObject];
-    BNTestModel *secongMockedModel = [BNTestModel correctMockObject];
+- (void)testThatTwoTestModelObjectsAreEqual {
+    
+    // When:
+    BNTestModel *testModel = [BNTestModel correctMockObject];
+    BNTestModel *anotherTestModel = [BNTestModel correctMockObject];
 
-    XCTAssertEqualObjects(firstMockedModel, secongMockedModel, "Should say two objects with the same values is equal");
+    // Then:
+    XCTAssertEqualObjects(testModel, anotherTestModel, "The objects testModel and anotherTestModel should be equal (they should differ in name only).");
+
 }
 
-- (void)testCopyMethod {
-    BNTestModel *correctModel = [BNTestModel correctMockObject];
-    BNTestModel *modelToTest = [correctModel copy];
+- (void)testCopyTestModel {
     
-    XCTAssertEqualObjects(correctModel, modelToTest, "Should make a complete copy when copy method is called");
+    // Given:
+    BNTestModel *testModel = [BNTestModel correctMockObject];
+    
+    // When:
+    BNTestModel *copyOfTestModel = [testModel copy];
+    
+    // Then:
+    XCTAssertEqualObjects(testModel, copyOfTestModel, "The original test model (testModel) should be equal to its copy (copyOfTestModel). They should differ in name only.");
+
 }
 
 - (void)testSerialization {
+    
+    // Given:
     BNCacheManager *sharedCache = [BNCacheManager sharedCache];
     BNTestModel *testModel = [BNTestModel correctMockObject];
     
+    // When:
     [sharedCache saveObject:testModel withName:@"testObject"];
-    
     BNTestModel *decodedObject = (BNTestModel *)[sharedCache getObjectWithName:@"testObject"];
-    XCTAssertNotNil(decodedObject, "Decoded object not nil");
-    XCTAssertEqualObjects(testModel, decodedObject, "Decoded object and initial object is equal");
+    
+    // Then:
+    XCTAssertNotNil(decodedObject, "The decoded object (decodedObject) should not be nil.");
+    XCTAssertEqualObjects(testModel, decodedObject, "The test model (testModel) should be equal to the decoded object (decodedObject). They should differ in name only.");
+
 }
 
 @end

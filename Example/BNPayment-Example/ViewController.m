@@ -1,24 +1,10 @@
 //
 //  BNViewController.m
-//  Copyright © 2016 Bambora. All rights reserved.
+//  BNPayment
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Bambora On Mobile AB on 11/12/2015.
+//  Copyright (c) 2015 Bambora On Mobile AB. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 #import "ViewController.h"
 #import <BNPayment/BNPayment.h>
@@ -42,12 +28,14 @@
 }
 
 -(IBAction)registerCreditCard:(id)sender {
- 
-    BNCCRegistrationFormVC *ccRegistrationVC = [BNCCRegistrationFormVC new];
-    ccRegistrationVC.completionBlock = ^(BNCCRegCompletion completion, BNAuthorizedCreditCard *card){
+    
+    BNCreditCardRegistrationVC *vc = [BNCreditCardRegistrationVC new];
+    vc.completionBlock = ^(BNCCRegCompletion completion, BNAuthorizedCreditCard *card){
         [self.navigationController popViewControllerAnimated:YES];
+        [self displaAliasAlertWithAuthorizedCard:card];
     };
-    [self.navigationController pushViewController:ccRegistrationVC animated:YES];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(IBAction)registerCreditCardHostedForm:(id)sender {

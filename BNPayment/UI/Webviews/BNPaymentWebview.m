@@ -20,12 +20,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 #import "BNPaymentWebview.h"
 #import "EPAYHostedFormStateChange.h"
 #import "BNCreditCardEndpoint.h"
 #import "BNCCHostedFormParams.h"
 #import "BNAuthorizedCreditCard.h"
+#import "BNPaymentHandler.h"
 
 NSString * const BNCCRegistrationSubmissionDomain = @"com.bambora.error.creditcard.registration";
 

@@ -26,10 +26,11 @@
 #import "BNAuthorizedCreditCard.h"
 #import "BNCacheManager.h"
 #import "BNCCHostedFormParams.h"
+#import "BNRegisterCCParams.h"
 #import "BNPaymentParams.h"
 #import "BNAuthenticator.h"
 #import "BNHTTPClient.h"
-#import "BNUser.h"
+#import "BNCertManager.h"
 
 static NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
 static NSString *const BNAuthenticatorCacheName = @"BNAuthenticator";
@@ -72,6 +73,9 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
     handler.debug = debug;
     handler.httpClient = [[BNHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:handler.baseUrl]];
     [handler.httpClient enableLogging:debug];
+    if([[BNCertManager sharedInstance] shouldUpdateCertificates]) {
+        [handler refreshCertificates];
+    }
     
     return error == nil;
 }
@@ -127,6 +131,12 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
     return self.debug;
 }
 
+- (void)refreshCertificates {
+    [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray *encryptionCertificates, NSError *error) {
+        
+    }];
+}
+
 - (NSURLSessionDataTask *)initiateCreditCardRegistrationWithParams:(BNCCHostedFormParams * )params
                                                         completion:(BNCreditCardRegistrationUrlBlock) block {
     NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:params
@@ -134,6 +144,17 @@ static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.
         block(url, error);
     }];
     
+    return dataTask;
+}
+
+- (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion {
+    NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint registerCreditCard:params completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        if(card) {
+            [self saveAuthorizedCreditCard:card];
+        }
+        completion(card, error);
+    }];
     return dataTask;
 }
 

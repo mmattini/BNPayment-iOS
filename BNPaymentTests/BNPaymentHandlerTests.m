@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 @interface BNPaymentHandlerTests : XCTestCase
 
 @end
@@ -43,7 +42,7 @@
     firstCard.creditCardToken = @"123";
     
     firstCardDuplicate = [BNAuthorizedCreditCard new];
-    firstCardDuplicate.creditCardAlias = @"First card ducplicate";
+    firstCardDuplicate.creditCardAlias = @"First card duplicate";
     firstCardDuplicate.creditCardToken = @"123";
     
     secondCard = [BNAuthorizedCreditCard new];
@@ -53,67 +52,70 @@
     thirdCard = [BNAuthorizedCreditCard new];
     thirdCard.creditCardAlias = @"Third";
     thirdCard.creditCardToken = @"1235";
+
+    XCTAssertTrue([[handler authorizedCards] count] == 0, "No credit card tokens should be registered (in other words, the array that is returned from the call to [handler authorizedCards] should be empty).");
 }
 
-- (void)testSavingCards {
-    XCTAssertFalse([[handler authorizedCards] containsObject:firstCard], "Does not contains first card");
-    XCTAssertFalse([[handler authorizedCards] containsObject:secondCard], "Does not contains second card");
+- (void)testSaveCreditCardTokens {
     
+    // When:
     [handler saveAuthorizedCreditCard:firstCard];
     [handler saveAuthorizedCreditCard:secondCard];
-
-    XCTAssertTrue([[handler authorizedCards] containsObject:firstCard], "Containts first card");
-    XCTAssertTrue([[handler authorizedCards] containsObject:secondCard], "Containts second card");
+    
+    // Then:
+    XCTAssertTrue([[handler authorizedCards] containsObject:firstCard], "The handler should contain the firstCard object.");
+    XCTAssertTrue([[handler authorizedCards] containsObject:secondCard], "The handler should contain the secondCard");
 }
 
-- (void)testSavingDuplicates {
-    XCTAssertFalse([[handler authorizedCards] containsObject:firstCard], "Does not contains first card");
+- (void)testSaveTheSameCreditCardTokenTwice {
     
+    // When:
     [handler saveAuthorizedCreditCard:firstCard];
     NSUInteger countAfterAddingOneCard = [[handler authorizedCards] count];
     [handler saveAuthorizedCreditCard:firstCard];
     
-    XCTAssertEqual(countAfterAddingOneCard, [handler authorizedCards].count, "Should have same count after adding duplicate");
+    // Then:
+    XCTAssertEqual(countAfterAddingOneCard, [handler authorizedCards].count, "The number of credit card tokens that were present after adding one card (countAfterAddingOneCard) should be equal to the number of credit card tokens present after attempting to register the same credit card token again ([handler authorizedCards].count).");
 }
 
-- (void)testSavingDifferentCardsWithSameId {
-    XCTAssertFalse([[handler authorizedCards] containsObject:firstCard], "Does not contains first card");
-    XCTAssertFalse([[handler authorizedCards] containsObject:firstCardDuplicate], "Does not contains first card duplicate");
+- (void)testSaveDuplicateCreditCardTokens {
     
+    // When:
     [handler saveAuthorizedCreditCard:firstCard];
     NSUInteger countAfterAddingOneCard = [[handler authorizedCards] count];
     [handler saveAuthorizedCreditCard:firstCardDuplicate];
     
-    XCTAssertEqual(countAfterAddingOneCard, [handler authorizedCards].count, "Should have same count after adding duplicate");
+    // Then:
+    XCTAssertEqual(countAfterAddingOneCard, [handler authorizedCards].count, "The number of credit card tokens that were present after adding one card (countAfterAddingOneCard) should be equal to the number of credit card tokens present after attempting to add a duplicate credit card token ([handler authorizedCards].count).");
 }
 
-- (void)testRemovingCards {
-    XCTAssertFalse([[handler authorizedCards] containsObject:firstCard], "Does not contains first card");
-    XCTAssertFalse([[handler authorizedCards] containsObject:secondCard], "Does not contains second card");
-    XCTAssertFalse([[handler authorizedCards] containsObject:thirdCard], "Does not contains third card");
-
+- (void)testSaveAndRemoveCreditCardTokens {
+    
+    // When:
     [handler saveAuthorizedCreditCard:firstCard];
     [handler saveAuthorizedCreditCard:secondCard];
     [handler saveAuthorizedCreditCard:thirdCard];
     
-    XCTAssertTrue([[handler authorizedCards] containsObject:firstCard], "Does contains first card");
-    XCTAssertTrue([[handler authorizedCards] containsObject:secondCard], "Does contains second card");
-    XCTAssertTrue([[handler authorizedCards] containsObject:thirdCard], "Does contains third card");
+    // Then:
+    XCTAssertTrue([[handler authorizedCards] containsObject:firstCard], "The handler should contain the firstCard object.");
+    XCTAssertTrue([[handler authorizedCards] containsObject:secondCard], "The handler should contain the secondCard object.");
+    XCTAssertTrue([[handler authorizedCards] containsObject:thirdCard], "The handler should contain the thirdCard object.");
     
+    // When:
     [handler removeAuthorizedCreditCard:firstCard];
     [handler removeAuthorizedCreditCard:thirdCard];
     
-    XCTAssertFalse([[handler authorizedCards] containsObject:firstCard], "Does not contains first card");
-    XCTAssertTrue([[handler authorizedCards] containsObject:secondCard], "Does contains second card");
-    XCTAssertFalse([[handler authorizedCards] containsObject:thirdCard], "Does not contains third card");
+    // Then:
+    XCTAssertFalse([[handler authorizedCards] containsObject:firstCard], "The handler should not contain the firstCard object.");
+    XCTAssertTrue([[handler authorizedCards] containsObject:secondCard], "The handler should contain the secondCard object.");
+    XCTAssertFalse([[handler authorizedCards] containsObject:thirdCard], "The handler should not contain the thirdCard object.");
 }
 
 - (void)tearDown {
-    [super tearDown];
-    
     [handler removeAuthorizedCreditCard:firstCard];
     [handler removeAuthorizedCreditCard:secondCard];
     [handler removeAuthorizedCreditCard:thirdCard];
+    [super tearDown];
 }
 
 @end

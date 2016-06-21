@@ -20,19 +20,43 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BNPaymentHandler.h"
-
 @class BNCCHostedFormParams;
+@class BNRegisterCCParams;
+@class BNAuthorizedCreditCard;
+@class BNEncryptionCertificate;
+
+@import Foundation;
 
 /**
- *  A block object to be executed when a credit card registration operation has completed.
- *  The block return an String containing the url to load in order to register a credit card
+ *  A block object to be executed when a credit card hosted form URL operation has completed.
+ *  The block return an String containing the url to load in order to load the registration form and
  *  `NSError` representing the error recieved. error is nil is operation is successful.
  *
  *  @param url `NSString`
  *  @param error `NSError`
  */
 typedef void (^BNCreditCardUrlBlock)(NSString *url, NSError *error);
+
+
+/**
+ *  A block object to be executed when a credit card registration operation has completed.
+ *  The block return an `BNAuthorizedCard` containing the authorized credit card and
+ *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *
+ *  @param BNAuthorizedCreditCard   `BNAuthorizedCard`
+ *  @param error                    `NSError`
+ */
+typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *card, NSError *error);
+
+/**
+ *  A block object to be executed when a encryption cert operation has completed.
+ *  The block return an `NSArray` `BNEncryptionCertificate` models
+ *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *
+ *  @param encryptionCertificates   An array of `BNEncryptionCertificate`
+ *  @param error                    `NSError`
+ */
+typedef void (^BNEncryptionCertBlock)(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error);
 
 /**
  `BNCreditCardEndpoint` is a subclass of `BNBaseEndpoint`
@@ -45,14 +69,34 @@ typedef void (^BNCreditCardUrlBlock)(NSString *url, NSError *error);
 ///------------------------------------------------
 
 /**
-*  Initiate Credit card registration.
+*  Initiate Credit card registration form URL operation.
 *
 *  @param formParams `BNCCHostedFormParams` params to the request.
-*  @param block `BNCreditCardUrlBlock` block to be executed when the initiate credit card registration operation is finished.
+*  @param completion `BNCreditCardUrlBlock` block to be executed when the initiate credit card registration operation is finished.
 *
 *  @return `NSURLSessionDataTask`
 */
 + (NSURLSessionDataTask *)initiateCreditCardRegistrationForm:(BNCCHostedFormParams *)formParams
-                                                  completion:(BNCreditCardUrlBlock)block;
+                                                  completion:(BNCreditCardUrlBlock)completion;
+
+/**
+ *  Register a credit card in order to retrieve an authroized card used for payments.
+ *
+ *  @param params     `BNRegisterCCParams`
+ *  @param completion `BNCreditCardRegistrationBlock`
+ *
+ *  @return `NSURLSessionDataTask`
+ */
++ (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion;
+
+/**
+ *  Fetching credit card encryption certificates.
+ *
+ *  @param completion `BNEncryptionCertBlock`
+ *
+ *  @return `NSURLSessionDataTask`
+ */
++ (NSURLSessionDataTask *)encryptionCertificatesWithCompletion:(BNEncryptionCertBlock)completion;
 
 @end

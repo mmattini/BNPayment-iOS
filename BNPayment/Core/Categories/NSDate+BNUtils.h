@@ -32,4 +32,13 @@
  */
 + (NSString *)getDateHeaderFormattedStringForDate:(NSDate *)date;
 
+/**
+ *  This is a helper method for parsing a ISO 8601 formatted string.
+ *
+ *  @param dateString `NSString` in ISO 8601 format.
+ *
+ *  @return `NSDate` parsed from a ISO 8601 string.
+ */
++ (NSDate *)dateFromISO8601String:(NSString *)dateString;
+
 @end

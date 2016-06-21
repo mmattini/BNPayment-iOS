@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 #import <BNPayment/BNPayment.h>
 
 @import XCTest;
@@ -38,35 +37,43 @@
     self.handler = [BNPaymentHandler sharedInstance];
 }
 
-- (void)testHandlerSetup {
+- (void)testSetupPaymentHandler {
+
+    // Given:
     NSString *apiToken = @"api-token";
     NSString *baseUrl = @"https://zebragiraffe.net/";
     BOOL debug = YES;
     NSError *error = nil;
     
+    // When:
     [BNPaymentHandler setupWithApiToken:apiToken
                                 baseUrl:baseUrl
                                   debug:debug
                                   error:&error];
     
-    XCTAssertNotNil(_handler, "Handler is not nil");
-    XCTAssertNil(error, "Error is nil");
+    // Then:
+    XCTAssertNotNil(_handler, "The handler property should not be nil.");
+    XCTAssertNil(error, "The error variable should be nil.");
     
-    XCTAssertEqualObjects([self.handler getApiToken], apiToken, "Api token correct");
-    XCTAssertEqualObjects([self.handler getBaseUrl], baseUrl, "Base URL correct");
-    XCTAssertEqual([self.handler debugMode], debug, "Debug mode correct");
-    XCTAssertNotNil([self.handler getHttpClient], "Handler is not nil");
-    XCTAssertTrue([[self.handler getHttpClient] isKindOfClass:[BNHTTPClient class]], "HTTP client is correct class");
+    XCTAssertEqualObjects([self.handler getApiToken], apiToken, "The value returned from the call to [self.handler getApiToken] should match the value of the apiToken variable.");
+    XCTAssertEqualObjects([self.handler getBaseUrl], baseUrl, "The value returned from the call to [self.handler getBaseUrl] should match the value of the baseUrl variable.");
+    XCTAssertEqual([self.handler debugMode], debug, "The value returned from the call to [self.handler debugMode] should match the value of the debug variable.");
+    XCTAssertNotNil([self.handler getHttpClient], "The HTTP client object should not be nil.");
+    XCTAssertTrue([[self.handler getHttpClient] isKindOfClass:[BNHTTPClient class]], "The HTTP client should be an object of the BNHTTPClient class.");
 }
 
-- (void)testAuthenticatorRegistration {
+- (void)testRegisterAuthenticator {
+    
+    // Given:
     BNAuthenticator *authenticator = [BNAuthenticator new];
     authenticator.sharedSecret = @"sharedsecret";
     authenticator.uuid = @"uuid";
     
+    // When:
     [self.handler registerAuthenticator:authenticator];
     
-    XCTAssertTrue([self.handler isRegistered], "Authenticator is registered");
+    // Then:
+    XCTAssertTrue([self.handler isRegistered], "The call to [self.handler isRegistered] should return TRUE.");
 }
 
 - (void)tearDown {

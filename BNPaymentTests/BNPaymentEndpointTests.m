@@ -35,7 +35,10 @@
     [OHHTTPStubs setEnabled:YES];
     
     NSError *error;
-    [BNPaymentHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
+    [BNPaymentHandler setupWithApiToken:@"T000000000"
+                                baseUrl:nil
+                                  debug:YES
+                                  error:&error];
 }
 
 - (void)setUp {
@@ -52,15 +55,21 @@
     }];
 }
 
-- (void)testSuccessfulResponse {
+- (void)testAuthorizePayment{
+    
+    // Given:
     self.fileName = @"authorizePaymentSuccess.json";
     self.statusCode = 200;
+    BNPaymentParams *params = [BNPaymentParams mockObject];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
-    BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
-        XCTAssertNil(error, "Error is nil");
-        XCTAssertTrue([paymentResponse isKindOfClass:[BNPaymentResponse class]], "Payment response is kind of BNPaymentResponse");
+    
+    // When:
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params
+                                                                    completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
+        // Then:
+        XCTAssertNil(error, "The error variable should not be nil.");
+        XCTAssertTrue([paymentResponse isKindOfClass:[BNPaymentResponse class]], "The class type of the paymentResponse variable should be BNPaymentResponse.");
         [expectation fulfill];
     }];
     
@@ -72,19 +81,26 @@
     }];
 }
 
-- (void)testSuccessfulResponseExtraParams {
+- (void)testAuthorizePaymentWithExtraParams {
+    
+    // Given:
     self.fileName = @"authorizePaymentSuccessExtraParams.json";
     self.statusCode = 200;
-    
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
-        XCTAssertNil(error, "Error is nil");
-        XCTAssertTrue([paymentResponse isKindOfClass:[BNPaymentResponse class]], "Payment response is kind of BNPaymentResponse");
+
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params
+                                                                    completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
+        // Then:
+        XCTAssertNil(error, "The error variable should not be nil.");
+        XCTAssertTrue([paymentResponse isKindOfClass:[BNPaymentResponse class]], "The class type of the paymentResponse variable should be BNPaymentResponse.");
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         }
@@ -92,19 +108,26 @@
     }];
 }
 
-- (void)test400Response {
+- (void)testAuthorizePayment400Error {
+    
+    // Given:
     self.fileName = @"authorizePaymentSuccess.json";
     self.statusCode = 400;
-    
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
-        XCTAssertNotNil(error, "Error is not nil");
-        XCTAssertNil(paymentResponse, "Payment response is nil");
+
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params
+                                                                    completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
+        // Then:
+        XCTAssertNotNil(error, "The error variable should not be nil.");
+        XCTAssertNil(paymentResponse, "The paymentResponse variable should be nil.");
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         }
@@ -112,19 +135,26 @@
     }];
 }
 
-- (void)test500Response {
+- (void)testAuthorizePayment500Error {
+    
+    // Given:
     self.fileName = @"authorizePaymentSuccess.json";
     self.statusCode = 500;
+    BNPaymentParams *params = [BNPaymentParams mockObject];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
-    BNPaymentParams *params = [BNPaymentParams mockObject];
-    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
-        XCTAssertNotNil(error, "Error is not nil");
-        XCTAssertNil(paymentResponse, "Payment response is nil");
+    
+    // When:
+    NSURLSessionDataTask *task = [BNPaymentEndpoint authorizePaymentWithParams:params
+                                                                    completion:^(BNPaymentResponse *paymentResponse, NSError *error) {
+        // Then:
+        XCTAssertNotNil(error, "The error variable should not be nil.");
+        XCTAssertNil(paymentResponse, "The paymentResponse variable should be nil.");
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         }
@@ -133,8 +163,8 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
     [OHHTTPStubs removeAllStubs];
+    [super tearDown];
 }
 
 @end

@@ -22,26 +22,90 @@
 
 #import "BNCreditCardEndpoint.h"
 #import "BNCCHostedFormParams.h"
+#import "BNRegisterCCParams.h"
+#import "BNAuthorizedCreditCard.h"
 #import "BNPaymentHandler.h"
 #import "BNHTTPClient.h"
+#import "BNEncryptionCertificate.h"
+#import "BNCertManager.h"
+#import "BNSecurity.h"
 
 @implementation BNCreditCardEndpoint
 
 + (NSURLSessionDataTask *)initiateCreditCardRegistrationForm:(BNCCHostedFormParams *)formParams
-                                                  completion:(BNCreditCardUrlBlock) block {
+                                                  completion:(BNCreditCardUrlBlock)completion {
     BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
     
-    NSString *endPointUrl = @"hpp/";
+    NSString *endpointUrl = @"hpp/";
     
     NSDictionary *params = [formParams JSONDictionary];
     
-    NSURLSessionDataTask *dataTask = [httpClient POST:endPointUrl
+    NSURLSessionDataTask *dataTask = [httpClient POST:endpointUrl
                                            parameters:params
                                               success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString *url = [responseObject objectForKey:@"session_url"];
-        block(url, nil);
+        completion(url, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        block(nil, error);
+        completion(nil, error);
+    }];
+    
+    return dataTask;
+}
+
++ (NSURLSessionDataTask *)registerCreditCard:(BNRegisterCCParams *)params
+                                  completion:(BNCreditCardRegistrationBlock)completion {
+    BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
+    NSString *endpointURL = @"cardregistration/";
+    NSDictionary *requestParams = [params JSONDictionary];
+    
+    if([[BNCertManager sharedInstance] shouldUpdateCertificates]) {
+        NSURLSessionDataTask *dataTask = [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error) {
+            [httpClient POST:endpointURL parameters:requestParams success:^(NSURLSessionDataTask *task, id responseObject) {
+                NSError *error;
+                BNAuthorizedCreditCard *response = [[BNAuthorizedCreditCard alloc] initWithJSONDictionary:responseObject
+                                                                                                    error:&error];
+                completion(response, error);
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                completion(nil, error);
+            }];
+        }];
+        
+        return dataTask;
+    }
+    
+    NSURLSessionDataTask *dataTask = [httpClient POST:endpointURL parameters:requestParams success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSError *error;
+        BNAuthorizedCreditCard *response = [[BNAuthorizedCreditCard alloc] initWithJSONDictionary:responseObject
+                                                                                  error:&error];
+        completion(response, error);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(nil, error);
+    }];
+    
+    return dataTask;
+}
+
++ (NSURLSessionDataTask *)encryptionCertificatesWithCompletion:(BNEncryptionCertBlock)completion {
+    BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
+    
+    NSString *endpointURL = @"certificates/";
+    
+    NSURLSessionDataTask *dataTask = [httpClient GET:endpointURL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSError *error;
+        
+        if(responseObject && [responseObject isKindOfClass:[NSArray class]]) {
+            NSMutableArray *certArray = [NSMutableArray new];
+            for(NSDictionary *certDict in responseObject) {
+                BNEncryptionCertificate *cert = [[BNEncryptionCertificate alloc] initWithJSONDictionary:certDict error:&error];
+                if([cert isTrusted]) {
+                    [certArray addObject:cert];
+                }
+            }
+            [[BNCertManager sharedInstance] replaceEncryptionCertificates:certArray];
+        }
+        completion(responseObject, error);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(nil, error);
     }];
     
     return dataTask;

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "BNPayment"
-  spec.version          = ENV['LIBRARY_VERSION'] ? ENV['LIBRARY_VERSION'] : "1.0.1"
+  spec.version          = ENV['LIBRARY_VERSION'] ? ENV['LIBRARY_VERSION'] : "1.1.0"
   spec.summary          = "The Native Payment SDK from Bambora makes it simple to accept credit card payments in your app."
   build_tag             = spec.version
   spec.homepage         = "http://bambora.com"
@@ -13,5 +13,7 @@ Pod::Spec.new do |spec|
   spec.platform         = :ios, '8.0'
   spec.requires_arc     = true
   spec.source_files     = 'BNPayment/**/*'
-  spec.resource_bundles = { 'BNPayment' => ['Assets/**/*.{png,bundle,xib,nib,cer}'] }
+  spec.resource_bundles = {
+                            'BNPayment' => ['Assets/**/*.{png,bundle,xib,nib,cer}']
+                          }
 end

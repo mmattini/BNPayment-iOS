@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 #import <BNPayment/BNPayment.h>
 
 @import XCTest;
@@ -38,6 +37,10 @@
     SecTrustRef _invalidSelfSignedSecTrust;
     SecTrustRef _validSecTrust;
     SecTrustRef _validExpiredSecTrust;
+    SecCertificateRef _validCertRef;
+    SecCertificateRef _validExpiredCertRef;
+    SecCertificateRef _invalidCertRef;
+    SecCertificateRef _caCertRef;
 }
 
 - (void)setUp {
@@ -45,10 +48,18 @@
     
     _security = [BNSecurity new];
 
-    NSString *invalidSelfSignedCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"invalidSelfSignedCert" ofType:@"cer"];
-    NSString *validCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"validSelfSignedCert" ofType:@"cer"];
-    NSString *validCaCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"validCACert" ofType:@"cer"];
-    NSString *validExpiredCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"validExpiredSelfSignedCert" ofType:@"cer"];
+    NSString *invalidSelfSignedCertPath = [[NSBundle bundleForClass:[self class]]
+                                                    pathForResource:@"invalidSelfSignedCert"
+                                                             ofType:@"cer"];
+
+    NSString *validCertPath = [[NSBundle bundleForClass:[self class]]
+                                        pathForResource:@"validSelfSignedCert" ofType:@"cer"];
+    
+    NSString *validCaCertPath = [[NSBundle bundleForClass:[self class]]
+                                          pathForResource:@"validCACert" ofType:@"cer"];
+    
+    NSString *validExpiredCertPath = [[NSBundle bundleForClass:[self class]]
+                                               pathForResource:@"validExpiredSelfSignedCert" ofType:@"cer"];
     
     XCTAssertNotNil(invalidSelfSignedCertPath, "Invalid self signed cert not nil");
     XCTAssertNotNil(validCertPath, "Valid self signed cert not nil");
@@ -71,71 +82,163 @@
     
     SecPolicyRef secPolicy = SecPolicyCreateBasicX509();
     
-    SecCertificateRef invalidSelfSignedCert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_invalidSelfSignedCertData);
-    SecCertificateRef validCert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_validCertData);
-    SecCertificateRef validExpiredCert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_validExpiredCertData);
+    _caCertRef = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_validCACertData);
+    _invalidCertRef = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_invalidSelfSignedCertData);
+    _validCertRef = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_validCertData);
+    _validExpiredCertRef = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)_validExpiredCertData);
     
-    SecTrustCreateWithCertificates(invalidSelfSignedCert, secPolicy, &_invalidSelfSignedSecTrust);
-    SecTrustCreateWithCertificates(validCert, secPolicy, &_validSecTrust);
-    SecTrustCreateWithCertificates(validExpiredCert, secPolicy, &_validExpiredSecTrust);
+    SecTrustCreateWithCertificates(_invalidCertRef, secPolicy, &_invalidSelfSignedSecTrust);
+    SecTrustCreateWithCertificates(_validCertRef, secPolicy, &_validSecTrust);
+    SecTrustCreateWithCertificates(_validExpiredCertRef, secPolicy, &_validExpiredSecTrust);
 }
 
-- (void)testValidCertWithCorrectDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust forDomain:@"ironpoodle.zebragiraffe.net"];
-    XCTAssertTrue(isServerTrusted, "Should accept a SecTrustRef signed by a pinned cert and correct domain");
+- (void)testValidCertificateWithCorrectDomain {
+
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust
+                                                forDomain:@"ironpoodle.zebragiraffe.net"];
+
+    // Then:
+    XCTAssertTrue(isServerTrusted, "Should accept a SecTrustRef that is signed by a pinned certificate and correct domain.");
 }
 
-- (void)testValidButExpiredCertWithCorrectDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:_validExpiredSecTrust forDomain:@"ironpoodle.zebragiraffe.net"];
-    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef signed by a correct pinned cert which is expired and correct domain");
+- (void)testValidButExpiredCertificateWithCorrectDomain {
+
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:_validExpiredSecTrust
+                                                forDomain:@"ironpoodle.zebragiraffe.net"];
+
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef that is signed by an expired pinned certificate and correct domain.");
 }
 
-- (void)testValidCertWithIncorrectDomain {
+- (void)testValidCertificateWithIncorrectDomain {
+
+    // When:
     BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust forDomain:@"ironpoodle.zebragiraffe.com"];
-    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef signed by a pinned cert and incorrect domain");
+
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef that is signed by a pinned certificate and incorrect domain.");
 }
 
-- (void)testInvalidCertWithCorrectDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:_invalidSelfSignedSecTrust forDomain:@"ironpoodle.zebragiraffe.net"];
-    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef not signed by a pinned cert and correct domain");
+- (void)testInvalidCertificateWithCorrectDomain {
+    
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:_invalidSelfSignedSecTrust
+                                                forDomain:@"ironpoodle.zebragiraffe.net"];
+
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef that is not signed by a pinned certificate and correct domain.");
 }
 
-- (void)testInvalidCertWithIncorrectDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:_invalidSelfSignedSecTrust forDomain:@"ironpoodle.zebragiraffe.com"];
-    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef not signed by a pinned cert and incorrect domain");
+- (void)testInvalidCertificateWithIncorrectDomain {
+
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:_invalidSelfSignedSecTrust
+                                                forDomain:@"ironpoodle.zebragiraffe.com"];
+
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept a SecTrustRef that is not signed by a pinned certificate and incorrect domain.");
 }
 
-- (void)testValidCertWithNilDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust forDomain:nil];
-    XCTAssertFalse(isServerTrusted, "Should not accept nil value for Domain with valid cert");
+- (void)testValidCertificateWithNilDomain {
+
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust
+                                                forDomain:nil];
+
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept nil value for domain with valid cert.");
 }
 
-- (void)testNilCertWithCorrectDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:nil forDomain:@"ironpoodle.zebragiraffe.net"];
-    XCTAssertFalse(isServerTrusted, "Should not accept nil value for SecTrustRef and correct domain");
+- (void)testNilCertificateWithCorrectDomain {
+
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:nil
+                                                forDomain:@"ironpoodle.zebragiraffe.net"];
+
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept nil value for SecTrustRef and correct domain.");
 }
 
 - (void)testNilCertWithNilDomain {
-    BOOL isServerTrusted = [_security evaluateServerTrust:nil forDomain:nil];
-    XCTAssertFalse(isServerTrusted, "Should not accept nil value for SecTrust and Domain");
+
+    // When:
+    BOOL isServerTrusted = [_security evaluateServerTrust:nil
+                                                forDomain:nil];
+    
+    // Then:
+    XCTAssertFalse(isServerTrusted, "Should not accept nil value for SecTrust and domain.");
 }
 
-- (void)testDefaultCertOvveride {
+- (void)testDefaultCertificateOvveride {
+
+    // Given
     NSArray *overrideCerts = @[_validCertData];
+    
+    // When:
     [_security overridePinnedCerts:overrideCerts];
+    BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust
+                                                forDomain:@"ironpoodle.zebragiraffe.net"];
+
+    // Then:
+    XCTAssertTrue(isServerTrusted, "Should be able to ovveride default pinned certificates.");
     
-    BOOL isServerTrusted = [_security evaluateServerTrust:_validSecTrust forDomain:@"ironpoodle.zebragiraffe.net"];
-    XCTAssertTrue(isServerTrusted, "Should be able to ovveride default pinned certs");
+    /********/
     
+    // Given:
     overrideCerts = @[_invalidSelfSignedCertData];
+    
+    // When:
     [_security overridePinnedCerts:overrideCerts];
+    isServerTrusted = [_security evaluateServerTrust:_validSecTrust
+                                           forDomain:@"ironpoodle.zebragiraffe.net"];
     
-    isServerTrusted = [_security evaluateServerTrust:_validSecTrust forDomain:@"ironpoodle.zebragiraffe.net"];
-    XCTAssertFalse(isServerTrusted, "Should be able to ovveride default pinned certs");
+    // Then
+    XCTAssertFalse(isServerTrusted, "Should be able to ovveride default pinned certificates.");
     
-    // Switch back
+    /********/
+    
+    // If:
     overrideCerts = @[_validCertData];
+    
+    // When:
     [_security overridePinnedCerts:overrideCerts];
+    isServerTrusted = [_security evaluateServerTrust:_validSecTrust
+                                           forDomain:@"ironpoodle.zebragiraffe.net"];
+    
+    // Then:
+    XCTAssertTrue(isServerTrusted, "Should be able to ovveride default pinned certificates.");
+}
+
+- (void)testMasterCertificateValidationWithValidCert {
+
+    // When:
+    BOOL isValidCert = [BNSecurity evaluateCert:_validCertRef
+                                     masterCert:_caCertRef];
+
+    // Then:
+    XCTAssertTrue(isValidCert, "Should accept a certificate signed by CA.");
+}
+
+- (void)testMasterCertificateValidationWithValidExpiredCert {
+
+    // When:
+    BOOL isValidCert = [BNSecurity evaluateCert:_validExpiredCertRef
+                                     masterCert:_caCertRef];
+
+    // Then:
+    XCTAssertFalse(isValidCert, "Should not accept expired certificate signed by CA.");
+}
+
+- (void)testMasterCertificateValidationWithInvalidCert {
+
+    // When:
+    BOOL isValidCert = [BNSecurity evaluateCert:_invalidCertRef
+                                     masterCert:_caCertRef];
+
+    // Then:
+    XCTAssertFalse(isValidCert, "Should not accept a certificate which is not signed by CA.");
 }
 
 - (void)tearDown {

@@ -1,6 +1,6 @@
 # Native Payment - iOS
 
-The `Native Payment` SDK from Bambora makes it simple to accept credit card payments in your app. 
+The `Native Payment` SDK from Bambora makes it simple to accept credit card payments in your app.
 
 ## Language and Requirements
 

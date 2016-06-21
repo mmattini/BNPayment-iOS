@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 #import <Foundation/Foundation.h>
 
 typedef void (^HashGenerationBlock) (NSString *hash);
@@ -37,5 +36,7 @@ typedef void (^HashGenerationBlock) (NSString *hash);
  */
 + (NSString *)sha256HMAC:(NSString *)data
                      key:(NSString *)key;
+
++ (NSString *)sha1:(NSData *)data;
 
 @end

@@ -20,7 +20,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 @interface BNCreditCardEndpointTests : XCTestCase
 
 @property NSString *fileName;
@@ -36,7 +35,9 @@
     [OHHTTPStubs setEnabled:YES];
     
     NSError *error;
-    [BNPaymentHandler setupWithApiToken:@"T000000000" baseUrl:nil debug:YES error:&error];
+    [BNPaymentHandler setupWithApiToken:@"T000000000"
+                                baseUrl:nil
+                                  debug:YES error:&error];
     [[BNPaymentHandler sharedInstance] registerAuthenticator:[BNAuthenticator new]];
 }
 
@@ -54,19 +55,25 @@
     }];
 }
 
-- (void)testSuccessfulResponse {
-    self.fileName = @"registerCreditCardSuccess.json";
+- (void)testHPPSuccessfulResponse {
+    
+    // Given:
+    self.fileName = @"hppSuccess.json";
     self.statusCode = 200;
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
-        XCTAssertTrue([url isKindOfClass:[NSString class]], "URL is a string");
-        XCTAssertNil(error, "Error is nil");
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject]
+                                                                               completion:^(NSString *url, NSError *error) {
+        // Then:
+        XCTAssertTrue([url isKindOfClass:[NSString class]], "The class type of the url variable should be NSString.");
+        XCTAssertNil(error, "The error variable should be nil.");
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         }
@@ -74,19 +81,25 @@
     }];
 }
 
-- (void)testSuccessfulResponseExtraParams {
-    self.fileName = @"registerCreditCardExtraParams.json";
+- (void)testHPPSuccessfulResponseExtraParams {
+    
+    // Given:
+    self.fileName = @"hppExtraParams.json";
     self.statusCode = 200;
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
-        XCTAssertTrue([url isKindOfClass:[NSString class]], "URL is a string");
-        XCTAssertNil(error, "Error is nil");
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject]
+                                                                               completion:^(NSString *url, NSError *error) {
+        // Then:
+        XCTAssertTrue([url isKindOfClass:[NSString class]], "The class type of the url variable should be NSString.");
+        XCTAssertNil(error, "The error variable should be nil.");
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         }
@@ -94,15 +107,128 @@
     }];
 }
 
-- (void)test400Response {
-    self.fileName = @"registerCreditCardSuccess.json";
+- (void)testHPP400Response {
+    
+    // Given:
+    self.fileName = @"hppSuccess.json";
     self.statusCode = 400;
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
-        XCTAssertNil(url, "URL is nil");
-        XCTAssertNotNil(error, "Error is not nil");
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject]
+                                                                               completion:^(NSString *url, NSError *error) {
+        // Then:
+        XCTAssertNil(url, "The url variable should be nil.");
+        XCTAssertNotNil(error, "The error variable should not be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testHPP500Response {
+
+    // Given:
+    self.fileName = @"hppSuccess.json";
+    self.statusCode = 500;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject]
+                                                                               completion:^(NSString *url, NSError *error) {
+        
+        // Then:
+        XCTAssertNil(url, "The url variable should be nil.");
+        XCTAssertNotNil(error, "The error variable should not be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testNativeCCSuccessfulResponse {
+    
+    // Given:
+    self.fileName = @"nativeCCSuccess.json";
+    self.statusCode = 200;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint registerCreditCard:nil
+                                                               completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        
+        // Then:
+        XCTAssertTrue([card isKindOfClass:[BNAuthorizedCreditCard class]], "The class type of the card variable should be BNAuthorizedCreditCard.");
+        XCTAssertNil(error, "The error variable should be nil.");
+        [expectation fulfill];
+    }];
+
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testNativeCCSuccessfulResponseExtraParams {
+    
+    // Given:
+    self.fileName = @"nativeCCSuccessExtraParams.json";
+    self.statusCode = 200;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint registerCreditCard:nil
+                                                               completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        
+        // Then:
+        XCTAssertTrue([card isKindOfClass:[BNAuthorizedCreditCard class]], "The class type of the card variable should be BNAuthorizedCreditCard.");
+        XCTAssertNil(error, "The error variable should be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testNativeCC400Response {
+    
+    // Given:
+    self.fileName = @"nativeCCSuccess.json";
+    self.statusCode = 400;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint registerCreditCard:nil
+                                                               completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        
+        // Then:
+        XCTAssertNil(card, "The card variable should be nil.");
+        XCTAssertNotNil(error, "The error variable should not be nil.");
         [expectation fulfill];
     }];
     
@@ -114,19 +240,130 @@
     }];
 }
 
-- (void)test500Response {
-    self.fileName = @"registerCreditCardSuccess.json";
+- (void)testNativeCC500Response {
+    
+    // Given:
+    self.fileName = @"nativeCCSuccess.json";
     self.statusCode = 500;
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
     
-    NSURLSessionDataTask *task = [BNCreditCardEndpoint initiateCreditCardRegistrationForm:[BNCCHostedFormParams mockObject] completion:^(NSString *url, NSError *error) {
-        XCTAssertNil(url, "URL is nil");
-        XCTAssertNotNil(error, "Error is not nil");
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint registerCreditCard:nil
+                                                               completion:^(BNAuthorizedCreditCard *card, NSError *error) {
+        
+        // Then:
+        XCTAssertNil(card, "The card variable should be nil.");
+        XCTAssertNotNil(error, "The error variable should not be nil.");
         [expectation fulfill];
     }];
     
-    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testEncryptionCertificatesSuccessfulResponse {
+    
+    // Given:
+    self.fileName = @"encryptionCertificatesSuccess.json";
+    self.statusCode = 200;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Encryption certificates endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error) {
+        
+        // Then:
+        XCTAssertTrue([encryptionCertificates isKindOfClass:[NSArray class]], "The class type of the encryptionCertificates variable should be NSArray.");
+        XCTAssertNil(error, "The error variable should be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testEncryptionCertificatesSuccessfulResponseExtraParams {
+    
+    // Given:
+    self.fileName = @"encryptionCertificatesSuccessExtraParams.json";
+    self.statusCode = 200;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Encryption certificates endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error) {
+        
+        // Then:
+        XCTAssertTrue([encryptionCertificates isKindOfClass:[NSArray class]], "The class type of the encryptionCertificates variable should be NSArray.");
+        XCTAssertNil(error, "The error variable should not be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testEncryptionCertificates400Response {
+    
+    // Given:
+    self.fileName = @"encryptionCertificatesSuccess.json";
+    self.statusCode = 400;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error) {
+        
+        // Then:
+        XCTAssertNil(encryptionCertificates, "The encryptionCertificates variable should be nil.");
+        XCTAssertNotNil(error, "The error variable should not be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        [task cancel];
+    }];
+}
+
+- (void)testEncryptionCertificates500Response {
+    
+    // Given:
+    self.fileName = @"encryptionCertificatesSuccess.json";
+    self.statusCode = 500;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Credit card endpoint test"];
+    
+    // When:
+    NSURLSessionDataTask *task = [BNCreditCardEndpoint encryptionCertificatesWithCompletion:^(NSArray<BNEncryptionCertificate *> *encryptionCertificates, NSError *error) {
+        
+        // Then:
+        XCTAssertNil(encryptionCertificates, "The encryptionCertificates should be nil.");
+        XCTAssertNotNil(error, "The error variable should not be nil.");
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:task.originalRequest.timeoutInterval
+                                 handler:^(NSError *error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         }
@@ -135,8 +372,8 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
     [OHHTTPStubs removeAllStubs];
+    [super tearDown];
 }
 
 @end
