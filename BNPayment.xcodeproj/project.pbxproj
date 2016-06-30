@@ -126,6 +126,8 @@
 		5D7B2A2B1D09A3E0001A6F3D /* nativeCCSuccessExtraParams.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D7B2A271D09A3E0001A6F3D /* nativeCCSuccessExtraParams.json */; };
 		5D8007301CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */; };
 		5D80073C1CBBC78D00E29149 /* BNPayment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */; };
+		5D9021381D2149DA00B4BEAC /* BNLoaderButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D9021361D2149DA00B4BEAC /* BNLoaderButton.h */; };
+		5D9021391D2149DA00B4BEAC /* BNLoaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9021371D2149DA00B4BEAC /* BNLoaderButton.m */; };
 		5DA20C2C1CEEEE8C007B2361 /* BNCertUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA20C2A1CEEEE8C007B2361 /* BNCertUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DA20C2D1CEEEE8C007B2361 /* BNCertUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA20C2B1CEEEE8C007B2361 /* BNCertUtils.m */; };
 		5DA20C311CF3231A007B2361 /* BNBaseTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DA20C2F1CF3231A007B2361 /* BNBaseTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -305,6 +307,8 @@
 		5D7B2A261D09A3E0001A6F3D /* nativeCCSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nativeCCSuccess.json; sourceTree = "<group>"; };
 		5D7B2A271D09A3E0001A6F3D /* nativeCCSuccessExtraParams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nativeCCSuccessExtraParams.json; sourceTree = "<group>"; };
 		5D8007231CB7D99C00E29149 /* BNCCHostedRegistrationFormVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNCCHostedRegistrationFormVC.xib; sourceTree = "<group>"; };
+		5D9021361D2149DA00B4BEAC /* BNLoaderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNLoaderButton.h; sourceTree = "<group>"; };
+		5D9021371D2149DA00B4BEAC /* BNLoaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNLoaderButton.m; sourceTree = "<group>"; };
 		5DA20C2A1CEEEE8C007B2361 /* BNCertUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCertUtils.h; sourceTree = "<group>"; };
 		5DA20C2B1CEEEE8C007B2361 /* BNCertUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCertUtils.m; sourceTree = "<group>"; };
 		5DA20C2F1CF3231A007B2361 /* BNBaseTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBaseTextField.h; sourceTree = "<group>"; };
@@ -523,6 +527,7 @@
 		5D69A58B1CE0D00200A573EE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5D9021351D2149AE00B4BEAC /* Buttons */,
 				5D69A58C1CE0D00200A573EE /* Categories */,
 				5DA20C2E1CF322EE007B2361 /* TextFields */,
 				5D69A5991CE0D00200A573EE /* ViewControllers */,
@@ -708,6 +713,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		5D9021351D2149AE00B4BEAC /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				5D9021361D2149DA00B4BEAC /* BNLoaderButton.h */,
+				5D9021371D2149DA00B4BEAC /* BNLoaderButton.m */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
 		5DA20C2E1CF322EE007B2361 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,6 +806,7 @@
 				5D69A6B41CE0DBC600A573EE /* BNCrypto.h in Headers */,
 				5D69A6B81CE0DBC600A573EE /* NSString+BNCrypto.h in Headers */,
 				5D69A6A61CE0DB9D00A573EE /* BNEncryptionCertificate.h in Headers */,
+				5D9021381D2149DA00B4BEAC /* BNLoaderButton.h in Headers */,
 				5D69A6B21CE0DBC600A573EE /* BNCertManager.h in Headers */,
 				5D69A6A81CE0DB9D00A573EE /* BNRegisterCCParams.h in Headers */,
 				5D69A5D61CE0D00200A573EE /* BNUser.h in Headers */,
@@ -953,6 +968,7 @@
 				5D69A5F31CE0D00200A573EE /* UIImage+BNUtils.m in Sources */,
 				5D69A5BB1CE0D00200A573EE /* NSDate+BNUtils.m in Sources */,
 				5D69A60F1CE0D00200A573EE /* BNHostedRegistrationFormFooter.m in Sources */,
+				5D9021391D2149DA00B4BEAC /* BNLoaderButton.m in Sources */,
 				5D69A6A11CE0D61400A573EE /* NSURLRequest+BNAuth.m in Sources */,
 				5DA20C361CF32838007B2361 /* BNCreditCardRegistrationVC.m in Sources */,
 				5D69A5C91CE0D00200A573EE /* BNAuthorizedCreditCard.m in Sources */,

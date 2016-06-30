@@ -35,7 +35,7 @@
 static NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
 static NSString *const BNAuthenticatorCacheName = @"BNAuthenticator";
 static NSString *const SharedSecretKeychainKey = @"sharedSecret";
-static NSString *const DefaultBaseUrl = @"https://ironpoodle-prod-eu-west-1.aws.bambora.com/";
+static NSString *const DefaultBaseUrl = @"https://eu-native.bambora.com/";
 
 @interface BNPaymentHandler ()
 

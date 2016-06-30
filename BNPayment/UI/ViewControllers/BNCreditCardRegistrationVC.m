@@ -27,6 +27,7 @@
 #import "UIView+BNUtils.h"
 #import "UIColor+BNColors.h"
 #import "UITextField+BNCreditCard.h"
+#import "BNLoaderButton.h"
 
 NSInteger const TextFieldHeight = 50;
 NSInteger const ButtonHeight = 50;
@@ -42,7 +43,7 @@ NSInteger const TitleHeight = 30;
 @property (nonatomic, strong) BNCreditCardExpiryTextField *cardExpiryTextField;
 @property (nonatomic, strong) BNBaseTextField *cardCVCTextField;
 
-@property (nonatomic, strong) UIButton *submitButton;
+@property (nonatomic, strong) BNLoaderButton *submitButton;
 
 @end
 
@@ -145,7 +146,7 @@ NSInteger const TitleHeight = 30;
     [self.cardCVCTextField addTarget:self action:@selector(validateFields) forControlEvents:UIControlEventEditingChanged];
     [self.formScrollView addSubview:self.cardCVCTextField];
     
-    self.submitButton = [UIButton new];
+    self.submitButton = [BNLoaderButton new];
     [self.submitButton setBackgroundColor:[UIColor BNPurpleColor]];
     [self.submitButton setTitle:NSLocalizedString(@"Save card", @"") forState:UIControlStateNormal];
     [self.submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -168,10 +169,12 @@ NSInteger const TitleHeight = 30;
     
     BNRegisterCCParams *params = [[BNRegisterCCParams alloc] initWithCreditCard:creditCard];
     
+    [self.submitButton setLoading:YES];
     [[BNPaymentHandler sharedInstance] registerCreditCard:params completion:^(BNAuthorizedCreditCard *card, NSError *error) {
         if(self.completionBlock && card) {
             self.completionBlock(BNCCRegCompletionDone, card);
         }
+        [self.submitButton setLoading:NO];
     }];
 }
 
