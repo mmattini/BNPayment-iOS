@@ -79,3 +79,6 @@ FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 #import <BNPayment/BNCreditCardExpiryTextField.h>
 #import <BNPayment/UIColor+BNColors.h>
 #import <BNPayment/UITextField+BNCreditCard.h>
+#import <BNPayment/BNLoaderButton.h>
+#import <BNPayment/NSError+BNError.h>
+#import <BNPayment/BNErrorResponse.h>

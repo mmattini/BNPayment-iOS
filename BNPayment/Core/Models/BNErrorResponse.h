@@ -1,5 +1,5 @@
 //
-//  Enums.h
+//  BNErrorResponse.h
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,21 +20,18 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@import Foundation;
+#import <BNPayment/BNPayment.h>
 
 /**
- *  `BNPaymentResult` represents the states of an Payment.
+ *  `BNErrorResponse` represents the format of the backend error responses.
+ *  Use the type in ordet to map the error to appropriate action.
+ *  A list of error types can be found at http://dev.bambora.com
  */
-typedef enum BNPaymentResult : NSUInteger {
-    BNPaymentFailure,                  /** Failed Payment */
-    BNPaymentSuccess,                  /** Successful Payment */
-    BNPaymentNotAuthorized             /** Not authorized to make Payment */
-} BNPaymentResult;
+@interface BNErrorResponse : BNBaseModel
 
-/**
- *  `BNCCRegCompletion` represents the reason of the CC registraion completion.
- */
-typedef enum : NSUInteger {
-    BNCCRegCompletionDone,
-    BNCCRegCompletionCancelled,
-} BNCCRegCompletion;
+@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *detail;
+@property (nonatomic, strong) NSString *type;
+
+@end

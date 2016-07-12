@@ -1,5 +1,5 @@
 //
-//  Enums.h
+//  NSError+BNError.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,21 +20,34 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@import Foundation;
+#import "NSError+BNError.h"
+#import "BNErrorResponse.h"
 
-/**
- *  `BNPaymentResult` represents the states of an Payment.
- */
-typedef enum BNPaymentResult : NSUInteger {
-    BNPaymentFailure,                  /** Failed Payment */
-    BNPaymentSuccess,                  /** Successful Payment */
-    BNPaymentNotAuthorized             /** Not authorized to make Payment */
-} BNPaymentResult;
+@implementation NSError (BNError)
 
-/**
- *  `BNCCRegCompletion` represents the reason of the CC registraion completion.
- */
-typedef enum : NSUInteger {
-    BNCCRegCompletionDone,
-    BNCCRegCompletionCancelled,
-} BNCCRegCompletion;
+- (BNErrorResponse *)getErrorResponse {
+    NSError *error;
+    
+    BNErrorResponse *response = [[BNErrorResponse alloc] initWithJSONDictionary:[self getJsonDict] error:&error];
+    
+    return error ? nil : response;
+}
+
+- (NSDictionary *)getJsonDict {
+    NSData *data = self.userInfo[@"com.bambora.error.serialization.data"];
+    NSError *error;
+    
+    if (data && [data length] > 0) {
+        id responseObject = [NSJSONSerialization JSONObjectWithData:data
+                                                            options:kNilOptions
+                                                              error:&error];
+        
+        if(!error && [responseObject isKindOfClass:[NSDictionary class]]) {
+            return responseObject;
+        }
+    }
+    
+    return nil;
+}
+
+@end

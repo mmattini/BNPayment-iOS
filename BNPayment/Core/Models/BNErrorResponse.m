@@ -1,5 +1,5 @@
 //
-//  Enums.h
+//  BNErrorResponse.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,21 +20,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@import Foundation;
+#import "BNErrorResponse.h"
 
-/**
- *  `BNPaymentResult` represents the states of an Payment.
- */
-typedef enum BNPaymentResult : NSUInteger {
-    BNPaymentFailure,                  /** Failed Payment */
-    BNPaymentSuccess,                  /** Successful Payment */
-    BNPaymentNotAuthorized             /** Not authorized to make Payment */
-} BNPaymentResult;
+@implementation BNErrorResponse
 
-/**
- *  `BNCCRegCompletion` represents the reason of the CC registraion completion.
- */
-typedef enum : NSUInteger {
-    BNCCRegCompletionDone,
-    BNCCRegCompletionCancelled,
-} BNCCRegCompletion;
++ (NSDictionary *)JSONMappingDictionary {
+    return @{
+             @"status" : @"status",
+             @"title" : @"title",
+             @"detail" : @"detail",
+             @"type" : @"type"
+             };
+}
+
+@end

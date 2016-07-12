@@ -27,7 +27,7 @@
 @class BNAuthorizedCreditCard;
 
 /**
- *  A block indicating whether or not the `BNCCRegistrationFormVC` is done
+ *  A block indicating whether or not the `BNCreditCardRegistrationVC` is done
  *
  *  @param success The status of the operation
  */

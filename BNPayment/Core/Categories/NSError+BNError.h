@@ -1,5 +1,5 @@
 //
-//  Enums.h
+//  NSError+BNError.h
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,21 +20,18 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-@import Foundation;
+#import <Foundation/Foundation.h>
+
+@class BNErrorResponse;
+
+@interface NSError (BNError)
 
 /**
- *  `BNPaymentResult` represents the states of an Payment.
+ *  This method parses the userInfo dict and 
+ *  creates a `BNErrorResponse` model.
+ *
+ *  @return `BNErrorResponse` containing the error response.
  */
-typedef enum BNPaymentResult : NSUInteger {
-    BNPaymentFailure,                  /** Failed Payment */
-    BNPaymentSuccess,                  /** Successful Payment */
-    BNPaymentNotAuthorized             /** Not authorized to make Payment */
-} BNPaymentResult;
+- (BNErrorResponse *)getErrorResponse;
 
-/**
- *  `BNCCRegCompletion` represents the reason of the CC registraion completion.
- */
-typedef enum : NSUInteger {
-    BNCCRegCompletionDone,
-    BNCCRegCompletionCancelled,
-} BNCCRegCompletion;
+@end
