@@ -1,5 +1,5 @@
 //
-//  NSURLSessionDataTask+BNUtils.h
+//  EPAYMessageTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,27 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@interface NSURLSessionDataTask (BNUtils)
+@interface EPAYMessageTests : XCTestCase
 
-/**
- *  This methods returns a HTTP status code from a ´NSURLSessionDataTask´
- *
- *  @return httpStatus ´NSInteger´ indicating the http status of the ´NSURLSessionDataTask´
- */
-- (NSInteger) getHttpStatusCode;
+@end
+
+@implementation EPAYMessageTests
+
+- (void)testJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *correctDictionary = @{
+                                        @"enduser": @"enduser",
+                                        @"merchant": @"merchant"
+                                        };
+    // When:
+    NSDictionary *dictionaryFromEPAYMessage = [EPAYMessage JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertEqualObjects(correctDictionary, dictionaryFromEPAYMessage, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the EPAYMessage class.");
+    
+}
 
 @end

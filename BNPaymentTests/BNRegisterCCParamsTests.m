@@ -1,13 +1,26 @@
 //
 //  BNRegisterCCParamsTests.m
-//  BNPayment
+//  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
-//  Created by Oskar Henriksson on 30/05/2016.
-//  Copyright © 2016 Bambora. All rights reserved.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import <XCTest/XCTest.h>
-#import <BNPayment/BNPayment.h>
 
 @interface BNRegisterCCParamsTests : XCTestCase
 
@@ -23,8 +36,8 @@ static const int KEY_LENGTH = 16;
 - (void)setUp {
     [super setUp];
 
-    NSString *validCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"validSelfSignedCert" ofType:@"cer"];
-    NSData *certData = [NSData dataWithContentsOfFile:validCertPath];
+    // NSString *validCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"validSelfSignedCert" ofType:@"cer"];
+    // NSData *certData = [NSData dataWithContentsOfFile:validCertPath];
 
     /*
     BNEncryptionCertificate *cert = [BNEncryptionCertificate new];
@@ -48,6 +61,24 @@ static const int KEY_LENGTH = 16;
     
     XCTAssertNotNil(params, "CC registration params is not nil");
 
+}
+
+
+- (void)testJSONMappingDictionary {
+
+    // Given:
+    NSDictionary *correctDictionary = @{
+                                        @"cardDetails" : @"encryptedCard",
+                                        @"binNumber" : @"binNumber",
+                                        @"encryptedSessionKeys" : @"encryptedSessionKeys"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNRegisterCCParams = [BNRegisterCCParams JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertEqualObjects(correctDictionary, dictionaryFromBNRegisterCCParams, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the BNRegisterCCParams class.");
+    
 }
 
 - (void)tearDown {

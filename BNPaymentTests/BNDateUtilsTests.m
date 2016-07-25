@@ -20,9 +20,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <BNPayment/BNPayment.h>
-
-@import XCTest;
+#import <XCTest/XCTest.h>
 
 @interface BNDateUtilsTests : XCTestCase
 

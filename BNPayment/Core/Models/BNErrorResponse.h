@@ -24,8 +24,8 @@
 
 /**
  *  `BNErrorResponse` represents the format of the backend error responses.
- *  Use the type in ordet to map the error to appropriate action.
- *  A list of error types can be found at http://dev.bambora.com
+ *  Use the type in order to map the error to appropriate action.
+ *  A list of error types can be found at http://dev.bambora.com/api.html#errors
  */
 @interface BNErrorResponse : BNBaseModel
 

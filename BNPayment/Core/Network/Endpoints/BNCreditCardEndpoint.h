@@ -29,8 +29,8 @@
 
 /**
  *  A block object to be executed when a credit card hosted form URL operation has completed.
- *  The block return an String containing the url to load in order to load the registration form and
- *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *  The block returns a String containing the url to load in order to load the registration form and
+ *  a `NSError` representing the error received. Error is nil if operation is successful.
  *
  *  @param url `NSString`
  *  @param error `NSError`
@@ -40,8 +40,8 @@ typedef void (^BNCreditCardUrlBlock)(NSString *url, NSError *error);
 
 /**
  *  A block object to be executed when a credit card registration operation has completed.
- *  The block return an `BNAuthorizedCard` containing the authorized credit card and
- *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *  The block returns a `BNAuthorizedCard` containing the authorized credit card and
+ *  a `NSError` representing the error received. Error is nil if operation is successful.
  *
  *  @param BNAuthorizedCreditCard   `BNAuthorizedCard`
  *  @param error                    `NSError`
@@ -50,8 +50,8 @@ typedef void (^BNCreditCardRegistrationBlock)(BNAuthorizedCreditCard *card, NSEr
 
 /**
  *  A block object to be executed when a encryption cert operation has completed.
- *  The block return an `NSArray` `BNEncryptionCertificate` models
- *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *  The block returns a `NSArray` `BNEncryptionCertificate` models and
+ *  a `NSError` representing the error received. Error is nil if operation is successful.
  *
  *  @param encryptionCertificates   An array of `BNEncryptionCertificate`
  *  @param error                    `NSError`
@@ -60,7 +60,7 @@ typedef void (^BNEncryptionCertBlock)(NSArray<BNEncryptionCertificate *> *encryp
 
 /**
  `BNCreditCardEndpoint` is a subclass of `BNBaseEndpoint`
- `BNCreditCardEndpoint` offers conveniens methods for handling credit card API calls.
+ `BNCreditCardEndpoint` offers convenient methods for handling credit card API calls.
  */
 @interface BNCreditCardEndpoint : NSObject
 
@@ -80,7 +80,7 @@ typedef void (^BNEncryptionCertBlock)(NSArray<BNEncryptionCertificate *> *encryp
                                                   completion:(BNCreditCardUrlBlock)completion;
 
 /**
- *  Register a credit card in order to retrieve an authroized card used for payments.
+ *  Register a credit card in order to retrieve an authorized card used for payments.
  *
  *  @param params     `BNRegisterCCParams`
  *  @param completion `BNCreditCardRegistrationBlock`

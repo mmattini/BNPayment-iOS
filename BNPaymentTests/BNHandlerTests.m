@@ -20,9 +20,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <BNPayment/BNPayment.h>
-
-@import XCTest;
+#import <XCTest/XCTest.h>
 
 @interface BNHandlerTests : XCTestCase
 
@@ -60,20 +58,6 @@
     XCTAssertEqual([self.handler debugMode], debug, "The value returned from the call to [self.handler debugMode] should match the value of the debug variable.");
     XCTAssertNotNil([self.handler getHttpClient], "The HTTP client object should not be nil.");
     XCTAssertTrue([[self.handler getHttpClient] isKindOfClass:[BNHTTPClient class]], "The HTTP client should be an object of the BNHTTPClient class.");
-}
-
-- (void)testRegisterAuthenticator {
-    
-    // Given:
-    BNAuthenticator *authenticator = [BNAuthenticator new];
-    authenticator.sharedSecret = @"sharedsecret";
-    authenticator.uuid = @"uuid";
-    
-    // When:
-    [self.handler registerAuthenticator:authenticator];
-    
-    // Then:
-    XCTAssertTrue([self.handler isRegistered], "The call to [self.handler isRegistered] should return TRUE.");
 }
 
 - (void)tearDown {

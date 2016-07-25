@@ -24,8 +24,6 @@
 #import "BNPaymentHandler.h"
 #import "BNUtils.h"
 #import "NSDate+BNUtils.h"
-#import "BNAuthenticator.h"
-#import "NSURLRequest+BNAuth.h"
 
 @interface BNHTTPRequestSerializer ()
 
@@ -54,11 +52,8 @@
                                                 URLString:URLString
                                                parameters:parameters
                                                  apiToken:[handler getApiToken]
+                                          merchantAccount:[handler getMerchantAccount]
                                                     error:error];
-    
-    if ([handler authenticator]) {
-        return [request addAuthHeaderWithAuthenticator:[handler authenticator]];
-    }
 
     return request;
 }
@@ -73,6 +68,7 @@
                                 URLString:(NSString *)url
                                parameters:(NSDictionary *)parameters
                                  apiToken:(NSString *)apiToken
+                          merchantAccount:(NSString *)merchantAccount
                                     error:(NSError **)error {
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
@@ -84,6 +80,10 @@
 
     if ( apiToken) {
         [request setValue:apiToken forHTTPHeaderField:@"Api-Token"];
+    }
+    
+    if ( merchantAccount) {
+        [request setValue:merchantAccount forHTTPHeaderField:@"Merchant-Account"];
     }
     
     if ([self.HTTPMethodsWithQueryParams containsObject:[[request HTTPMethod] uppercaseString]]) {

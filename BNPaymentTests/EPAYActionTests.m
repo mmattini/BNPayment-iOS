@@ -1,5 +1,5 @@
 //
-//  BNAuthenticator.m
+//  EPAYActionTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BNAuthenticator.h"
+#import <XCTest/XCTest.h>
 
-@implementation BNAuthenticator
+@interface EPAYActionTests : XCTestCase
 
-+ (NSDictionary *)JSONMappingDictionary {
-    return @{
-             @"sharedSecret" : @"secret",
-             @"uuid" : @"id"
-             };
+@end
+
+@implementation EPAYActionTests
+
+- (void)testJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *correctDictionary = @{
+                                        @"code": @"code",
+                                        @"source": @"source",
+                                        @"type": @"type"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromEPAYAction = [EPAYAction JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertEqualObjects(correctDictionary, dictionaryFromEPAYAction, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the EPAYAction class.");
+    
 }
 
 @end

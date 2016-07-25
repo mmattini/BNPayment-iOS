@@ -1,5 +1,5 @@
 //
-//  NSURLSessionDataTask+BNUtils.h
+//  BNPaymentParamsTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@interface NSURLSessionDataTask (BNUtils)
+@interface BNPaymentParamsTests : XCTestCase
 
-/**
- *  This methods returns a HTTP status code from a ´NSURLSessionDataTask´
- *
- *  @return httpStatus ´NSInteger´ indicating the http status of the ´NSURLSessionDataTask´
- */
-- (NSInteger) getHttpStatusCode;
+@end
+
+@implementation BNPaymentParamsTests
+
+
+- (void)testPaymentParamsWithId {
+    
+    // Given:
+    NSNumber *amount = [NSNumber numberWithInt:100];
+
+    // When:
+    NSObject *paymentParameters = [BNPaymentParams paymentParamsWithId:@"Identifier"
+                                                            currency:@"SEK"
+                                                              amount:amount
+                                                               token:@"token"
+                                                             comment:@"Comment"];
+    
+    // Then:
+    XCTAssert([paymentParameters isKindOfClass:[BNPaymentParams class]], "The paymentParapeters object should be an instance of the BNPaymentParams class.");
+}
 
 @end

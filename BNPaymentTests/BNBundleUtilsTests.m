@@ -1,5 +1,5 @@
 //
-//  NSURLSessionDataTask+BNUtils.h
+//  BNBundleUtilsTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@interface NSURLSessionDataTask (BNUtils)
+@interface BNBundleUtilsTests : XCTestCase
 
-/**
- *  This methods returns a HTTP status code from a ´NSURLSessionDataTask´
- *
- *  @return httpStatus ´NSInteger´ indicating the http status of the ´NSURLSessionDataTask´
- */
-- (NSInteger) getHttpStatusCode;
+@end
+
+@implementation BNBundleUtilsTests
+
+- (void)testPaymentLibBundle {
+    
+    // When:
+    NSBundle *bundle = [BNBundleUtils paymentLibBundle];
+    
+    // Then:
+    XCTAssertNotNil(bundle, "The bundle object should not be nil.");
+}
 
 @end

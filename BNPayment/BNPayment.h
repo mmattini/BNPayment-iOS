@@ -28,8 +28,6 @@ FOUNDATION_EXPORT double BNPaymentVersionNumber;
 //! Project version string for BNPayment.
 FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 
-#import <BNPayment/BNAppConfig.h>
-#import <BNPayment/BNAuthenticator.h>
 #import <BNPayment/BNBaseModel.h>
 #import <BNPayment/BNCacheManager.h>
 #import <BNPayment/BNHTTPClient.h>
@@ -38,7 +36,6 @@ FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 #import <BNPayment/BNSecurity.h>
 #import <BNPayment/BNUtils.h>
 #import <BNPayment/NSString+BNLogUtils.h>
-#import <BNPayment/BNRegistrationEndpoint.h>
 #import <BNPayment/NSDate+BNUtils.h>
 #import <BNPayment/NSString+BNStringUtils.h>
 #import <BNPayment/NSURLSessionDataTask+BNUtils.h>
@@ -70,7 +67,6 @@ FOUNDATION_EXPORT const unsigned char BNPaymentVersionString[];
 #import <BNPayment/BNEncryptionCertificate.h>
 #import <BNPayment/BNUser.h>
 #import <BNPayment/BNRegisterCCParams.h>
-#import <BNPayment/NSURLRequest+BNAuth.h>
 #import <BNPayment/BNCreditCardRegistrationVC.h>
 #import <BNPayment/BNBaseTextField.h>
 #import <BNPayment/BNCertUtils.h>

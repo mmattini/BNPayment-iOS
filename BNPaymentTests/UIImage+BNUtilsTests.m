@@ -1,5 +1,5 @@
 //
-//  NSURLSessionDataTask+BNUtils.h
+//  UIImage+BNUtilsTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,26 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@interface NSURLSessionDataTask (BNUtils)
+@interface UIImageBNUtilsTests : XCTestCase
 
-/**
- *  This methods returns a HTTP status code from a ´NSURLSessionDataTask´
- *
- *  @return httpStatus ´NSInteger´ indicating the http status of the ´NSURLSessionDataTask´
- */
-- (NSInteger) getHttpStatusCode;
+@end
+
+@implementation UIImageBNUtilsTests
+
+- (void)testsetYoffset {
+    
+    // Given:
+    UIImage *image;
+    
+    // When:
+    image = [UIImage loadImageWithName:@"VisaLogo" fromBundle:[NSBundle bundleForClass:[BNBundleUtils class]]];
+    
+    // Then:
+    XCTAssertNotNil(image, "The image should not be nil.");
+    XCTAssertEqualObjects(image, [UIImage imageNamed:@"VisaLogo"], "The image object should be named VisaLogo.");
+    
+}
 
 @end

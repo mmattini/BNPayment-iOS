@@ -20,9 +20,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <BNPayment/BNPayment.h>
-
-@import XCTest;
+#import <XCTest/XCTest.h>
 
 @interface BNUtilsTests : XCTestCase
 
@@ -36,12 +34,44 @@
     NSString *correctHMAC = @"f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8";
     NSString *data = @"The quick brown fox jumps over the lazy dog";
     NSString *key = @"key";
-    
+
     // When:
     NSString *HMAC = [BNUtils sha256HMAC:data key:key];
-    
+
     // Then:
     XCTAssertEqualObjects(correctHMAC, HMAC, "The manually added HMAC (correctHMAC) should equal the HMAC generated through the BNUtils class (HMAC).");
+
+}
+
+- (void)testGenerateSHA256HMACUsingEmptyStrings {
+
+    // Given:
+    NSString *emptyString = @"";
+
+    // When:
+    NSString *resultFromsha256HMAC = [BNUtils sha256HMAC:nil key:nil];
+
+    // Then:
+    XCTAssert([resultFromsha256HMAC isEqualToString:emptyString], "The variable resultFromsha256HMAC should contain an empty string.");
+}
+
+- (void)testsha1 {
+
+    // Given:
+    NSString *expectedFingerprint = @"DA39A3EE5E6B4B0D3255BFEF95601890AFD80709";
+    NSArray *certificatePaths = [[NSBundle bundleForClass:BNCertManager.class] pathsForResourcesOfType:@"cer" inDirectory:@"."];
+    NSString *certificatePath = [certificatePaths objectAtIndex:0];
+
+    // When:
+    NSError *error;
+    NSString *certificateString = [NSString stringWithContentsOfFile:certificatePath encoding:NSUTF8StringEncoding error:&error];
+    NSData *certificateData = [certificateString getCertData];
+    BNEncryptionCertificate *certificate = [BNEncryptionCertificate new];
+    certificate.base64Representation = [certificateData base64EncodedStringWithOptions:0];
+    certificate.fingerprint = [[BNUtils sha1:certificateData] uppercaseString];
+
+    // Then:
+    XCTAssert([certificate.fingerprint isEqualToString:expectedFingerprint], @"certificate.fingerprint should be equal to expectedFingerprint.");
 
 }
 

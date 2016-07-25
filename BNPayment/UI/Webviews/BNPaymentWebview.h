@@ -32,7 +32,7 @@
  */
 typedef enum BNPaymentWebviewOperation : NSUInteger {
     BNPWVOperationFetchURL,     // Fetches a URL to load in the webview.
-    BNPWVOperationLoadURL,      // Load the URL recieved in the webview.
+    BNPWVOperationLoadURL,      // Load the URL received in the webview.
     BNPWVOperationSubmitCCData  // The user submits the credit card form.
 } BNPaymentWebviewOperation;
 

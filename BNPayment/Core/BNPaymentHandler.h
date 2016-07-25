@@ -31,11 +31,10 @@
 @class BNRegisterCCParams;
 @class BNPaymentParams;
 @class BNHTTPClient;
-@class BNAuthenticator;
     
 /**
  *  A block object to be executed when a payment operation has completed.
- *  The block return an enum representing the result of the Payment operation.
+ *  The block returns an enum representing the result of the Payment operation.
  *
  *  @param result `BNPaymentResult`.
  */
@@ -43,8 +42,8 @@ typedef void (^BNPaymentBlock) (BNPaymentResult result, NSError *error);
 
 /**
  *  A block object to be executed when a credit card registration operation has completed.
- *  The block return an String containing the url to load in order to register a credit card
- *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *  The block returns a String containing the url to load in order to register a credit card
+ *  `NSError` representing the error received. Error is nil if operation is successful.
  *
  *  @param url `NSString`.
  *  @param error `NSError`.
@@ -54,7 +53,7 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 @interface BNPaymentHandler : NSObject
 
 /** 
- *  Return `BNPaymentHandler` shared instance creating it if necessary.
+ *  Returns a `BNPaymentHandler` shared instance, creating it if necessary.
  *
  *  @return The shared `BNPaymentHandler` instance.
  */
@@ -64,15 +63,38 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 /// @name Setting up handler and access `BNPaymentHandler` instance
 ///------------------------------------------------
 
+
+/** Setup `BNPaymentHandler` with the common values.
+ *
+ * Sets up `BNPaymentHandler` with the common values
+ *
+ * @param error Possible error that can occur during initialization
+ */
++ (void)setupCommon:(NSString *)baseUrl
+                    debug:(BOOL)debug;
+
 /** Setup `BNPaymentHandler` with an APIToken.
  *
- * Sets up `BNPaymentHandler` with and APIToken that will be used
+ * Sets up `BNPaymentHandler` with an APIToken that will be used
  * to authenticate the application to the back end.
  *
  * @param apiToken Api-token to be used
  * @param error Possible error that can occur during initialization
  */
 + (BOOL)setupWithApiToken:(NSString *)apiToken
+                  baseUrl:(NSString *)baseUrl
+                    debug:(BOOL)debug
+                    error:(NSError **)error;
+
+/** Setup `BNPaymentHandler` with a Merchant Account.
+ *
+ * Sets up `BNPaymentHandler` with a Merchant Account that will be
+ * used to authenticate the application to the back end.
+ *
+ * @param merchantAccount Merchant-Account number to be used
+ * @param error Possible error that can occur during initialization
+ */
++ (BOOL)setupWithMerchantAccount:(NSString *)merchantAccount
                   baseUrl:(NSString *)baseUrl
                     debug:(BOOL)debug
                     error:(NSError **)error;
@@ -96,32 +118,16 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 - (NSString *)getApiToken;
 
 /**
- *  A method for setting an `BNAuthenticator`. This method can be
- *  used if you can retrieve a `BNAuthenticator` from a different source
- *  than the registerUser method.
+ *  Get the Merchant Account Number associated with this `BNPaymentHandler`
  *
- *  @param authenticator The `BNAuthenticator` to register
+ *  @return A string representing the MerchantAccountNumber associated with this `BNPaymentHandler`
  */
-- (void)registerAuthenticator:(BNAuthenticator *)authenticator;
-
-/**
- *  Get the `BNAuthenticator` object associated with this instance
- *
- *  @return A `BNAuthenticator` associated with this instance
- */
-- (BNAuthenticator *)authenticator;
-
-/**
- *  A method for checking if the SDK has regitered `BNAuthenticator`
- *
- *  @return A boolean indicating whether or not the SDK has a registered `BNAuthenticator`
- */
-- (BOOL)isRegistered;
+- (NSString *)getMerchantAccount;
 
 /**
  *  Get the base URL for the backend
  *
- *  @return A `NSString` cotaining the base URL
+ *  @return A `NSString` containing the base URL
  */
 - (NSString *)getBaseUrl;
 
@@ -133,7 +139,7 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 - (BOOL)debugMode;
 
 /**
- *  A method for refeshing the encryption certs
+ *  A method for refreshing the encryption certificates
  */
 - (void)refreshCertificates;
 
@@ -161,7 +167,7 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
                                          result:(BNPaymentBlock) result;
 
 /**
- *  Register a credit card in order to retrieve an authroized card used for payments.
+ *  Register a credit card in order to retrieve an authorized card used for payments.
  *
  *  @param params     `BNRegisterCCParams`
  *  @param completion `BNCreditCardRegistrationBlock`
@@ -179,7 +185,7 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 - (NSArray <BNAuthorizedCreditCard *>*)authorizedCards;
 
 /**
- *  A method to saving a authorized credit card model and persist it to disk.
+ *  A method for saving an authorized credit card model and persist it to disk.
  *
  *  @param tokenizedCreditCard The authorized card to save.
  */

@@ -1,5 +1,5 @@
 //
-//  BNAppConfig.h
+//  BNEncryptedSessionKeyTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,41 +20,28 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BNBaseModel.h"
+#import <XCTest/XCTest.h>
 
-/**
- `BNAppConfig` is a class containing configuration values for the registered application.
- `BNAppConfig` is only available after successful registration.
- */
-@interface BNAppConfig : BNBaseModel
+@interface BNEncryptedSessionKeyTests : XCTestCase
 
-///------------------------------------------------
-/// @name Properties
-///------------------------------------------------
+@end
 
-/**
- * Shared secret for authentication and HMACed requests
- */
-@property (strong, nonatomic) NSString *sharedSecret;
+@implementation BNEncryptedSessionKeyTests
 
-/**
- * App ID
- */
-@property (strong, nonatomic) NSNumber *appId;
-
-/**
- * Country ID
- */
-@property (strong, nonatomic) NSNumber *countryId;
-
-/**
- * The number of leading (binary) zeroes required in the verification hash
- */
-@property (strong, nonatomic) NSNumber *powDifficulty;
-
-/**
- * A generated udid for the app registration
- */
-@property (strong, nonatomic) NSString *udid;
+- (void)testJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *correctDictionary = @{
+                                        @"fingerprint" : @"fingerprint",
+                                        @"sessionKey" : @"sessionKey"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNEncryptedSessionKey = [BNEncryptedSessionKey JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertEqualObjects(correctDictionary, dictionaryFromBNEncryptedSessionKey, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the BNEncryptedSessionKey class.");
+    
+}
 
 @end

@@ -30,7 +30,7 @@
  *  @param bytes  Bytes to be converted to string
  *  @param length Length of the string
  *
- *  @return A `NSString` representing a string representation of hexadecimal bytes
+ *  @return A `NSString` string representation of hexadecimal bytes
  */
 
 + (NSString *)hexadecimalByteString:(unsigned char*)bytes length:(NSInteger)length;

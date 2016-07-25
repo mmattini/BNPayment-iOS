@@ -28,7 +28,7 @@
  * This is a helper method for converting a Date to a String that can be used
  * in the date http header field. Currently used for generating an auth header.
  *
- * @return A String representation the current date that can be used as a date http header.
+ * @return A String representating the current date that can be used as a date http header.
  */
 + (NSString *)getDateHeaderFormattedStringForDate:(NSDate *)date;
 

@@ -1,5 +1,5 @@
 //
-//  NSURLSessionDataTask+BNUtils.h
+//  BNCCHostedFormParamsTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,26 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@interface NSURLSessionDataTask (BNUtils)
+@interface BNCCHostedFormParamsTests : XCTestCase
 
-/**
- *  This methods returns a HTTP status code from a ´NSURLSessionDataTask´
- *
- *  @return httpStatus ´NSInteger´ indicating the http status of the ´NSURLSessionDataTask´
- */
-- (NSInteger) getHttpStatusCode;
+@end
+
+@implementation BNCCHostedFormParamsTests
+
+- (void)testhostedFormParamsWithCSS {
+    
+    // When:
+    BNCCHostedFormParams *parameters = [BNCCHostedFormParams hostedFormParamsWithCSS:@"stylesheet.css"
+                                                   cardNumberPlaceholder:@"Card number"
+                                                       expiryPlaceholder:@"Expiration"
+                                                          cvvPlaceholder:@"CVV"
+                                                            submitText:@"Submit"];
+    
+    // Then:
+    XCTAssert([parameters.cssURL isEqualToString:@"stylesheet.css"], "The value of parameters.cssURL should have been stylesheet.css.");
+    XCTAssert([parameters.submitButtonText isEqualToString:@"Submit"], "The value of submitButtonText should have been Submit.");
+}
 
 @end

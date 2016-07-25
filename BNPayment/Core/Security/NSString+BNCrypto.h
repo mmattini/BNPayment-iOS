@@ -31,13 +31,13 @@
  *
  *  @param key `NSData` used as a key for the encryption.
  *
- *  @return `NSString` AES128 encryptet string with key and base64 ecoded.
+ *  @return `NSString` AES128 encrypted string with key and base64 encoded.
  */
 - (NSString *)AES128EncryptWithKey:(NSData *)key;
 
 /**
- *  A helper method which decrypts a base64 endoded encrypted string
- *  and return the original string.
+ *  A helper method which decrypts a base64 encoded encrypted string
+ *  and returns the original string.
  *
  *  @param key `NSData` used as a key for the decryption.
  *
@@ -46,7 +46,7 @@
 - (NSString *)AES128DecryptWithKey:(NSData *)key;
 
 /**
- *  A method for extracting the data from a string representing a Base64 ecoded
+ *  A method for extracting the data from a string representing a Base64 encoded
  *  certificate in .pem format.
  *
  *  @return `NSData` representing the certificate.

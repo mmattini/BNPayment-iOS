@@ -23,7 +23,7 @@
 @import Foundation;
 
 /**
- *  `BNPaymentResult` represents the states of an Payment.
+ *  `BNPaymentResult` represents the states of a Payment.
  */
 typedef enum BNPaymentResult : NSUInteger {
     BNPaymentFailure,                  /** Failed Payment */

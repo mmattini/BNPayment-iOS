@@ -1,5 +1,5 @@
 //
-//  BPSCryptoTests.m
+//  BNCryptoTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,6 +19,8 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+
+#import <XCTest/XCTest.h>
 
 @interface BNCryptoTests : XCTestCase
 
@@ -49,7 +51,7 @@
                                                  key:publicKey];
 
     // Then:
-    XCTAssertNotNil(encryptedData, "The encryptedData variable should not be nil.");
+    XCTAssertNotNil(encryptedData, "The encryptedData object should not be nil.");
     
     // When:
     NSData *decryptedData = [BNCrypto RSADecryptData:encryptedData
@@ -58,7 +60,7 @@
                                                       encoding:NSUTF8StringEncoding];
     
     // Then:
-    XCTAssertNotNil(decryptedString, "The decryptedString variable should not be nil.");
+    XCTAssertNotNil(decryptedString, "The decryptedString object should not be nil.");
     XCTAssertEqualObjects(stringToEncrypt, decryptedString, "The unencrypted string (stringToEncrypt) should be equal to the decrypted string (decryptedString).");
 }
 
@@ -80,6 +82,15 @@
     
     // Then:
     XCTAssertEqualObjects(correctString, decryptedString, "The unencrypted string (correctString) should be equal to the decrypted string (decryptedString).");
+}
+
+- (void)testRSADecryptDataNegativeTest {
+    
+    NSData *encryptedData = [[NSData alloc] initWithBase64EncodedString:@"" options:0];
+
+    NSData *decryptedData = [BNCrypto RSADecryptData:encryptedData key:nil];
+
+    XCTAssertNil(decryptedData, "The decryptedData object should be nil.");
 }
 
 - (void)tearDown {

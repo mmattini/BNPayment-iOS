@@ -22,8 +22,7 @@
 
 #import "BNTestModel.h"
 #import "BNPayment.h"
-
-@import XCTest;
+#import <XCTest/XCTest.h>
 
 @interface BNTestModelUnitTests : XCTestCase
 
@@ -31,12 +30,11 @@
 
 @implementation BNTestModelUnitTests
 
-
 - (void)testInitTestModelWithJSONDict {
-    
+
     // When:
     BNTestModel *testModel = [BNTestModel correctMockObject];
-    
+
     // Then:
     XCTAssertNotNil(testModel, "The testModel object should not be nil.");
     XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel object should be BNTestModel.");
@@ -44,14 +42,13 @@
     XCTAssertEqual(testModel.totalAmount, 100, "The total amount (testModel.totalAmount) should be 100.");
     XCTAssertTrue(testModel.isValid, "The testModel object should be valid (in other words, testModel.isValid should be TRUE).");
     XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "The class type of the custom model (testModel.customModel) should be BNTestModel.");
-
 }
 
 - (void)testInitTestModelWithJSONDictExtraParams {
-    
+
     // When:
     BNTestModel *testModel = [BNTestModel extraParamsMockObject];
-    
+
     // Then:
     XCTAssertNotNil(testModel, "The testModel object should not contain nil.");
     XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel object should be BNTestModel.");
@@ -59,15 +56,14 @@
     XCTAssertEqual(testModel.totalAmount, 100, "The total amount (testModel.totalAmount) should be 100.");
     XCTAssertTrue(testModel.isValid, "The testModel object should be valid (in other words, testModel.isValid should be TRUE).");
     XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "The class type of the custom model (testModel.customModel) should be BNTestModel.");
-
 }
 
 - (void)testInitTestModelWithNilDictionary {
-    
+
     // When:
     NSError *error;
     BNTestModel *testModel = [[BNTestModel alloc] initWithJSONDictionary:nil error:&error];
-    
+
     // Then:
     XCTAssertNil(error);
     XCTAssertNotNil(testModel, "The testModel object should not be nil.");
@@ -80,10 +76,10 @@
 }
 
 - (void)testInitTestModelWithJSONDictMissingParams {
-    
+
     // When:
     BNTestModel *testModel = [BNTestModel missingParamsMockObject];
-    
+
     // Then:
     XCTAssertNotNil(testModel, "The testModel variable should not contain nil.");
     XCTAssertTrue([testModel isKindOfClass:[BNTestModel class]], "The class type of the testModel variable should be BNTestModel.");
@@ -91,45 +87,41 @@
     XCTAssertEqual(testModel.totalAmount, 100, "The total amount (testModel.totalAmount) should be 100.");
     XCTAssertFalse(testModel.isValid, "The value of the testModel.isValid property should be FALSE.");
     XCTAssertTrue([testModel.customModel isKindOfClass:[BNTestModel class]], "The class type of the custom model (testModel.customModel) should be BNTestModel.");
-
 }
 
 - (void)testGenerateNSDictionaryWithJSONMappingFormat {
-    
+
     // Given:
     BNTestModel *testModel = [BNTestModel correctMockObject];
-    
+
     // When:
     NSDictionary *dictionaryFromClass = [BNTestModel correctJSONDictionary];
     NSDictionary *dictionaryFromObject = [testModel JSONDictionary];
-    
+
     // Then:
     XCTAssertEqualObjects(dictionaryFromClass, dictionaryFromObject, "The dictionary from the BNTestModel class (dictionaryFromClass) should be equal to the dictionary from the testModel object (dictionaryFromObject).");
-
 }
 
 - (void)testThatTwoTestModelObjectsAreEqual {
-    
+
     // When:
     BNTestModel *testModel = [BNTestModel correctMockObject];
     BNTestModel *anotherTestModel = [BNTestModel correctMockObject];
 
     // Then:
     XCTAssertEqualObjects(testModel, anotherTestModel, "The objects testModel and anotherTestModel should be equal (they should differ in name only).");
-
 }
 
 - (void)testCopyTestModel {
-    
+
     // Given:
     BNTestModel *testModel = [BNTestModel correctMockObject];
-    
+
     // When:
     BNTestModel *copyOfTestModel = [testModel copy];
-    
+
     // Then:
     XCTAssertEqualObjects(testModel, copyOfTestModel, "The original test model (testModel) should be equal to its copy (copyOfTestModel). They should differ in name only.");
-
 }
 
 - (void)testSerialization {

@@ -1,5 +1,5 @@
 //
-//  BNRegistrationEndpoint.h
+//  EPAYMetaResponseTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,29 +20,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@class BNUser;
-@class BNAuthenticator;
+@interface EPAYMetaResponseTests : XCTestCase
 
-/**
- *  A block object to be executed when a SDK registration request has completed.
- *
- *  @param authenticator `BNAuthenticator` representing the response object recieved.
- *  @param error         `BNError` representing an error that occured during the registration operation.
- */
-typedef void (^BNRegistrationBlock)(BNAuthenticator *authenticator, NSError *error);
+@end
 
-@interface BNRegistrationEndpoint : NSObject
+@implementation EPAYMetaResponseTests
 
-/**
- *  Register an user to the SDK in order to recieve a `BNAuthenticator` used for authenticating 
- *  all request to the back end.
- *
- *  @param user  `BNUser` representing the params to include in the operation.
- *  @param block `BNRegistrationBlock` to be executed when the operation finishes.
- */
-+ (NSURLSessionDataTask *)registerWithUser:(BNUser *)user
-                                completion:(BNRegistrationBlock)completion;
+- (void)testJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *correctDictionary = @{
+                                        @"action": @"action",
+                                        @"message": @"message",
+                                        @"result": @"result"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromEPAYMetaResponse = [EPAYMetaResponse JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertEqualObjects(correctDictionary, dictionaryFromEPAYMetaResponse, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the EPAYMetaResponse class.");
+    
+}
 
 @end

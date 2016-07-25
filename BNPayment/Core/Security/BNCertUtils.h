@@ -25,8 +25,8 @@
 @interface BNCertUtils : NSObject
 
 /**
- *  A method for getting a certificate ref to the certificate
- *  represented by the `NSData` sent a input.
+ *  A method for getting a certificate reference to the certificate
+ *  represented by the `NSData` sent as input.
  *
  *  @param data `NSData`representing the certificate.
  *

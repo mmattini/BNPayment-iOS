@@ -30,7 +30,7 @@ typedef enum BNCryptoMode : NSUInteger {
 @interface BNCrypto : NSObject
 
 /**
- *  A method for generating a cryptographically secure random key of lenght (in bytes)
+ *  A method for generating a cryptographically secure random key of length (in bytes)
  *  specified by the input parameter keyLength.
  *
  *  @param keyLength `NSInteger` representing the length of the key in bytes.

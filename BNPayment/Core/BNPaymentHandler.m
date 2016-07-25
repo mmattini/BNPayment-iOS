@@ -28,22 +28,20 @@
 #import "BNCCHostedFormParams.h"
 #import "BNRegisterCCParams.h"
 #import "BNPaymentParams.h"
-#import "BNAuthenticator.h"
 #import "BNHTTPClient.h"
 #import "BNCertManager.h"
 
 static NSString *const TokenizedCreditCardCacheName = @"tokenizedCreditCardCacheName";
-static NSString *const BNAuthenticatorCacheName = @"BNAuthenticator";
 static NSString *const SharedSecretKeychainKey = @"sharedSecret";
-static NSString *const DefaultBaseUrl = @"https://eu-native.bambora.com/";
+static NSString *const DefaultBaseUrl = @"https://eu-native.bambora.com";
 
 @interface BNPaymentHandler ()
 
 @property (nonatomic, strong) NSMutableArray<BNAuthorizedCreditCard *> *tokenizedCreditCards;
 @property (nonatomic, strong) NSString *apiToken;
+@property (nonatomic, strong) NSString *merchantAccount;
 @property (nonatomic, assign) BOOL debug;
 @property (nonatomic, assign) NSString *baseUrl;
-@property (nonatomic, strong) BNAuthenticator *autenticator;
 @property (nonatomic, strong) BNHTTPClient *httpClient;
 
 @end
@@ -62,13 +60,10 @@ static NSString *const DefaultBaseUrl = @"https://eu-native.bambora.com/";
     return _sharedInstance;
 }
 
-+ (BOOL)setupWithApiToken:(NSString *)apiToken
-                  baseUrl:(NSString *)baseUrl
-                    debug:(BOOL)debug
-                    error:(NSError **)error {
++ (void)setupCommon:(NSString *)baseUrl
+              debug:(BOOL)debug {
     
     BNPaymentHandler *handler = [BNPaymentHandler sharedInstance];
-    handler.apiToken = apiToken;
     handler.baseUrl = baseUrl ? baseUrl : DefaultBaseUrl;
     handler.debug = debug;
     handler.httpClient = [[BNHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:handler.baseUrl]];
@@ -76,20 +71,31 @@ static NSString *const DefaultBaseUrl = @"https://eu-native.bambora.com/";
     if([[BNCertManager sharedInstance] shouldUpdateCertificates]) {
         [handler refreshCertificates];
     }
+}
+
++ (BOOL)setupWithApiToken:(NSString *)apiToken
+                  baseUrl:(NSString *)baseUrl
+                    debug:(BOOL)debug
+                    error:(NSError **)error {
     
+    BNPaymentHandler *handler = [BNPaymentHandler sharedInstance];
+    handler.apiToken = apiToken;
+    [self setupCommon:baseUrl debug:debug];
     return error == nil;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        id authenticator = [[BNCacheManager sharedCache] getObjectWithName:BNAuthenticatorCacheName];
-        if ([authenticator isKindOfClass:[BNAuthenticator class]]) {
-            self.autenticator = authenticator;
-        }
-    }
-    return self;
+
++ (BOOL)setupWithMerchantAccount:(NSString *)merchantAccount
+                  baseUrl:(NSString *)baseUrl
+                    debug:(BOOL)debug
+                    error:(NSError **)error {
+    
+    BNPaymentHandler *handler = [BNPaymentHandler sharedInstance];
+    handler.merchantAccount = merchantAccount;
+    [self setupCommon:baseUrl debug:debug];
+    return error == nil;
 }
+
 
 - (void)setupBNPaymentHandler {
     id cachedCards = [[BNCacheManager sharedCache] getObjectWithName:TokenizedCreditCardCacheName];
@@ -105,22 +111,12 @@ static NSString *const DefaultBaseUrl = @"https://eu-native.bambora.com/";
     return self.httpClient;
 }
 
-- (void)registerAuthenticator:(BNAuthenticator *)authenticator {
-    self.autenticator = authenticator;
-    [[BNCacheManager sharedCache] saveObject:self.authenticator
-                                    withName:BNAuthenticatorCacheName];
-}
-
-- (BNAuthenticator *)authenticator {
-    return self.autenticator;
-}
-
-- (BOOL)isRegistered {
-    return self.autenticator != nil;
-}
-
 - (NSString *)getApiToken {
     return self.apiToken;
+}
+
+- (NSString *)getMerchantAccount {
+    return self.merchantAccount;
 }
 
 - (NSString *)getBaseUrl {

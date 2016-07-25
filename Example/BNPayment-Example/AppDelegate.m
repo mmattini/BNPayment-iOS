@@ -18,10 +18,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSError *error;
-    [BNPaymentHandler setupWithApiToken:@"Enter API token here"
-                                baseUrl:nil
-                                  debug:YES
-                                  error:&error];
+    [BNPaymentHandler setupWithMerchantAccount:@"Enter merchant token here"
+                                       baseUrl:nil
+                                         debug:YES
+                                         error:&error];
     
     return YES;
 }

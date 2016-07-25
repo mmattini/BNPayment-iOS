@@ -1,5 +1,5 @@
 //
-//  BNTestBaseModel.h
+//  BNTestModel.h
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy

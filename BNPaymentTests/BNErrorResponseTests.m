@@ -1,5 +1,5 @@
 //
-//  BNAppConfig.m
+//  BNErrorResponseTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,18 +20,30 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BNAppConfig.h"
+#import <XCTest/XCTest.h>
 
-@implementation BNAppConfig
+@interface BNErrorResponseTests : XCTestCase
 
-+ (NSDictionary *)JSONMappingDictionary {
-  return @{
-           @"sharedSecret" : @"shared_secret",
-           @"appId" : @"app",
-           @"powDifficulty" : @"pow_difficulty",
-           @"countryId" : @"country",
-           @"udid" : @"uuid"
-           };
+@end
+
+@implementation BNErrorResponseTests
+
+- (void)testJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *correctDictionary = @{
+                                        @"status" : @"status",
+                                        @"title" : @"title",
+                                        @"detail" : @"detail",
+                                        @"type" : @"type"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNErrorResponse = [BNErrorResponse JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertEqualObjects(correctDictionary, dictionaryFromBNErrorResponse, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the BNErrorResponse class.");
+    
 }
 
 @end

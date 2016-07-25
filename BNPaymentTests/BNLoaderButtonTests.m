@@ -1,5 +1,5 @@
 //
-//  BNSdkRegistrationEndpoint.m
+//  BNLoaderButtonTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,31 +20,35 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BNRegistrationEndpoint.h"
-#import "BNPaymentHandler.h"
-#import "BNUser.h"
-#import "BNAuthenticator.h"
-#import "BNHTTPClient.h"
+#import <XCTest/XCTest.h>
 
-static NSString *const RegistrationEndpointUrl = @"credentials/";
+@interface BNLoaderButtonTests : XCTestCase
 
-@implementation BNRegistrationEndpoint
+@end
 
-+ (NSURLSessionDataTask *)registerWithUser:(BNUser *)user
-                                completion:(BNRegistrationBlock)completion {
-    BNHTTPClient *httpClient = [[BNPaymentHandler sharedInstance] getHttpClient];
-    
-    NSURLSessionDataTask *task = [httpClient POST:RegistrationEndpointUrl
-                                       parameters:[user JSONDictionary]
-                                          success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSError *error;
-        BNAuthenticator *authenticator = [[BNAuthenticator alloc] initWithJSONDictionary:responseObject error:&error];
-        completion(authenticator, error);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil, error);
-    }];
-    
-    return task;
+@implementation BNLoaderButtonTests
+
+- (void)testSetLoading {
+
+    // Given:
+    BNLoaderButton *loaderButton = [BNLoaderButton new];
+
+    // When:
+    [loaderButton setLoading:true];
+    [loaderButton setLoading:false];
+}
+
+- (void)testDrawRect {
+
+    // Given:
+    BNLoaderButton *loaderButton = [BNLoaderButton new];
+
+    // When:
+    CGRect rectangle = CGRectMake(0.0, 0.0, 50.0, 100.0);
+    [loaderButton drawRect:rectangle];
+
 }
 
 @end
+
+

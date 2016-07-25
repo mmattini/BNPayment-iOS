@@ -28,8 +28,8 @@
 
 /**
  *  A block object to be executed when a payment authorization operation has completed.
- *  The block return a `BNPaymentResponse` representing the payment that is authorized.
- *  `NSError` representing the error recieved. error is nil is operation is successful.
+ *  The block returns a `BNPaymentResponse` representing the payment that is authorized.
+ *  `NSError` representing the error received. Error is nil if operation is successful.
  *
  *  @param paymentResponse  `BNPaymentResponse` is the response.
  *  @param error            `NSError` error.
@@ -39,14 +39,14 @@ typedef void (^BNPaymentRequestBlock)(BNPaymentResponse *paymentResponse, NSErro
 
 /**
  `BNTransactionEndpoint` is a subclass of `BNBaseEndpoint`
- `BNTransactionEndpoint` offers conveniens methods for handling payment API calls.
+ `BNTransactionEndpoint` offers convenient methods for handling payment API calls.
  */
 @interface BNPaymentEndpoint : NSObject
 
 /**
 *  A method for authorizing a payment.
 *
-*  @param params            `BNPaymentParams` representing the payment to be authroized.
+*  @param params            `BNPaymentParams` representing the payment to be authorized.
 *  @param completion        `BNPaymentRequestBlock` excecuted when the operation is completed.
 *
 *  @return `NSURLSessionDataTask`

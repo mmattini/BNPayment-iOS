@@ -60,14 +60,14 @@
 
 /**
  *  This is a convenience method for creating `BNCCHostedFormParams` params.
- *  This allows you to specify the CSS url used by the hosted page, all placeholders and the submit button text.
+ *  This allows you to specify the CSS url used by the hosted page, all placeholders, and the submit button text.
  *  This can of course be done via the properties aswell.
  *
- *  @param css                   `NSString` containing and url to a CSS file.
- *  @param cardNumberPlaceholder `NSString` representing the placeholder test for CC input group.
- *  @param expiryPlaceholder     `NSString` representing the placeholder test for Expiry input group.
- *  @param cvvPlaceholder        `NSString` representing the placeholder test for CVV/CVC input group.
- *  @param submitText            `NSString` representing the text for the sumbit button.
+ *  @param css                   `NSString` containing an url to a CSS file.
+ *  @param cardNumberPlaceholder `NSString` representing the placeholder text for CC input group.
+ *  @param expiryPlaceholder     `NSString` representing the placeholder text for Expiry input group.
+ *  @param cvvPlaceholder        `NSString` representing the placeholder text for CVV/CVC input group.
+ *  @param submitText            `NSString` representing the text for the submit button.
  *
  *  @return An instance of `BNCCHostedFormParams`.
  */

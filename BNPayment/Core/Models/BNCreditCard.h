@@ -23,7 +23,7 @@
 #import "BNBaseModel.h"
 
 /**
- *  `BNCreditCard` represents an credit card from the native form.
+ *  `BNCreditCard` represents a credit card from the native form.
  */
 @interface BNCreditCard : BNBaseModel
 

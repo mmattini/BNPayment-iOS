@@ -1,5 +1,5 @@
 //
-//  NSURLSessionDataTask+BNUtils.h
+//  BNHostedRegistrationFormFooterTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,15 +20,22 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@interface NSURLSessionDataTask (BNUtils)
+@interface BNHostedRegistrationFormFooterTests : XCTestCase
 
-/**
- *  This methods returns a HTTP status code from a ´NSURLSessionDataTask´
- *
- *  @return httpStatus ´NSInteger´ indicating the http status of the ´NSURLSessionDataTask´
- */
-- (NSInteger) getHttpStatusCode;
+@end
+
+@implementation BNHostedRegistrationFormFooterTests
+
+- (void)testCreateHostedRegistrationFormFooter {
+    
+    // When:
+    BNHostedRegistrationFormFooter *footer = [BNHostedRegistrationFormFooter new];
+    
+    // Then:
+    XCTAssertTrue([footer isKindOfClass:[BNHostedRegistrationFormFooter class]], "The class type of the footer object should be BNHostedRegistrationFormFooter.");
+
+}
 
 @end

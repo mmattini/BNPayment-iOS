@@ -13,7 +13,6 @@
 		5D258C831D35349A00498DEC /* BNErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D258C811D35349A00498DEC /* BNErrorResponse.m */; };
 		5D3165251D099DB000B6F915 /* BNPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D3165241D099DB000B6F915 /* BNPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D428B0F1CFC6D4600CCD86D /* BNCreditCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D428B0E1CFC6D4600CCD86D /* BNCreditCardTests.m */; };
-		5D5BB78B1CE4C0FF00E6BD40 /* NSURLRequest+BNAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D5BB78E1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5BB78C1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D5BB78F1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BB78D1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m */; };
 		5D69A5B51CE0D00200A573EE /* BNEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5451CE0D00200A573EE /* BNEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,10 +28,6 @@
 		5D69A5C11CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A5521CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.m */; };
 		5D69A5C21CE0D00200A573EE /* BNCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5541CE0D00200A573EE /* BNCacheManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A5C31CE0D00200A573EE /* BNCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A5551CE0D00200A573EE /* BNCacheManager.m */; };
-		5D69A5C41CE0D00200A573EE /* BNAppConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5571CE0D00200A573EE /* BNAppConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D69A5C51CE0D00200A573EE /* BNAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A5581CE0D00200A573EE /* BNAppConfig.m */; };
-		5D69A5C61CE0D00200A573EE /* BNAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5591CE0D00200A573EE /* BNAuthenticator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D69A5C71CE0D00200A573EE /* BNAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A55A1CE0D00200A573EE /* BNAuthenticator.m */; };
 		5D69A5C81CE0D00200A573EE /* BNAuthorizedCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A55B1CE0D00200A573EE /* BNAuthorizedCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A5C91CE0D00200A573EE /* BNAuthorizedCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A55C1CE0D00200A573EE /* BNAuthorizedCreditCard.m */; };
 		5D69A5CA1CE0D00200A573EE /* BNBaseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A55D1CE0D00200A573EE /* BNBaseModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,8 +58,6 @@
 		5D69A5E31CE0D00200A573EE /* BNCreditCardEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A5791CE0D00200A573EE /* BNCreditCardEndpoint.m */; };
 		5D69A5E41CE0D00200A573EE /* BNPaymentEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A57A1CE0D00200A573EE /* BNPaymentEndpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A5E51CE0D00200A573EE /* BNPaymentEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A57B1CE0D00200A573EE /* BNPaymentEndpoint.m */; };
-		5D69A5E61CE0D00200A573EE /* BNRegistrationEndpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A57C1CE0D00200A573EE /* BNRegistrationEndpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D69A5E71CE0D00200A573EE /* BNRegistrationEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A57D1CE0D00200A573EE /* BNRegistrationEndpoint.m */; };
 		5D69A5E81CE0D00200A573EE /* BNHTTPRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A57F1CE0D00200A573EE /* BNHTTPRequestSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A5E91CE0D00200A573EE /* BNHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A5801CE0D00200A573EE /* BNHTTPRequestSerializer.m */; };
 		5D69A5EA1CE0D00200A573EE /* BNHTTPResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A5811CE0D00200A573EE /* BNHTTPResponseSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,7 +86,6 @@
 		5D69A6841CE0D43B00A573EE /* BNHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6571CE0D43B00A573EE /* BNHandlerTests.m */; };
 		5D69A6851CE0D43B00A573EE /* BNPaymentEndpointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6581CE0D43B00A573EE /* BNPaymentEndpointTests.m */; };
 		5D69A6861CE0D43B00A573EE /* BNPaymentHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6591CE0D43B00A573EE /* BNPaymentHandlerTests.m */; };
-		5D69A6871CE0D43B00A573EE /* BNRegistrationEndpointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A65B1CE0D43B00A573EE /* BNRegistrationEndpointTests.m */; };
 		5D69A6881CE0D43B00A573EE /* BNSecurityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A65C1CE0D43B00A573EE /* BNSecurityTests.m */; };
 		5D69A6891CE0D43B00A573EE /* BNTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A65E1CE0D43B00A573EE /* BNTestModel.m */; };
 		5D69A68A1CE0D43B00A573EE /* BNTestModelUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A65F1CE0D43B00A573EE /* BNTestModelUnitTests.m */; };
@@ -111,7 +103,6 @@
 		5D69A69B1CE0D43B00A573EE /* hppSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A67F1CE0D43B00A573EE /* hppSuccess.json */; };
 		5D69A69C1CE0D43B00A573EE /* registerResponseSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6801CE0D43B00A573EE /* registerResponseSuccess.json */; };
 		5D69A69D1CE0D43B00A573EE /* registerResponseSuccessExtraParams.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D69A6811CE0D43B00A573EE /* registerResponseSuccessExtraParams.json */; };
-		5D69A6A11CE0D61400A573EE /* NSURLRequest+BNAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */; };
 		5D69A6A61CE0DB9D00A573EE /* BNEncryptionCertificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A6A21CE0DB9D00A573EE /* BNEncryptionCertificate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D69A6A71CE0DB9D00A573EE /* BNEncryptionCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69A6A31CE0DB9D00A573EE /* BNEncryptionCertificate.m */; };
 		5D69A6A81CE0DB9D00A573EE /* BNRegisterCCParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D69A6A41CE0DB9D00A573EE /* BNRegisterCCParams.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -158,6 +149,24 @@
 		5DA20CA41CFC4AD9007B2361 /* validCACert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C9D1CFC4AD9007B2361 /* validCACert.cer */; };
 		5DA20CA51CFC4AD9007B2361 /* validExpiredSelfSignedCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C9E1CFC4AD9007B2361 /* validExpiredSelfSignedCert.cer */; };
 		5DA20CA61CFC4AD9007B2361 /* validSelfSignedCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C9F1CFC4AD9007B2361 /* validSelfSignedCert.cer */; };
+		B2135C031D59DE2900D79E8D /* BNRegisterCCParamsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C021D59DE2900D79E8D /* BNRegisterCCParamsTests.m */; };
+		B2135C081D59E40400D79E8D /* UITextField+BNCreditCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C071D59E40400D79E8D /* UITextField+BNCreditCardTests.m */; };
+		B2135C0A1D5A086800D79E8D /* BNLoaderButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C091D5A086800D79E8D /* BNLoaderButtonTests.m */; };
+		B2135C0C1D5A0E6700D79E8D /* BNHostedRegistrationFormFooterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C0B1D5A0E6700D79E8D /* BNHostedRegistrationFormFooterTests.m */; };
+		B2135C0E1D5A730B00D79E8D /* BNCCHostedFormParamsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C0D1D5A730B00D79E8D /* BNCCHostedFormParamsTests.m */; };
+		B272E8551D59CD400054B5DA /* BNBundleUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8541D59CD400054B5DA /* BNBundleUtilsTests.m */; };
+		B272E8591D59CDCD0054B5DA /* BNCertUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8581D59CDCD0054B5DA /* BNCertUtilsTests.m */; };
+		B272E85B1D59CDFE0054B5DA /* BNEncryptedSessionKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E85A1D59CDFE0054B5DA /* BNEncryptedSessionKeyTests.m */; };
+		B272E85F1D59CF0E0054B5DA /* EPAYActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E85E1D59CF0E0054B5DA /* EPAYActionTests.m */; };
+		B272E8611D59CF530054B5DA /* BNUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8601D59CF530054B5DA /* BNUserTests.m */; };
+		B272E8631D59CF880054B5DA /* EPAYMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8621D59CF880054B5DA /* EPAYMessageTests.m */; };
+		B272E8651D59CFBD0054B5DA /* EPAYMetaResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8641D59CFBD0054B5DA /* EPAYMetaResponseTests.m */; };
+		B272E8671D59CFEC0054B5DA /* UIColor+BNColorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8661D59CFEC0054B5DA /* UIColor+BNColorsTests.m */; };
+		B272E8691D59D0700054B5DA /* UIImage+BNUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E8681D59D0700054B5DA /* UIImage+BNUtilsTests.m */; };
+		B272E86B1D59D1400054B5DA /* UIView+BNUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E86A1D59D1400054B5DA /* UIView+BNUtilsTests.m */; };
+		B272E86D1D59D37C0054B5DA /* BNErrorResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E86C1D59D37C0054B5DA /* BNErrorResponseTests.m */; };
+		B2E709C31D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E709C21D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m */; };
+		B2E709C61D5CA6D20010AC28 /* BNPaymentParamsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E709C51D5CA6D20010AC28 /* BNPaymentParamsTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +176,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5DAABEF81CB69B0200CEDB91;
 			remoteInfo = BNPayment;
+		};
+		8F8797561D4B8FF600308CA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F8797521D4B8FF600308CA5 /* BNPayment-Example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DAABF3F1CB69B8100CEDB91;
+			remoteInfo = "BNPayment-Example";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -192,7 +208,7 @@
 		5D5BB78C1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEncryptedSessionKey.h; sourceTree = "<group>"; };
 		5D5BB78D1CE4CCFD00E6BD40 /* BNEncryptedSessionKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptedSessionKey.m; sourceTree = "<group>"; };
 		5D69A5451CE0D00200A573EE /* BNEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEnums.h; sourceTree = "<group>"; };
-		5D69A5481CE0D00200A573EE /* BNPaymentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentHandler.h; sourceTree = "<group>"; };
+		5D69A5481CE0D00200A573EE /* BNPaymentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BNPaymentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A5491CE0D00200A573EE /* BNPaymentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentHandler.m; sourceTree = "<group>"; };
 		5D69A54B1CE0D00200A573EE /* NSDate+BNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BNUtils.h"; sourceTree = "<group>"; };
 		5D69A54C1CE0D00200A573EE /* NSDate+BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BNUtils.m"; sourceTree = "<group>"; };
@@ -204,17 +220,13 @@
 		5D69A5521CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionDataTask+BNUtils.m"; sourceTree = "<group>"; };
 		5D69A5541CE0D00200A573EE /* BNCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCacheManager.h; sourceTree = "<group>"; };
 		5D69A5551CE0D00200A573EE /* BNCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCacheManager.m; sourceTree = "<group>"; };
-		5D69A5571CE0D00200A573EE /* BNAppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAppConfig.h; sourceTree = "<group>"; };
-		5D69A5581CE0D00200A573EE /* BNAppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNAppConfig.m; sourceTree = "<group>"; };
-		5D69A5591CE0D00200A573EE /* BNAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthenticator.h; sourceTree = "<group>"; };
-		5D69A55A1CE0D00200A573EE /* BNAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNAuthenticator.m; sourceTree = "<group>"; };
-		5D69A55B1CE0D00200A573EE /* BNAuthorizedCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAuthorizedCreditCard.h; sourceTree = "<group>"; };
+		5D69A55B1CE0D00200A573EE /* BNAuthorizedCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BNAuthorizedCreditCard.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A55C1CE0D00200A573EE /* BNAuthorizedCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNAuthorizedCreditCard.m; sourceTree = "<group>"; };
 		5D69A55D1CE0D00200A573EE /* BNBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBaseModel.h; sourceTree = "<group>"; };
 		5D69A55E1CE0D00200A573EE /* BNBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNBaseModel.m; sourceTree = "<group>"; };
 		5D69A55F1CE0D00200A573EE /* BNCCFormInputGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCFormInputGroup.h; sourceTree = "<group>"; };
 		5D69A5601CE0D00200A573EE /* BNCCFormInputGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCFormInputGroup.m; sourceTree = "<group>"; };
-		5D69A5611CE0D00200A573EE /* BNCCHostedFormParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCHostedFormParams.h; sourceTree = "<group>"; };
+		5D69A5611CE0D00200A573EE /* BNCCHostedFormParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BNCCHostedFormParams.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A5621CE0D00200A573EE /* BNCCHostedFormParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCHostedFormParams.m; sourceTree = "<group>"; };
 		5D69A5631CE0D00200A573EE /* BNCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCreditCard.h; sourceTree = "<group>"; };
 		5D69A5641CE0D00200A573EE /* BNCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCard.m; sourceTree = "<group>"; };
@@ -232,14 +244,12 @@
 		5D69A5711CE0D00200A573EE /* EPAYMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYMessage.m; sourceTree = "<group>"; };
 		5D69A5721CE0D00200A573EE /* EPAYMetaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPAYMetaResponse.h; sourceTree = "<group>"; };
 		5D69A5731CE0D00200A573EE /* EPAYMetaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYMetaResponse.m; sourceTree = "<group>"; };
-		5D69A5751CE0D00200A573EE /* BNHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNHTTPClient.h; sourceTree = "<group>"; };
+		5D69A5751CE0D00200A573EE /* BNHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BNHTTPClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A5761CE0D00200A573EE /* BNHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNHTTPClient.m; sourceTree = "<group>"; };
 		5D69A5781CE0D00200A573EE /* BNCreditCardEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCreditCardEndpoint.h; sourceTree = "<group>"; };
 		5D69A5791CE0D00200A573EE /* BNCreditCardEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCardEndpoint.m; sourceTree = "<group>"; };
 		5D69A57A1CE0D00200A573EE /* BNPaymentEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentEndpoint.h; sourceTree = "<group>"; };
 		5D69A57B1CE0D00200A573EE /* BNPaymentEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentEndpoint.m; sourceTree = "<group>"; };
-		5D69A57C1CE0D00200A573EE /* BNRegistrationEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRegistrationEndpoint.h; sourceTree = "<group>"; };
-		5D69A57D1CE0D00200A573EE /* BNRegistrationEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRegistrationEndpoint.m; sourceTree = "<group>"; };
 		5D69A57F1CE0D00200A573EE /* BNHTTPRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNHTTPRequestSerializer.h; sourceTree = "<group>"; };
 		5D69A5801CE0D00200A573EE /* BNHTTPRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNHTTPRequestSerializer.m; sourceTree = "<group>"; };
 		5D69A5811CE0D00200A573EE /* BNHTTPResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNHTTPResponseSerializer.h; sourceTree = "<group>"; };
@@ -254,13 +264,13 @@
 		5D69A58F1CE0D00200A573EE /* UIImage+BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BNUtils.m"; sourceTree = "<group>"; };
 		5D69A5901CE0D00200A573EE /* UIView+BNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BNUtils.h"; sourceTree = "<group>"; };
 		5D69A5911CE0D00200A573EE /* UIView+BNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BNUtils.m"; sourceTree = "<group>"; };
-		5D69A59A1CE0D00200A573EE /* BNCCHostedRegistrationFormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCCHostedRegistrationFormVC.h; sourceTree = "<group>"; };
+		5D69A59A1CE0D00200A573EE /* BNCCHostedRegistrationFormVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BNCCHostedRegistrationFormVC.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A59B1CE0D00200A573EE /* BNCCHostedRegistrationFormVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCHostedRegistrationFormVC.m; sourceTree = "<group>"; };
 		5D69A59E1CE0D00200A573EE /* BNPaymentBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentBaseVC.h; sourceTree = "<group>"; };
 		5D69A59F1CE0D00200A573EE /* BNPaymentBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentBaseVC.m; sourceTree = "<group>"; };
 		5D69A5B01CE0D00200A573EE /* BNHostedRegistrationFormFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNHostedRegistrationFormFooter.h; sourceTree = "<group>"; };
 		5D69A5B11CE0D00200A573EE /* BNHostedRegistrationFormFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNHostedRegistrationFormFooter.m; sourceTree = "<group>"; };
-		5D69A5B31CE0D00200A573EE /* BNPaymentWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentWebview.h; sourceTree = "<group>"; };
+		5D69A5B31CE0D00200A573EE /* BNPaymentWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BNPaymentWebview.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A5B41CE0D00200A573EE /* BNPaymentWebview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentWebview.m; sourceTree = "<group>"; };
 		5D69A6121CE0D28D00A573EE /* GlobalSign.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = GlobalSign.cer; sourceTree = "<group>"; };
 		5D69A6551CE0D43B00A573EE /* BNCreditCardEndpointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCardEndpointTests.m; sourceTree = "<group>"; };
@@ -269,7 +279,6 @@
 		5D69A6581CE0D43B00A573EE /* BNPaymentEndpointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentEndpointTests.m; sourceTree = "<group>"; };
 		5D69A6591CE0D43B00A573EE /* BNPaymentHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentHandlerTests.m; sourceTree = "<group>"; };
 		5D69A65A1CE0D43B00A573EE /* BNPaymentTests.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNPaymentTests.pch; sourceTree = "<group>"; };
-		5D69A65B1CE0D43B00A573EE /* BNRegistrationEndpointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRegistrationEndpointTests.m; sourceTree = "<group>"; };
 		5D69A65C1CE0D43B00A573EE /* BNSecurityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNSecurityTests.m; sourceTree = "<group>"; };
 		5D69A65D1CE0D43B00A573EE /* BNTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNTestModel.h; sourceTree = "<group>"; };
 		5D69A65E1CE0D43B00A573EE /* BNTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNTestModel.m; sourceTree = "<group>"; };
@@ -277,16 +286,16 @@
 		5D69A6601CE0D43B00A573EE /* BNUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUtilsTests.m; sourceTree = "<group>"; };
 		5D69A6611CE0D43B00A573EE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D69A6631CE0D43B00A573EE /* Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatibility.h; sourceTree = "<group>"; };
-		5D69A6651CE0D43B00A573EE /* OHHTTPStubsResponse+HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubsResponse+HTTPMessage.h"; sourceTree = "<group>"; };
+		5D69A6651CE0D43B00A573EE /* OHHTTPStubsResponse+HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "OHHTTPStubsResponse+HTTPMessage.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A6661CE0D43B00A573EE /* OHHTTPStubsResponse+HTTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubsResponse+HTTPMessage.m"; sourceTree = "<group>"; };
-		5D69A6681CE0D43B00A573EE /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; };
+		5D69A6681CE0D43B00A573EE /* OHHTTPStubsResponse+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "OHHTTPStubsResponse+JSON.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A6691CE0D43B00A573EE /* OHHTTPStubsResponse+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubsResponse+JSON.m"; sourceTree = "<group>"; };
-		5D69A66B1CE0D43B00A573EE /* OHHTTPStubs+Mocktail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OHHTTPStubs+Mocktail.h"; sourceTree = "<group>"; };
+		5D69A66B1CE0D43B00A573EE /* OHHTTPStubs+Mocktail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "OHHTTPStubs+Mocktail.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A66C1CE0D43B00A573EE /* OHHTTPStubs+Mocktail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs+Mocktail.m"; sourceTree = "<group>"; };
 		5D69A66E1CE0D43B00A573EE /* OHHTTPStubs+NSURLSessionConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OHHTTPStubs+NSURLSessionConfiguration.m"; sourceTree = "<group>"; };
-		5D69A66F1CE0D43B00A573EE /* OHHTTPStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHHTTPStubs.h; sourceTree = "<group>"; };
-		5D69A6701CE0D43B00A573EE /* OHHTTPStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHHTTPStubs.m; sourceTree = "<group>"; };
-		5D69A6711CE0D43B00A573EE /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHHTTPStubsResponse.h; sourceTree = "<group>"; };
+		5D69A66F1CE0D43B00A573EE /* OHHTTPStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OHHTTPStubs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5D69A6701CE0D43B00A573EE /* OHHTTPStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OHHTTPStubs.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5D69A6711CE0D43B00A573EE /* OHHTTPStubsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OHHTTPStubsResponse.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5D69A6721CE0D43B00A573EE /* OHHTTPStubsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHHTTPStubsResponse.m; sourceTree = "<group>"; };
 		5D69A6741CE0D43B00A573EE /* OHPathHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHPathHelpers.h; sourceTree = "<group>"; };
 		5D69A6751CE0D43B00A573EE /* OHPathHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHPathHelpers.m; sourceTree = "<group>"; };
@@ -296,8 +305,6 @@
 		5D69A67F1CE0D43B00A573EE /* hppSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hppSuccess.json; sourceTree = "<group>"; };
 		5D69A6801CE0D43B00A573EE /* registerResponseSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerResponseSuccess.json; sourceTree = "<group>"; };
 		5D69A6811CE0D43B00A573EE /* registerResponseSuccessExtraParams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registerResponseSuccessExtraParams.json; sourceTree = "<group>"; };
-		5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+BNAuth.h"; sourceTree = "<group>"; };
-		5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+BNAuth.m"; sourceTree = "<group>"; };
 		5D69A6A21CE0DB9D00A573EE /* BNEncryptionCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNEncryptionCertificate.h; sourceTree = "<group>"; };
 		5D69A6A31CE0DB9D00A573EE /* BNEncryptionCertificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptionCertificate.m; sourceTree = "<group>"; };
 		5D69A6A41CE0DB9D00A573EE /* BNRegisterCCParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRegisterCCParams.h; sourceTree = "<group>"; };
@@ -346,6 +353,25 @@
 		5DAABEF91CB69B0200CEDB91 /* BNPayment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNPayment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF031CB69B0200CEDB91 /* BNPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF5B1CB69C7F00CEDB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
+		8F8797521D4B8FF600308CA5 /* BNPayment-Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "BNPayment-Example.xcodeproj"; path = "Example/BNPayment-Example.xcodeproj"; sourceTree = "<group>"; };
+		B2135C021D59DE2900D79E8D /* BNRegisterCCParamsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRegisterCCParamsTests.m; sourceTree = "<group>"; };
+		B2135C071D59E40400D79E8D /* UITextField+BNCreditCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BNCreditCardTests.m"; sourceTree = "<group>"; };
+		B2135C091D5A086800D79E8D /* BNLoaderButtonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNLoaderButtonTests.m; sourceTree = "<group>"; };
+		B2135C0B1D5A0E6700D79E8D /* BNHostedRegistrationFormFooterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNHostedRegistrationFormFooterTests.m; sourceTree = "<group>"; };
+		B2135C0D1D5A730B00D79E8D /* BNCCHostedFormParamsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCCHostedFormParamsTests.m; sourceTree = "<group>"; };
+		B272E8541D59CD400054B5DA /* BNBundleUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNBundleUtilsTests.m; sourceTree = "<group>"; };
+		B272E8581D59CDCD0054B5DA /* BNCertUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCertUtilsTests.m; sourceTree = "<group>"; };
+		B272E85A1D59CDFE0054B5DA /* BNEncryptedSessionKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNEncryptedSessionKeyTests.m; sourceTree = "<group>"; };
+		B272E85E1D59CF0E0054B5DA /* EPAYActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYActionTests.m; sourceTree = "<group>"; };
+		B272E8601D59CF530054B5DA /* BNUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNUserTests.m; sourceTree = "<group>"; };
+		B272E8621D59CF880054B5DA /* EPAYMessageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYMessageTests.m; sourceTree = "<group>"; };
+		B272E8641D59CFBD0054B5DA /* EPAYMetaResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYMetaResponseTests.m; sourceTree = "<group>"; };
+		B272E8661D59CFEC0054B5DA /* UIColor+BNColorsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BNColorsTests.m"; sourceTree = "<group>"; };
+		B272E8681D59D0700054B5DA /* UIImage+BNUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BNUtilsTests.m"; sourceTree = "<group>"; };
+		B272E86A1D59D1400054B5DA /* UIView+BNUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BNUtilsTests.m"; sourceTree = "<group>"; };
+		B272E86C1D59D37C0054B5DA /* BNErrorResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNErrorResponseTests.m; sourceTree = "<group>"; };
+		B2E709C21D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYHostedFormStateChangeTests.m; sourceTree = "<group>"; };
+		B2E709C51D5CA6D20010AC28 /* BNPaymentParamsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentParamsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,8 +431,6 @@
 				5D69A5501CE0D00200A573EE /* NSString+BNStringUtils.m */,
 				5D69A5511CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.h */,
 				5D69A5521CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.m */,
-				5D69A69E1CE0D61400A573EE /* NSURLRequest+BNAuth.h */,
-				5D69A69F1CE0D61400A573EE /* NSURLRequest+BNAuth.m */,
 				5D258C7C1D3522B200498DEC /* NSError+BNError.h */,
 				5D258C7D1D3522B200498DEC /* NSError+BNError.m */,
 			);
@@ -429,10 +453,6 @@
 				5D69A6A31CE0DB9D00A573EE /* BNEncryptionCertificate.m */,
 				5D69A6A41CE0DB9D00A573EE /* BNRegisterCCParams.h */,
 				5D69A6A51CE0DB9D00A573EE /* BNRegisterCCParams.m */,
-				5D69A5571CE0D00200A573EE /* BNAppConfig.h */,
-				5D69A5581CE0D00200A573EE /* BNAppConfig.m */,
-				5D69A5591CE0D00200A573EE /* BNAuthenticator.h */,
-				5D69A55A1CE0D00200A573EE /* BNAuthenticator.m */,
 				5D69A55B1CE0D00200A573EE /* BNAuthorizedCreditCard.h */,
 				5D69A55C1CE0D00200A573EE /* BNAuthorizedCreditCard.m */,
 				5D69A55D1CE0D00200A573EE /* BNBaseModel.h */,
@@ -491,8 +511,6 @@
 				5D69A5791CE0D00200A573EE /* BNCreditCardEndpoint.m */,
 				5D69A57A1CE0D00200A573EE /* BNPaymentEndpoint.h */,
 				5D69A57B1CE0D00200A573EE /* BNPaymentEndpoint.m */,
-				5D69A57C1CE0D00200A573EE /* BNRegistrationEndpoint.h */,
-				5D69A57D1CE0D00200A573EE /* BNRegistrationEndpoint.m */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -598,22 +616,40 @@
 		5D69A6541CE0D43B00A573EE /* BNPaymentTests */ = {
 			isa = PBXGroup;
 			children = (
-				5DA20C951CFC4A87007B2361 /* BNKeyManagerTests.m */,
-				5DA20C931CFC4A79007B2361 /* NSStringBNCryptoTests.m */,
+				5D69A65D1CE0D43B00A573EE /* BNTestModel.h */,
+				B272E8541D59CD400054B5DA /* BNBundleUtilsTests.m */,
+				B2135C0D1D5A730B00D79E8D /* BNCCHostedFormParamsTests.m */,
+				B272E8581D59CDCD0054B5DA /* BNCertUtilsTests.m */,
+				5D69A6551CE0D43B00A573EE /* BNCreditCardEndpointTests.m */,
 				5D428B0E1CFC6D4600CCD86D /* BNCreditCardTests.m */,
 				5DA20C911CFC4A6B007B2361 /* BNCryptoTests.m */,
 				5D69A6561CE0D43B00A573EE /* BNDateUtilsTests.m */,
+				B272E85A1D59CDFE0054B5DA /* BNEncryptedSessionKeyTests.m */,
+				B272E86C1D59D37C0054B5DA /* BNErrorResponseTests.m */,
 				5D69A6571CE0D43B00A573EE /* BNHandlerTests.m */,
-				5D69A6551CE0D43B00A573EE /* BNCreditCardEndpointTests.m */,
+				B2135C0B1D5A0E6700D79E8D /* BNHostedRegistrationFormFooterTests.m */,
+				5DA20C951CFC4A87007B2361 /* BNKeyManagerTests.m */,
+				B2135C091D5A086800D79E8D /* BNLoaderButtonTests.m */,
 				5D69A6581CE0D43B00A573EE /* BNPaymentEndpointTests.m */,
 				5D69A6591CE0D43B00A573EE /* BNPaymentHandlerTests.m */,
 				5D69A65A1CE0D43B00A573EE /* BNPaymentTests.pch */,
-				5D69A65B1CE0D43B00A573EE /* BNRegistrationEndpointTests.m */,
+				B2E709C51D5CA6D20010AC28 /* BNPaymentParamsTests.m */,
+				B2135C021D59DE2900D79E8D /* BNRegisterCCParamsTests.m */,
 				5D69A65C1CE0D43B00A573EE /* BNSecurityTests.m */,
-				5D69A65D1CE0D43B00A573EE /* BNTestModel.h */,
 				5D69A65E1CE0D43B00A573EE /* BNTestModel.m */,
 				5D69A65F1CE0D43B00A573EE /* BNTestModelUnitTests.m */,
+				B272E8601D59CF530054B5DA /* BNUserTests.m */,
 				5D69A6601CE0D43B00A573EE /* BNUtilsTests.m */,
+				B272E85E1D59CF0E0054B5DA /* EPAYActionTests.m */,
+				B2E709C21D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m */,
+				B272E8621D59CF880054B5DA /* EPAYMessageTests.m */,
+				B272E8641D59CFBD0054B5DA /* EPAYMetaResponseTests.m */,
+				5DA20C931CFC4A79007B2361 /* NSStringBNCryptoTests.m */,
+				B272E8661D59CFEC0054B5DA /* UIColor+BNColorsTests.m */,
+				B272E8681D59D0700054B5DA /* UIImage+BNUtilsTests.m */,
+				B2135C071D59E40400D79E8D /* UITextField+BNCreditCardTests.m */,
+				B272E86A1D59D1400054B5DA /* UIView+BNUtilsTests.m */,
+				5D69A65A1CE0D43B00A573EE /* BNPaymentTests.pch */,
 				5D69A6611CE0D43B00A573EE /* Info.plist */,
 				5D69A6621CE0D43B00A573EE /* OHHTTPStubs */,
 				5D69A6761CE0D43B00A573EE /* TestAssets */,
@@ -755,6 +791,7 @@
 				5D8007211CB7D99C00E29149 /* Assets */,
 				5DAABF591CB69C6400CEDB91 /* Supporting files */,
 				5DAABEFA1CB69B0200CEDB91 /* Products */,
+				8F8797521D4B8FF600308CA5 /* BNPayment-Example.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -774,6 +811,14 @@
 				5DAABF5B1CB69C7F00CEDB91 /* Info.plist */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		8F8797531D4B8FF600308CA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F8797571D4B8FF600308CA5 /* BNPayment-Example.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -811,7 +856,6 @@
 				5D69A5EC1CE0D00200A573EE /* BNSecurity.h in Headers */,
 				5D69A5C01CE0D00200A573EE /* NSURLSessionDataTask+BNUtils.h in Headers */,
 				5D69A5CC1CE0D00200A573EE /* BNCCFormInputGroup.h in Headers */,
-				5D69A5C41CE0D00200A573EE /* BNAppConfig.h in Headers */,
 				5D69A60E1CE0D00200A573EE /* BNHostedRegistrationFormFooter.h in Headers */,
 				5D69A5DE1CE0D00200A573EE /* EPAYMetaResponse.h in Headers */,
 				5D69A6B61CE0DBC600A573EE /* BNKeyUtils.h in Headers */,
@@ -826,15 +870,12 @@
 				5DA20C311CF3231A007B2361 /* BNBaseTextField.h in Headers */,
 				5DA20C351CF32838007B2361 /* BNCreditCardRegistrationVC.h in Headers */,
 				5DA20C2C1CEEEE8C007B2361 /* BNCertUtils.h in Headers */,
-				5D69A5C61CE0D00200A573EE /* BNAuthenticator.h in Headers */,
 				5DA20C3D1CF3304C007B2361 /* UIColor+BNColors.h in Headers */,
 				5DA20C451CF42FD1007B2361 /* BNCreditCardExpiryTextField.h in Headers */,
 				5DA20C411CF42DBC007B2361 /* UITextField+BNCreditCard.h in Headers */,
-				5D69A5E61CE0D00200A573EE /* BNRegistrationEndpoint.h in Headers */,
 				5D258C7E1D3522B200498DEC /* NSError+BNError.h in Headers */,
 				5D258C821D35349A00498DEC /* BNErrorResponse.h in Headers */,
 				5DA20C391CF32CCF007B2361 /* BNCreditCardNumberTextField.h in Headers */,
-				5D5BB78B1CE4C0FF00E6BD40 /* NSURLRequest+BNAuth.h in Headers */,
 				5D9021381D2149DA00B4BEAC /* BNLoaderButton.h in Headers */,
 				5D3165251D099DB000B6F915 /* BNPayment.h in Headers */,
 				5D69A5F41CE0D00200A573EE /* UIView+BNUtils.h in Headers */,
@@ -909,6 +950,12 @@
 			mainGroup = 5DAABEEF1CB69B0200CEDB91;
 			productRefGroup = 5DAABEFA1CB69B0200CEDB91 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8F8797531D4B8FF600308CA5 /* Products */;
+					ProjectRef = 8F8797521D4B8FF600308CA5 /* BNPayment-Example.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5DAABEF81CB69B0200CEDB91 /* BNPayment */,
@@ -916,6 +963,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8F8797571D4B8FF600308CA5 /* BNPayment-Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "BNPayment-Example.app";
+			remoteRef = 8F8797561D4B8FF600308CA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5DAABEF71CB69B0200CEDB91 /* Resources */ = {
@@ -983,7 +1040,6 @@
 				5D69A5BB1CE0D00200A573EE /* NSDate+BNUtils.m in Sources */,
 				5D69A60F1CE0D00200A573EE /* BNHostedRegistrationFormFooter.m in Sources */,
 				5D9021391D2149DA00B4BEAC /* BNLoaderButton.m in Sources */,
-				5D69A6A11CE0D61400A573EE /* NSURLRequest+BNAuth.m in Sources */,
 				5DA20C361CF32838007B2361 /* BNCreditCardRegistrationVC.m in Sources */,
 				5D258C7F1D3522B200498DEC /* NSError+BNError.m in Sources */,
 				5D69A5C91CE0D00200A573EE /* BNAuthorizedCreditCard.m in Sources */,
@@ -1023,10 +1079,7 @@
 				5D69A5D11CE0D00200A573EE /* BNCreditCard.m in Sources */,
 				5D69A6A71CE0DB9D00A573EE /* BNEncryptionCertificate.m in Sources */,
 				5D69A5ED1CE0D00200A573EE /* BNSecurity.m in Sources */,
-				5D69A5E71CE0D00200A573EE /* BNRegistrationEndpoint.m in Sources */,
 				5D69A5B91CE0D00200A573EE /* BNPaymentHandler.m in Sources */,
-				5D69A5C51CE0D00200A573EE /* BNAppConfig.m in Sources */,
-				5D69A5C71CE0D00200A573EE /* BNAuthenticator.m in Sources */,
 				5DA20C3E1CF3304C007B2361 /* UIColor+BNColors.m in Sources */,
 				5D69A5FF1CE0D00200A573EE /* BNPaymentBaseVC.m in Sources */,
 				5D69A5EF1CE0D00200A573EE /* BNBundleUtils.m in Sources */,
@@ -1037,25 +1090,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E709C61D5CA6D20010AC28 /* BNPaymentParamsTests.m in Sources */,
+				B272E8611D59CF530054B5DA /* BNUserTests.m in Sources */,
 				5DA20C921CFC4A6B007B2361 /* BNCryptoTests.m in Sources */,
+				B272E8691D59D0700054B5DA /* UIImage+BNUtilsTests.m in Sources */,
+				B272E8631D59CF880054B5DA /* EPAYMessageTests.m in Sources */,
+				B272E8671D59CFEC0054B5DA /* UIColor+BNColorsTests.m in Sources */,
 				5DA20C961CFC4A87007B2361 /* BNKeyManagerTests.m in Sources */,
+				B2135C031D59DE2900D79E8D /* BNRegisterCCParamsTests.m in Sources */,
+				B272E86B1D59D1400054B5DA /* UIView+BNUtilsTests.m in Sources */,
 				5D69A6841CE0D43B00A573EE /* BNHandlerTests.m in Sources */,
 				5D69A6901CE0D43B00A573EE /* OHHTTPStubs+NSURLSessionConfiguration.m in Sources */,
 				5D428B0F1CFC6D4600CCD86D /* BNCreditCardTests.m in Sources */,
+				B272E8651D59CFBD0054B5DA /* EPAYMetaResponseTests.m in Sources */,
 				5D69A68E1CE0D43B00A573EE /* OHHTTPStubsResponse+JSON.m in Sources */,
+				B272E85B1D59CDFE0054B5DA /* BNEncryptedSessionKeyTests.m in Sources */,
+				B2135C081D59E40400D79E8D /* UITextField+BNCreditCardTests.m in Sources */,
 				5D69A6891CE0D43B00A573EE /* BNTestModel.m in Sources */,
-				5D69A6871CE0D43B00A573EE /* BNRegistrationEndpointTests.m in Sources */,
 				5D69A6861CE0D43B00A573EE /* BNPaymentHandlerTests.m in Sources */,
 				5D69A6881CE0D43B00A573EE /* BNSecurityTests.m in Sources */,
 				5DA20C941CFC4A79007B2361 /* NSStringBNCryptoTests.m in Sources */,
 				5D69A6921CE0D43B00A573EE /* OHHTTPStubsResponse.m in Sources */,
+				B272E85F1D59CF0E0054B5DA /* EPAYActionTests.m in Sources */,
 				5D69A68D1CE0D43B00A573EE /* OHHTTPStubsResponse+HTTPMessage.m in Sources */,
 				5D69A68B1CE0D43B00A573EE /* BNUtilsTests.m in Sources */,
+				B2E709C31D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m in Sources */,
 				5D69A6851CE0D43B00A573EE /* BNPaymentEndpointTests.m in Sources */,
 				5D69A68A1CE0D43B00A573EE /* BNTestModelUnitTests.m in Sources */,
 				5D69A6821CE0D43B00A573EE /* BNCreditCardEndpointTests.m in Sources */,
 				5D69A6931CE0D43B00A573EE /* OHPathHelpers.m in Sources */,
 				5D69A6831CE0D43B00A573EE /* BNDateUtilsTests.m in Sources */,
+				B272E8551D59CD400054B5DA /* BNBundleUtilsTests.m in Sources */,
+				B2135C0C1D5A0E6700D79E8D /* BNHostedRegistrationFormFooterTests.m in Sources */,
+				B2135C0E1D5A730B00D79E8D /* BNCCHostedFormParamsTests.m in Sources */,
+				B272E86D1D59D37C0054B5DA /* BNErrorResponseTests.m in Sources */,
+				B2135C0A1D5A086800D79E8D /* BNLoaderButtonTests.m in Sources */,
+				B272E8591D59CDCD0054B5DA /* BNCertUtilsTests.m in Sources */,
 				5D69A6911CE0D43B00A573EE /* OHHTTPStubs.m in Sources */,
 				5D69A68F1CE0D43B00A573EE /* OHHTTPStubs+Mocktail.m in Sources */,
 			);

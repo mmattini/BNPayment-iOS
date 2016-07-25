@@ -64,7 +64,7 @@
     certString = [certString stringByReplacingOccurrencesOfString:@"-----BEGIN CERTIFICATE-----" withString:@""];
     certString = [certString stringByReplacingOccurrencesOfString:@"-----END CERTIFICATE-----" withString:@""];
     
-    return [[NSData alloc] initWithBase64EncodedString:certString options:0];;
+    return [[NSData alloc] initWithBase64EncodedString:certString options:0];
 }
 
 @end

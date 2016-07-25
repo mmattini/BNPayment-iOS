@@ -20,6 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+#import <XCTest/XCTest.h>
+
 @interface BNCreditCardEndpointTests : XCTestCase
 
 @property NSString *fileName;
@@ -38,7 +40,6 @@
     [BNPaymentHandler setupWithApiToken:@"T000000000"
                                 baseUrl:nil
                                   debug:YES error:&error];
-    [[BNPaymentHandler sharedInstance] registerAuthenticator:[BNAuthenticator new]];
 }
 
 - (void)setUp {

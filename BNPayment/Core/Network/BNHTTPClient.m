@@ -26,9 +26,6 @@
 #import "BNPaymentHandler.h"
 #import "BNSecurity.h"
 #import "NSString+BNLogUtils.h"
-#import "BNRegistrationEndpoint.h"
-#import "BNAuthenticator.h"
-#import "NSURLRequest+BNAuth.h"
 
 @import QuartzCore;
 
@@ -91,11 +88,7 @@
                                                        endpointUrl:endpointURLString
                                                            success:success
                                                            failure:failure];
-    if(![[BNPaymentHandler sharedInstance] isRegistered]) {
-        [self registerSDKWithPendingTask:dataTask];
-    }else {
-        [dataTask resume];
-    }
+    [dataTask resume];
     
     return dataTask;
     
@@ -111,12 +104,7 @@
                                                        endpointUrl:endpointURLString
                                                            success:success
                                                            failure:failure];
-    
-    if(![[BNPaymentHandler sharedInstance] isRegistered]) {
-        [self registerSDKWithPendingTask:dataTask];
-    }else {
-        [dataTask resume];
-    }
+    [dataTask resume];
     
     return dataTask;
     
@@ -132,11 +120,7 @@
                                                        endpointUrl:endpointURLString
                                                            success:success
                                                            failure:failure];
-    if(![[BNPaymentHandler sharedInstance] isRegistered]) {
-        [self registerSDKWithPendingTask:dataTask];
-    }else {
-        [dataTask resume];
-    }
+    [dataTask resume];
     
     return dataTask;
 }
@@ -151,11 +135,7 @@
                                                   endpointUrl:endpointURLString
                                                           success:success
                                                           failure:failure];
-    if(![[BNPaymentHandler sharedInstance] isRegistered]) {
-        [self registerSDKWithPendingTask:dataTask];
-    }else {
-        [dataTask resume];
-    }
+    [dataTask resume];
     
     return dataTask;
     
@@ -249,32 +229,6 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
     
     if (completionHandler) {
         completionHandler(disposition, credential);
-    }
-}
-
-- (void)registerSDKWithPendingTask:(NSURLSessionDataTask *)pendingTask {
-    if(![pendingTask.originalRequest.URL.path containsString:@"credentials"]) {
-        [self.pendingTasks addObject:pendingTask];
-    }
-    
-    if(!self.registrationOngoing) {
-        self.registrationOngoing = YES;
-        
-        NSURLSessionDataTask *task = [BNRegistrationEndpoint registerWithUser:nil completion:^(BNAuthenticator *authenticator, NSError *error) {
-            if (authenticator) {
-                [[BNPaymentHandler sharedInstance] registerAuthenticator:authenticator];
-            }
-            
-            for(NSURLSessionDataTask *task in self.pendingTasks) {
-                NSURLRequest *newRequest = [task.currentRequest addAuthHeaderWithAuthenticator:authenticator];
-                if(newRequest) {
-                    [task setValue:newRequest forKey:@"currentRequest"];
-                }
-                [task resume];
-            }
-        }];
-        
-        [task resume];
     }
 }
 

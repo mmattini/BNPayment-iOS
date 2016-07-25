@@ -38,8 +38,8 @@
 
 /**
  *  This method is used to determine whether or not the certificate trust is signed by the master X.509 cert.
- *  The method supports functionality to ovveride the master certificate. 
- *  If you choose to ovveride the master cert be sure you know the implications.
+ *  The method supports functionality to override the master certificate.
+ *  If you choose to override the master cert be sure you know the implications.
  *
  *  @param certRef  `SecCertificateRef` to be evaluated
  *  @param secTrust `SecCertificateRef` to evaluate against. Normally not provided.

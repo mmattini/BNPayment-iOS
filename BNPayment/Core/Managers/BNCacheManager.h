@@ -24,11 +24,11 @@
 
 /**
  `BNCacheManager` is a handler made to simplify caching objects.
- `BNPaymentHandler` offers conveniens methods saving and retrieving objects from disk
+ `BNPaymentHandler` offers convenient methods for saving and retrieving objects from disk
  */
 @interface BNCacheManager : NSObject
 
-/** Return `BNCacheManager` shared instance creating it if necessary.
+/** Returns a `BNCacheManager` shared instance, creating it if necessary.
  *
  * @return The shared `BNCacheManager` instance
  */
@@ -49,7 +49,7 @@
  *
  *  @param name `NSString` representing the cache name of the object
  *
- *  @return `NSCoding` compliant class that has been retrieved from the cache of `nil` if not found
+ *  @return `NSCoding` compliant class that has been retrieved from the cache or `nil` if not found
  */
 - (id<NSCoding>)getObjectWithName:(NSString *)name;
 

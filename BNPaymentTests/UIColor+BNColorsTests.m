@@ -1,5 +1,5 @@
 //
-//  BNAuthenticator.h
+//  UIColor+BNColorsTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,27 +20,36 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "BNBaseModel.h"
+#import <XCTest/XCTest.h>
 
-/**
- * `BNAuthenticator` is used for authenticating all request to the backend.
- * Without a registered authenticator you are not authorized to communicate with the backend.
- * A `BNAuthenticator` can either be provided by the SDK user or obtained in the registration process.
- */
-@interface BNAuthenticator : BNBaseModel
+@interface UIColorBNColorsTests : XCTestCase
 
-///------------------------------------------------
-/// @name Properties
-///------------------------------------------------
+@end
 
-/**
- * Shared secret for authentication as a key for the generated HMAC
- */
-@property (strong, nonatomic) NSString *sharedSecret;
+@implementation UIColorBNColorsTests
 
-/**
- * A generated uuid for the app registration
- */
-@property (strong, nonatomic) NSString *uuid;
+- (void)testBNPurpleColor {
+    
+    // Given
+    UIColor *correctColor = [UIColor colorWithRed:102/255.f green:76/255.f blue:142/255.f alpha:1];
+    
+    // When:
+    UIColor *colorFromUIColorBNColors = [UIColor BNPurpleColor];
+    
+    // Then:
+    XCTAssertEqualObjects(correctColor, colorFromUIColorBNColors, "The manually added color (correctColor) should equal the color generated through the UIColor+BNColors category.");
+}
+
+- (void)testBNTextColor {
+    
+    // Given
+    UIColor *correctColor = [UIColor colorWithRed:79/255.f green:83/255.f blue:85/255.f alpha:1];
+    
+    // When:
+    UIColor *colorFromUIColorBNColors = [UIColor BNTextColor];
+    
+    // Then:
+    XCTAssertEqualObjects(correctColor, colorFromUIColorBNColors, "The manually added color (correctColor) should equal the color generated through the UIColor+BNColors category.");
+}
 
 @end

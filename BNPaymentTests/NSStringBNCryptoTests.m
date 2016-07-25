@@ -20,6 +20,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+#import <XCTest/XCTest.h>
+
 @interface NSStringBNCryptoTests : XCTestCase
 
 @property NSData *key;
@@ -52,6 +54,23 @@ static const int KEY_LENGTH = 16;
    
     // Then:
     XCTAssertEqualObjects(self.stringToEncrypt, decryptedString, "The unencrypted value (self.stringToEncrypt) should be equal to the decrypted value (decryptedString).");
+}
+
+
+- (void)testAES128EncryptWithKeyNegativeTest {
+    uint8_t bytes[0];
+    NSData *invalidKey = [NSData dataWithBytes:bytes length:sizeof(bytes)];
+    
+    NSString *encryptedString = [self.stringToEncrypt AES128EncryptWithKey:invalidKey];
+    XCTAssertNil(encryptedString);
+}
+
+
+- (void)testAES128DecryptWithKeyNegativeTest {
+    uint8_t bytes[0];
+    NSData *invalidKey = [NSData dataWithBytes:bytes length:sizeof(bytes)];
+    NSString *decryptedString = [self.stringToEncrypt AES128DecryptWithKey:invalidKey];
+    XCTAssertNil(decryptedString);
 }
 
 - (void)tearDown {

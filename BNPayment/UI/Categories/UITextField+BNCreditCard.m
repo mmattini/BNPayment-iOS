@@ -81,7 +81,7 @@ static NSString *const ExpiryRegex = @"^(0[1-9]|1[0-2])\\/?([0-9]{4}|[0-9]{2})$"
 }
 
 - (BOOL)isMasterCardNumber:(NSString *)cardNumber {
-    return [self regexPattern:MasterCardRegex matchesString:cardNumber];;
+    return [self regexPattern:MasterCardRegex matchesString:cardNumber];
 }
 
 - (BOOL)regexPattern:(NSString *)pattern matchesString:(NSString *)string {

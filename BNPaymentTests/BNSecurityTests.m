@@ -20,9 +20,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <BNPayment/BNPayment.h>
-
-@import XCTest;
+#import <XCTest/XCTest.h>
 
 @interface BNSecurityTests : XCTestCase
 
@@ -166,7 +164,7 @@
     // When:
     BOOL isServerTrusted = [_security evaluateServerTrust:nil
                                                 forDomain:nil];
-    
+
     // Then:
     XCTAssertFalse(isServerTrusted, "Should not accept nil value for SecTrust and domain.");
 }
@@ -185,28 +183,28 @@
     XCTAssertTrue(isServerTrusted, "Should be able to ovveride default pinned certificates.");
     
     /********/
-    
+
     // Given:
     overrideCerts = @[_invalidSelfSignedCertData];
-    
+
     // When:
     [_security overridePinnedCerts:overrideCerts];
     isServerTrusted = [_security evaluateServerTrust:_validSecTrust
                                            forDomain:@"ironpoodle.zebragiraffe.net"];
-    
+
     // Then
     XCTAssertFalse(isServerTrusted, "Should be able to ovveride default pinned certificates.");
-    
+
     /********/
-    
+
     // If:
     overrideCerts = @[_validCertData];
-    
+
     // When:
     [_security overridePinnedCerts:overrideCerts];
     isServerTrusted = [_security evaluateServerTrust:_validSecTrust
                                            forDomain:@"ironpoodle.zebragiraffe.net"];
-    
+
     // Then:
     XCTAssertTrue(isServerTrusted, "Should be able to ovveride default pinned certificates.");
 }
@@ -241,9 +239,19 @@
     XCTAssertFalse(isValidCert, "Should not accept a certificate which is not signed by CA.");
 }
 
+- (void)testMasterCertificateValidationWithoutCertificate {
+
+    // When:
+    BOOL isValidCert = [BNSecurity evaluateCert:nil
+                                     masterCert:_caCertRef];
+
+    // Then:
+    XCTAssertFalse(isValidCert, "Should not accept the fact that no certificate has been provided.");
+}
+
 - (void)tearDown {
     [super tearDown];
- 
+
     _security = nil;
     CFRelease(_invalidSelfSignedSecTrust);
     CFRelease(_validSecTrust);

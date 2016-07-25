@@ -1,5 +1,5 @@
 //
-//  NSURLRequest+BNAuth.h
+//  BNCertUtilsTests.m
 //  Copyright (c) 2016 Bambora ( http://bambora.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,12 +20,22 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 
-@class BNAuthenticator;
+@interface BNCertUtilsTests : XCTestCase
 
-@interface NSURLRequest (BNAuth)
+@end
 
-- (NSURLRequest *)addAuthHeaderWithAuthenticator:(BNAuthenticator *)authenticator;
+@implementation BNCertUtilsTests
+
+- (void)testGetCertificateRefFromDataUsingNilAsInput {
+    
+    // When:
+    SecCertificateRef certificateReference = [BNCertUtils getCertificateRefFromData:nil];
+    
+    // Then:
+    XCTAssertNil(CFBridgingRelease(certificateReference), "The certificateReference should be nil because nil was used in its creation.");
+    
+}
 
 @end

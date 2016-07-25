@@ -23,10 +23,9 @@
 @import Foundation;
 
 /**
- *  `BNHTTPRequestSerializer` is a class that exents `NSObject`.
+ *  `BNHTTPRequestSerializer` is a class that extends `NSObject`.
  *  `BNHTTPRequestSerializer` only supports JSON serialization at the moment.
- *  `BNHTTPRequestSerializer` will add the Api-Token and auth header to the request
- *  if a `BNAuthenticator` is registered in the `BNPaymentHandler`.
+ *  `BNHTTPRequestSerializer` will add the Merchant Account or Api-Token to the request
  */
 @interface BNHTTPRequestSerializer : NSObject
 
@@ -34,7 +33,7 @@
  *  Creates an `NSURLRequest` object with the specified HTTP method and URL string.
  *
  *  @param method     The HTTP method for this `NSURLRequest`. [GET, POST, PUT, DELETE]
- *  @param URLString  The URL to the enpoint which will be appended to the base URL.
+ *  @param URLString  The URL to the endpoint which will be appended to the base URL.
  *  @param parameters A dictionary of params to be added to the request.
  *  @param error      An error showing possible errors while creating the request.
  *
