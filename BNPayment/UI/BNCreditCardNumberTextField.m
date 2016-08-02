@@ -27,6 +27,8 @@
 
 NSString *visaLogoImageName = @"VisaLogo";
 NSString *masterCardLogoImageName = @"MasterCardLogo";
+NSString *amexLogoImageName = @"AmexLogo";
+NSString *dinersClubLogoImageName = @"DinersClubLogo";
 
 @interface BNCreditCardNumberTextField () <UITextFieldDelegate>
 
@@ -102,6 +104,16 @@ NSString *masterCardLogoImageName = @"MasterCardLogo";
                                         fromBundle:[NSBundle bundleForClass:self.class]];
     }
     
+    if([self isAmexCardNumber:self.text]) {
+        cardLogoImage = [UIImage loadImageWithName:amexLogoImageName
+                                        fromBundle:[NSBundle bundleForClass:self.class]];
+    }
+    
+    if([self isDinersClubCardNumber:self.text]) {
+        cardLogoImage = [UIImage loadImageWithName:dinersClubLogoImageName
+                                        fromBundle:[NSBundle bundleForClass:self.class]];
+    }
+    
     self.imageView.image = cardLogoImage;
 }
 
@@ -120,14 +132,30 @@ NSString *masterCardLogoImageName = @"MasterCardLogo";
     NSString *numberString = [self removeNonDigits:textField.text
                         andPreserveCursorPosition:&cursorPosition];
     
-    if ([numberString length] > 16) {
+    
+    NSString *formattedString = @"";
+    NSUInteger maxLength = 16;
+    
+    if ([self isAmexCardNumber:numberString]){
+        maxLength = 15;
+        formattedString = [self addSpacesAmexDiners:numberString
+                                     cursorPosition:&cursorPosition];
+    }
+    else if ([self isDinersClubCardNumber:numberString]){
+        maxLength = 14;
+        formattedString = [self addSpacesAmexDiners:numberString
+                                     cursorPosition:&cursorPosition];
+    }
+    else {
+        formattedString = [self addSpaces:numberString
+                                     cursorPosition:&cursorPosition];
+    }
+    
+    if ([numberString length] > maxLength) {
         [textField setText:oldText];
         textField.selectedTextRange = oldSelection;
         return;
     }
-    
-    NSString *formattedString = [self addSpaces:numberString
-                                 cursorPosition:&cursorPosition];
     
     textField.text = formattedString;
     UITextPosition *targetPosition =
@@ -177,6 +205,37 @@ NSString *masterCardLogoImageName = @"MasterCardLogo";
 
         NSInteger iPlus1 = i+1;
         if ((i > 0) && (iPlus1 % 4) == 0 && i < 15) {
+            [stringWithAddedSpaces appendString:@" "];
+            if (i < *cursorPosition) {
+                (*cursorPosition)++;
+            }
+        }
+    }
+    
+    return stringWithAddedSpaces;
+}
+
+- (NSString *)addSpacesAmexDiners:(NSString *)string
+         cursorPosition:(NSUInteger *)cursorPosition{
+    
+    NSMutableString *stringWithAddedSpaces = [NSMutableString new];
+    
+    for (NSUInteger i=0; i<[string length]; i++)
+    {
+        unichar characterToAdd = [string characterAtIndex:i];
+        NSString *stringToAdd =
+            [NSString stringWithCharacters:&characterToAdd length:1];
+        
+        [stringWithAddedSpaces appendString:stringToAdd];
+        
+        if (i == 3) {
+            [stringWithAddedSpaces appendString:@" "];
+            if (i < *cursorPosition) {
+                (*cursorPosition)++;
+            }
+            
+        }
+        if (i == 9){
             [stringWithAddedSpaces appendString:@" "];
             if (i < *cursorPosition) {
                 (*cursorPosition)++;

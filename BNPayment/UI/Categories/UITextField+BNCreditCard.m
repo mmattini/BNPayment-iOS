@@ -25,14 +25,15 @@
 
 static NSString *const VisaRegex = @"^4";
 static NSString *const MasterCardRegex = @"^5[1-5]";
-static NSString *const CreditCardRegex =
-@"^(?:4[0-9]{12}(?:[0-9]{3})?"      //VISA
-"|  5[1-5][0-9]{14}"                //MasterCard
-"|  3[47][0-9]{13}"                 //American Express
-"|  3(?:0[0-5]|[68][0-9])[0-9]{11}" //Diners Club
-"|  6(?:011|5[0-9]{2})[0-9]{12}"    //Discover
-"|  (?:2131|1800|35\\d{3})\\d{11}"  //JCB
-")$";
+static NSString *const AmexRegex = @"^3[4,7]";
+static NSString *const DinersClubRegex = @"^3[0,6,8]";
+NSString *const CreditCardRegex =
+@"^4(?:[0-9]{15})$"                     //Visa
+"|^5(?:[0-9]{15})$"                     //MasterCard
+"|^3(?:[0-9]{15})$"                     //JCB
+"|^6(?:[0-9]{15})$"                     //Discover
+"|^3(?:[47][0-9]{13})$"                 //AmEx
+"|^3(?:0[0-5]|[68][0-9])[0-9]{11}$";    //Diners Club
 
 static NSString *const CVCRegex = @"^[0-9]{3,4}$";
 static NSString *const ExpiryRegex = @"^(0[1-9]|1[0-2])\\/?([0-9]{4}|[0-9]{2})$";
@@ -82,6 +83,14 @@ static NSString *const ExpiryRegex = @"^(0[1-9]|1[0-2])\\/?([0-9]{4}|[0-9]{2})$"
 
 - (BOOL)isMasterCardNumber:(NSString *)cardNumber {
     return [self regexPattern:MasterCardRegex matchesString:cardNumber];
+}
+
+- (BOOL)isAmexCardNumber:(NSString *)cardNumber {
+    return [self regexPattern:AmexRegex matchesString:cardNumber];
+}
+
+- (BOOL)isDinersClubCardNumber:(NSString *)cardNumber {
+    return [self regexPattern:DinersClubRegex matchesString:cardNumber];
 }
 
 - (BOOL)regexPattern:(NSString *)pattern matchesString:(NSString *)string {

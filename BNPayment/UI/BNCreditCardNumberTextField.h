@@ -24,4 +24,11 @@
 
 @interface BNCreditCardNumberTextField : BNBaseTextField
 
+- (NSString *)removeNonDigits:(NSString *)string
+    andPreserveCursorPosition:(NSUInteger *)cursorPosition;
+- (NSString *)addSpaces:(NSString *)string
+         cursorPosition:(NSUInteger *)cursorPosition;
+- (NSString *)addSpacesAmexDiners:(NSString *)string
+                   cursorPosition:(NSUInteger *)cursorPosition;
+
 @end

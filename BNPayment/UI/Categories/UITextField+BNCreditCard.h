@@ -24,6 +24,8 @@
 
 @interface UITextField (BNCreditCard)
 
+extern NSString *const CreditCardRegex;
+
 /**
  *  A method for applying default style to UITextField
  */
@@ -61,17 +63,31 @@
 - (BOOL)validExpiryDate;
 
 /**
- *  Check if input is a visa card.
+ *  Check if input is a Visa card.
  *
  *  @return `BOOL` indicating whether or not input represents VISA card.
  */
 - (BOOL)isVisaCardNumber:(NSString *)cardNumber;
 
 /**
- *  Check if input is a visa card.
+ *  Check if input is a MasterCard card.
  *
  *  @return `BOOL` indicating whether or not input represents MasterCard.
  */
 - (BOOL)isMasterCardNumber:(NSString *)cardNumber;
+
+/**
+ *  Check if input is an Amex card.
+ *
+ *  @return `BOOL` indicating whether or not input represents Amex.
+ */
+- (BOOL)isAmexCardNumber:(NSString *)cardNumber;
+
+/**
+ *  Check if input is a Diners Club card.
+ *
+ *  @return `BOOL` indicating whether or not input represents Diners Club.
+ */
+- (BOOL)isDinersClubCardNumber:(NSString *)cardNumber;
 
 @end
