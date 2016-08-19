@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSError *error;
-    [BNPaymentHandler setupWithMerchantAccount:@"Enter merchant token here"
+    [BNPaymentHandler setupWithMerchantAccount:@"T638003301" // This is a public test merchant number which should be replaced once you have your own.
                                        baseUrl:nil
                                          debug:YES
                                          error:&error];

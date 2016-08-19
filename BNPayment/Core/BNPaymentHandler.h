@@ -63,30 +63,22 @@ typedef void (^BNCreditCardRegistrationUrlBlock)(NSString *url, NSError *error);
 /// @name Setting up handler and access `BNPaymentHandler` instance
 ///------------------------------------------------
 
-
-/** Setup `BNPaymentHandler` with the common values.
+/** 
+ *  Setup `BNPaymentHandler` with an APIToken.
  *
- * Sets up `BNPaymentHandler` with the common values
+ *  Sets up `BNPaymentHandler` with an APIToken that will be used
+ *  to authenticate the application to the back end.
  *
- * @param error Possible error that can occur during initialization
- */
-+ (void)setupCommon:(NSString *)baseUrl
-                    debug:(BOOL)debug;
-
-/** Setup `BNPaymentHandler` with an APIToken.
- *
- * Sets up `BNPaymentHandler` with an APIToken that will be used
- * to authenticate the application to the back end.
- *
- * @param apiToken Api-token to be used
- * @param error Possible error that can occur during initialization
+ *  @param apiToken Api-token to be used
+ *  @param error Possible error that can occur during initialization
  */
 + (BOOL)setupWithApiToken:(NSString *)apiToken
                   baseUrl:(NSString *)baseUrl
                     debug:(BOOL)debug
                     error:(NSError **)error;
 
-/** Setup `BNPaymentHandler` with a Merchant Account.
+/** 
+ * Setup `BNPaymentHandler` with a Merchant Account.
  *
  * Sets up `BNPaymentHandler` with a Merchant Account that will be
  * used to authenticate the application to the back end.
