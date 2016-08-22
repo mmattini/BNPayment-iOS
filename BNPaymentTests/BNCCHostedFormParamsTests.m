@@ -30,16 +30,21 @@
 
 - (void)testhostedFormParamsWithCSS {
     
+    // Given:
+    NSString *cssURL = @"stylesheet.css";
+    NSString *submitText = @"submit";
+    
     // When:
-    BNCCHostedFormParams *parameters = [BNCCHostedFormParams hostedFormParamsWithCSS:@"stylesheet.css"
+    BNCCHostedFormParams *parameters = [BNCCHostedFormParams hostedFormParamsWithCSS:cssURL
                                                    cardNumberPlaceholder:@"Card number"
                                                        expiryPlaceholder:@"Expiration"
                                                           cvvPlaceholder:@"CVV"
-                                                            submitText:@"Submit"];
+                                                            submitText:submitText];
     
     // Then:
-    XCTAssert([parameters.cssURL isEqualToString:@"stylesheet.css"], "The value of parameters.cssURL should have been stylesheet.css.");
-    XCTAssert([parameters.submitButtonText isEqualToString:@"Submit"], "The value of submitButtonText should have been Submit.");
+    XCTAssert([parameters.cssURL isEqualToString:cssURL], "The value of parameters.cssURL should have been stylesheet.css.");
+    XCTAssert([parameters.submitButtonText isEqualToString:submitText], "The value of submitButtonText should have been Submit.");
+    XCTAssert(parameters.inputGroups.count == 3, "The input group count should be 3");
 }
 
 @end

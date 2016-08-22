@@ -36,17 +36,6 @@ static const int KEY_LENGTH = 16;
 - (void)setUp {
     [super setUp];
 
-    // NSString *validCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"validSelfSignedCert" ofType:@"cer"];
-    // NSData *certData = [NSData dataWithContentsOfFile:validCertPath];
-
-    /*
-    BNEncryptionCertificate *cert = [BNEncryptionCertificate new];
-    cert.base64Representation = [certData base64EncodedStringWithOptions:0];
-    cert.fingerprint = []
-    
-    [[BNCertManager sharedInstance] replaceEncryptionCertificates:@[cert]];
-
-     */
     uint8_t key[KEY_LENGTH] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
     self.key = [NSData dataWithBytes:key length:sizeof(key)];
     self.cardToEncrypt = [BNCreditCard new];
@@ -65,7 +54,7 @@ static const int KEY_LENGTH = 16;
 
 
 - (void)testJSONMappingDictionary {
-
+    
     // Given:
     NSDictionary *correctDictionary = @{
                                         @"cardDetails" : @"encryptedCard",
@@ -78,12 +67,25 @@ static const int KEY_LENGTH = 16;
     
     // Then:
     XCTAssertEqualObjects(correctDictionary, dictionaryFromBNRegisterCCParams, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the BNRegisterCCParams class.");
-    
+
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"cardDetails" : @"encryptedCard",
+                                        @"binNumber" : @"binNumber",
+                                        @"encryptedSessionKeys" : @"encryptedSessionKeys",
+                                        @"wasd" : @"wasd"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNRegisterCCParams = [BNRegisterCCParams JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromBNRegisterCCParams, "The manually added dictionary (incorrectDictionary) should not equal the dictionary generated through the BNRegisterCCParams class.");
+    
 }
 
 @end

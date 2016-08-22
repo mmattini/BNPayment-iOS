@@ -32,17 +32,28 @@
 - (void)testPaymentParamsWithId {
     
     // Given:
-    NSNumber *amount = [NSNumber numberWithInt:100];
-
+    NSString *identifier = @"identifier";
+    NSString *currency = @"currency";
+    NSNumber *amount = @100;
+    NSString *token = @"token";
+    NSString *comment = @"comment";
+    
+    BNPaymentParams *correctObject = [BNPaymentParams new];
+    correctObject.paymentIdentifier = identifier;
+    correctObject.currency = currency;
+    correctObject.amount = amount;
+    correctObject.token = token;
+    correctObject.comment = comment;
+    
     // When:
-    NSObject *paymentParameters = [BNPaymentParams paymentParamsWithId:@"Identifier"
-                                                            currency:@"SEK"
-                                                              amount:amount
-                                                               token:@"token"
-                                                             comment:@"Comment"];
+    BNPaymentParams *paymentParameters = [BNPaymentParams paymentParamsWithId:identifier
+                                                                     currency:currency
+                                                                       amount:amount
+                                                                        token:token
+                                                                      comment:comment];
     
     // Then:
-    XCTAssert([paymentParameters isKindOfClass:[BNPaymentParams class]], "The paymentParapeters object should be an instance of the BNPaymentParams class.");
+    XCTAssertEqualObjects(correctObject, paymentParameters, "The corret payment params should be equal to the paymentParameters variable created with helper method.");
 }
 
 @end

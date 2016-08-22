@@ -48,6 +48,27 @@
     XCTAssertEqualObjects(correctDictionary, dictionaryFromEPAYHostedFormStateChange, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the EPAYHostedFormStateChange class.");
 }
 
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"meta": @"meta",
+                                        @"truncatedCardNumber": @"truncatedcardnumber",
+                                        @"expiryMonth": @"expmonth",
+                                        @"expiryYear": @"expyear",
+                                        @"paymentType": @"paymenttype",
+                                        @"subscriptionId": @"subscriptionid",
+                                        @"wasd" : @"wasd"
+                                        };
+    
+    
+    // When:
+    NSDictionary *dictionaryFromEPAYHostedFormStateChange = [EPAYHostedFormStateChange JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromEPAYHostedFormStateChange, "The manually added dictionary (correctDictionary) should not equal the dictionary generated through the EPAYHostedFormStateChange class.");
+}
+
 - (void)testGenerateAuthorizedCard {
     
     // Given:

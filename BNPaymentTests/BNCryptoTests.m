@@ -85,10 +85,7 @@
 }
 
 - (void)testRSADecryptDataNegativeTest {
-    
-    NSData *encryptedData = [[NSData alloc] initWithBase64EncodedString:@"" options:0];
-
-    NSData *decryptedData = [BNCrypto RSADecryptData:encryptedData key:nil];
+    NSData *decryptedData = [BNCrypto RSADecryptData:nil key:nil];
 
     XCTAssertNil(decryptedData, "The decryptedData object should be nil.");
 }

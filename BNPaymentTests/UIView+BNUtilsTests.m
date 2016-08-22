@@ -33,7 +33,6 @@
     // Given:
     UIButton *button = [UIButton new];
     
-    
     // When:
     [button setYoffset:5];
     
@@ -48,7 +47,6 @@
     // Given:
     UIButton *button = [UIButton new];
     
-    
     // When:
     [button setXoffset:5];
     
@@ -62,7 +60,6 @@
     // Given:
     UIButton *button = [UIButton new];
     
-    
     // When:
     [button setHeight:5];
     
@@ -75,8 +72,7 @@
     
     // Given:
     UIButton *button = [UIButton new];
-    
-    
+
     // When:
     [button setWidth:5];
     

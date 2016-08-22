@@ -43,4 +43,21 @@
     
 }
 
+
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"enduser": @"enduser",
+                                        @"merchant": @"merchant",
+                                        @"wasd" : @"wasd"
+                                        };
+    // When:
+    NSDictionary *dictionaryFromEPAYMessage = [EPAYMessage JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromEPAYMessage, "The manually added dictionary (correctDictionary) should not equal the dictionary generated through the EPAYMessage class.");
+    
+}
+
 @end

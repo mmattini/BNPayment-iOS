@@ -35,7 +35,7 @@
                                         @"reference" : @"reference",
                                         @"email" : @"email",
                                         @"phoneNumber" : @"phone_number",
-                                        @"name" : @"name",
+                                        @"name" : @"name"
                                         };
     
     // When:
@@ -43,6 +43,25 @@
     
     // Then:
     XCTAssertEqualObjects(correctDictionary, dictionaryFromBNUser, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the BNUser class.");
+    
+}
+
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                          @"reference" : @"reference",
+                                          @"email" : @"email",
+                                          @"phoneNumber" : @"phone_number",
+                                          @"name" : @"name",
+                                          @"wasd" : @"wasd"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNUser = [BNUser JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromBNUser, "The manually added dictionary (correctDictionary) should not equal the dictionary generated through the BNUser class.");
     
 }
 

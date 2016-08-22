@@ -45,4 +45,22 @@
     
 }
 
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"action": @"action",
+                                        @"message": @"message",
+                                        @"result": @"result",
+                                        @"wasd" : @"wasd"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromEPAYMetaResponse = [EPAYMetaResponse JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromEPAYMetaResponse, "The manually added dictionary (correctDictionary) should equal the dictionary generated through the EPAYMetaResponse class.");
+    
+}
+
 @end

@@ -45,4 +45,22 @@
     
 }
 
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"code": @"code",
+                                        @"source": @"source",
+                                        @"type": @"type",
+                                        @"wasd" : @"wasd"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromEPAYAction = [EPAYAction JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromEPAYAction, "The manually added dictionary (correctDictionary) should not equal the dictionary generated through the EPAYAction class.");
+    
+}
+
 @end
