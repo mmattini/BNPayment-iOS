@@ -46,4 +46,24 @@
     
 }
 
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"status" : @"status",
+                                        @"title" : @"title",
+                                        @"detail" : @"detail",
+                                        @"type" : @"type",
+                                        @"wasd" : @"wasd"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNErrorResponse = [BNErrorResponse JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromBNErrorResponse, "The manually added dictionary (correctDictionary) should not be equal to the dictionary generated through the BNErrorResponse class.");
+    
+}
+
+
 @end

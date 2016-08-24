@@ -58,23 +58,20 @@ static const int KEY_LENGTH = 16;
 
 
 - (void)testAES128EncryptWithKeyNegativeTest {
-    uint8_t bytes[0];
-    NSData *invalidKey = [NSData dataWithBytes:bytes length:sizeof(bytes)];
+    // When:
+    NSString *encryptedString = [self.stringToEncrypt AES128EncryptWithKey:nil];
     
-    NSString *encryptedString = [self.stringToEncrypt AES128EncryptWithKey:invalidKey];
+    // Then:
     XCTAssertNil(encryptedString);
 }
 
 
 - (void)testAES128DecryptWithKeyNegativeTest {
-    uint8_t bytes[0];
-    NSData *invalidKey = [NSData dataWithBytes:bytes length:sizeof(bytes)];
-    NSString *decryptedString = [self.stringToEncrypt AES128DecryptWithKey:invalidKey];
+    // When:
+    NSString *decryptedString = [self.stringToEncrypt AES128DecryptWithKey:nil];
+    
+    // Then:
     XCTAssertNil(decryptedString);
-}
-
-- (void)tearDown {
-    [super tearDown];
 }
 
 @end

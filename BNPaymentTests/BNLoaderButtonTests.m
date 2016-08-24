@@ -34,18 +34,38 @@
     BNLoaderButton *loaderButton = [BNLoaderButton new];
 
     // When:
-    [loaderButton setLoading:true];
-    [loaderButton setLoading:false];
+    [loaderButton setLoading:YES];
+
+    // Then:
+    XCTAssert(!loaderButton.enabled);
+    
+
+}
+
+- (void)testSetNotLoading {
+    
+    // Given:
+    BNLoaderButton *loaderButton = [BNLoaderButton new];
+
+    // When:
+    [loaderButton setLoading:NO];
+    
+    // Then:
+    XCTAssert(loaderButton.enabled);
 }
 
 - (void)testDrawRect {
 
     // Given:
     BNLoaderButton *loaderButton = [BNLoaderButton new];
-
+    CGRect originalFrame = loaderButton.frame;
+    
     // When:
     CGRect rectangle = CGRectMake(0.0, 0.0, 50.0, 100.0);
     [loaderButton drawRect:rectangle];
+    
+    // Then:
+    XCTAssert(!CGRectEqualToRect(originalFrame, rectangle));
 
 }
 

@@ -43,24 +43,19 @@
 
 }
 
-- (void)testGenerateSHA256HMACUsingEmptyStrings {
-
-    // Given:
-    NSString *emptyString = @"";
-
+- (void)testGenerateSHA256HMACUsingNil {
     // When:
     NSString *resultFromsha256HMAC = [BNUtils sha256HMAC:nil key:nil];
 
     // Then:
-    XCTAssert([resultFromsha256HMAC isEqualToString:emptyString], "The variable resultFromsha256HMAC should contain an empty string.");
+    XCTAssert([resultFromsha256HMAC isEqualToString:@""], "The variable resultFromsha256HMAC should contain an empty string.");
 }
 
 - (void)testsha1 {
 
     // Given:
-    NSString *expectedFingerprint = @"DA39A3EE5E6B4B0D3255BFEF95601890AFD80709";
-    NSArray *certificatePaths = [[NSBundle bundleForClass:BNCertManager.class] pathsForResourcesOfType:@"cer" inDirectory:@"."];
-    NSString *certificatePath = [certificatePaths objectAtIndex:0];
+    NSString *expectedFingerprint = @"233D86121459A53CB60BE33852EA7F18C117990A";
+    NSString *certificatePath = [[NSBundle bundleForClass:self.class] pathForResource:@"iosTestCert" ofType:@"pem"];
 
     // When:
     NSError *error;

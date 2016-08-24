@@ -28,7 +28,7 @@
 
 @implementation UIImageBNUtilsTests
 
-- (void)testsetYoffset {
+- (void)testLoadImageFromBundle {
     
     // Given:
     UIImage *image;

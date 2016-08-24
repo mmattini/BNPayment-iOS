@@ -60,9 +60,11 @@
     XCTAssertTrue([[self.handler getHttpClient] isKindOfClass:[BNHTTPClient class]], "The HTTP client should be an object of the BNHTTPClient class.");
 }
 
+
 - (void)tearDown {
     [super tearDown];
     self.handler = nil;
 }
+
 
 @end

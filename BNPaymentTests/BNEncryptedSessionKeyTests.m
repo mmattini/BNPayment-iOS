@@ -44,4 +44,21 @@
     
 }
 
+- (void)testIncorrectJSONMappingDictionary {
+    
+    // Given:
+    NSDictionary *incorrectDictionary = @{
+                                        @"fingerprint" : @"fingerprint",
+                                        @"sessionKey" : @"sessionKey",
+                                        @"wasd" : @"wasd"
+                                        };
+    
+    // When:
+    NSDictionary *dictionaryFromBNEncryptedSessionKey = [BNEncryptedSessionKey JSONMappingDictionary];
+    
+    // Then:
+    XCTAssertNotEqualObjects(incorrectDictionary, dictionaryFromBNEncryptedSessionKey, "The manually added dictionary (correctDictionary) should not be equal to the dictionary generated through the BNEncryptedSessionKey class.");
+    
+}
+
 @end
