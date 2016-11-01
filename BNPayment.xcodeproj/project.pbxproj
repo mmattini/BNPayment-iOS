@@ -149,6 +149,9 @@
 		5DA20CA41CFC4AD9007B2361 /* validCACert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C9D1CFC4AD9007B2361 /* validCACert.cer */; };
 		5DA20CA51CFC4AD9007B2361 /* validExpiredSelfSignedCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C9E1CFC4AD9007B2361 /* validExpiredSelfSignedCert.cer */; };
 		5DA20CA61CFC4AD9007B2361 /* validSelfSignedCert.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5DA20C9F1CFC4AD9007B2361 /* validSelfSignedCert.cer */; };
+		8FBFD2E31D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFD2E21D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m */; };
+		8FC3884E1D5C636800170637 /* DinersClubLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC3884C1D5C636800170637 /* DinersClubLogo@2x.png */; };
+		8FC3884F1D5C636800170637 /* AmexLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC3884D1D5C636800170637 /* AmexLogo@2x.png */; };
 		B2135C031D59DE2900D79E8D /* BNRegisterCCParamsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C021D59DE2900D79E8D /* BNRegisterCCParamsTests.m */; };
 		B2135C081D59E40400D79E8D /* UITextField+BNCreditCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C071D59E40400D79E8D /* UITextField+BNCreditCardTests.m */; };
 		B2135C0A1D5A086800D79E8D /* BNLoaderButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2135C091D5A086800D79E8D /* BNLoaderButtonTests.m */; };
@@ -167,9 +170,7 @@
 		B272E86D1D59D37C0054B5DA /* BNErrorResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B272E86C1D59D37C0054B5DA /* BNErrorResponseTests.m */; };
 		B2E709C31D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E709C21D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m */; };
 		B2E709C61D5CA6D20010AC28 /* BNPaymentParamsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E709C51D5CA6D20010AC28 /* BNPaymentParamsTests.m */; };
-		8FBFD2E31D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFD2E21D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m */; };
-		8FC3884E1D5C636800170637 /* DinersClubLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC3884C1D5C636800170637 /* DinersClubLogo@2x.png */; };
-		8FC3884F1D5C636800170637 /* AmexLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FC3884D1D5C636800170637 /* AmexLogo@2x.png */; };
+		FA77A8D81DCA05C6002EB943 /* 32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = FA77A8D71DCA05C6002EB943 /* 32x32.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,6 +358,9 @@
 		5DAABF031CB69B0200CEDB91 /* BNPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAABF5B1CB69C7F00CEDB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
 		8F8797521D4B8FF600308CA5 /* BNPayment-Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "BNPayment-Example.xcodeproj"; path = "Example/BNPayment-Example.xcodeproj"; sourceTree = "<group>"; };
+		8FBFD2E21D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCardNumberTextFieldTests.m; sourceTree = "<group>"; };
+		8FC3884C1D5C636800170637 /* DinersClubLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DinersClubLogo@2x.png"; sourceTree = "<group>"; };
+		8FC3884D1D5C636800170637 /* AmexLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AmexLogo@2x.png"; sourceTree = "<group>"; };
 		B2135C021D59DE2900D79E8D /* BNRegisterCCParamsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRegisterCCParamsTests.m; sourceTree = "<group>"; };
 		B2135C071D59E40400D79E8D /* UITextField+BNCreditCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BNCreditCardTests.m"; sourceTree = "<group>"; };
 		B2135C091D5A086800D79E8D /* BNLoaderButtonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNLoaderButtonTests.m; sourceTree = "<group>"; };
@@ -375,9 +379,7 @@
 		B272E86C1D59D37C0054B5DA /* BNErrorResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNErrorResponseTests.m; sourceTree = "<group>"; };
 		B2E709C21D5CA6160010AC28 /* EPAYHostedFormStateChangeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPAYHostedFormStateChangeTests.m; sourceTree = "<group>"; };
 		B2E709C51D5CA6D20010AC28 /* BNPaymentParamsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNPaymentParamsTests.m; sourceTree = "<group>"; };
-		8FBFD2E21D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNCreditCardNumberTextFieldTests.m; sourceTree = "<group>"; };
-		8FC3884C1D5C636800170637 /* DinersClubLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DinersClubLogo@2x.png"; sourceTree = "<group>"; };
-		8FC3884D1D5C636800170637 /* AmexLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AmexLogo@2x.png"; sourceTree = "<group>"; };
+		FA77A8D71DCA05C6002EB943 /* 32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32x32.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,7 +628,6 @@
 				B272E8541D59CD400054B5DA /* BNBundleUtilsTests.m */,
 				B2135C0D1D5A730B00D79E8D /* BNCCHostedFormParamsTests.m */,
 				B272E8581D59CDCD0054B5DA /* BNCertUtilsTests.m */,
-				5D69A6551CE0D43B00A573EE /* BNCreditCardEndpointTests.m */,
 				5D428B0E1CFC6D4600CCD86D /* BNCreditCardTests.m */,
 				5DA20C911CFC4A6B007B2361 /* BNCryptoTests.m */,
 				5D69A6561CE0D43B00A573EE /* BNDateUtilsTests.m */,
@@ -636,16 +637,12 @@
 				B2135C0B1D5A0E6700D79E8D /* BNHostedRegistrationFormFooterTests.m */,
 				5DA20C951CFC4A87007B2361 /* BNKeyManagerTests.m */,
 				B2135C091D5A086800D79E8D /* BNLoaderButtonTests.m */,
-				5D69A6581CE0D43B00A573EE /* BNPaymentEndpointTests.m */,
-				5D69A6591CE0D43B00A573EE /* BNPaymentHandlerTests.m */,
-				5D69A65A1CE0D43B00A573EE /* BNPaymentTests.pch */,
 				B2E709C51D5CA6D20010AC28 /* BNPaymentParamsTests.m */,
 				B2135C021D59DE2900D79E8D /* BNRegisterCCParamsTests.m */,
 				5D69A6551CE0D43B00A573EE /* BNCreditCardEndpointTests.m */,
 				8FBFD2E21D58A0490063E790 /* BNCreditCardNumberTextFieldTests.m */,
 				5D69A6581CE0D43B00A573EE /* BNPaymentEndpointTests.m */,
 				5D69A6591CE0D43B00A573EE /* BNPaymentHandlerTests.m */,
-				5D69A65A1CE0D43B00A573EE /* BNPaymentTests.pch */,
 				5D69A65C1CE0D43B00A573EE /* BNSecurityTests.m */,
 				5D69A65E1CE0D43B00A573EE /* BNTestModel.m */,
 				5D69A65F1CE0D43B00A573EE /* BNTestModelUnitTests.m */,
@@ -733,6 +730,7 @@
 		5D69A6761CE0D43B00A573EE /* TestAssets */ = {
 			isa = PBXGroup;
 			children = (
+				FA77A8D71DCA05C6002EB943 /* 32x32.png */,
 				5DA20C991CFC4AD9007B2361 /* invalidSelfSignedCert.cer */,
 				5DA20C9A1CFC4AD9007B2361 /* iosTestCert.cer */,
 				5DA20C9B1CFC4AD9007B2361 /* iosTestCert.pem */,
@@ -1007,6 +1005,7 @@
 			files = (
 				5D7B2A291D09A3E0001A6F3D /* encryptionCertificatesSuccessExtraParams.json in Resources */,
 				5D7B2A281D09A3E0001A6F3D /* encryptionCertificatesSuccess.json in Resources */,
+				FA77A8D81DCA05C6002EB943 /* 32x32.png in Resources */,
 				5D7B2A2A1D09A3E0001A6F3D /* nativeCCSuccess.json in Resources */,
 				5DA20CA11CFC4AD9007B2361 /* iosTestCert.cer in Resources */,
 				5D69A6991CE0D43B00A573EE /* authorizePaymentSuccessExtraParams.json in Resources */,
