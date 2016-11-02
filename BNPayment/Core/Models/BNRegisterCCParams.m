@@ -27,6 +27,8 @@
 #import "BNEncryptionCertificate.h"
 #import "BNEncryptedSessionKey.h"
 
+const NSInteger BNRegisterCCParamsKeyLength = 16;
+
 @interface BNRegisterCCParams ()
 
 @property (nonatomic, strong) BNCreditCard *cardDetails;
@@ -47,15 +49,15 @@
 
 - (instancetype)initWithCreditCard:(BNCreditCard *)creditCard {
     self = [super init];
-    if(self) {
+    NSData *sessionKey = [BNCrypto generateRandomKey:BNRegisterCCParamsKeyLength];
+    if(self && sessionKey && (sessionKey.length == BNRegisterCCParamsKeyLength)) {
         self.cardDetails = creditCard;
-        [self generateParams];
+        [self generateParamsWithSessionKey:sessionKey];
     }
     return self;
 }
 
-- (void)generateParams {
-    NSData *sessionKey = [BNCrypto generateRandomKey:16];
+- (void)generateParamsWithSessionKey:(NSData*)sessionKey {
 
     if(self.cardDetails.cardNumber.length >= 6) {
         self.binNumber = [self.cardDetails.cardNumber substringWithRange:NSMakeRange(0, 6)];

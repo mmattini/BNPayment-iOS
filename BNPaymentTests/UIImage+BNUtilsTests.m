@@ -31,14 +31,14 @@
 - (void)testLoadImageFromBundle {
     
     // Given:
-    UIImage *image;
+    NSString *name = @"32x32";
+    NSBundle *bundle = [NSBundle bundleForClass:[UIImageBNUtilsTests class]];
     
     // When:
-    image = [UIImage loadImageWithName:@"VisaLogo" fromBundle:[NSBundle bundleForClass:[BNBundleUtils class]]];
-    
+    UIImage *image = [UIImage loadImageWithName:name fromBundle:bundle];
+
     // Then:
     XCTAssertNotNil(image, "The image should not be nil.");
-    XCTAssertEqualObjects(image, [UIImage imageNamed:@"VisaLogo"], "The image object should be named VisaLogo.");
     
 }
 

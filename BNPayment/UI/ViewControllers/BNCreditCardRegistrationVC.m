@@ -159,6 +159,15 @@ NSInteger const TitleHeight = 30;
 
 }
 
+- (void)showAlertViewWithTitle:(NSString*)title message:(NSString*)message {
+
+    NSString *closeTitle = NSLocalizedString(@"bnpayment.ui.popup.okclose", nil);
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:closeTitle otherButtonTitles:nil];
+    [alertView show];
+}
+
 - (void)submitCreditCardInformation:(UIButton *)sender {
  
     BNCreditCard *creditCard = [BNCreditCard new];
@@ -170,9 +179,15 @@ NSInteger const TitleHeight = 30;
     BNRegisterCCParams *params = [[BNRegisterCCParams alloc] initWithCreditCard:creditCard];
     
     [self.submitButton setLoading:YES];
+    
     [[BNPaymentHandler sharedInstance] registerCreditCard:params completion:^(BNAuthorizedCreditCard *card, NSError *error) {
         if(self.completionBlock && card) {
             self.completionBlock(BNCCRegCompletionDone, card);
+        }
+        else {
+            NSString *title = NSLocalizedString(@"bnpayment.error.submitcardinfo.title", nil);
+            NSString *message = NSLocalizedString(@"bnpayment.error.submitcardinfo.message", nil);
+            [self showAlertViewWithTitle:title message:message];
         }
         [self.submitButton setLoading:NO];
     }];

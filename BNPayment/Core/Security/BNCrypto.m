@@ -28,8 +28,23 @@
 
 + (NSData *)generateRandomKey:(NSInteger)keyLength {
     uint8_t randomBytes[keyLength];
-    SecRandomCopyBytes(kSecRandomDefault, keyLength, randomBytes);
-    return [NSData dataWithBytes:randomBytes length:sizeof(randomBytes)];
+    /*!
+     @function SecRandomCopyBytes
+     @abstract Return count random bytes in *bytes, allocated by the caller. 
+     
+     IT IS CRITICAL TO CHECK THE RETURN VALUE FOR ERROR
+     
+     @result Return 0 on success or -1 if something went wrong, 
+     
+     CHECK ERRNO TO FIND OUT THE REAL ERROR.
+     */
+    int zeroForSuccess = SecRandomCopyBytes(kSecRandomDefault, keyLength, randomBytes);
+    if(zeroForSuccess == 0) {
+        return [NSData dataWithBytes:randomBytes length:sizeof(randomBytes)];
+    }
+    
+    // cannot generate secure data, return nil
+    return nil;
 }
 
 + (NSData *)AES128Data:(NSData *)data
