@@ -92,26 +92,27 @@ NSString *dinersClubLogoImageName = @"DinersClubLogo";
 }
 
 - (void)updateCardImage {
-    UIImage *cardLogoImage;
+    UIImage *cardLogoImage = nil;
+    NSBundle *bundle = [BNBundleUtils paymentLibBundle];
     
     if([self isVisaCardNumber:self.text]) {
         cardLogoImage = [UIImage loadImageWithName:visaLogoImageName
-                                        fromBundle:[NSBundle bundleForClass:self.class]];
+                                        fromBundle:bundle];
     }
     
     if([self isMasterCardNumber:self.text]) {
         cardLogoImage = [UIImage loadImageWithName:masterCardLogoImageName
-                                        fromBundle:[NSBundle bundleForClass:self.class]];
+                                        fromBundle:bundle];
     }
     
     if([self isAmexCardNumber:self.text]) {
         cardLogoImage = [UIImage loadImageWithName:amexLogoImageName
-                                        fromBundle:[NSBundle bundleForClass:self.class]];
+                                        fromBundle:bundle];
     }
     
     if([self isDinersClubCardNumber:self.text]) {
         cardLogoImage = [UIImage loadImageWithName:dinersClubLogoImageName
-                                        fromBundle:[NSBundle bundleForClass:self.class]];
+                                        fromBundle:bundle];
     }
     
     self.imageView.image = cardLogoImage;

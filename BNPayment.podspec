@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "BNPayment"
-  spec.version          = ENV['LIBRARY_VERSION'] ? ENV['LIBRARY_VERSION'] : "1.1.2"
+  spec.version          = ENV['LIBRARY_VERSION'] ? ENV['LIBRARY_VERSION'] : "1.1.3"
   spec.summary          = "The Native Payment SDK from Bambora makes it simple to accept credit card payments in your app."
   build_tag             = spec.version
   spec.homepage         = "http://bambora.com"
