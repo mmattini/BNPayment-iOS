@@ -161,10 +161,11 @@ NSInteger const TitleHeight = 30;
 
 - (void)showAlertViewWithTitle:(NSString*)title message:(NSString*)message {
 
-    NSString *closeTitle = NSLocalizedString(@"bnpayment.ui.popup.okclose", nil);
+    NSString *closeButtonTitle = NSLocalizedString(@"OK", nil);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message
                                                        delegate:nil
-                                              cancelButtonTitle:closeTitle otherButtonTitles:nil];
+                                              cancelButtonTitle:closeButtonTitle
+                                              otherButtonTitles:nil];
     [alertView show];
 }
 
@@ -185,8 +186,8 @@ NSInteger const TitleHeight = 30;
             self.completionBlock(BNCCRegCompletionDone, card);
         }
         else {
-            NSString *title = NSLocalizedString(@"bnpayment.error.submitcardinfo.title", nil);
-            NSString *message = NSLocalizedString(@"bnpayment.error.submitcardinfo.message", nil);
+            NSString *title = NSLocalizedString(@"Card registration failed", nil);
+            NSString *message = NSLocalizedString(@"Please try again", nil);
             [self showAlertViewWithTitle:title message:message];
         }
         [self.submitButton setLoading:NO];
