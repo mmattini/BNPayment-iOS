@@ -97,7 +97,8 @@ replacementString:(NSString *)string {
         return NO;
     }
     
-    if(range.location < numberString.length && numberString.length > 0 && string.length > 0) {
+    
+    if(range.location < numberString.length && numberString.length > 0 && string.length > 0 && numberString.length <= 3) {
         numberString = [numberString stringByReplacingCharactersInRange:NSMakeRange(range.location, numberString.length-range.location) withString:string];
         textField.text = numberString;
     }
@@ -113,17 +114,17 @@ replacementString:(NSString *)string {
     
     if(numberString.length < 2) {
         textField.text = [NSString stringWithFormat:@"%@", numberString];
-        return NO;
     }
     
     if(numberString.length >= 2) {
         NSString *monthString = [numberString substringWithRange:NSMakeRange(0, 2)];
         NSString *yearString = [numberString substringWithRange:NSMakeRange(2, numberString.length-2)];
         textField.text = [NSString stringWithFormat:@"%@/%@",monthString, yearString];
-        return NO;
     }
     
-    return YES;
+    [textField sendActionsForControlEvents:UIControlEventEditingChanged];
+
+    return NO;
 }
 
 @end
